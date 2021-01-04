@@ -19,12 +19,14 @@ require(ROOT.'view/head.php');
 
 <h2>Commanders</h2>
 <p>You choose your commander at the beginning of the game after you have established your start hand. Each commander gives you a unique power or ability.</p>
-<a href="/commanders/frank-johnson"><img src="https://images.thespacewar.com/commander-1.png"></a>
-<a href="/commanders/keve-bakins"><img src="https://images.thespacewar.com/commander-2.png"></a>
-<a href="/commanders/nicia-satu"><img src="https://images.thespacewar.com/commander-3.png"></a>
-<a href="/commanders/general-jackson"><img src="https://images.thespacewar.com/commander-4.png"></a>
-<a href="/commanders/dr-stein"><img src="https://images.thespacewar.com/commander-5.png"></a>
-<a href="/commanders/the-miller"><img src="https://images.thespacewar.com/commander-6.png"></a>
+
+<?php
+$commander_data = commanderData();
+foreach ($commander_data as $commander_slug => $commander) {
+    if ($commander['deck'] != 1) continue;
+    echo "<a href='/commanders/".$commander_slug."'><img src='https://images.thespacewar.com/commander-".$commander['id'].".png'></a>";
+}
+?>
 
 <h2>Spaceship Cards</h2>
 <p>These can move and attack. Sometimes they have special abilities.</p>

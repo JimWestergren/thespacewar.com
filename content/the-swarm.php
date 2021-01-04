@@ -14,10 +14,13 @@ require(ROOT.'view/head.php');
 
 <h2>Commanders</h2>
 
-<img src="https://images.thespacewar.com/commander-7.png">
-<img src="https://images.thespacewar.com/commander-8.png">
-<img src="https://images.thespacewar.com/commander-9.png">
-<img src="https://images.thespacewar.com/commander-10.png">
+<?php
+$commander_data = commanderData();
+foreach ($commander_data as $commander_slug => $commander) {
+    if ($commander['deck'] != 2) continue;
+    echo "<a href='/commanders/".$commander_slug."'><img src='https://images.thespacewar.com/commander-".$commander['id'].".png'></a>";
+}
+?>
 
 <p>The small number in the bottom middle of each card indicates the amount of copies of the card. There are 15 copies of Drone in the deck.</p>
 

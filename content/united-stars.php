@@ -15,8 +15,13 @@ require(ROOT.'view/head.php');
 
 <h2>Commanders</h2>
 
-<img src="https://images.thespacewar.com/commander-11.png">
-<img src="https://images.thespacewar.com/commander-12.png">
+<?php
+$commander_data = commanderData();
+foreach ($commander_data as $commander_slug => $commander) {
+    if ($commander['deck'] != 3) continue;
+    echo "<a href='/commanders/".$commander_slug."'><img src='https://images.thespacewar.com/commander-".$commander['id'].".png'></a>";
+}
+?>
 
 <p>Many images are missing for the cards and the names are not finalized. The small number in the bottom middle of each card indicates the amount of copies of the card.</p>
 

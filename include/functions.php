@@ -551,8 +551,17 @@ function countryArray() : array
 function commanderData() : array
 {
     return [
+        'liana-henders' => [
+            'id' => 0,
+            'deck' => 1,
+            'name' => 'Liana Henders',
+            'title' => 'Solution Finder',
+            'rules' => 'Spend 2 actions to draw a card.',
+            'lore' => 'Liana is famous for always coming up with solutions and having answers ready for whatever situation that might come up in warfare. She has done extremely well in recent battles and is eager to join and win The Space War.',
+        ],
         'frank-johnson' => [
             'id' => 1,
+            'deck' => 1,
             'name' => 'Frank Johnson',
             'title' => 'Station Expert',
             'rules' => 'Your maximum amount of station cards is increased from 8 to 10.',
@@ -560,6 +569,7 @@ function commanderData() : array
         ],
         'keve-bakins' => [
             'id' => 2,
+            'deck' => 1,
             'name' => 'Keve Bakins',
             'title' => 'Expert Organizer',
             'rules' => 'You can freely move around your station cards in your action phase.',
@@ -567,6 +577,7 @@ function commanderData() : array
         ],
         'nicia-satu' => [
             'id' => 3,
+            'deck' => 1,
             'name' => 'Nicia Satu',
             'title' => 'Master of Endurance',
             'rules' => 'Begin the game with any shield in play.<br>You do not receive 3 damage if your draw pile is empty in your draw phase.',
@@ -574,6 +585,7 @@ function commanderData() : array
         ],
         'general-jackson' => [
             'id' => 4,
+            'deck' => 1,
             'name' => 'General Jackson',
             'title' => 'Strict Commander',
             'rules' => 'You may take 1 damage to your station (opponent flips one of your station cards) to receive 2 extra action points, in your action phase.',
@@ -581,6 +593,7 @@ function commanderData() : array
         ],
         'dr-stein' => [
             'id' => 5,
+            'deck' => 3,
             'name' => 'Dr. Stein',
             'title' => 'Expert Planner',
             'rules' => '<ul style="text-align:left;"><li style="margin-bottom:10px;">You can discard a card to draw a card up to 3 times in your action phase.</li><li>You may take 2 damage to your station to perform a Perfect Plan (take a card from anywhere to your hand).</li></ul>',
@@ -588,6 +601,7 @@ function commanderData() : array
         ],
         'the-miller' => [
             'id' => 6,
+            'deck' => 1,
             'name' => 'The Miller',
             'title' => 'Artificial Intelligence',
             'rules' => 'At any time instead of drawing a card you can force the opponent to discard the top 2 cards from their draw pile.',
@@ -595,6 +609,7 @@ function commanderData() : array
         ],
         'zuuls' => [
             'id' => 7,
+            'deck' => 2,
             'name' => 'Zuuls',
             'title' => 'Swarm Specialist',
             'rules' => 'In your first action phase in the game:<br>Search your draw pile for 3 Drone cards and place them in your home zone.',
@@ -602,6 +617,7 @@ function commanderData() : array
         ],
         'crakux' => [
             'id' => 8,
+            'deck' => 2,
             'name' => 'Crakux',
             'title' => 'Extreme Anger',
             'rules' => 'Your Drones have +1 attack.',
@@ -609,6 +625,7 @@ function commanderData() : array
         ],
         'naalox' => [
             'id' => 9,
+            'deck' => 2,
             'name' => 'Naalox',
             'title' => 'Regeneration',
             'rules' => 'Use 2 actions to either bring back a Drone from your discard to your home zone or heal 1 station damage. This ability can be used max 2 times per turn.',
@@ -616,6 +633,7 @@ function commanderData() : array
         ],
         'staux' => [
             'id' => 10,
+            'deck' => 2,
             'name' => 'Staux',
             'title' => 'Acid Master',
             'rules' => 'Spend 2 actions to find an Acid Projectile from anywhere and place it in your home zone.',
@@ -623,6 +641,7 @@ function commanderData() : array
         ],
         'capt-shera-kinson' => [
             'id' => 11,
+            'deck' => 3,
             'name' => 'Capt. Shera Kinson',
             'title' => 'Always Ready',
             'rules' => 'Use 3 actions to take the Starship card from anywhere to your hand.',
@@ -630,10 +649,19 @@ function commanderData() : array
         ],
         'capt-wayne-mccarter' => [
             'id' => 12,
+            'deck' => 3,
             'name' => 'Capt. Wayne McCarter',
             'title' => 'Combat Specialist',
             'rules' => 'Your Starship is not slow.<br>When attacking with the Starship, make an additional attack with 1 damage after the ordinary attack.',
             'lore' => '"I am looking forward to going out in this war and I will completely destroy any enemies spotted on my radar."',
+        ],
+        'zyre' => [
+            'id' => 13,
+            'deck' => 3,
+            'name' => 'Zyre',
+            'title' => 'Energy Expert',
+            'rules' => 'You receive 3 actions for each station card in the second row (instead of 2). Your maximum amount of station cards is 7 (instead of 8).',
+            'lore' => '"With the amount of energy that I control there is no way I will loose this war."',
         ],
     ];
 

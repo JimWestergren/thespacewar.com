@@ -112,6 +112,7 @@ if (isset($_GET['id'])) {
 }
 
 
+$commander_data = commanderData();
 
 $cards_data = getCardData();
 // Sort by cost https://stackoverflow.com/a/22393663
@@ -387,8 +388,8 @@ function chooseCommander(id) {
 
     <h2>Select 1 commander</h2>
     <?php
-    for ($i = 1; $i <= 12; $i++) {
-        echo "<div style='height:220px'><a href='javascript:void(0)' onclick='javascript:chooseCommander(".$i.")'><img id='commander-".$i."'  src='https://images.thespacewar.com/commander-".$i.".png'></a></div>";
+    foreach ($commander_data as $commander_slug => $commander) {
+        echo "<div style='height:220px'><a href='javascript:void(0)' onclick='javascript:chooseCommander(".$commander['id'].")'><img id='commander-".$commander['id']."'  src='https://images.thespacewar.com/commander-".$commander['id'].".png'></a></div>";
     }
     ?>
 
