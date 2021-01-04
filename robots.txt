@@ -1,0 +1,8 @@
+User-agent: *
+Disallow: /account
+Disallow: /verify
+Disallow: /validate
+Disallow: /log-game
+Disallow: /logout
+Disallow: /forgot-password
+Disallow: /print/cards?card_list

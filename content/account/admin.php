@@ -1,0 +1,132 @@
+<?php
+if ($logged_in === [] || $logged_in['id'] != 1) {
+    require(ROOT.'view/login.php');
+    require(ROOT.'view/footer.php');
+    die();
+}
+
+
+$pdo = PDOWrap::getInstance();
+
+$title_tag = 'Admin | TheSpaceWar.com';
+require(ROOT.'view/head.php');
+
+/*
+// MONTHLY
+$pdo->run("UPDATE users SET monthly_win_count = 0;");
+$pdo->run("UPDATE users SET monthly_loss_count = 0;");
+
+// QUARTERLY
+$pdo->run("UPDATE users SET quarterly_win_count = 0;");
+$pdo->run("UPDATE users SET quarterly_loss_count = 0;");
+
+
+
+$pdo->run("CREATE TABLE decks (
+id INT(10) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+user_id INT(10) UNSIGNED NOT NULL DEFAULT 0,
+deck_name VARCHAR(255) NOT NULL DEFAULT '',
+commander SMALLINT(5) NOT NULL DEFAULT 0,
+card_count SMALLINT(5) NOT NULL DEFAULT 0,
+time_saved INT(10) UNSIGNED NOT NULL DEFAULT 0,
+time_used INT(10) UNSIGNED NOT NULL DEFAULT 0,
+cards VARCHAR(5000) NOT NULL DEFAULT ''
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;");
+
+
+//$pdo->run("ALTER TABLE users ADD twitter VARCHAR(255) NOT NULL DEFAULT '' AFTER newsletter;");
+
+
+//$pdo->run("UPDATE users SET referrer = '' WHERE username = 'Alvin';");
+/*
+
+
+
+
+// Script to rebuild quarterly leaderboard
+$result = $pdo->run("SELECT * FROM games_logging WHERE `timestamp` > 1593586800;")->fetchAll();
+foreach($result as $row) {
+
+    $pdo->run("UPDATE users SET quarterly_win_count = quarterly_win_count+1 WHERE id = ?;", [$row['user_won']]);
+    $pdo->run("UPDATE users SET quarterly_loss_count = quarterly_loss_count+1 WHERE id = ?;", [$row['user_lost']]);
+}
+
+$pdo->run("UPDATE users SET monthly_win_count = 3 WHERE id = 2;");
+$pdo->run("UPDATE users SET monthly_loss_count = 3 WHERE id = 1;");
+
+
+$pdo->run("ALTER TABLE users ADD bot_win_fastest_time INT(10) UNSIGNED NOT NULL DEFAULT 0 AFTER quarterly_loss_count;");
+$pdo->run("ALTER TABLE users ADD bot_win_fastest_length INT(10) UNSIGNED NOT NULL DEFAULT 0 AFTER bot_win_fastest_time;");
+*/
+
+$thirty_days_ago = TIMESTAMP-(3600*24*30);
+
+?>
+<style>table {font-size: 16px}</style>
+
+<h1>Admin</h1>
+
+<p>Active users: <strong><?= $pdo->run("SELECT count(id) as count FROM users WHERE lastlogintime > ".$thirty_days_ago)->fetch()['count'] ?></strong> (logged in latest 30 days)</p>
+
+<p>How many have won over bot : <strong><?= $pdo->run("SELECT count(id) as count FROM users WHERE bot_win_fastest_length > 0")->fetch()['count'] ?></strong></p>
+
+<h2>50 Latest Games Played</h2>
+
+<p>
+<?php
+$result = $pdo->run("SELECT * FROM games_logging ORDER BY `timestamp` DESC LIMIT 50;")->fetchAll();
+foreach($result as $row) {
+    $a['date'] = date('Y-m-d', $row['timestamp']);
+    if ($row['length'] > 0) {
+        $a['length'] = gmdate("i:s", $row['length']).' minutes';
+    } else {
+        $a['length'] = 'offline';
+    }
+    $a['status'] = '<span style="color:green">won</span>';
+    $a['user_won'] = $row['user_won'];
+    $a['user_lost'] = $row['user_lost'];
+    $users[] = $row['user_won'];
+    $users[] = $row['user_lost'];
+    $array[] = $a;
+}
+
+if (isset($array)) {
+    $result = $pdo->run("SELECT * FROM users WHERE `id` IN (".implode(",", array_unique($users)).");")->fetchAll();
+    foreach($result as $row) {
+        $user[$row['id']] = $row;
+    }
+
+    foreach($array as $a) {
+        echo $a['date'].' <a href="/users/'.$user[$a['user_won']]['username'].'">'.$user[$a['user_won']]['username'].'</a> <img src="https://staticjw.com/redistats/images/flags/'.$user[$a['user_won']]['country'].'.gif"> '.$a['status'].' versus <a href="/users/'.$user[$a['user_lost']]['username'].'">'.$user[$a['user_lost']]['username'].'</a> <img src="https://staticjw.com/redistats/images/flags/'.$user[$a['user_lost']]['country'].'.gif"> ('.$a['length'].')<br>';
+    }
+}
+?>
+</p>
+
+
+<h2>50 Latest Logged in Players</h2>
+
+<table cellpadding="7">
+    <tr><th>Login</th><th>User</th><th>Referrer</th><th>Quarterly Score</th><th>Newsletter</th><th>Email Status</th></tr>
+<?php
+$result = $pdo->run("SELECT * FROM users ORDER BY lastlogintime DESC LIMIT 50;")->fetchAll();
+$html = '';
+foreach($result as $row) {
+    echo '<tr><td>'.date('Y-m-d', $row['lastlogintime']).'</td><td><nobr>'.$row['id'].', '.$row['username'].' <img src="https://staticjw.com/redistats/images/flags/'.$row['country'].'.gif"></nobr></td><td>'.$row['referrer'].'</td><td>'.calculateRating($row['quarterly_win_count'], $row['quarterly_loss_count'])['rating'].'</td><td>'.$row['newsletter'].'</td><td>'.$row['email_status'].'</td></tr>';
+}
+?>
+</table>
+
+
+<h2>100 Latest Registrations</h2>
+
+<table cellpadding="7">
+    <tr><th>Reg time</th><th>User</th><th>Referrer</th><th>Quarterly Score</th><th>Newsletter</th><th>Email Status</th></tr>
+<?php
+$result = $pdo->run("SELECT * FROM users ORDER BY regtime DESC LIMIT 100;")->fetchAll();
+$html = '';
+foreach($result as $row) {
+    echo '<tr><td>'.date('Y-m-d', $row['regtime']).'</td><td><nobr>'.$row['username'].' <img src="https://staticjw.com/redistats/images/flags/'.$row['country'].'.gif"></nobr></td><td>'.$row['referrer'].'</td><td>'.calculateRating($row['quarterly_win_count'], $row['quarterly_loss_count'])['rating'].'</td><td>'.$row['newsletter'].'</td><td>'.$row['email_status'].'</td></tr>';
+}
+?>
+</table>
