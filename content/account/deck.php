@@ -105,6 +105,15 @@ if (isset($_GET['id'])) {
     $deck_id = (int) $row['id'];
     $cards = json_decode($row['cards'], true);
     $form_action_url = '/account/deck?id='.$deck_id; // Getting rid of the #edit after submit
+
+    $cookie_value['deck_id'] = $deck_id;
+    $cookie_value['deck_name'] = $row['deck_name'];
+    $cookie_value['commander'] = (int) $row['commander'];
+    $cookie_value['card_count'] = (int) $row['card_count'];
+    $cookie_value['cards'] = $cards;
+    $cookie_value = json_encode($cookie_value);
+    set_cookie('constructed_deck', $cookie_value, TIMESTAMP+(3600*24*100));
+
 } else {
     $edit_deck = false;
     $cards = [];

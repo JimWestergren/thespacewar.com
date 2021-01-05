@@ -42,7 +42,7 @@ if (isset($_GET['deck']) && !in_array($_GET['deck'], ['1', '2', '3', '4'])) {
 
 // Save referrer in a cookie and redirect
 if(isset($_GET['referrer'])) {
-    setcookie('referrer', $_GET['referrer'], ['expires' => TIMESTAMP+3600*24*60, 'path' => '/', 'domain' => 'thespacewar.com', 'secure' => true, 'httponly' => false, 'samesite' => 'None']);
+    set_cookie('referrer', $_GET['referrer'], TIMESTAMP+(3600*24*60));
     header("HTTP/1.1 301 Moved Permanently");
     header("Location: https://thespacewar.com/".URL);
     die();
@@ -55,7 +55,7 @@ if(!isset($_COOKIE['referrer']) && isset($_SERVER['HTTP_REFERER']) && $_SERVER['
         $referring_domain = 'facebook.com';
     }
     if ($referring_domain != 'thespacewar.com') {
-        setcookie('referrer', $referring_domain, ['expires' => TIMESTAMP+3600*24*60, 'path' => '/', 'domain' => 'thespacewar.com', 'secure' => true, 'httponly' => false, 'samesite' => 'None']);
+        set_cookie('referrer', $referring_domain, TIMESTAMP+(3600*24*60));
         $_COOKIE['referrer'] = $referring_domain;
     }
 }

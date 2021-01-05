@@ -2,7 +2,7 @@
 $title_tag = 'Logged out | TheSpaceWar.com';
 
 // Remove the cookie
-setcookie('loggedin', '', ['expires' => 1, 'path' => '/', 'domain' => 'thespacewar.com', 'secure' => true, 'httponly' => false, 'samesite' => 'None']);
+set_cookie('loggedin', '', 1);
 
 $logged_in = [];
 

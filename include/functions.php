@@ -189,10 +189,23 @@ function calculateBonus(int $user_id, int $rating, int $bot_win_fastest_length, 
 
 }
 
+function set_cookie(string $name, string $value, int $expires) : void
+{
+    setcookie($name, $value, [
+            'expires' => $expires,
+            'path' => '/',
+            'domain' => 'thespacewar.com',
+            'secure' => true,
+            'httponly' => false,
+            'samesite' => 'None',
+        ]
+    );
+}
+
 function setLoginCookie(array $a, int $rating) : string
 {
     $cookie_value = $a['id'].':'.$a['username'].':'.$a['country'].':'.$rating.':'.md5($a['id'].$a['username'].$a['country'].$rating.SECRET_SALT_LOGIN_COOKIE);
-    setcookie('loggedin', $cookie_value, ['expires' => TIMESTAMP+3600*24*20, 'path' => '/', 'domain' => 'thespacewar.com', 'secure' => true, 'httponly' => false, 'samesite' => 'None']);
+    set_cookie('loggedin', $cookie_value, TIMESTAMP+(3600*24*20));
     return $cookie_value;
 }
 
