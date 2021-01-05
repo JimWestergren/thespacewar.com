@@ -3,6 +3,15 @@
 error_reporting(-1);
 ini_set('display_errors', '1');
 
+define('TIMESTAMP', time());
+define('ROOT', '/var/www/thespacewar.com/');
+define('URL', urldecode(ltrim(parse_url($_SERVER['REQUEST_URI'])['path'], '/')));
+// domain.com/URL_CONSTANT
+
+include(ROOT.'../other/secret.php');
+include(ROOT.'include/functions.php');
+include(ROOT.'include/PDOWrap.php');
+
 
 // https://thespacewar.com/images.thespacewar.com:443 ??
 if($_SERVER['HTTP_HOST'] != 'thespacewar.com' || strpos($_SERVER['REQUEST_URI'], ':')) {
@@ -23,10 +32,6 @@ $internal_redirects = [
     'account' => 'account/',
 ];
 
-
-define('TIMESTAMP', time());
-define('URL', urldecode(ltrim(parse_url($_SERVER['REQUEST_URI'])['path'], '/'))); // domain.com/URL_CONSTANT
-define('ROOT', '/var/www/thespacewar.com/');
 
 if(isset($internal_redirects[URL])) {
     header("HTTP/1.1 301 Moved Permanently");
@@ -60,10 +65,6 @@ if(!isset($_COOKIE['referrer']) && isset($_SERVER['HTTP_REFERER']) && $_SERVER['
     }
 }
 
-
-include(ROOT.'../other/secret.php');
-include(ROOT.'include/functions.php');
-include(ROOT.'include/PDOWrap.php');
 
 $logged_in = isLoggedIn();
 
