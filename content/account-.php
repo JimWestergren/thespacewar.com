@@ -6,8 +6,6 @@ if ($logged_in === []) {
 }
 
 $pdo = PDOWrap::getInstance();
-$ip = IpToNumberWithCountry($_SERVER['HTTP_CF_CONNECTING_IP']);
-$pdo->run("UPDATE users SET ip_latest = ?, lastlogintime = ? WHERE id = ?", [$ip, TIMESTAMP, $logged_in['id']]);
 $accunt_row = $pdo->run("SELECT * FROM users WHERE id = ? LIMIT 1", [$logged_in['id']])->fetch();
 $rating = calculateRating($accunt_row['monthly_win_count'], $accunt_row['monthly_loss_count'])['rating'];
 $bonus = calculateBonus($accunt_row['id'], $rating, $accunt_row['bot_win_fastest_length']);
@@ -39,7 +37,6 @@ Representing: <img src="https://staticjw.com/redistats/images/flags/<?=$accunt_r
 <h2>Play Online</h2>
 
 <p>First time playing? Please see <a href="https://thespacewar.com/videos" target="_blank">our videos</a> how to play first. It will be much easier for you.</p>
-
 
 <p><a href="https://play.thespacewar.com/" class='big-button'>Start to play</a><br>(alpha testing for desktop and tablets with focus on the browsers Chrome and Firefox, no mobile support yet)</p>
 
@@ -84,6 +81,47 @@ if (count($result) > 0) {
 }
 ?>
 </p>
+
+
+<hr>
+<?php
+if ($accunt_row['pro'] == 0) {
+
+    echo '<h2>Unlock 5 Year Pro Account</h2>';
+
+    $unique_win_count = 0;
+    if ($accunt_row['email_status'] > 1) {
+        $result = $pdo->run("SELECT `user_lost` FROM games_logging WHERE `user_won` = ".$accunt_row['id']." AND user_lost > 0 AND length > 0 GROUP BY `user_lost`")->fetchAll();
+        foreach($result as $row) {
+            $users_won_over[$row['user_lost']] = $row['user_lost'];
+        }
+        if (isset($users_won_over)) {
+            $ip = IpToNumberWithCountry($_SERVER['HTTP_CF_CONNECTING_IP']);
+            $row = $pdo->run("SELECT COUNT(*) as unique_win_count FROM users WHERE `id` IN (".implode(",", $users_won_over).") AND ip != ? AND ip_latest != ?;", [$ip, $ip])->fetch();
+            $unique_win_count = $row['unique_win_count'];
+        }
+    }
+    ?>
+
+    <ol>
+        <li>Verify your email. <?php if ($accunt_row['email_status'] > 1) {echo "<span style='color:green;'>✔</span>";} ?></li>
+        <li>Win over another human in the online game (not the bot). <?php if ($unique_win_count > 0) {echo "<span style='color:green;'>✔</span>";} ?></li>
+    </ol>
+
+    <?php if ($unique_win_count > 0) {
+        $years_in_future = TIMESTAMP+(3600*24*366*5);
+        $pdo->run("UPDATE users SET pro = 1, pro_expires = ? WHERE id = ?", [$years_in_future, $accunt_row['id']]);
+        echo "<p>Your Pro Account has now been activated, it will expire in ".date('Y-m-d', $years_in_future)."</p>";
+    }
+    ?>
+<?php } else { ?>
+
+    <h2>Your Pro Account</h2>
+    <p>Your Pro Account expires in <?= date('Y-m-d', $accunt_row['pro_expires']) ?>.</p>
+    <p>Coming soon: with Pro you can compete with players online using your own constructed decks.</p>
+    <p>Coming soon: more things.</p>
+
+<?php } ?>
 
 <hr>
 

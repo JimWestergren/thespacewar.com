@@ -20,6 +20,8 @@ if (isset($_POST['login'])) {
         //echo 'Wrong password';
     } else {
         $rating = calculateRating($row['monthly_win_count'], $row['monthly_loss_count'])['rating'];
+        $ip = IpToNumberWithCountry($_SERVER['HTTP_CF_CONNECTING_IP']);
+        $pdo->run("UPDATE users SET ip_latest = ?, lastlogintime = ? WHERE id = ?", [$ip, TIMESTAMP, $row['id']]);
         setLoginCookie($row, $rating);
         header("Location: ".$_SERVER['REQUEST_URI']);
         die();

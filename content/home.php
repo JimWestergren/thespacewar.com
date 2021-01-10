@@ -20,15 +20,17 @@ require(ROOT.'view/head.php');
         <input type="submit" name="check" value="Play">
     </form>
     </div>
+
+    <h3 style="margin-bottom: 20px;">The first 5000 registered users that wins a game over another human will unlock Pro Account 5 years for free (estimated value $70).</h3>
+
 <?php } ?>
 
-<!--<p>The first 10 000 registered users that wins over the simple bot and also win over another user will unlock unlimited free account for life (entrance fee for tournaments will be free, paid account will be free etc).</p>-->
 
 <hr>
 
 <p>The game is played the same offline or online in the browser.</p>
 
-<p>It uses several new interesting game mechanics, both players has the same deck of 60 cards (or access to the same pool of cards in the constructed format) and all cards are included in the game. This is not a "pay to win game".</p>
+<p>It uses several new interesting game mechanics, both players has access to the same cards and all cards are included in the game. This is not a "pay to win game".</p>
 
 <p>Each card can be played in several ways but the game is still simple and smooth to play.</p>
 

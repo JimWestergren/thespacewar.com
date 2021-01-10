@@ -212,6 +212,7 @@ function setLoginCookie(array $a, int $rating) : string
 function winnersArray() : array
 {
     return [
+        'Fourth Quarter 2020' => ['first_username' => 'Jim', 'first_country' => 'se', 'second_username' => 'Alvin', 'second_country' => 'se'],
         'December 2020' => ['first_username' => 'Jim', 'first_country' => 'se', 'second_username' => 'Alvin', 'second_country' => 'se'],
         'November 2020' => ['first_username' => 'Jim', 'first_country' => 'se', 'second_username' => 'Alvin', 'second_country' => 'se'],
         'Third Quarter 2020' => ['first_username' => 'Alvin', 'first_country' => 'se', 'second_username' => 'Jim', 'second_country' => 'se'],
@@ -226,6 +227,8 @@ function winnersArray() : array
 
 function winnersArrayByUser(string $user) : array
 {
+    $a['Jim'][] = ['period' => 'Fourth Quarter 2020', 'position' => '🏆'];
+    $a['Alvin'][] = ['period' => 'Fourth Quarter 2020', 'position' => '🥈'];
     $a['Jim'][] = ['period' => 'December 2020', 'position' => '🏆'];
     $a['Alvin'][] = ['period' => 'December 2020', 'position' => '🥈'];
     $a['Jim'][] = ['period' => 'November 2020', 'position' => '🏆'];

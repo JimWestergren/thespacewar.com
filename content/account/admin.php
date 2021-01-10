@@ -11,6 +11,8 @@ $pdo = PDOWrap::getInstance();
 $title_tag = 'Admin | TheSpaceWar.com';
 require(ROOT.'view/head.php');
 
+
+
 /*
 // MONTHLY
 $pdo->run("UPDATE users SET monthly_win_count = 0;");
@@ -35,6 +37,10 @@ cards VARCHAR(5000) NOT NULL DEFAULT ''
 
 
 //$pdo->run("ALTER TABLE users ADD twitter VARCHAR(255) NOT NULL DEFAULT '' AFTER newsletter;");
+
+$pdo->run("ALTER TABLE users ADD pro SMALLINT(5) NOT NULL DEFAULT 0 AFTER username;");
+$pdo->run("ALTER TABLE users ADD pro_expires INT(10) NOT NULL DEFAULT 0 AFTER pro;");
+
 
 
 //$pdo->run("UPDATE users SET referrer = '' WHERE username = 'Alvin';");

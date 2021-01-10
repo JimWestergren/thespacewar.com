@@ -6,7 +6,7 @@ require(ROOT.'view/head.php');
 <h1>News</h1>
 
 
-<h2>Current activities (December 2020)</h2>
+<h2>Current activities (January 2021)</h2>
 
 <ul>
     <li>Playtesting <a href='/constructed'>constructed play</a> offline.</li>
@@ -21,14 +21,16 @@ require(ROOT.'view/head.php');
     <li>Making the online game work on mobile phones.</li>
     <li>Better in game tutorial.</li>
     <li>Enabling <a href='/constructed'>constructed play</a> online.</li>
-    <li>Launch kickstarter</li>
-    <li>Printing of physical cards</li>
+    <li>Sound effects for the online game.</li>
+    <li>Launch kickstarter.</li>
+    <li>Printing of physical cards.</li>
 </ul>
 
 
 <h2>Completed</h2>
 
 <ul>
+    <li>2 new commanders: <a href='/commanders/liana-henders'>Liana Henders</a> and <a href='/commanders/zyre'>Zyre</a>.</li>
     <li>Creating deck building functionality on the website.</li>
     <li>Play testing of <a href='/the-swarm'>The Swarm cards</a> and the <a href='/united-stars'>The United Stars cards</a>.</li>
     <li>Making the AI bot more intelligent</li>
