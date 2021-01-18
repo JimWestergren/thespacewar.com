@@ -7,6 +7,8 @@ if ($logged_in === []) {
 
 $pdo = PDOWrap::getInstance();
 $accunt_row = $pdo->run("SELECT * FROM users WHERE id = ? LIMIT 1", [$logged_in['id']])->fetch();
+$ip = IpToNumberWithCountry($_SERVER['HTTP_CF_CONNECTING_IP']);
+$pdo->run("UPDATE users SET ip_latest = ?, lastlogintime = ? WHERE id = ?", [$ip, TIMESTAMP, $accunt_row['id']]);
 $rating = calculateRating($accunt_row['monthly_win_count'], $accunt_row['monthly_loss_count'])['rating'];
 $bonus = calculateBonus($accunt_row['id'], $rating, $accunt_row['bot_win_fastest_length']);
 
@@ -38,7 +40,8 @@ Representing: <img src="https://staticjw.com/redistats/images/flags/<?=$accunt_r
 
 <p>First time playing? Please see <a href="https://thespacewar.com/videos" target="_blank">our videos</a> how to play first. It will be much easier for you.</p>
 
-<p><a href="https://play.thespacewar.com/" class='big-button'>Start to play</a><br>(alpha testing for desktop and tablets with focus on the browsers Chrome and Firefox, no mobile support yet)</p>
+<p><a href="https://play.thespacewar.com/" class='big-button'>Start to play</a><br>
+Read this first: alpha testing for desktop and tablets with focus on the browsers Chrome and Firefox, mobile phone does not work good yet. If the game hangs reload the page and please send us a bug report.</p>
 
 <p>Make sure to join our new <a href="https://discord.gg/tv3DXqj" target="_blank">Discord</a> if you have questions, reporting bugs and so forth. Email also works: <a href="mailto:info@thespacewar.com" target="_blank">info@thespacewar.com</a></p>
 
@@ -118,9 +121,7 @@ if ($accunt_row['pro'] == 0) {
 
     <h2>Your Pro Account</h2>
     <p>Your Pro Account expires in <?= date('Y-m-d', $accunt_row['pro_expires']) ?>.</p>
-    <p>Coming soon: with Pro you can compete with players online using your own constructed decks.</p>
-    <p>Coming soon: more things.</p>
-
+    <p>Coming soon: with Pro you can compete with players online <a href='/account/deck'>using your own constructed decks</a>.</p>
 <?php } ?>
 
 <hr>
@@ -165,7 +166,7 @@ if (isset($array)) {
 <hr>
 <h2>Deck Building</h2>
 
-<p>Create your own deck on <a href="/account/deck">this page</a>.</p>
+<p><a href="/account/deck" class='big-button'>Create your Deck</a></p>
 
 
 <hr>

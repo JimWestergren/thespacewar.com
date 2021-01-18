@@ -76,6 +76,9 @@ $thirty_days_ago = TIMESTAMP-(3600*24*30);
 
 <p>How many have won over bot : <strong><?= $pdo->run("SELECT count(id) as count FROM users WHERE bot_win_fastest_length > 0")->fetch()['count'] ?></strong></p>
 
+<p>How many has Pro Account : <strong><?= $pdo->run("SELECT count(id) as count FROM users WHERE pro_expires > ".TIMESTAMP)->fetch()['count'] ?></strong></p>
+
+
 <h2>50 Latest Games Played</h2>
 
 <p>
@@ -127,12 +130,12 @@ foreach($result as $row) {
 <h2>100 Latest Registrations</h2>
 
 <table cellpadding="7">
-    <tr><th>Reg time</th><th>User</th><th>Referrer</th><th>Quarterly Score</th><th>Newsletter</th><th>Email Status</th></tr>
+    <tr><th>Reg time</th><th>User</th><th>Referrer</th><th>Winning over bot</th><th>Newsletter</th><th>Email Status</th></tr>
 <?php
 $result = $pdo->run("SELECT * FROM users ORDER BY regtime DESC LIMIT 100;")->fetchAll();
 $html = '';
 foreach($result as $row) {
-    echo '<tr><td>'.date('Y-m-d', $row['regtime']).'</td><td><nobr>'.$row['username'].' <img src="https://staticjw.com/redistats/images/flags/'.$row['country'].'.gif"></nobr></td><td>'.$row['referrer'].'</td><td>'.calculateRating($row['quarterly_win_count'], $row['quarterly_loss_count'])['rating'].'</td><td>'.$row['newsletter'].'</td><td>'.$row['email_status'].'</td></tr>';
+    echo '<tr><td>'.date('Y-m-d', $row['regtime']).'</td><td><nobr>'.$row['username'].' <img src="https://staticjw.com/redistats/images/flags/'.$row['country'].'.gif"></nobr></td><td>'.$row['referrer'].'</td><td>'.$row['bot_win_fastest_length'].'</td><td>'.$row['newsletter'].'</td><td>'.$row['email_status'].'</td></tr>';
 }
 ?>
 </table>

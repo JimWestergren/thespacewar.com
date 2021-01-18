@@ -30,7 +30,7 @@ require(ROOT.'view/head.php');
 
 <p>The game is played the same offline or online in the browser.</p>
 
-<p>It uses several new interesting game mechanics, both players has access to the same cards and all cards are included in the game. This is not a "pay to win game".</p>
+<p>It uses several new interesting game mechanics, both players has access to the same cards and all cards are included in the game.</p>
 
 <p>Each card can be played in several ways but the game is still simple and smooth to play.</p>
 
@@ -40,7 +40,7 @@ require(ROOT.'view/head.php');
 
 <h2>External Links</h2>
 
-<p><a href="https://discord.gg/tv3DXqj" target="_blank">Discord</a> | <a href='https://www.facebook.com/TheSpaceWarCardGame' target="_blank">Facebook</a> | <a href='https://twitter.com/The_Space_War' target="_blank">Twitter</a> | <a href='https://boardgamegeek.com/boardgame/310172/space-war' target="_blank">BGG</a> | <a href="https://www.youtube.com/channel/UCe2kq-IX7zl2wYGK0bT0ucA" target="_blank">YouTube</a> | <a href="https://www.reddit.com/r/TheSpaceWar/" target="_blank">Reddit</a> <!--| <a href="https://join.skype.com/oYehB3TCSl8b" target="_blank">Skype</a>--></p>
+<p><a href="https://discord.gg/tv3DXqj" target="_blank">Discord</a> | <a href='https://www.facebook.com/TheSpaceWarCardGame' target="_blank">Facebook Page</a> | <a href='https://www.facebook.com/groups/thespacewar' target="_blank">Facebook Group</a> | <a href='https://twitter.com/The_Space_War' target="_blank">Twitter</a> | <a href='https://boardgamegeek.com/boardgame/310172/space-war' target="_blank">BGG</a> | <a href="https://www.youtube.com/channel/UCe2kq-IX7zl2wYGK0bT0ucA" target="_blank">YouTube</a> | <a href="https://www.reddit.com/r/TheSpaceWar/" target="_blank">Reddit</a> <!--| <a href="https://join.skype.com/oYehB3TCSl8b" target="_blank">Skype</a>--></p>
 
 
 <h2>Latest active players</h2>

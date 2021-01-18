@@ -349,7 +349,7 @@ function addRemoveCard(id, action) {
             document.getElementById('save-button').disabled = false;
         }
     }
-    if (deckCount > 70) {
+    if (deckCount > 70 || deckCount < 50) {
         document.getElementById('deckCount').style.color = 'red';
         document.getElementById('save-button').disabled = true;
     }

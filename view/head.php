@@ -59,6 +59,10 @@ table {margin:auto;max-width: 100%;}
 a.big-button {font-size: 19px;background-color: green;text-decoration: none;padding: 5px 10px;border: 3px solid #7a7a7a;display: table;}
 a.big-button:hover {text-decoration: underline;}
 
+/* https://embedresponsively.com/ */
+.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; }
+.embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+
 @media (max-width: 1400px) { /* 1366x768 */
   img.big, img.extra-big {width:358px;height:500px;}
   .cards img:hover {transform:scale(1.35);box-shadow:0px 0px 150px 10px #000;transition: all 0.1s ease;}

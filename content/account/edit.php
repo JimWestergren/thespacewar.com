@@ -159,7 +159,8 @@ foreach ($country_array as $code => $name) {
 ?>
 </select><br>
 
-<?php if (!is_numeric($a['referrer'])) { ?>
+<?php if (!is_numeric($a['referrer']) && ($a['referrer'] == '' || strpos($a['referrer'], '.'))) {
+    // For example fbad1 is a refferer coming from facebook ads that we don't want overwritten ?>
     <label>Optional: Referrer (did another user tell you about The Space War?):</label><br>
     <input type="text" name="referrer" value="<?=$_POST['referrer'] ?? ''?>" minlength="3" maxlength="15" pattern="[a-zA-Z0-9]+" placeholder='Username of who told you about the game' title="Numbers or letters only. Minimum 3 characters."><br>
 <?php  } ?>
