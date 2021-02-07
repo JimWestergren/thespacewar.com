@@ -31,7 +31,7 @@ h2 {margin-bottom:15px;margin-top:35px;}
 h3 {margin-bottom:5px;margin-top:15px;}
 p {margin: 0 0 20px 0;}
 code {background-color: #555;padding:3px 6px;}
-a:hover {padding:5px 0;background-color:#555;}
+a:hover {padding:5px 0;background-color:#444;color:#fff;}
 span.active {padding:5px 0;background-color:#555;}
 input, textarea, select {
     padding: 7px;
@@ -43,8 +43,128 @@ input[type="text"], input[type="email"], input[type="password"], textarea, selec
 .print {display:none;}
 hr {border:1px solid #2f4763}
 
-ul#nav {text-align:center;margin:auto;display:table;padding:0;}
-ul#nav li{display:inline-block;padding:10px 10px;font-size:17px;text-transform:uppercase;margin-bottom: 0;}
+/* https://cdpn.io/bokac/fullpage/EPEKeP */
+.nav {
+  *zoom: 1;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  text-align: center;
+  font-size:17px;
+  text-transform:uppercase;
+  margin: 22px 0;
+}
+.nav:before, .nav:after {
+  content: "";
+  display: table;
+}
+.nav:after {
+  clear: both;
+}
+
+.link-effect a {
+  color: #d6d6d6;
+  padding: 10px 14px;
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+  -moz-transition: ease-out 0.3s;
+  -o-transition: ease-out 0.3s;
+  -webkit-transition: ease-out 0.3s;
+  transition: ease-out 0.3s;
+}
+.link-effect a span::before {
+  width: 5px;
+  height: 5px;
+  background: transparent;
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  border-top: 2px solid white;
+  border-left: 2px solid white;
+  -moz-transition: 0.3s;
+  -o-transition: 0.3s;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  opacity: 0;
+}
+.link-effect a span::after {
+  width: 5px;
+  height: 5px;
+  background: transparent;
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  border-right: 2px solid white;
+  border-bottom: 2px solid white;
+  -moz-transition: 0.3s;
+  -o-transition: 0.3s;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  opacity: 0;
+}
+.link-effect a::before {
+  width: 5px;
+  height: 5px;
+  background: transparent;
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 0;
+  border-right: 2px solid white;
+  border-top: 2px solid white;
+  -moz-transition: 0.3s;
+  -o-transition: 0.3s;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  opacity: 0;
+}
+.link-effect a::after {
+  width: 5px;
+  height: 5px;
+  background: transparent;
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  border-left: 2px solid white;
+  border-bottom: 2px solid white;
+  -moz-transition: 0.3s;
+  -o-transition: 0.3s;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  opacity: 0;
+}
+.link-effect a:hover, .link-effect .active {
+  color: white;
+}
+.link-effect a:hover::before, .link-effect .active::before {
+  opacity: 1;
+  right: 5px;
+  top: 5px;
+}
+.link-effect a:hover::after, .link-effect .active::after {
+  opacity: 1;
+  left: 5px;
+  bottom: 5px;
+}
+.link-effect a:hover span::before, .link-effect .active span::before {
+  opacity: 1;
+  left: 5px;
+  top: 5px;
+}
+.link-effect a:hover span::after, .link-effect .active span::after {
+  opacity: 1;
+  right: 5px;
+  bottom: 5px;
+}
+
+.link-effect a:hover, .link-effect a.active {
+  text-decoration: none;
+  background: none;
+}
 
 .commander .title {text-align:center;font-style:italic;margin-top:-25px;}
 .commander .rules {font-size:19px;text-align:center;max-width:500px;margin:35px auto;}
@@ -77,7 +197,7 @@ a.big-button:hover {text-decoration: underline;}
   body {background: url(https://images.thespacewar.com/the-space-war.jpg) #000 center top no-repeat fixed;}
   .cards img:hover {transform:scale(1.55);box-shadow:0px 0px 150px 10px #000;transition: all 0.1s ease;}
    img.big:hover, img.extra-big:hover {transform:none;}
-   ul#nav {margin-top:20px;margin-bottom: 20px;}
+   .nav {margin-top:20px;margin-bottom: 20px;}
    table {font-size: 19px;}
 }
 
@@ -88,10 +208,8 @@ a.big-button:hover {text-decoration: underline;}
   .cards img {width:150px;height:auto;}
   img.big, img.extra-big {max-width:90%;width:300px;height:auto;}
   .cards img:hover {transform:none;box-shadow:none;transition:none;}
-  .sub p {font-size:15px;max-width:90%}
   .sub-form {float:none;margin-top:00px}
-  ul#nav {margin-top:-20px;margin-bottom: 20px;}
-  ul#nav li{padding:5px;font-size:14px;}
+  .nav {margin-top:-20px;margin-bottom: 20px;}
   table {font-size: 16px;}
   #home-image img {margin-right:20px;}
 }
@@ -104,7 +222,7 @@ a.big-button:hover {text-decoration: underline;}
 @media print { 
    body {background:none;color:#000;padding:0px;margin:0px;font: 10pt Verdana, "Times New Roman", Times, serif;line-height: 1.3;}
    .header, .print {display:block;}
-   ul#nav,.sub,.no-print {display:none;}
+   .no-print {display:none;}
    h1 {margin-top:-10px;}
    img {filter:contrast(100%) !important;}
 }
@@ -125,17 +243,17 @@ a.big-button:hover {text-decoration: underline;}
 
 <div class="logo"></div>
 
-
-<ul id="nav">
-    <li><?=(URL == '' ? '<span class="active">Home</span>' : '<a href="/">Home</a>') ?></li>
-    <li><?=(URL == 'videos' ? '<span class="active">videos</span>' : '<a href="/videos">Videos</a>') ?></li>
-    <li><?=(URL == 'play' ? '<span class="active">Play</span>' : '<a href="/play">Play</a>') ?></li>
-    <li><?=(URL == 'cards/' ? '<span class="active">The Cards</span>' : '<a href="/cards/">The Cards</a>') ?></li>
-    <li><?=(URL == 'rules' ? '<span class="active">How to play</span>' : '<a href="/rules">How to play</a>') ?></li>
-    <li><?=(URL == 'leaderboard' ? '<span class="active">Leaderboard</span>' : '<a href="/leaderboard">Leaderboard</a>') ?></li>
-    <li><?=(URL == 'news' ? '<span class="active">News</span>' : '<a href="/news">News</a>') ?></li>
-</ul>
-
+<section class="nav no-print">
+  <nav class="link-effect">
+    <a href="/" <?php if(URL == '') echo ' class="active" ' ?>><span>Home</span></a>
+    <a href="/videos" <?php if(URL == 'videos') echo ' class="active" ' ?>><span>Videos</span></a>
+    <a href="/play" <?php if(URL == 'play') echo ' class="active" ' ?>><span>Play</span></a>
+    <a href="/cards/" <?php if(URL == 'cards/') echo ' class="active" ' ?>><span>The Cards</span></a>
+    <a href="/rules" <?php if(URL == 'rules') echo ' class="active" ' ?>><span>How to play</span></a>
+    <a href="/leaderboard" <?php if(URL == 'leaderboard') echo ' class="active" ' ?>><span>Leaderboard</span></a>
+    <a href="/news" <?php if(URL == 'news') echo ' class="active" ' ?>><span>News</span></a>
+  </nav>
+</section>
 
 
 <div class="login no-print">

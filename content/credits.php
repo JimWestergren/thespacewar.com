@@ -19,5 +19,5 @@ require(ROOT.'view/head.php');
 <p>René Huanco</p>
 <h3>Card template design</h3>
 <p>Marco A. Aguilar</p>
-<h3>Website</h3>
+<h3>Website & Videos</h3>
 <p>Jim Westergren</p>
