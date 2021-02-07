@@ -212,6 +212,7 @@ function setLoginCookie(array $a, int $rating) : string
 function winnersArray() : array
 {
     return [
+        'January 2021' => ['first_username' => 'Jim', 'first_country' => 'se', 'second_username' => 'TWRWMOM', 'second_country' => 'br'],
         'Fourth Quarter 2020' => ['first_username' => 'Jim', 'first_country' => 'se', 'second_username' => 'Alvin', 'second_country' => 'se'],
         'December 2020' => ['first_username' => 'Jim', 'first_country' => 'se', 'second_username' => 'Alvin', 'second_country' => 'se'],
         'November 2020' => ['first_username' => 'Jim', 'first_country' => 'se', 'second_username' => 'Alvin', 'second_country' => 'se'],
@@ -227,6 +228,8 @@ function winnersArray() : array
 
 function winnersArrayByUser(string $user) : array
 {
+    $a['Jim'][] = ['period' => 'January 2021', 'position' => '🏆'];
+    $a['TWRWMOM'][] = ['period' => 'January 2021', 'position' => '🥈'];
     $a['Jim'][] = ['period' => 'Fourth Quarter 2020', 'position' => '🏆'];
     $a['Alvin'][] = ['period' => 'Fourth Quarter 2020', 'position' => '🥈'];
     $a['Jim'][] = ['period' => 'December 2020', 'position' => '🏆'];
@@ -260,15 +263,14 @@ function leaderboardTable(string $period = 'monthly') : string
     $pdo = PDOWrap::getInstance();
     $html = '<h2 style="text-align: center">Top 30 - '.ucfirst($period).'</h2>';
     $html .= '<div style="overflow-x:auto;"><table cellpadding="9">';
-    $html .= '<tr><th>Username</th><th>Wins</th><th>Losses</th><th>Win Rate</th><th>Rating</th><th>Total</th></tr>';
+    $html .= '<tr><th>Username</th><th>Wins</th><th>Losses</th><th>Win Rate</th><th>Rating Score</th></tr>';
     $result = $pdo->run("SELECT * FROM users ORDER BY ".$period."_win_count DESC LIMIT 100;")->fetchAll();
     foreach($result as $row) {
         $rating = calculateRating($row[$period.'_win_count'], $row[$period.'_loss_count']);
-        $bonus = calculateBonus((int) $row['id'], $rating['rating'], (int) $row['bot_win_fastest_length'], $period);
-        $total = $rating['rating']+$bonus;
+        $total = $rating['rating'];
 
         // Skip these
-        if ($total <= 50) continue;
+        if ($total <= 0) continue;
 
         // Method to avoid overwriting
         $rand = rand(1000,9999);
@@ -278,7 +280,6 @@ function leaderboardTable(string $period = 'monthly') : string
         <td style="text-align:center;">'.$row[$period.'_win_count'].'</td>
         <td style="text-align:center;">'.$row[$period.'_loss_count'].'</td>
         <td style="text-align:center;">'.round($rating['win_rate']).'%</td>
-        <td style="text-align:center;">'.$rating['rating'].'</td>
         <td style="text-align:center;"><strong>'.$total.'</strong></td>
         </tr>';
     }

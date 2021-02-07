@@ -54,6 +54,8 @@ ul#nav li{display:inline-block;padding:10px 10px;font-size:17px;text-transform:u
 .error {border:3px solid red;padding:10px;color:red;margin: 30px}
 .good {border:3px solid #74d474;padding:10px;color:#74d474;margin: 30px}
 
+.big-checkmark {color:green;font-weight: bold;font-size: 180%;}
+
 table {margin:auto;max-width: 100%;}
 #home-image img {float:left;max-width:50%;margin-right:40px;margin-bottom:15px;}
 a.big-button {font-size: 19px;background-color: green;text-decoration: none;padding: 5px 10px;border: 3px solid #7a7a7a;display: table;}

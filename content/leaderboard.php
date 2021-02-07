@@ -27,9 +27,12 @@ foreach ($winners_array as $key => $value) {
 
 ?>
 </p>
-<h2>How the numbers are calculated</h2>
+<h2>How the Rating Score is calculated</h2>
 
-<p>Total Score includes the referral bonus and the 50 bonus if you win over the bot.</p>
+<!--<p>Total Score includes the referral bonus and the 50 bonus if you win over the bot.</p>-->
 
-<p>Rating: <code>win_rate*(min(win_count,20)/20)*100</code> (Basically win rate but win count is used if less than 20 wins).</p>
-<p>Referral bonus: <code>min(sum_of_all_ratings_of_referreals/10, current_rating/4))</code> (10% of the sum of all the ratings of the referrals but maximum 25% of the rating of the user).</p>
+<p>This is the formula used:<br>
+<code>win_rate*(min(win_count,20)/20)*100</code><br>
+(Basically win rate but win count is used if less than 20 wins).</p>
+
+<!--<p>Referral bonus: <code>min(sum_of_all_ratings_of_referreals/10, current_rating/4))</code> (10% of the sum of all the ratings of the referrals but maximum 25% of the rating of the user).</p>-->

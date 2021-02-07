@@ -10,7 +10,7 @@ $accunt_row = $pdo->run("SELECT * FROM users WHERE id = ? LIMIT 1", [$logged_in[
 $ip = IpToNumberWithCountry($_SERVER['HTTP_CF_CONNECTING_IP']);
 $pdo->run("UPDATE users SET ip_latest = ?, lastlogintime = ? WHERE id = ?", [$ip, TIMESTAMP, $accunt_row['id']]);
 $rating = calculateRating($accunt_row['monthly_win_count'], $accunt_row['monthly_loss_count'])['rating'];
-$bonus = calculateBonus($accunt_row['id'], $rating, $accunt_row['bot_win_fastest_length']);
+//$bonus = calculateBonus($accunt_row['id'], $rating, $accunt_row['bot_win_fastest_length']);
 
 // Rating has been updated, we update the cookie
 if ($logged_in['rating'] != $rating) {
@@ -32,7 +32,7 @@ require(ROOT.'view/head.php');
 <p>Logged in as <strong><?=$accunt_row['username']?></strong> (<a href="/users/<?=$accunt_row['username']?>">your public stat page</a>)<br>
 Representing: <img src="https://staticjw.com/redistats/images/flags/<?=$accunt_row['country']?>.gif"> <?=countryArray()[strtoupper($accunt_row['country'])]?><br>
 
-<p>Rating this month: <?=$rating?> + <?=$bonus?> bonus = <strong style="font-size:24px;"><?=$rating+$bonus?></strong></p>
+<p>Rating Score this month: <strong style="font-size:24px;"><?=$rating?></strong></p>
 
 <hr>
 
@@ -59,25 +59,26 @@ Read this first: alpha testing for desktop and tablets with focus on the browser
     echo '<p>You did not win over the bot yet.</p>';
 } ?>
 
-<p>Winning over the bot earns you a permanent 50 bonus score.</p>
-
 <hr>
 
 <h2>Your Referrers</h2>
 
 <p>Your referrer URL: <code>https://thespacewar.com/?referrer=<?=$accunt_row['id']?></code></p>
 
+<!--
 <p>Your referral bonus score this month: <strong><?=calculateBonus($accunt_row['id'], $rating, 0)?></strong>. It is calculated as a sum of all the ratings (without bonus) of the referrals but maximum 25% of your rating.</p>
-
+-->
 
 <h3>30 Latest Referrers:</h3>
 
 <p>
 <?php
+$amount_of_referrers = 0;
 $result = $pdo->run("SELECT * FROM users WHERE `referrer` = ?;", [$accunt_row['id']])->fetchAll();
 if (count($result) > 0) {
     foreach($result as $row) {
         echo '<a href="/users/'.$row['username'].'">'.$row['username'].'</a> <img src="https://staticjw.com/redistats/images/flags/'.$row['country'].'.gif"> '.calculateRating($row['monthly_win_count'], $row['monthly_loss_count'])['rating'].'<br>';
+        $amount_of_referrers++;
     } 
 } else {
     echo "<p>None yet.";
@@ -87,44 +88,69 @@ if (count($result) > 0) {
 
 
 <hr>
+
+<h2>Your Progress To Master of The Galaxy</h2>
+
 <?php
-if ($accunt_row['pro'] == 0) {
+$ip = IpToNumberWithCountry($_SERVER['HTTP_CF_CONNECTING_IP']);
+$unique_win_count = 0;
+$unique_player_count = 0;
 
-    echo '<h2>Unlock 5 Year Pro Account</h2>';
+$result = $pdo->run("SELECT `user_lost`, `user_won` FROM games_logging WHERE (`user_won` = ".$accunt_row['id']." OR `user_lost` = ".$accunt_row['id'].") AND user_lost > 0 AND length > 0")->fetchAll();
+foreach($result as $row) {
+    $users_won_over[$row['user_lost']] = $row['user_lost'];
+    $users_played_with[$row['user_lost']] = $row['user_lost'];
+    $users_played_with[$row['user_won']] = $row['user_won'];
+}
+unset($users_won_over[$accunt_row['id']]);
+unset($users_played_with[$accunt_row['id']]);
+if (isset($users_won_over)) {
+    $row = $pdo->run("SELECT COUNT(*) as unique_win_count FROM users WHERE `id` IN (".implode(",", $users_won_over).") AND ip != ? AND ip_latest != ?;", [$ip, $ip])->fetch();
+    $unique_win_count = $row['unique_win_count'];
+}
+if (isset($users_played_with)) {
+    $row = $pdo->run("SELECT COUNT(*) as unique_player_count FROM users WHERE `id` IN (".implode(",", $users_played_with).") AND ip != ? AND ip_latest != ?;", [$ip, $ip])->fetch();
+    $unique_player_count = $row['unique_player_count'];
+}
 
-    $unique_win_count = 0;
-    if ($accunt_row['email_status'] > 1) {
-        $result = $pdo->run("SELECT `user_lost` FROM games_logging WHERE `user_won` = ".$accunt_row['id']." AND user_lost > 0 AND length > 0 GROUP BY `user_lost`")->fetchAll();
-        foreach($result as $row) {
-            $users_won_over[$row['user_lost']] = $row['user_lost'];
-        }
-        if (isset($users_won_over)) {
-            $ip = IpToNumberWithCountry($_SERVER['HTTP_CF_CONNECTING_IP']);
-            $row = $pdo->run("SELECT COUNT(*) as unique_win_count FROM users WHERE `id` IN (".implode(",", $users_won_over).") AND ip != ? AND ip_latest != ?;", [$ip, $ip])->fetch();
-            $unique_win_count = $row['unique_win_count'];
-        }
+
+
+$has_won_quarterly_medal = false;
+$has_won_monthly_medal = false;
+$winners_array = winnersArrayByUser($accunt_row['username']);
+if ($winners_array != []) {
+    foreach ($winners_array as $key => $value) {
+        if (strpos($value['period'], 'Quarter')) {
+            $has_won_quarterly_medal = true;
+        } else {
+            $has_won_monthly_medal = true;
+        } 
     }
-    ?>
+}
 
-    <ol>
-        <li>Verify your email. <?php if ($accunt_row['email_status'] > 1) {echo "<span style='color:green;'>✔</span>";} ?></li>
-        <li>Win over another human in the online game (not the bot). <?php if ($unique_win_count > 0) {echo "<span style='color:green;'>✔</span>";} ?></li>
-    </ol>
 
-    <?php if ($unique_win_count > 0) {
-        $years_in_future = TIMESTAMP+(3600*24*366*5);
-        $pdo->run("UPDATE users SET pro = 1, pro_expires = ? WHERE id = ?", [$years_in_future, $accunt_row['id']]);
-        echo "<p>Your Pro Account has now been activated, it will expire in ".date('Y-m-d', $years_in_future)."</p>";
-    }
-    ?>
-<?php } else { ?>
+$row = $pdo->run("SELECT COUNT(*) as deck_count FROM decks WHERE user_id = ?", [$logged_in['id']])->fetch();
+$deck_count = $row['deck_count'];
 
-    <h2>Your Pro Account</h2>
-    <p>Your Pro Account expires in <?= date('Y-m-d', $accunt_row['pro_expires']) ?>.</p>
-    <p>Coming soon: with Pro you can compete with players online <a href='/account/deck'>using your own constructed decks</a>.</p>
-<?php } ?>
+
+?>
+
+<ul>
+    <li>Verify your email <?php if ($accunt_row['email_status'] > 1) {echo "<span class='big-checkmark'>✔</span>";} ?></li>
+    <li>Win over the bot <?php if ($accunt_row['bot_win_fastest_time'] > 0) {echo "<span class='big-checkmark'>✔</span>";} ?></li>
+    <li>Win over another player online <?php if ($unique_win_count > 0) {echo "<span class='big-checkmark'>✔</span>";} ?></li>
+    <li>Refer 1 other player <?php if ($amount_of_referrers > 0) {echo "<span class='big-checkmark'>✔</span>";} ?></li>
+    <li>Make you own deck <?php if ($deck_count > 0) {echo "<span class='big-checkmark'>✔</span>";} ?></li>
+    <li>Play versus at least 5 different players online <?php if ($unique_player_count > 4) {echo "<span class='big-checkmark'>✔</span>";} ?></li>
+    <li>Win over 3 different players online <?php if ($unique_win_count > 2) {echo "<span class='big-checkmark'>✔</span>";} ?></li>
+    <li>Win a monthly medal <?php if ($has_won_monthly_medal) {echo "<span class='big-checkmark'>✔</span>";} ?></li>
+    <li>Win a quarterly medal <?php if ($has_won_quarterly_medal) {echo "<span class='big-checkmark'>✔</span>";} ?></li>
+    <li>Refer 5 other players <?php if ($amount_of_referrers > 4) {echo "<span class='big-checkmark'>✔</span>";} ?></li>
+    <li>Play versus at least 10 different players online <?php if ($unique_player_count > 9) {echo "<span class='big-checkmark'>✔</span>";} ?></li>
+</ul>
 
 <hr>
+
 
 <h2>30 Latest Games Played</h2>
 

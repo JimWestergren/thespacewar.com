@@ -6,13 +6,14 @@ require(ROOT.'view/head.php');
 <h1>News</h1>
 
 
-<h2>Current activities (January 2021)</h2>
+<h2>Current activities (February 2021)</h2>
 
 <ul>
     <li>Playtesting <a href='/constructed'>constructed play</a> offline.</li>
     <li>The cards of <a href='/united-stars'>The United Stars</a> are being added to the online game.</li>
     <li>Some smaller promotions to get external testers of the online version.</li>
-    <li>Completing the last bugs in the online version</li>
+    <li>Fixing bugs in the online version</li>
+    <li>Sound effects for the online game.</li>
 </ul>
 
 <h2>To do later</h2>
@@ -21,7 +22,6 @@ require(ROOT.'view/head.php');
     <li>Making the online game work on mobile phones.</li>
     <li>Better in game tutorial.</li>
     <li>Enabling <a href='/constructed'>constructed play</a> online.</li>
-    <li>Sound effects for the online game.</li>
     <li>Launch kickstarter.</li>
     <li>Printing of physical cards.</li>
 </ul>
@@ -30,6 +30,7 @@ require(ROOT.'view/head.php');
 <h2>Completed</h2>
 
 <ul>
+    <li>Jim is learning basic video editing.</li>
     <li>2 new commanders: <a href='/commanders/liana-henders'>Liana Henders</a> and <a href='/commanders/zyre'>Zyre</a>.</li>
     <li>Creating deck building functionality on the website.</li>
     <li>Play testing of <a href='/the-swarm'>The Swarm cards</a> and the <a href='/united-stars'>The United Stars cards</a>.</li>

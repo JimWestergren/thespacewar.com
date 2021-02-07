@@ -279,7 +279,7 @@ if ($edit_deck) {
 
     echo "<h1>Your Decks</h1>";
 
-    echo "<p>READ THIS: At the moment you cannot play with your constructed deck online, it will be possible in a few months and it requires that you have a Pro Account.<br>In the meanwhile you can create decks and print and play them offline. <a href='/constructed'>Rules for Constructed Play</a>.</p>";
+    echo "<p>READ THIS: At the moment you cannot play with your constructed deck online, it will be possible in a few months.<br>In the meanwhile you can create decks and print and play them offline. <a href='/constructed'>Rules for Constructed Play</a>.</p>";
 
     $result = $pdo->run("SELECT * FROM decks WHERE user_id = ? ORDER BY time_saved DESC", [$logged_in['id']])->fetchAll();
     foreach($result as $row) {

@@ -20,7 +20,6 @@ require(ROOT.'view/head.php');
 <a href="/cards/target-missed"><img src="https://images.thespacewar.com/card-16.jpg"></a>
 <a href="/cards/perfect-plan"><img src="https://images.thespacewar.com/card-18.jpg"></a>
 <a href="/cards/luck"><img src="https://images.thespacewar.com/card-31.jpg"></a>
-<a href="/cards/fatal-error"><img src="https://images.thespacewar.com/card-38.jpg"></a>
 <a href="/cards/discovery"><img src="https://images.thespacewar.com/card-42.jpg"></a>
 <a href="/cards/sabotage"><img src="https://images.thespacewar.com/card-67.jpg"></a>
 <a href="/cards/good-karma"><img src="https://images.thespacewar.com/card-11.jpg"></a>

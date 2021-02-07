@@ -8,9 +8,11 @@ require(ROOT.'view/head.php');
 
 <div class="cards">
 
-<p>United Stars is the third deck for The Space War. It has been play tested around 10 times so far. A bit more advanced to play with some interesting new strategies.</p>
+<p>United Stars is the third deck for The Space War. It has been play tested around 20 times so far. A bit more advanced to play with some interesting new strategies.</p>
 
 <p><em>The United Stars is an alliance formed by a group of advanced developed planets close to the Orion constellation. They have not been seen in this sector for at least 80 years and nobody thought that they would travel so far to join The Space War. They use powerful advanced technology including a deadly starship.</em></p>
+
+<!--<p><em>United Stars are all advanced robots, some of them in humanoid form. It is not known exactly which life forms created the Artificial Intelligence that made it possible for them to self develop, if this life form still exist or if it might be humans that did some illegal experiement in a far distant past. (work in progress)</em></p>-->
 
 
 <h2>Commanders</h2>

@@ -10,7 +10,7 @@ require(ROOT.'view/head.php');
 
 <p>Better than Hearthstone? Better than Magic? Hell yeah says the creator.</p>
 
-<p>All cards included for free. More like chess and not a "pay to win game".</p>
+<p>All cards included for free. More like chess and not a pay-to-win game.</p>
 
 <?php if ($logged_in == []) { ?>
     <div style="max-width:400px;margin:30px auto 20px auto;">
@@ -21,18 +21,57 @@ require(ROOT.'view/head.php');
     </form>
     </div>
 
-    <h3 style="margin-bottom: 20px;">The first 5000 registered users that wins a game over another human will unlock Pro Account 5 years for free (estimated value $70).</h3>
+    <!--<h3 style="margin-bottom: 20px;">The first 5000 registered users that wins a game over another human will unlock Pro Account 5 years for free (estimated value $70).</h3>-->
 
 <?php } ?>
 
+<p>The game is played the same offline or online in the browser.</p>
 
 <hr>
 
-<p>The game is played the same offline or online in the browser.</p>
+<h2>5 minute intro video</h2>
 
-<p>It uses several new interesting game mechanics, both players has access to the same cards and all cards are included in the game.</p>
 
-<p>Each card can be played in several ways but the game is still simple and smooth to play.</p>
+<div class='embed-container' style="margin:40px 0;"><iframe src='https://www.youtube-nocookie.com/embed/BLWPF9-y958' frameborder='0' allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+
+<h2>Video Transcript</h2>
+
+<p>What is The Space War card game and why do I think it is an amazing game?</p>
+
+<p>Hi I am Jim and I am the creator of this new card game -  The Space War.</p>
+
+<p>I have been playing card games on and off the last 25 years - for example Magic, Hearthstone, Dominion, Doomtrooper and many others. I also play a lot of modern board games.</p>
+
+<p>In the summer of 2018 I started working on my own card game which in my opinion is much better than other similar games.</p>
+
+<ul>
+    <li>Strategic 2 player card game, around 20-40 minutes to play</li>
+    <li>All cards included for free</li>
+    <li>More like chess in the way that both players has access to the same cards - it is not a pay-to-win game.</li>
+    <li>The game is played the same offline or online
+    <li>Free to play online in your web browser at thespacewar.com</li>
+    <li>Print and play offline for free.</li>
+    <li>Focus on how your play your cards instead of which cards you have</li>
+    <li>Choose between 3 preset decks or mix the cards to make your own unique deck</li>
+    <li>Each card can be played in several ways but the game is still simple and smooth to play</li>
+    <li>Skill based with focus on competitive play, leaderboard on the site.</li>
+    <li>Player interaction with counters and reactions </li>
+    <li>Tension and excitement without any runaway leader problem</li>
+    <li>No booster packs</li>
+    <li>No grinding</li>
+    <li>No RNG cards</li>
+    <li>No dead cards</li>
+    <li>No resource cards</li>
+    <li>New interesting game mechanic, I will show you</li>
+</ul>
+
+<p>[ Showing and explaining the new game mechanic that makes this game different than other similar games ]</p>
+
+<p>[ Quick demo of online play ]</p>
+
+<p>[ Quick demo of offline play ]</p>
+
+<hr>
 
 <blockquote><em>"Card games is a big part of my life and I have played many different games the last 25 years including Magic the Gathering, Hearthstone, Dominion, RftG, Star Realms, Doomtrooper, different classic card games and other CCGs but The Space War is what I enjoy most to play in a 2 player game ... by far. We have more than 60 modern board games and I just asked my 10 year old son what is his favorite game of all time and he answered The Space War without any hesitation. I think the same. We have played the game on a regular basis for 2 years now."</em> - Jim Westergren</blockquote>
 

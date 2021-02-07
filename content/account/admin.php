@@ -76,7 +76,7 @@ $thirty_days_ago = TIMESTAMP-(3600*24*30);
 
 <p>How many have won over bot : <strong><?= $pdo->run("SELECT count(id) as count FROM users WHERE bot_win_fastest_length > 0")->fetch()['count'] ?></strong></p>
 
-<p>How many has Pro Account : <strong><?= $pdo->run("SELECT count(id) as count FROM users WHERE pro_expires > ".TIMESTAMP)->fetch()['count'] ?></strong></p>
+<!--<p>How many has Pro Account : <strong><?= $pdo->run("SELECT count(id) as count FROM users WHERE pro_expires > ".TIMESTAMP)->fetch()['count'] ?></strong></p>-->
 
 
 <h2>50 Latest Games Played</h2>

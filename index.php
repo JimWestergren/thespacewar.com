@@ -30,6 +30,7 @@ $internal_redirects = [
     'users/7-augustTestDimohax463' => 'users/augustTestDimohax463',
     'users/8-augustalex' => 'users/augustalex',
     'account' => 'account/',
+    'login' => 'account/',
 ];
 
 
