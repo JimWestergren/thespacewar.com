@@ -29,7 +29,8 @@ require(ROOT.'view/head.php');
 
 <p style="float: right">[ <a href="/account/edit">Edit Account</a> ]<p>
 
-<p>Logged in as <strong><?=$accunt_row['username']?></strong> (<a href="/users/<?=$accunt_row['username']?>">your public stat page</a>)<br>
+<p>Logged in as <strong><?=$accunt_row['username']?></strong><br>
+    (<a href="/users/<?=$accunt_row['username']?>">your public stat page</a>)<br>
 Representing: <img src="https://staticjw.com/redistats/images/flags/<?=$accunt_row['country']?>.gif"> <?=countryArray()[strtoupper($accunt_row['country'])]?><br>
 
 <p>Rating Score this month: <strong style="font-size:24px;"><?=$rating?></strong></p>
@@ -102,13 +103,13 @@ foreach($result as $row) {
     $users_played_with[$row['user_lost']] = $row['user_lost'];
     $users_played_with[$row['user_won']] = $row['user_won'];
 }
-unset($users_won_over[$accunt_row['id']]);
-unset($users_played_with[$accunt_row['id']]);
 if (isset($users_won_over)) {
+    unset($users_won_over[$accunt_row['id']]);
     $row = $pdo->run("SELECT COUNT(*) as unique_win_count FROM users WHERE `id` IN (".implode(",", $users_won_over).") AND ip != ? AND ip_latest != ?;", [$ip, $ip])->fetch();
     $unique_win_count = $row['unique_win_count'];
 }
 if (isset($users_played_with)) {
+    unset($users_played_with[$accunt_row['id']]);
     $row = $pdo->run("SELECT COUNT(*) as unique_player_count FROM users WHERE `id` IN (".implode(",", $users_played_with).") AND ip != ? AND ip_latest != ?;", [$ip, $ip])->fetch();
     $unique_player_count = $row['unique_player_count'];
 }
@@ -158,6 +159,7 @@ $deck_count = $row['deck_count'];
 <?php
 $result = $pdo->run("SELECT * FROM games_logging WHERE `user_won` = ".$accunt_row['id']." OR `user_lost` = ".$accunt_row['id']." AND user_lost > 0 ORDER BY `timestamp` DESC LIMIT 30;")->fetchAll();
 foreach($result as $row) {
+    $a['id'] = $row['id'];
     $a['date'] = date('Y-m-d', $row['timestamp']);
     if ($row['length'] > 0) {
         $a['length'] = gmdate("i:s", $row['length']).' minutes';

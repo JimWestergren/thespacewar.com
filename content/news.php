@@ -6,14 +6,14 @@ require(ROOT.'view/head.php');
 <h1>News</h1>
 
 
-<h2>Current activities (February 2021)</h2>
+<h2>Current activities (Mars 2021)</h2>
 
 <ul>
     <li>Playtesting <a href='/constructed'>constructed play</a> offline.</li>
     <li>The cards of <a href='/united-stars'>The United Stars</a> are being added to the online game.</li>
     <li>Some smaller promotions to get external testers of the online version.</li>
     <li>Fixing bugs in the online version</li>
-    <li>Sound effects for the online game.</li>
+    <li>Sound effects and new background music for the online game.</li>
 </ul>
 
 <h2>To do later</h2>

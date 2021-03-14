@@ -29,48 +29,50 @@ foreach ($commander_data as $commander_slug => $commander) {
 
 <h2>Spaceship Cards</h2>
 
-<img src="https://images.thespacewar.com/card-228.jpg">
-<img src="https://images.thespacewar.com/card-225.jpg">
-<img src="https://images.thespacewar.com/card-226.jpg">
-<img src="https://images.thespacewar.com/card-224.jpg">
-<img src="https://images.thespacewar.com/card-222.jpg">
-<img src="https://images.thespacewar.com/card-223.jpg">
-<img src="https://images.thespacewar.com/card-227.jpg">
-<img src="https://images.thespacewar.com/card-244.jpg">
+<?php
+$cards_array = getCardData();
+foreach ($cards_array as $key => $value) {
+    if ( $value['deck_id'] != 3 || $value['type'] != 'Spaceship' ) continue;
+    echo "<img src='https://images.thespacewar.com/card-".$value['id'].".jpg'>";
+} ?>
 
 <h2>Event Cards</h2>
 
-<img src="https://images.thespacewar.com/card-217.jpg">
-<img src="https://images.thespacewar.com/card-213.jpg">
-<img src="https://images.thespacewar.com/card-218.jpg">
-<img src="https://images.thespacewar.com/card-216.jpg">
-<img src="https://images.thespacewar.com/card-215.jpg">
-<img src="https://images.thespacewar.com/card-219.jpg">
-<img src="https://images.thespacewar.com/card-221.jpg">
-<img src="https://images.thespacewar.com/card-209.jpg">
-<img src="https://images.thespacewar.com/card-214.jpg">
-<img src="https://images.thespacewar.com/card-231.jpg">
-<img src="https://images.thespacewar.com/card-208.jpg">
+<?php
+$cards_array = getCardData();
+foreach ($cards_array as $key => $value) {
+    if ( $value['deck_id'] != 3 || $value['type'] != 'Event' ) continue;
+    echo "<img src='https://images.thespacewar.com/card-".$value['id'].".jpg'>";
+} ?>
 
 <h2>Duration Cards</h2>
 
-<img src="https://images.thespacewar.com/card-207.jpg">
-<img src="https://images.thespacewar.com/card-230.jpg">
-<img src="https://images.thespacewar.com/card-206.jpg">
-<img src="https://images.thespacewar.com/card-210.jpg">
-<img src="https://images.thespacewar.com/card-211.jpg">
-<img src="https://images.thespacewar.com/card-248.jpg">
+<?php
+$cards_array = getCardData();
+foreach ($cards_array as $key => $value) {
+    if ( $value['deck_id'] != 3 || $value['type'] != 'Duration' ) continue;
+    echo "<img src='https://images.thespacewar.com/card-".$value['id'].".jpg'>";
+} ?>
+
 
 <h2>Missile Cards</h2>
 
-<img src="https://images.thespacewar.com/card-220.jpg">
-<img src="https://images.thespacewar.com/card-229.jpg">
+<?php
+$cards_array = getCardData();
+foreach ($cards_array as $key => $value) {
+    if ( $value['deck_id'] != 3 || $value['type'] != 'Missile' ) continue;
+    echo "<img src='https://images.thespacewar.com/card-".$value['id'].".jpg'>";
+} ?>
+
 
 <h2>Defense Cards</h2>
 
-<!--<img src="https://images.thespacewar.com/card-203.jpg">-->
-<img src="https://images.thespacewar.com/card-205.jpg">
-<img src="https://images.thespacewar.com/card-204.jpg">
+<?php
+$cards_array = getCardData();
+foreach ($cards_array as $key => $value) {
+    if ( $value['deck_id'] != 3 || $value['type'] != 'Defense' ) continue;
+    echo "<img src='https://images.thespacewar.com/card-".$value['id'].".jpg'>";
+} ?>
 
 <p>Complete card list in table format can be found <a href='/card-list'>here</a>.</p>
 

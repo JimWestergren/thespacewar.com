@@ -36,6 +36,11 @@ include(ROOT.'view/head.php');
 
 <h2>Videos</h2>
 
+
+<div class='embed-container'><iframe src='https://www.youtube-nocookie.com/embed/c6Z8PFVl4os' frameborder='0' allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+
+<br><br>
+
 <div class='embed-container'><iframe src='https://www.youtube-nocookie.com/embed/Lua9QgdY5lA' frameborder='0' allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
 
 <br><br>
