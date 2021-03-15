@@ -157,6 +157,8 @@ $deck_count = $row['deck_count'];
 
 <p>
 <?php
+$scoring_ignored_reasons = scoringIgnoredReasons();
+
 $result = $pdo->run("SELECT * FROM games_logging WHERE `user_won` = ".$accunt_row['id']." OR `user_lost` = ".$accunt_row['id']." AND user_lost > 0 ORDER BY `timestamp` DESC LIMIT 30;")->fetchAll();
 foreach($result as $row) {
     $a['id'] = $row['id'];
@@ -165,6 +167,11 @@ foreach($result as $row) {
         $a['length'] = gmdate("i:s", $row['length']).' minutes';
     } else {
         $a['length'] = 'offline game';
+    }
+    if ($row['ignore_scoring'] > 0) {
+        $a['ignore_scoring'] = ' <span title="'.$scoring_ignored_reasons[$row['ignore_scoring']].'">scoring ignored</span>';
+    } else {
+        $a['ignore_scoring'] = '';
     }
     if ($row['user_won'] == $accunt_row['id']) {
         $a['status'] = '<span style="color:green">won</span>';
@@ -185,7 +192,7 @@ if (isset($array)) {
     }
 
     foreach($array as $a) {
-        echo $a['date'].' '.$a['status'].' versus <a href="/users/'.$user[$a['versus']]['username'].'">'.$user[$a['versus']]['username'].'</a> <img src="https://staticjw.com/redistats/images/flags/'.$user[$a['versus']]['country'].'.gif"> '.calculateRating($user[$a['versus']]['monthly_win_count'], $user[$a['versus']]['monthly_loss_count'])['rating'].' ('.$a['length'].')<br>';
+        echo $a['date'].' '.$a['status'].' versus <a href="/users/'.$user[$a['versus']]['username'].'">'.$user[$a['versus']]['username'].'</a> <img src="https://staticjw.com/redistats/images/flags/'.$user[$a['versus']]['country'].'.gif"> '.calculateRating($user[$a['versus']]['monthly_win_count'], $user[$a['versus']]['monthly_loss_count'])['rating'].' ('.$a['length'].') '.$a['ignore_scoring'].'<br>';
     }
 }
 ?>

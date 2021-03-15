@@ -11,7 +11,6 @@ $pdo = PDOWrap::getInstance();
 $title_tag = 'Admin | TheSpaceWar.com';
 require(ROOT.'view/head.php');
 
-
 //$pdo->run("DELETE FROM games_logging WHERE id = 112;");
 //$pdo->run("UPDATE users SET monthly_win_count = monthly_win_count-1, quarterly_win_count = quarterly_win_count-1 WHERE id = ?;", [1]);
 //$pdo->run("UPDATE users SET monthly_loss_count = monthly_loss_count-1, quarterly_loss_count = quarterly_loss_count-1 WHERE id = ?;", [2]);

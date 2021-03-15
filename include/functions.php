@@ -686,3 +686,11 @@ function commanderData() : array
     ];
 
 }
+
+function scoringIgnoredReasons() : array
+{
+    return [
+        1 => 'Winner already won twice same day against same opponent',
+        2 => 'Winner already had more than 2000 monthly rating score compared to the opponent',
+    ];
+}
