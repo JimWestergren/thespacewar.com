@@ -70,7 +70,7 @@ function show_cards_by_type(array $cards_data, array $cards, string $type) : voi
 {
     foreach ($cards_data as $card => $value) {
         if ($value['type'] != $type) continue;
-        echo "<div><img src=\"https://images.thespacewar.com/card-".$value['id'].".jpg\"><br>
+        echo "<div class='card'><img src=\"https://images.thespacewar.com/card-".$value['id'].".jpg\"><br>
             <div><a href='javascript:void(0)' onclick=\"javascript:addRemoveCard(".$value['id'].", 'remove')\" id='remove-".$value['id']."' style='display:none;'>-</a></div>
             <div><span id='count-".$value['id']."'>";
             echo $cards[$value['id']] ?? 0;
@@ -167,8 +167,7 @@ require(ROOT.'view/head.php');
         margin-bottom:30px;
         font-size: 31px;
     }
-    .card-selection div {
-        height:280px;
+    .card-selection .card {
         width:143px;
         margin-right: 30px;
         display:inline-table;
@@ -176,25 +175,30 @@ require(ROOT.'view/head.php');
         font-size: 31px;
         font-family: courier;
         font-weight: bold;
+        margin-bottom: 30px;
     }
-    .card-selection div div {
+    .card-selection .card div {
         height:15px;
-        width:0;
         display:inline-block;
+        transition: none;
     }
-    .card-selection div a {
+    .card-selection .card a {
         color:#fff;
         text-decoration: none;
         background: none;
+        transition: none;
     }
 
     .card-selection img {
         height:200px;
     }
-    .card-selection img:hover {
-        transform:scale(1.8);
-        box-shadow:0px 0px 150px 10px #000;
+    .card-selection .card:hover {
+        transform:scale(2);
         transition: all 0.2s ease;
+        background-color: #000;
+    }
+    .card-selection .card:hover div {
+        width: 20px;
     }
     .bottom-bar {
         font-size::17px;
@@ -219,9 +223,8 @@ require(ROOT.'view/head.php');
         width: 107px;
     }
     .saved div img:hover {
-        transform:scale(2);
-        box-shadow:0px 0px 150px 10px #000;
-        transition: all 0.1s ease;
+        transform:scale(2.5);
+        transition: all 0.2s ease;
         z-index: 99999;
     }
 </style>
@@ -236,7 +239,7 @@ if ($edit_deck) {
 
     echo "<p><a href='#edit'>Edit</a> your deck or <a href='".generate_print_url($row['commander'], $cards)."' target='_blank'>print this deck</a>.</p>";
 
-    echo "<img style='width:100px;' src='https://images.thespacewar.com/commander-".$row['commander'].".png'>";
+    echo "<div class='saved'><div><img style='width:100px;' src='https://images.thespacewar.com/commander-".$row['commander'].".png'></div></div>";
 
     show_cards_by_type_saved_img($cards_data, $cards, 'Spaceship');
     show_cards_by_type_saved_img($cards_data, $cards, 'Event');
@@ -398,7 +401,7 @@ function chooseCommander(id) {
     <h2>Select 1 commander</h2>
     <?php
     foreach ($commander_data as $commander_slug => $commander) {
-        echo "<div style='height:220px'><a href='javascript:void(0)' onclick='javascript:chooseCommander(".$commander['id'].")'><img id='commander-".$commander['id']."'  src='https://images.thespacewar.com/commander-".$commander['id'].".png'></a></div>";
+        echo "<div class='card'><a href='javascript:void(0)' onclick='javascript:chooseCommander(".$commander['id'].")'><img id='commander-".$commander['id']."'  src='https://images.thespacewar.com/commander-".$commander['id'].".png'></a></div>";
     }
     ?>
 
