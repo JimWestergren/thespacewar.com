@@ -52,34 +52,25 @@ Read this first: alpha testing for desktop and tablets with focus on the browser
 
 <hr>
 
-<h2>Winning over our AI bot</h2>
-
-<?php if ($accunt_row['bot_win_fastest_time'] > 0) {
-    echo '<p>Your fastest win is '.$accunt_row['bot_win_fastest_length'].' seconds on the '.date('Y-m-d', $accunt_row['bot_win_fastest_time']).'.</p>';
-} else {
-    echo '<p>You did not win over the bot yet.</p>';
-} ?>
-
-<hr>
 
 <h2>Your Referrers</h2>
 
 <p>Your referrer URL: <code>https://thespacewar.com/?referrer=<?=$accunt_row['id']?></code></p>
 
-<!--
-<p>Your referral bonus score this month: <strong><?=calculateBonus($accunt_row['id'], $rating, 0)?></strong>. It is calculated as a sum of all the ratings (without bonus) of the referrals but maximum 25% of your rating.</p>
--->
 
 <h3>30 Latest Referrers:</h3>
 
 <p>
 <?php
 $amount_of_referrers = 0;
+$credits_earned_of_referrers = 0;
+
 $result = $pdo->run("SELECT * FROM users WHERE `referrer` = ?;", [$accunt_row['id']])->fetchAll();
 if (count($result) > 0) {
     foreach($result as $row) {
-        echo '<a href="/users/'.$row['username'].'">'.$row['username'].'</a> <img src="https://staticjw.com/redistats/images/flags/'.$row['country'].'.gif"> '.calculateRating($row['monthly_win_count'], $row['monthly_loss_count'])['rating'].'<br>';
+        echo '<a href="/users/'.$row['username'].'">'.$row['username'].'</a> <img src="https://staticjw.com/redistats/images/flags/'.$row['country'].'.gif"> | Credits Earned: '.$row['credits_earned'].'<br>';
         $amount_of_referrers++;
+        $credits_earned_of_referrers += $row['credits_earned'];
     } 
 } else {
     echo "<p>None yet.";
@@ -90,65 +81,152 @@ if (count($result) > 0) {
 
 <hr>
 
-<h2>Your Progress To Master of The Galaxy</h2>
+<style>
+    table.credits {width:100%;font-size: 18px;border:8px solid #666;margin:40px auto;}
+    table.credits tr { background: #000;}
+    table.credits tr:nth-child(odd) { background: #1c1c1c;}
+    table.credits td {padding:9px 10px;}
+</style>
 
 <?php
-$ip = IpToNumberWithCountry($_SERVER['HTTP_CF_CONNECTING_IP']);
-$unique_win_count = 0;
-$unique_player_count = 0;
 
-$result = $pdo->run("SELECT `user_lost`, `user_won` FROM games_logging WHERE (`user_won` = ".$accunt_row['id']." OR `user_lost` = ".$accunt_row['id'].") AND user_lost > 0 AND length > 0")->fetchAll();
-foreach($result as $row) {
-    $users_won_over[$row['user_lost']] = $row['user_lost'];
-    $users_played_with[$row['user_lost']] = $row['user_lost'];
-    $users_played_with[$row['user_won']] = $row['user_won'];
-}
-if (isset($users_won_over)) {
-    unset($users_won_over[$accunt_row['id']]);
-    $row = $pdo->run("SELECT COUNT(*) as unique_win_count FROM users WHERE `id` IN (".implode(",", $users_won_over).") AND ip != ? AND ip_latest != ?;", [$ip, $ip])->fetch();
-    $unique_win_count = $row['unique_win_count'];
-}
-if (isset($users_played_with)) {
-    unset($users_played_with[$accunt_row['id']]);
-    $row = $pdo->run("SELECT COUNT(*) as unique_player_count FROM users WHERE `id` IN (".implode(",", $users_played_with).") AND ip != ? AND ip_latest != ?;", [$ip, $ip])->fetch();
-    $unique_player_count = $row['unique_player_count'];
+$total_credits = 0;
+
+echo "<h2>📈 Your Credits (BETA)</h2>";
+
+echo '<table class="credits" cellspacing="0">';
+
+if ($accunt_row['id'] < 5000) {
+    $total_credits += 200;
+    echo '<tr><td>200 credits for being one of the first 5 000 to register account.</td><td>200</td></tr>';
 }
 
 
+$days_registered = round((TIMESTAMP-$accunt_row['regtime'])/(3600*24));
+$total_credits += $days_registered;
+echo '<tr><td>1 credit for each day you have been registered.</td><td>'.$days_registered.'</td></tr>';
 
-$has_won_quarterly_medal = false;
-$has_won_monthly_medal = false;
+
+
+echo '<tr><td>5 credits for verifying your email.</td><td>';
+if ($accunt_row['email_status'] > 1) {
+    echo 5;
+    $total_credits += 5;
+} else {
+    echo 0;
+}
+echo '</td></tr>';
+
+
+
+echo '<tr><td>10 credits for winning over the bot.</td><td>';
+if ($accunt_row['bot_win_fastest_time'] > 0) {
+    echo 10;
+    $total_credits += 10;
+} else {
+    echo 0;
+}
+echo '</td></tr>';
+
+
+echo '<tr><td>5 credits for each game you have won versus people.</td><td>';
+$row = $pdo->run("SELECT COUNT(*) as win_count FROM games_logging WHERE `user_won` = ".$accunt_row['id']." AND user_lost > 0 AND ignore_scoring = 0;")->fetch();
+echo 5*$row['win_count'];
+$total_credits += (5*$row['win_count']);
+echo '</td></tr>';
+
+
+
+echo '<tr><td>5 credits for making your own constructed deck.</td><td>';
+$row = $pdo->run("SELECT COUNT(*) as deck_count FROM decks WHERE user_id = ?", [$logged_in['id']])->fetch();
+if ($row['deck_count'] > 0) {
+    echo 5;
+    $total_credits += 5;
+} else {
+    echo 0;
+}
+echo '</td></tr>';
+
+
+echo '<tr><td>10 credits for each referral.</td><td>';
+echo 10*$amount_of_referrers;
+$total_credits += (10*$amount_of_referrers);
+echo '</td></tr>';
+
+
+echo '<tr><td>10% of all credits earned from your referrals.</td><td>';
+echo $credits_earned_of_referrers/10;
+$total_credits += ($credits_earned_of_referrers/10);
+echo '</td></tr>';
+
+
+
+$quarterly_gold_medals = 0;
+$quarterly_silver_medals = 0;
+$monthly_gold_medals = 0;
+$monthly_silver_medals = 0;
 $winners_array = winnersArrayByUser($accunt_row['username']);
 if ($winners_array != []) {
     foreach ($winners_array as $key => $value) {
         if (strpos($value['period'], 'Quarter')) {
-            $has_won_quarterly_medal = true;
+            if ($value['position'] == '🏆') {
+                $quarterly_gold_medals++;
+            } elseif ($value['position'] == '🥈') {
+                $quarterly_silver_medals++;
+            }
         } else {
-            $has_won_monthly_medal = true;
+            if ($value['position'] == '🏆') {
+                $monthly_gold_medals++;
+            } elseif ($value['position'] == '🥈') {
+                $monthly_silver_medals++;
+            }
         } 
     }
 }
 
+echo '<tr><td>50 credits for each monthly silver medal.</td><td>';
+echo 50*$monthly_silver_medals;
+$total_credits += (50*$monthly_silver_medals);
+echo '</td></tr>';
 
-$row = $pdo->run("SELECT COUNT(*) as deck_count FROM decks WHERE user_id = ?", [$logged_in['id']])->fetch();
-$deck_count = $row['deck_count'];
+echo '<tr><td>100 credits for each monthly gold medal.</td><td>';
+echo 100*$monthly_gold_medals;
+$total_credits += (100*$monthly_gold_medals);
+echo '</td></tr>';
 
+echo '<tr><td>300 credits for each quarterly silver medal.</td><td>';
+echo 300*$quarterly_silver_medals;
+$total_credits += (300*$quarterly_silver_medals);
+echo '</td></tr>';
+
+echo '<tr><td>600 credits for each quarterly gold medal.</td><td>';
+echo 600*$quarterly_gold_medals;
+$total_credits += (600*$quarterly_gold_medals);
+echo '</td></tr>';
+
+echo '<tr><td style="text-align:right">Total Saved:</td><td>';
+echo '<strong>'.$total_credits.'</strong>';
+echo '</td></tr>';
+
+$pdo->run("UPDATE users SET credits_earned = ? WHERE id = ?", [$total_credits, $accunt_row['id']]);
 
 ?>
 
-<ul>
-    <li>Verify your email <?php if ($accunt_row['email_status'] > 1) {echo "<span class='big-checkmark'>✔</span>";} ?></li>
-    <li>Win over the bot <?php if ($accunt_row['bot_win_fastest_time'] > 0) {echo "<span class='big-checkmark'>✔</span>";} ?></li>
-    <li>Win over another player online <?php if ($unique_win_count > 0) {echo "<span class='big-checkmark'>✔</span>";} ?></li>
-    <li>Refer 1 other player <?php if ($amount_of_referrers > 0) {echo "<span class='big-checkmark'>✔</span>";} ?></li>
-    <li>Make you own deck <?php if ($deck_count > 0) {echo "<span class='big-checkmark'>✔</span>";} ?></li>
-    <li>Play versus at least 5 different players online <?php if ($unique_player_count > 4) {echo "<span class='big-checkmark'>✔</span>";} ?></li>
-    <li>Win over 3 different players online <?php if ($unique_win_count > 2) {echo "<span class='big-checkmark'>✔</span>";} ?></li>
-    <li>Win a monthly medal <?php if ($has_won_monthly_medal) {echo "<span class='big-checkmark'>✔</span>";} ?></li>
-    <li>Win a quarterly medal <?php if ($has_won_quarterly_medal) {echo "<span class='big-checkmark'>✔</span>";} ?></li>
-    <li>Refer 5 other players <?php if ($amount_of_referrers > 4) {echo "<span class='big-checkmark'>✔</span>";} ?></li>
-    <li>Play versus at least 10 different players online <?php if ($unique_player_count > 9) {echo "<span class='big-checkmark'>✔</span>";} ?></li>
-</ul>
+</table>
+
+
+<p>In the future you will be able to use credits to buy cool cosmetic items, enter offical tournaments and play with your constructed decks.</p>
+
+<hr>
+
+
+<h2>Winning over our AI bot</h2>
+
+<?php if ($accunt_row['bot_win_fastest_time'] > 0) {
+    echo '<p>Your fastest win is '.$accunt_row['bot_win_fastest_length'].' seconds on the '.date('Y-m-d', $accunt_row['bot_win_fastest_time']).'.</p>';
+} else {
+    echo '<p>You did not win over the bot yet.</p>';
+} ?>
 
 <hr>
 
@@ -209,17 +287,26 @@ if (isset($array)) {
 
 <p>Did you win? Then have the looser to login and log the match here for it to be recorded.</p>
 
+<style>
+    table.log-offline {border: 2px solid #666;background-color: #1c1c1c;padding: 2px 50px;margin: 20px auto;font-size: 17px;width: 600px;max-width: 90%}
+    table.log-offline input {width:150px;}
+    @media (max-width: 900px) { /* Mobile */
+        table.log-offline {padding: 2px 10px;}
+        table.log-offline input {width:100px;}
+    }
+</style>
+
 <form action='/log-game' method='post'>
-    <table cellpadding="10">
+    <table cellpadding="10" class="log-offline">
         <tr><td>
     <label>Username of the winner:</label><br>
-    <input type="text" name="username" required minlength="3" maxlength="30" pattern="[a-zA-Z0-9]+" placeholder='Username' value="<?=$a['username'] ?? ''?>" title="Numbers or letters only. Minimum 3 characters." style="width:150px;">
+    <input type="text" name="username" required minlength="3" maxlength="30" pattern="[a-zA-Z0-9]+" placeholder='Username' value="<?=$a['username'] ?? ''?>" title="Numbers or letters only. Minimum 3 characters.">
     </td><td>
     <label>Date played:</label><br>
     <input type="text" name="date" required length="10" pattern="[0-9-]+" value="<?= date('Y-m-d') ?>" title="Write the date in the format yyyy-mm-dd" style="width:100px;">
     </td><td>
     <label>&nbsp;</label><br>
-    <input type="submit" name="log_game" value="Save">
+    <input type="submit" name="log_game" value="Save" style="width:70px;">
     </td></tr>
     </table>
 </form>

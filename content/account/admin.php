@@ -11,6 +11,10 @@ $pdo = PDOWrap::getInstance();
 $title_tag = 'Admin | TheSpaceWar.com';
 require(ROOT.'view/head.php');
 
+
+//$pdo->run("ALTER TABLE users ADD credits_earned INT(10) UNSIGNED NOT NULL DEFAULT 0 AFTER newsletter;");
+
+
 //$pdo->run("DELETE FROM games_logging WHERE id = 112;");
 //$pdo->run("UPDATE users SET monthly_win_count = monthly_win_count-1, quarterly_win_count = quarterly_win_count-1 WHERE id = ?;", [1]);
 //$pdo->run("UPDATE users SET monthly_loss_count = monthly_loss_count-1, quarterly_loss_count = quarterly_loss_count-1 WHERE id = ?;", [2]);
@@ -39,9 +43,6 @@ cards VARCHAR(5000) NOT NULL DEFAULT ''
 
 
 //$pdo->run("ALTER TABLE users ADD twitter VARCHAR(255) NOT NULL DEFAULT '' AFTER newsletter;");
-
-$pdo->run("ALTER TABLE users ADD pro SMALLINT(5) NOT NULL DEFAULT 0 AFTER username;");
-$pdo->run("ALTER TABLE users ADD pro_expires INT(10) NOT NULL DEFAULT 0 AFTER pro;");
 
 
 
@@ -78,7 +79,6 @@ $thirty_days_ago = TIMESTAMP-(3600*24*30);
 
 <p>How many have won over bot : <strong><?= $pdo->run("SELECT count(id) as count FROM users WHERE bot_win_fastest_length > 0")->fetch()['count'] ?></strong></p>
 
-<!--<p>How many has Pro Account : <strong><?= $pdo->run("SELECT count(id) as count FROM users WHERE pro_expires > ".TIMESTAMP)->fetch()['count'] ?></strong></p>-->
 
 
 <h2>50 Latest Games Played</h2>

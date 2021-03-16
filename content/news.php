@@ -9,6 +9,7 @@ require(ROOT.'view/head.php');
 <h2>Current activities (Mars 2021)</h2>
 
 <ul>
+    <li>Making the online game work on mobile phones.</li>
     <li>Playtesting <a href='/constructed'>constructed play</a> offline.</li>
     <li>The cards of <a href='/united-stars'>The United Stars</a> are being added to the online game.</li>
     <li>Some smaller promotions to get external testers of the online version.</li>
@@ -19,7 +20,6 @@ require(ROOT.'view/head.php');
 <h2>To do later</h2>
 
 <ul>
-    <li>Making the online game work on mobile phones.</li>
     <li>Better in game tutorial.</li>
     <li>Enabling <a href='/constructed'>constructed play</a> online.</li>
     <li>Launch kickstarter.</li>

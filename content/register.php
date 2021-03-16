@@ -110,7 +110,7 @@ if (isset($errors)) {
 
 <p>You will be able to play The Space War Online for free in your browser once you register.</p>
 
-<!--<p>The first 5000 registered users that wins a game over another human will unlock Pro Account 5 years for free (estimated value $70).</p>-->
+<p>The first 5000 registered users will receive 200 credits completely free.</p>
 
 <form method="post" action="/register">
 <?php if (isset($username_available) && $username_available) { ?>

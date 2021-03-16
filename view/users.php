@@ -24,8 +24,10 @@ $quarterly = calculateRating($row['quarterly_win_count'], $row['quarterly_loss_c
 ?>
 
 <p>
-    <strong><?=$row['username']?></strong> is representing <img src="https://staticjw.com/redistats/images/flags/<?=$row['country']?>.gif"> <?=countryArray()[strtoupper($row['country'])]?><br>
-    Rating this month: <?=$monhtly['rating']?>
+    <strong><?=$row['username']?></strong> is representing <img src="https://staticjw.com/redistats/images/flags/<?=$row['country']?>.gif"> <?=countryArray()[strtoupper($row['country'])]?>
+    <?php if ($row['credits_earned'] > 0) {
+        echo '<br>Total Credits Earned: <strong>'.$row['credits_earned'].'</strong>';
+    } ?>
 </p>
 
 <table style="font-size: 20px;margin-bottom:10px;" cellpadding="20">

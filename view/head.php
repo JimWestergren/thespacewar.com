@@ -9,7 +9,7 @@
     <?php } ?>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
-body {background-color: #000;color:#ddd;font-family:Verdana;font-size:17px;padding-top:30px;padding-bottom:50px;line-height: 25px}
+body {background-color: #000;color:#ddd;font-family:Verdana;font-size:17px;padding-top:30px;padding-bottom:50px;line-height: 25px; }
 blockquote {font-size:15px;line-height: 23px}
 h1, .header h3 {text-align:center;text-transform:uppercase;letter-spacing:5px;margin-bottom:40px;}
 .header h3 {font-size:30px;margin:10px auto -15px auto;letter-spacing:6px;}
@@ -194,7 +194,7 @@ a.big-button:hover {text-decoration: underline;}
 @media (min-width: 1000px) { /* 1920x1080 */
   .header {display:none;}
   .logo {background: url(https://images.thespacewar.com/logo.png) center top no-repeat;height:91px;}
-  body {background: url(https://images.thespacewar.com/the-space-war.jpg) #000 center top no-repeat fixed;}
+  body {background: url(https://images.thespacewar.com/the-space-war.jpg) #000 center top no-repeat fixed;-webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover;}
   .cards img:hover {transform:scale(1.55);box-shadow:0px 0px 150px 10px #000;transition: all 0.1s ease;}
    img.big:hover, img.extra-big:hover {transform:none;}
    .nav {margin-top:20px;margin-bottom: 20px;}
