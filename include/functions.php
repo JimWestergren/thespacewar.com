@@ -127,6 +127,10 @@ function displayCard(int $id) : string
     }
     $r .= '
         <tr>
+            <th>Deck</th>
+            <td>'.$a['deck_name'].'</td>
+        </tr>
+        <tr>
             <th>Copies</th>
             <td>'.$a['copies'].'</td>
         </tr>
@@ -264,8 +268,8 @@ function winnersArrayByUser(string $user) : array
 function leaderboardTable(string $period = 'monthly') : string
 {
     $pdo = PDOWrap::getInstance();
-    $html = '<h2 style="text-align: center">Top 30 - '.ucfirst($period).'</h2>';
-    $html .= '<div style="overflow-x:auto;"><table cellpadding="9">';
+    $html = '<h3 style="text-align: center;margin-top:45px;margin-bottom:-10px;font-size:25px;">Top 30 - '.ucfirst($period).'</h3>';
+    $html .= '<div style="overflow-x:auto;"><table>';
     $html .= '<tr><th>Username</th><th>Wins</th><th>Losses</th><th>Win Rate</th><th>Rating Score</th></tr>';
     $result = $pdo->run("SELECT * FROM users ORDER BY ".$period."_win_count DESC LIMIT 100;")->fetchAll();
     foreach($result as $row) {

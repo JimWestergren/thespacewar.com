@@ -29,13 +29,11 @@ require(ROOT.'view/head.php');
 
 <p style="float: right">[ <a href="/account/edit">Edit Account</a> ]<p>
 
-<p>Logged in as <strong><?=$accunt_row['username']?></strong><br>
-    (<a href="/users/<?=$accunt_row['username']?>">your public stat page</a>)<br>
+<p>Logged in as <a href="/users/<?=$accunt_row['username']?>"><strong><?=$accunt_row['username']?></strong></a><br>
 Representing: <img src="https://staticjw.com/redistats/images/flags/<?=$accunt_row['country']?>.gif"> <?=countryArray()[strtoupper($accunt_row['country'])]?><br>
 
 <p>Rating Score this month: <strong style="font-size:24px;"><?=$rating?></strong></p>
 
-<hr>
 
 <h2>Play Online</h2>
 
@@ -50,7 +48,6 @@ Read this first: alpha testing for desktop and tablets with focus on the browser
 
 <!--<p>Please <a href="https://forms.gle/NqFNyWurCAP9GaZCA" target="_blank">take our survey</a>, you are the best :)</p>-->
 
-<hr>
 
 
 <h2>Your Referrers</h2>
@@ -79,22 +76,13 @@ if (count($result) > 0) {
 </p>
 
 
-<hr>
-
-<style>
-    table.credits {width:100%;font-size: 18px;border:8px solid #666;margin:40px auto;}
-    table.credits tr { background: #000;}
-    table.credits tr:nth-child(odd) { background: #1c1c1c;}
-    table.credits td {padding:9px 10px;}
-</style>
-
 <?php
 
 $total_credits = 0;
 
 echo "<h2>📈 Your Credits (BETA)</h2>";
 
-echo '<table class="credits" cellspacing="0">';
+echo '<table>';
 
 if ($accunt_row['id'] < 5000) {
     $total_credits += 200;
@@ -155,8 +143,8 @@ echo '</td></tr>';
 
 
 echo '<tr><td>10% of all credits earned from your referrals.</td><td>';
-echo $credits_earned_of_referrers/10;
-$total_credits += ($credits_earned_of_referrers/10);
+echo round( ( $credits_earned_of_referrers/10 ) );
+$total_credits += round( ( $credits_earned_of_referrers/10 ) );
 echo '</td></tr>';
 
 
@@ -217,8 +205,6 @@ $pdo->run("UPDATE users SET credits_earned = ? WHERE id = ?", [$total_credits, $
 
 <p>In the future you will be able to use credits to buy cool cosmetic items, enter offical tournaments and play with your constructed decks.</p>
 
-<hr>
-
 
 <h2>Winning over our AI bot</h2>
 
@@ -228,12 +214,9 @@ $pdo->run("UPDATE users SET credits_earned = ? WHERE id = ?", [$total_credits, $
     echo '<p>You did not win over the bot yet.</p>';
 } ?>
 
-<hr>
-
 
 <h2>30 Latest Games Played</h2>
 
-<p>
 <?php
 $scoring_ignored_reasons = scoringIgnoredReasons();
 
@@ -242,21 +225,24 @@ foreach($result as $row) {
     $a['id'] = $row['id'];
     $a['date'] = date('Y-m-d', $row['timestamp']);
     if ($row['length'] > 0) {
-        $a['length'] = gmdate("i:s", $row['length']).' minutes';
+        $a['length'] = gmdate("i:s", $row['length']);
     } else {
-        $a['length'] = 'offline game';
-    }
-    if ($row['ignore_scoring'] > 0) {
-        $a['ignore_scoring'] = ' <span title="'.$scoring_ignored_reasons[$row['ignore_scoring']].'">scoring ignored</span>';
-    } else {
-        $a['ignore_scoring'] = '';
+        $a['length'] = 'Offline';
     }
     if ($row['user_won'] == $accunt_row['id']) {
-        $a['status'] = '<span style="color:green">won</span>';
+        if ($row['ignore_scoring'] > 0) {
+            $a['status'] = '<span title="'.$scoring_ignored_reasons[$row['ignore_scoring']].'">(won)</span>';
+        } else {
+            $a['status'] = '<span style="color:green">won</span>';
+        }
         $a['versus'] = $row['user_lost'];
         $users[] = $row['user_lost'];
     } else {
-        $a['status'] = '<span style="color:red">lost</span>';
+        if ($row['ignore_scoring'] > 0) {
+            $a['status'] = '<span title="'.$scoring_ignored_reasons[$row['ignore_scoring']].'">(lost)</span>';
+        } else {
+            $a['status'] = '<span style="color:red">lost</span>';
+        }
         $a['versus'] = $row['user_won'];
         $users[] = $row['user_won'];
     }
@@ -264,25 +250,30 @@ foreach($result as $row) {
 }
 
 if (isset($array)) {
+    echo '<table>';
+    echo '<tr><th>Date</th><th>Status</th><th>Versus</th><th>Length</th></tr>';
+
     $result = $pdo->run("SELECT * FROM users WHERE `id` IN (".implode(",", array_unique($users)).");")->fetchAll();
     foreach($result as $row) {
         $user[$row['id']] = $row;
     }
 
     foreach($array as $a) {
-        echo $a['date'].' '.$a['status'].' versus <a href="/users/'.$user[$a['versus']]['username'].'">'.$user[$a['versus']]['username'].'</a> <img src="https://staticjw.com/redistats/images/flags/'.$user[$a['versus']]['country'].'.gif"> '.calculateRating($user[$a['versus']]['monthly_win_count'], $user[$a['versus']]['monthly_loss_count'])['rating'].' ('.$a['length'].') '.$a['ignore_scoring'].'<br>';
+        echo '<tr><td>'.$a['date'].'</td><td>'.$a['status'].'</td><td><a href="/users/'.$user[$a['versus']]['username'].'">'.$user[$a['versus']]['username'].'</a> <img src="https://staticjw.com/redistats/images/flags/'.$user[$a['versus']]['country'].'.gif"> '.$user[$a['versus']]['credits_earned'].'</td><td>'.$a['length'].'</td></tr>';
     }
+    echo '</table>';
+} else {
+    echo '<p>None yet :(</p>';
 }
 ?>
-</p>
 
-<hr>
+
+
 <h2>Deck Building</h2>
 
 <p><a href="/account/deck" class='big-button'>Create your Deck</a></p>
 
 
-<hr>
 <h2>Log offline play</h2>
 
 <p>Did you win? Then have the looser to login and log the match here for it to be recorded.</p>
@@ -313,7 +304,7 @@ if (isset($array)) {
 
 <p>It is of course also perfectly fine to play casually without logging the matches. Please agree before starting to play if the match should be logged or not.</p>
 
-<hr>
+
 <h2>Support The Space War</h2>
 
 <p>Please help me with this game. Some things you can do:</p>

@@ -17,16 +17,17 @@ require(ROOT.'view/head.php');
 
 <h2 style='margin-top: 70px;'>Past winners</h2>
 
-<p>
+<table>
+
+
 <?php 
 $winners_array = winnersArray();
-
 foreach ($winners_array as $key => $value) {
-    echo ''.$key.': 🏆 <a href="/users/'.$value['first_username'].'">'.$value['first_username'].'</a> <img src="https://staticjw.com/redistats/images/flags/'.$value['first_country'].'.gif"> | 🥈 <a href="/users/'.$value['second_username'].'">'.$value['second_username'].'</a> <img src="https://staticjw.com/redistats/images/flags/'.$value['second_country'].'.gif"><br>';
+    echo '<tr><td>'.$key.'</td><td>🏆 <a href="/users/'.$value['first_username'].'">'.$value['first_username'].'</a> <img src="https://staticjw.com/redistats/images/flags/'.$value['first_country'].'.gif"></td><td>🥈 <a href="/users/'.$value['second_username'].'">'.$value['second_username'].'</a> <img src="https://staticjw.com/redistats/images/flags/'.$value['second_country'].'.gif"></td></tr>';
 }
 
 ?>
-</p>
+</table>
 <h2>How the Rating Score is calculated</h2>
 
 <p>This is the formula used:<br>
@@ -43,3 +44,21 @@ foreach (scoringIgnoredReasons() as $reason) {
 }
 ?>
 </ul>
+
+<h2>Most Credits Earned</h2>
+
+<table>
+<tr><th>Username</th><th>Credits Earned</th></tr>
+
+<?php
+$pdo = PDOWrap::getInstance();
+$result = $pdo->run("SELECT * FROM users WHERE credits_earned > 200 ORDER BY credits_earned DESC LIMIT 30;")->fetchAll();
+foreach($result as $row) {
+    echo '<tr>
+    <td style="white-space: nowrap"><a href="/users/'.$row['username'].'">'.$row['username'].'</a> <img src="https://staticjw.com/redistats/images/flags/'.$row['country'].'.gif"></td>
+    <td><strong>'.$row['credits_earned'].'</strong></td>
+    </tr>';
+}
+?>
+
+</table>

@@ -30,7 +30,7 @@ $quarterly = calculateRating($row['quarterly_win_count'], $row['quarterly_loss_c
     } ?>
 </p>
 
-<table style="font-size: 20px;margin-bottom:10px;" cellpadding="20">
+<table>
     <tr><th>Period</th><th>Wins</th><th>Losses</th><th>Win Rate</th><th>Rating</th></tr>
     <tr><td>This Month</td><td><?=$row['monthly_win_count']?></td><td><?=$row['monthly_loss_count']?></td><td><?=$monhtly['win_rate']?>%</td><td><strong><?=$monhtly['rating']?></strong></td></tr>
     <tr><td>This Quarter</td><td><?=$row['quarterly_win_count']?></td><td><?=$row['quarterly_loss_count']?></td><td><?=$quarterly['win_rate']?>%</td><td><?=$quarterly['rating']?></td></tr>
@@ -59,7 +59,7 @@ if ($winners_array != []) {
 }
 
 $html = '';
-$result = $pdo->run("SELECT * FROM games_logging, users WHERE `user_won` = ".$row['id']." AND user_lost > 0 AND users.id = user_lost ORDER BY `timestamp` DESC LIMIT 5;")->fetchAll();
+$result = $pdo->run("SELECT * FROM games_logging, users WHERE `user_won` = ".$row['id']." AND ignore_scoring = 0 AND user_lost > 0 AND users.id = user_lost ORDER BY `timestamp` DESC LIMIT 5;")->fetchAll();
 foreach($result as $row2) {
     if ($row2['length'] > 0) {
         $a['length'] = gmdate("i:s", $row2['length']).' minutes';

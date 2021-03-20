@@ -1,38 +1,35 @@
 
 
 <?php if (substr(URL, 0, 8) !== 'account/' && !in_array(URL, ['', 'register', 'print/cards'])) { ?>
-    <hr>
     <div class="print">
-        <p>Print of https://thespacewar.com/<?=URL?></p>
+        <p>__________________________________________________<br>
+            Print of https://thespacewar.com/<?=URL?></p>
     </div>
-    <div class="footer no-print">
-        <?php if (!isset($logged_in) || $logged_in == []) { ?>
+    <?php if (!isset($logged_in) || $logged_in == []) { ?>
+        <div class="footer-cta no-print">
             <p>Enter a username to play for free:</p>
             <form method="post" action="/register">
                 <input type="text" name="username" required minlength="3" maxlength="30" pattern="[a-zA-Z0-9]+" placeholder='Username' title="Numbers or letters only. Minimum 3 characters.">
                 <input type="submit" name="check" value="Play">
             </form>
-        <?php } else { ?>
-            <p></p>
-        <?php } ?>
-    </div>
+        </div>
+    <?php } ?>
     <div style="clear:both;"> </div>
 <?php } ?>
 
 <?php if ((URL != 'cards/' && strpos(URL, 'cards/', 0) === 0) || (URL != 'commanders/' && strpos(URL, 'commanders/', 0) === 0)) {
     echo '</div>';
-}
-?>
-
-
-
-</div>
+} ?>
 
 </div>
 
 <?php if (URL != 'print/cards') { ?>
-    <p class='no-print' style="text-align: center;">&copy; TheSpaceWar.com | <a href="/credits">Full Credits</a><br>Loaded in <?= round(microtime(true) - $_SERVER['REQUEST_TIME_FLOAT'], 2) ?> seconds</p>
+    <div class="footer no-print">
+        <p>&copy; TheSpaceWar.com | <a href="/credits" style="color:#aaa;">Full Credits</a><br>Loaded in <?= round(microtime(true) - $_SERVER['REQUEST_TIME_FLOAT'], 2) ?> seconds</p>
+    </div>
 <?php } ?>
+
+
 
 
 <?php if($_SERVER['HTTP_HOST'] == 'thespacewar.com') { ?>

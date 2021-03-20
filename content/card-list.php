@@ -16,9 +16,12 @@ $table_head = '<tr><th>Deck</th><th>Copies</th><th>Image</th><th>Title</th><th>C
 
 <style>
     .wrap {width:1240px;}
-    table {margin: auto;}
+    table {margin: auto;width:100% !important;}
     table tr {background-color: black !important;}
-    td {padding:15px;text-align: center;}
+    table tr:nth-child(odd) { background: #1c1c1c !important;}
+    td {padding:10px;text-align: center;font-size:16px}
+    input, textarea, select {padding: 3px;margin-bottom: 15px;width: 180px;}
+    select {width: 50px;}
     .dataTables_wrapper .dataTables_length, .dataTables_wrapper .dataTables_filter, .dataTables_wrapper .dataTables_paginate {color:white !important;}
     .dataTables_wrapper .dataTables_paginate .paginate_button {color:white !important}
 </style>

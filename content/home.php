@@ -4,42 +4,79 @@ require(ROOT.'view/head.php');
 ?>
 
 
-<div class="cards" id='home-image'><a href="/cards/the-dark-destroyer"><img src="https://images.thespacewar.com/card-2.jpg"></a></div>
+<style>
+.cards-home {margin:0 auto 40px auto;}
+.cards-home a:hover {padding:0;background:none;}
+.cards-home img {height: 250px;filter:contrast(90%);}
+.cards-home img:hover {}
+@media (max-width: 900px) { /* Mobile */
+    .cards-home {text-align: center;margin-left: 50px;}
+    .cards-home img {height: 150px;transform: rotate(0deg) !important;margin-left:-60px !important;}
+}
+@media (min-width: 900px) { /* Bigger */
+    .cards-home a img:hover {height:400px;box-shadow:0px 0px 150px 10px #000;transition: all 0.1s ease;position: absolute;margin-top: -100px;margin-left:-330px !important;filter:contrast(80%);}
+}
+</style>
 
-<p><strong>The Space War</strong> is a new fast-paced strategic 2 player card game.</p>
+<div class="cards-home">
+    <img src="https://images.thespacewar.com/card-67.jpg" style="transform: rotate(-15deg);margin-left: 125px;">
+    <img src="https://images.thespacewar.com/card-24.jpg" style="transform: rotate(-10deg);margin-left: -108px;">
+    <img src="https://images.thespacewar.com/card-31.jpg" style="transform: rotate(15deg);margin-left: 100px;">
+    <img src="https://images.thespacewar.com/card-13.jpg" style="transform: rotate(10deg);margin-left: -265px;">
+    <a href="/cards/the-dark-destroyer"><img src="https://images.thespacewar.com/card-2.jpg" style="transform: rotate(0deg);margin-left: -282px;"></a>
+</div>
 
-<p>Better than Hearthstone? Better than Magic? Hell yeah! 💪😅 (says the creator).</p>
 
-<p>All cards included for free 👍. More like chess and not a pay-to-win game 😄.</p>
 
 <?php if ($logged_in == []) { ?>
-    <div style="max-width:400px;margin:30px auto 20px auto;">
-    <p>Enter username to play for FREE in your browser:</p>
+    <div style="max-width:400px;margin:30px auto 20px auto;text-align:center ">
+    <p>Play for FREE in your browser:</p>
     <form method="post" action="/register">
         <input type="text" name="username" required minlength="3" maxlength="30" pattern="[a-zA-Z0-9]+" placeholder='Username' title="Numbers or letters only. Minimum 3 characters." style="font-size:20px;">
         <input type="submit" name="check" style="font-size:20px;" value="Play!">
     </form>
     </div>
 
-    <h3 style="margin-bottom: 20px;text-align: center;">🚀 The first 5000 registered users<br>will receive 200  credits free 👍</h3>
+    <h3 style="margin:10px auto 20px auto;text-align: center;border:2px solid #555;padding:14px;display: table;background-color:#1e1e1e85">🚀 The first 5000 users receives 200 credits free 🚀</h3>
 
 <?php } ?>
 
-<p>The game is played the same offline or online in the browser (desktop, tablets and phones).</p>
+<div style="padding: 20px 30px 1px 30px;font-size: 19px;">
+    <p><strong>The Space War</strong> is a new fast-paced strategic 2 player card game.</p>
 
-<p>No booster packs, no RNG cards, no dead cards and no resource cards.</p>
+    <p>Better than Hearthstone? Better than Magic? Hell yeah!! 💪😅</p>
 
-<p>Choose between 3 preset decks or mix and make your own.</p>
+    <p>All cards included directly for free 👍.</p>
+
+    <p>More like chess and not a pay-to-win game 😄.</p>
+
+    <p>The game is played the same offline or online in the browser (desktop, tablet or phone).</p>
+
+    <p>No booster packs, no RNG cards, no dead cards and no resource cards.</p>
+
+    <p>Choose between 3 preset decks or mix the cards and make your own deck.</p>
+
+</div>
+
+<blockquote>
+    <p>The way the stations work, allowing you to customize and manipulate your actions, is very, very clever. I also like how it functions as your life meter, meaning there is no need for health counters.</p>
+    <cite>- Anonymous Cardboard Edison Award Judge</cite>
+ </blockquote>
+
+<blockquote>
+    <p>Very elegant design with solid core and interesting core mechanics.</p>
+    <cite>- Suzanne Zinsli, Cardboard Edison Award Judge</cite>
+ </blockquote>
 
 
 <hr>
 
 <h2>Latest active players</h2>
 
-<div style="font-size: 16px;line-height: 20px">
+<div style="font-size: 15px;line-height: 17px;">
 <?php
 if (apcu_exists('home:latest_active_players')) {
-    echo apcu_fetch('home:latest_active_players');
+    $html = apcu_fetch('home:latest_active_players');
 } else {
     $pdo = PDOWrap::getInstance();
     $result = $pdo->run("SELECT * FROM users ORDER BY lastlogintime DESC LIMIT 50;")->fetchAll();
@@ -49,8 +86,9 @@ if (apcu_exists('home:latest_active_players')) {
     }
     $html = trim($html, ' | ');
     apcu_store('home:latest_active_players', $html, 60*2);
-    echo $html;
+    
 }
+echo $html;
 ?>
 </div>
 
@@ -99,13 +137,12 @@ if (apcu_exists('home:latest_active_players')) {
 
 <hr>
 
-<blockquote><em>"The way the stations work, allowing you to customize and manipulate your actions, is very, very clever. I also like how it functions as your life meter, meaning there is no need for health counters."</em> - Anonymous Cardboard Edison Award Judge</blockquote>
 
-<blockquote><em>"Very elegant design with solid core and interesting core mechanics."</em> - Suzanne Zinsli, Cardboard Edison Award Judge</blockquote>
-
-
-<blockquote><em>"Card games is a big part of my life and I have played many different games the last 25 years including Magic the Gathering, Hearthstone, Dominion, RftG, Star Realms, Doomtrooper, different classic card games and other CCGs but The Space War is what I enjoy most to play in a 2 player game ... by far. We have more than 60 modern board games and I just asked my 10 year old son what is his favorite game of all time and he answered The Space War without any hesitation. I think the same. We have played the game on a regular basis for 2 years now."</em> - Jim Westergren</blockquote>
-
+<blockquote>
+    <p>Card games is a big part of my life and I have played many different games the last 25 years including Magic the Gathering, Hearthstone, Dominion, RftG, Star Realms, Doomtrooper, different classic card games and other CCGs but The Space War is what I enjoy most to play in a 2 player game ... by far.</p>
+    <p>We have more than 60 modern board games and I just asked my 10 year old son what is his favorite game of all time and he answered The Space War without any hesitation. I think the same. We have played the game on a regular basis for 2 years now.</p>
+    <cite>- Jim Westergren</cite>
+ </blockquote>
 
 
 
@@ -122,6 +159,3 @@ if (apcu_exists('home:latest_active_players')) {
 <iframe src="https://discord.com/widget?id=711625253582798852&theme=dark" width="350" height="500" allowtransparency="true" frameborder="0"></iframe>
 -->
 
-
-
-</div>
