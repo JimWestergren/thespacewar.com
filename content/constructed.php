@@ -7,7 +7,7 @@ include(ROOT.'view/head.php');
 
 <p>Constructed means that you play with your own deck that you have created.</p>
 
-<p>You can play The Space War in a constructed format, both offline and online (online coming soon). <a href='/account/deck'>Create your constructed decks on this page</a>.</p>
+<p>You can play The Space War in a constructed format, both offline and online (online coming soon). <a href='/account/deck'>Create your constructed decks on this page</a>. See also <a href='/match'>Rules for an Official Match</a>.</p>
 
 <h2>Constructed Rules</h2>
 
@@ -25,7 +25,7 @@ include(ROOT.'view/head.php');
     <li>None</li>
 </ul>
 
-<h2>Change Log</h2>
+<h2>Changelog During Playtesting</h2>
 
 <ul>
     <li>2020-12-08: First version of these rules.</li>

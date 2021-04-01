@@ -1,13 +1,4 @@
-<?php
-$title_tag = 'Neutralization | TheSpaceWar.com';
-require(ROOT.'view/head.php');
-?>
-
-<h1>Neutralization</h1>
-
 <p>Mostly not needed but when you need it you really need it.</p>
-
-<?= displayCard(12) ?>
 
 <h2>Rule Clarifications</h2>
 
@@ -18,8 +9,16 @@ require(ROOT.'view/head.php');
 
 <h2>List of other duration cards</h2>
 
-<a href="/cards/full-attack"><img src="https://images.thespacewar.com/card-9.jpg"></a>
-<a href="/cards/good-karma"><img src="https://images.thespacewar.com/card-11.jpg"></a>
-<a href="/cards/over-capacity"><img src="https://images.thespacewar.com/card-13.jpg"></a>
-<a href="/cards/avoid"><img src="https://images.thespacewar.com/card-34.jpg"></a>
-<a href="/cards/destiny-decided"><img src="https://images.thespacewar.com/card-64.jpg"></a>
+<?=cardImage('full-attack')?>
+<?=cardImage('good-karma')?>
+<?=cardImage('over-capacity')?>
+<?=cardImage('avoid')?>
+<?=cardImage('destiny-decided')?>
+
+<h2>Changelog During Playtesting</h2>
+
+<ul>
+    <li>Buff in January 2021:<br>Can now be used any time.</li>
+    <li>Buff in November 2019:<br>Can now also be used to destroy a duration card.</li>
+    <li>September 2018: Created.</li>
+</ul>

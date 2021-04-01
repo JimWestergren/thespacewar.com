@@ -108,20 +108,20 @@ if (isset($errors)) {
 
 <h1>Create Free Account</h1>
 
-<p>You will be able to play The Space War Online for free in your browser once you register.</p>
+<p style="text-align: center;">You will be able to play The Space War Online for free in your browser once you register.</p>
 
-<p>The first 5000 registered users will receive 200 credits completely free.</p>
+<p style="text-align: center;">The first 5000 registered users will receive 200 credits completely free.</p>
 
-<form method="post" action="/register">
+<form method="post" action="/register" class="form">
 <?php if (isset($username_available) && $username_available) { ?>
     <div class="good">The username <strong><?=$_POST['username']?></strong> is currently available. Create your account now.</div>
     <input type="hidden" name="username" value="<?=$_POST['username']?>">
 <?php } else { ?>
-    <label>Username/Alias/Name:</label><br>
+    <label>Username:</label><br>
     <?php if (isset($username_available) && $username_available == false) { ?>
         (The username <strong><?=$_POST['username']?></strong> is already taken).<br>
     <?php } ?>
-    <input type="text" name="username" required minlength="3" maxlength="15" pattern="[a-zA-Z0-9]+" placeholder='Username/Alias/Name' value="<?=$a['username'] ?? ''?>" title="Numbers or letters only. Minimum 3 characters."><br>
+    <input type="text" name="username" required minlength="3" maxlength="15" pattern="[a-zA-Z0-9]+" placeholder='Username' value="<?=$a['username'] ?? ''?>" title="Numbers or letters only. Minimum 3 characters."><br>
 <?php } ?>
 <label>Email:</label><br>
 <input type="email" name="email" required placeholder='Email' value='<?=$a['email'] ?? ''?>'><br>
@@ -147,7 +147,7 @@ foreach ($country_array as $code => $name) {
 }
 ?>
 </select><br>
-<input type="submit" name="register" value="Create Account" style="margin:auto;display: block;">
+<input type="submit" name="register" value="Create Account">
 </form>
 
 

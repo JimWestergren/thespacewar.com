@@ -1,16 +1,20 @@
-<?php
-$title_tag = 'Target Missed | TheSpaceWar.com';
-require(ROOT.'view/head.php');
-?>
+<p>Crucial card when you need it. Excellent to be kept as a station card for later use.</p>
 
-<h1>Target Missed</h1>
+<h2>Spaceships with high attack value</h2>
 
-<p>Crucial card when you need it.</p>
-
-<?= displayCard(16) ?>
+<?=cardImage('the-dark-destroyer')?>
+<?=cardImage('starship')?>
+<?=cardImage('the-exterminator')?>
+<?=cardImage('stormfalcon')?>
+<?=cardImage('the-shade')?>
 
 <h2>Cards good against this</h2>
 
-<a href="/cards/destiny-decided"><img src="https://images.thespacewar.com/card-64.jpg"></a>
-<a href="/cards/luck"><img src="https://images.thespacewar.com/card-31.jpg"></a>
+<?=cardImage('destiny-decided')?>
+<?=cardImage('luck')?>
 
+<h2>Changelog During Playtesting</h2>
+
+<ul>
+    <li>September 2018: Created.</li>
+</ul>

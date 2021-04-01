@@ -5,7 +5,6 @@ if ($logged_in === [] || $logged_in['id'] != 1) {
     die();
 }
 
-
 $pdo = PDOWrap::getInstance();
 
 $title_tag = 'Admin | TheSpaceWar.com';
@@ -123,7 +122,7 @@ if (isset($array)) {
 $result = $pdo->run("SELECT * FROM users ORDER BY lastlogintime DESC LIMIT 50;")->fetchAll();
 $html = '';
 foreach($result as $row) {
-    echo '<tr><td>'.date('Y-m-d', $row['lastlogintime']).'</td><td><nobr>'.$row['id'].', '.$row['username'].' <img src="https://staticjw.com/redistats/images/flags/'.$row['country'].'.gif"></nobr></td><td>'.$row['referrer'].'</td><td>'.calculateRating($row['quarterly_win_count'], $row['quarterly_loss_count'])['rating'].'</td><td>'.$row['newsletter'].'</td><td>'.$row['email_status'].'</td></tr>';
+    echo '<tr><td>'.date('Y-m-d', $row['lastlogintime']).'</td><td class="nobr">'.$row['id'].', '.$row['username'].' <img src="https://staticjw.com/redistats/images/flags/'.$row['country'].'.gif"></td><td>'.$row['referrer'].'</td><td>'.calculateRating($row['quarterly_win_count'], $row['quarterly_loss_count'])['rating'].'</td><td>'.$row['newsletter'].'</td><td>'.$row['email_status'].'</td></tr>';
 }
 ?>
 </table>
@@ -137,7 +136,7 @@ foreach($result as $row) {
 $result = $pdo->run("SELECT * FROM users ORDER BY regtime DESC LIMIT 100;")->fetchAll();
 $html = '';
 foreach($result as $row) {
-    echo '<tr><td>'.date('Y-m-d', $row['regtime']).'</td><td><nobr>'.$row['username'].' <img src="https://staticjw.com/redistats/images/flags/'.$row['country'].'.gif"></nobr></td><td>'.$row['referrer'].'</td><td>'.$row['bot_win_fastest_length'].'</td><td>'.$row['newsletter'].'</td><td>'.$row['email_status'].'</td></tr>';
+    echo '<tr><td>'.date('Y-m-d', $row['regtime']).'</td><td class="nobr">'.$row['username'].' <img src="https://staticjw.com/redistats/images/flags/'.$row['country'].'.gif"></td><td>'.$row['referrer'].'</td><td>'.$row['bot_win_fastest_length'].'</td><td>'.$row['newsletter'].'</td><td>'.$row['email_status'].'</td></tr>';
 }
 ?>
 </table>

@@ -12,15 +12,15 @@ function show_cards_by_type_saved_img(array $cards_data, array $cards, string $t
         if (!isset($cards[$value['id']])) continue;
         echo "<div>";
         for ($i=0; $i < $cards[$value['id']]; $i++) {
-            echo "<img style='width:100px;";
+            echo "<img style='";
             $card_count++;
             if ($i > 0) {
                 $margin_top = min(46, 23*$i);
-                echo "margin-left:-100px;margin-top:".$margin_top."px;position:absolute;";
+                echo "margin-top:".$margin_top."px;";
             }
             echo "' src=\"https://images.thespacewar.com/card-".$value['id'].".jpg\">";
             if ($value['id'] == 78 && $cards[$value['id']] > 4) {
-                echo "<div style='position:absolute;margin-left:-68px;margin-top:95px;font-weight:bold;background-color:black;padding:6px;height:23px;width:30px;'>".$cards[$value['id']]."</div>";
+                echo "<div class='extra-count'>".$cards[$value['id']]."</div>";
             }
         }
         echo "</div>";
@@ -164,8 +164,10 @@ require(ROOT.'view/head.php');
     <?php } ?>
     h2 {
         text-align: center;
-        margin-bottom:30px;
+        margin:20px auto 30px auto;
         font-size: 31px;
+        border:none;
+        padding:0;
     }
     .card-selection .card {
         width:143px;
@@ -222,10 +224,63 @@ require(ROOT.'view/head.php');
         height:191px;
         width: 107px;
     }
+    .saved div img {
+        width:100px;
+        position:absolute;
+    }
+    .saved .extra-count {
+        position:absolute;
+        margin-left:-68px;
+        margin-top:95px;
+        font-weight:bold;
+        background-color:black;
+        padding:6px;
+        height:23px;
+        width:30px;
+    }
     .saved div img:hover {
         transform:scale(2.5);
         transition: all 0.2s ease;
         z-index: 99999;
+    }
+    .wrap-deck {
+        width:100%;
+        background-color:#0a0a0a;
+    }
+    .wrap-deck h2 {
+        text-transform: uppercase;
+    }
+    .deck-list {
+        font-family:monospace;
+        font-size:18px;
+        padding:0 0 50px 10px;
+    }
+    @media (min-width: 1000px) { /* Desktop */
+        .wrap-deck {
+            width:100%;
+            background-color:#0a0a0a;
+            padding:80px 35px 35px 35px;
+            border:4px solid #555;
+            border-radius:45px;
+            margin-bottom:50px;
+        }
+        .wrap-deck h2 {
+            position: absolute;
+            margin: -118px 0 0 30px;
+            padding: 14px;
+            background-color: #0a0a0a;
+            border: 4px solid #555;
+            border-bottom: none;
+        }
+        .deck-list {
+            margin:10px 40px 10px 40px;
+            display: flex;
+            width:80%;
+            padding:0 0 0 50px;
+        }
+        .deck-list div {
+            flex: 50%;
+        }
     }
 </style>
 
@@ -235,11 +290,14 @@ if ($edit_deck) {
 
     echo "<p>[ <a href='/account/deck'>← Back to your decks</a> ]</p>";
 
-    echo "<h1>Your Deck \"".$row['deck_name']."\"</h1>";
+    echo "<h1>Your Deck</h1>";
 
-    echo "<p><a href='#edit'>Edit</a> your deck or <a href='".generate_print_url($row['commander'], $cards)."' target='_blank'>print this deck</a>.</p>";
+    echo "<p style='text-align:right;'><a href='#edit'>Edit</a> your deck or <a href='".generate_print_url($row['commander'], $cards)."' target='_blank'>print this deck</a>.</p>";
 
-    echo "<div class='saved'><div><img style='width:100px;' src='https://images.thespacewar.com/commander-".$row['commander'].".png'></div></div>";
+    echo "<div class='wrap-deck'>";
+    echo "<h2>".$row['deck_name']."</h2>";
+
+    echo "<div class='saved'><div><img src='https://images.thespacewar.com/commander-".$row['commander'].".png'></div></div>";
 
     show_cards_by_type_saved_img($cards_data, $cards, 'Spaceship');
     show_cards_by_type_saved_img($cards_data, $cards, 'Event');
@@ -248,7 +306,8 @@ if ($edit_deck) {
     show_cards_by_type_saved_img($cards_data, $cards, 'Defense');
 
     $total_cards = 0;
-    echo "<div style='margin:40px;font-family:monospace;font-size:18px;'>";
+    echo "<div class='deck-list'>";
+    echo '<div>';
     echo '<br>--- Spaceship cards ---<br>';
     $count = show_cards_by_type_saved_text($cards_data, $cards, 'Spaceship');
     echo "= ".$count."<br>";
@@ -257,6 +316,7 @@ if ($edit_deck) {
     $count = show_cards_by_type_saved_text($cards_data, $cards, 'Event');
     echo "= ".$count."<br>";
     $total_cards += $count;
+    echo '</div><div>';
     echo '<br>--- Duration cards ---<br>';
     $count = show_cards_by_type_saved_text($cards_data, $cards, 'Duration');
     echo "= ".$count."<br>";
@@ -270,15 +330,13 @@ if ($edit_deck) {
     echo "= ".$count."<br>";
     $total_cards += $count;
     echo '____________________________<br>';
-    echo $total_cards." total cards<br>";
-    echo "</div>";
+    echo '<strong>'.$total_cards."</strong> total cards<br>";
+    echo "</div></div></div>";
 
     echo "<h1 id='edit'>Edit your deck</h1>";
 
 
 } elseif (!isset($_GET['id']) && !isset($_GET['create'])) {
-
-    echo "<p>[ <a href='/account/'>← Back to Account</a> ]</p>";
 
     echo "<h1>Your Decks</h1>";
 

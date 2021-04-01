@@ -26,36 +26,36 @@ foreach ($commander_data as $commander_slug => $commander) {
 
 <h2>Spaceship Cards</h2>
 
-<img src="https://images.thespacewar.com/card-78.jpg">
-<img src="https://images.thespacewar.com/card-93.jpg">
-<img src="https://images.thespacewar.com/card-90.jpg">
-<img src="https://images.thespacewar.com/card-85.jpg">
-<img src="https://images.thespacewar.com/card-77.jpg">
-<img src="https://images.thespacewar.com/card-80.jpg">
+<?=cardImage('drone')?>
+<?=cardImage('drone-leader')?>
+<?=cardImage('repair-ship')?>
+<?=cardImage('paralyzer')?>
+<?=cardImage('carrier')?>
+<?=cardImage('fusion-ship')?>
 
 <h2>Event Cards</h2>
 
-<img src="https://images.thespacewar.com/card-88.jpg">
-<img src="https://images.thespacewar.com/card-94.jpg">
-<img src="https://images.thespacewar.com/card-86.jpg">
+<?=cardImage('revive-procedure')?>
+<?=cardImage('sacrifice')?>
+<?=cardImage('destroy-duration')?>
 
 <h2>Duration Cards</h2>
 
-<img src="https://images.thespacewar.com/card-91.jpg">
-<img src="https://images.thespacewar.com/card-95.jpg">
-<img src="https://images.thespacewar.com/card-79.jpg">
-<img src="https://images.thespacewar.com/card-87.jpg">
-<img src="https://images.thespacewar.com/card-92.jpg">
-<img src="https://images.thespacewar.com/card-89.jpg">
+<?=cardImage('disturbing-signals')?>
+<?=cardImage('nitro')?>
+<?=cardImage('toxic-gas')?>
+<?=cardImage('base-command-link')?>
+<?=cardImage('collision-skill')?>
+<?=cardImage('time-warp')?>
 
 <h2>Missile Cards</h2>
 
-<img src="https://images.thespacewar.com/card-83.jpg">
-<img src="https://images.thespacewar.com/card-84.jpg">
+<?=cardImage('alien-missile')?>
+<?=cardImage('acid-projectile')?>
 
 <h2>Defense Cards</h2>
 
-<img src="https://images.thespacewar.com/card-81.jpg">
+<?=cardImage('shield')?>
 
 <p>Complete card list in table format can be found <a href='/card-list'>here</a>.</p>
 

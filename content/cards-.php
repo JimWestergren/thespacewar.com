@@ -30,56 +30,56 @@ foreach ($commander_data as $commander_slug => $commander) {
 
 <h2>Spaceship Cards</h2>
 <p>These can move and attack. Sometimes they have special abilities.</p>
-<a href="/cards/the-dark-destroyer"><img src="https://images.thespacewar.com/card-2.jpg"></a>
-<a href="/cards/the-exterminator"><img src="https://images.thespacewar.com/card-1.jpg"></a>
-<a href="/cards/stormfalcon"><img src="https://images.thespacewar.com/card-3.jpg"></a>
-<a href="/cards/titan"><img src="https://images.thespacewar.com/card-4.jpg"></a>
-<a href="/cards/pursuiter"><img src="https://images.thespacewar.com/card-19.jpg"></a>
-<a href="/cards/trigger-happy-joe"><img src="https://images.thespacewar.com/card-24.jpg"></a>
-<a href="/cards/thunderbolt"><img src="https://images.thespacewar.com/card-25.jpg"></a>
-<a href="/cards/the-gladiator"><img src="https://images.thespacewar.com/card-26.jpg"></a>
-<a href="/cards/the-shade"><img src="https://images.thespacewar.com/card-27.jpg"></a>
-<a href="/cards/hunter"><img src="https://images.thespacewar.com/card-28.jpg"></a>
-<a href="/cards/small-repair-ship"><img src="https://images.thespacewar.com/card-29.jpg"></a>
-<a href="/cards/big-repair-ship"><img src="https://images.thespacewar.com/card-30.jpg"></a>
-<a href="/cards/battlestar"><img src="https://images.thespacewar.com/card-32.jpg"></a>
-<a href="/cards/disturbing-sensor"><img src="https://images.thespacewar.com/card-37.jpg"></a>
-<a href="/cards/deadly-sniper"><img src="https://images.thespacewar.com/card-39.jpg"></a>
-<a href="/cards/the-liberator"><img src="https://images.thespacewar.com/card-56.jpg"></a>
+<?=cardImage('the-dark-destroyer')?>
+<?=cardImage('the-exterminator')?>
+<?=cardImage('stormfalcon')?>
+<?=cardImage('titan')?>
+<?=cardImage('pursuiter')?>
+<?=cardImage('trigger-happy-joe')?>
+<?=cardImage('thunderbolt')?>
+<?=cardImage('the-gladiator')?>
+<?=cardImage('the-shade')?>
+<?=cardImage('hunter')?>
+<?=cardImage('small-repair-ship')?>
+<?=cardImage('big-repair-ship')?>
+<?=cardImage('battlestar')?>
+<?=cardImage('disturbing-sensor')?>
+<?=cardImage('deadly-sniper')?>
+<?=cardImage('the-liberator')?>
 
 <h2>Event Cards</h2>
 <p>Playing an event card means that something happens a single time. The card gets placed directly in the discard pile.</p>
-<a href="/cards/excellent-work"><img src="https://images.thespacewar.com/card-14.jpg"></a>
-<a href="/cards/supernova"><img src="https://images.thespacewar.com/card-15.jpg"></a>
-<a href="/cards/target-missed"><img src="https://images.thespacewar.com/card-16.jpg"></a>
-<a href="/cards/missiles-launched"><img src="https://images.thespacewar.com/card-17.jpg"></a>
-<a href="/cards/perfect-plan"><img src="https://images.thespacewar.com/card-18.jpg"></a>
-<a href="/cards/grand-opportunity"><img src="https://images.thespacewar.com/card-20.jpg"></a>
-<a href="/cards/luck"><img src="https://images.thespacewar.com/card-31.jpg"></a>
-<a href="/cards/fatal-error"><img src="https://images.thespacewar.com/card-38.jpg"></a>
-<a href="/cards/discovery"><img src="https://images.thespacewar.com/card-42.jpg"></a>
-<a href="/cards/sabotage"><img src="https://images.thespacewar.com/card-67.jpg"></a>
+<?=cardImage('excellent-work')?>
+<?=cardImage('supernova')?>
+<?=cardImage('target-missed')?>
+<?=cardImage('missiles-launched')?>
+<?=cardImage('perfect-plan')?>
+<?=cardImage('grand-opportunity')?>
+<?=cardImage('luck')?>
+<?=cardImage('fatal-error')?>
+<?=cardImage('discovery')?>
+<?=cardImage('sabotage')?>
 
 <h2>Duration Cards</h2>
 <p>These cards stay on the table and alters the game in some way. The action cost of the card has to be paid for each turn for it to continue be in play.</p>
-<a href="/cards/full-attack"><img src="https://images.thespacewar.com/card-9.jpg"></a>
-<a href="/cards/good-karma"><img src="https://images.thespacewar.com/card-11.jpg"></a>
-<a href="/cards/neutralization"><img src="https://images.thespacewar.com/card-12.jpg"></a>
-<a href="/cards/over-capacity"><img src="https://images.thespacewar.com/card-13.jpg"></a>
-<a href="/cards/avoid"><img src="https://images.thespacewar.com/card-34.jpg"></a>
-<a href="/cards/destiny-decided"><img src="https://images.thespacewar.com/card-64.jpg"></a>
+<?=cardImage('full-attack')?>
+<?=cardImage('good-karma')?>
+<?=cardImage('neutralization')?>
+<?=cardImage('over-capacity')?>
+<?=cardImage('avoid')?>
+<?=cardImage('destiny-decided')?>
 
 <h2>Missile Cards</h2>
 <p>More powerful and quicker than spaceships but they are destroyed when hitting their target.</p>
-<a href="/cards/explosive-missile"><img src="https://images.thespacewar.com/card-5.jpg"></a>
-<a href="/cards/fast-missile"><img src="https://images.thespacewar.com/card-6.jpg"></a>
-<a href="/cards/emp-missile"><img src="https://images.thespacewar.com/card-7.jpg"></a>
-<a href="/cards/nuclear-missile"><img src="https://images.thespacewar.com/card-8.jpg"></a>
+<?=cardImage('explosive-missile')?>
+<?=cardImage('fast-missile')?>
+<?=cardImage('emp-missile')?>
+<?=cardImage('nuclear-missile')?>
 
 <h2>Defense Cards</h2>
 <p>These defends your space station, they cannot move.</p>
-<a href="/cards/energy-shield"><img src="https://images.thespacewar.com/card-21.jpg"></a>
-<a href="/cards/defense-cannon"><img src="https://images.thespacewar.com/card-22.jpg"></a>
+<?=cardImage('energy-shield')?>
+<?=cardImage('defense-cannon')?>
 
 <h2>Station Rule Cards</h2>
 <p>These are for remembering the rules and have no function in the game.</p>

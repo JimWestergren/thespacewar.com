@@ -31,6 +31,7 @@ $internal_redirects = [
     'users/8-augustalex' => 'users/augustalex',
     'account' => 'account/',
     'login' => 'account/',
+    'cards/orders-cancelled' => 'cards/cancel',
 ];
 
 
@@ -104,7 +105,11 @@ if (substr(URL, -1) === '/') {
 }
 
 // The principal routing
-if(file_exists(ROOT.'content/'.$url_to_check.'.php')) {
+if( file_exists( ROOT.'content/'.$url_to_check.'.php' ) ) {
+    if ( substr( $url_to_check, 0, 6 ) === 'cards/' ) {
+        $slug = substr( $url_to_check, 6 );
+        echo displayCard( $slug );
+    }
     include(ROOT.'content/'.$url_to_check.'.php');
     include(ROOT.'view/footer.php');
     die();

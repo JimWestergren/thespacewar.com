@@ -32,10 +32,8 @@ h1, .header h3 {text-align:center;text-transform:uppercase;letter-spacing:5px;ma
 .header h4 {font-size:15px;text-align:center;font-weight:normal;text-transform:uppercase;}
 .wrap {margin:auto;width:800px;max-width:90%;background-color:black;padding:50px 120px;background:rgba(0,0,0,.85);border-radius:5px;}
 .cards img {height:305px;width:219px;margin-right:10px;margin-bottom:10px;}
-.cards h2 {clear:both;}
 .cards th {text-align:right;}
-/* Original size: width:430px;height:600px; */
-img.big, img.extra-big {width:358px;height:500px;border:1px solid #333;filter:contrast(90%);}
+img.big, img.extra-big {width:358px;height:500px;border:1px solid #333;filter:contrast(95%);box-shadow:0 0 11px 5px #666;}
 img.big {float:left;margin-right:40px;margin-bottom:40px;}
 img.extra-big {margin:auto;display:block;margin-top:20px;}
 blockquote {background-color: #171717c7;padding:15px;border-left:5px solid #555;}
@@ -58,11 +56,17 @@ table td, table th {padding:9px 10px;}
 table th {text-align:left;}
 .cards table {width:50%;}
 input, textarea, select {padding: 7px;margin-bottom: 15px;}
-input[type="text"], input[type="email"], input[type="password"], textarea, select {width: 50%;}
+input[type="text"], input[type="email"], input[type="password"], textarea, select {width:50%;background-color:#eee;border:2px solid #a0a0a0;font-size:18px;}
+input[type="submit"] {font-size: 18px;}
+<?php if(URL === 'register') { ?> 
+.form {background-color: #333;padding: 20px 54px 30px 35px;max-width: 391px;margin: auto;}
+.form input .form textarea, .form select {width:100%;}
+.form input[type="submit"] {margin:20px auto 0 auto;display:block;}
+<?php } ?> 
 .print {display:none;}
 hr {border:1px solid #2f4763}
 .footer, .footer-cta {max-width:500px;margin:auto;text-align: center;}
-.footer-cta {margin-top:40px;}
+.footer-cta {margin-top:80px;padding-top:30px;border-top:3px solid #2f4763;}
 .footer {background-color: #00000087;padding:10px;margin-top:10px;border-radius:5px;}
 .footer p {font-size: 14px;color:#ccc;line-height: 15px;margin:0;}
 
@@ -70,6 +74,7 @@ hr {border:1px solid #2f4763}
 .commander .rules {font-size:19px;text-align:center;max-width:500px;margin:35px auto;}
 .commander .lore {font-size:19px;font-style:italic;max-width:600px;margin:35px auto;}
 
+.nobr {white-space: nowrap;}
 .login {float:right;margin-bottom: 20px;}
 .error {border:3px solid red;padding:10px;color:red;margin: 30px}
 .good {border:3px solid #74d474;padding:10px;color:#74d474;margin: 30px}
@@ -84,21 +89,23 @@ a.big-button:hover {text-decoration: underline;}
 .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
 
 
-@media (max-width: 1400px) { /* 1366x768 */
-  .cards img:hover {transform:scale(1.35);box-shadow:0px 0px 150px 10px #000;transition: all 0.1s ease;filter:contrast(90%);}
-  img.big:hover, img.extra-big:hover {transform:none;box-shadow:none;transition:none;}
-}
-
-@media (min-width: 1000px) { /* Desktop, 1920x1080 */
+@media (min-width: 1000px) { /* Desktop */
   .header {display:none;}
-  h2 {margin:50px 0 30px -35px;letter-spacing:1px;border-left:5px solid #b7b7b769;border-top:5px solid #b7b7b769;padding: 9px 0 0 14px}
+  h2 {margin:50px 0 24px -35px;letter-spacing:1px;border-left:5px solid #b7b7b769;border-top:5px solid #b7b7b769;padding: 9px 0 0 14px}
   .logo {background: url(https://images.thespacewar.com/logo.png) center top no-repeat;height:91px;}
   body {background: url(https://images.thespacewar.com/the-space-war.jpg) #000 center top no-repeat fixed;-webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover;}
-  .cards img:hover {transform:scale(1.55);box-shadow:0px 0px 150px 10px #000;transition: all 0.1s ease;}
-   img.big:hover, img.extra-big:hover {transform:none;}
-   .nav {margin-top:20px;margin-bottom: 20px;}
-   table {font-size: 19px;}
+  .cards img:hover {transform:scale(1.5);box-shadow:0px 0px 63px 56px #000;transition: all 0.1s ease;filter:contrast(95%);}
+  .nav {margin-top:20px;margin-bottom: 20px;}
+  table {font-size: 18px;}
 }
+@media (min-width: 1900px) { /* Big Desktop, 1920x1080 */
+  .cards img:hover {transform:scale(1.6);}
+  /*img.big, img.extra-big {width:430px;height:600px;}*/ /* Original size */
+  /*.cards table {width:40%;}*/
+  /*body {color:#bbb;font-size:18px;line-height: 28px; }*/
+}
+
+img.big:hover, img.extra-big:hover {transform:none;box-shadow:0 0 11px 5px #666;transition:none;}
 
 @media (max-width: 900px) { /* Mobile */
   h1 {letter-spacing:4px;font-size:28px;}
@@ -106,7 +113,7 @@ a.big-button:hover {text-decoration: underline;}
   body {padding-top:5px;background:none;background-color: #000;}
   .cards img {width:150px;height:auto;}
   .cards img:hover {transform:none;box-shadow:none;transition:none;filter:none;}
-  img.big, img.extra-big {max-width:90%;width:300px;height:auto;}
+  img.big, img.extra-big {max-width:90%;width:300px;height:auto;margin-left:auto;margin-right:auto;display:block;float:none;}
   .cards table {width:100%;}
   .sub-form {float:none;margin-top:00px}
   .nav {margin-top:-20px;margin-bottom: 20px;}
@@ -120,13 +127,32 @@ a.big-button:hover {text-decoration: underline;}
 }
 
 @media print { 
-   body {background:none;color:#000;padding:0px;margin:0px;font: 10pt Verdana, "Times New Roman", Times, serif;line-height: 1.3;}
+   body {background:none;color:#000;padding:0px;margin:0px;font:9pt Verdana, "Times New Roman", Times, serif !important;line-height: 1.2;}
    .header, .print {display:block;}
    .print {margin-top:50px;}
    .no-print {display:none;}
    h1 {margin-top:-10px;}
+   h2 {margin-top:10px;}
    img {filter:contrast(100%) !important;}
 }
+
+<?php if(URL === '') { ?> 
+.showcase-cards {position: relative; height: 250px;}
+.showcase-cards img {height: 250px;transition: all 0.2s ease;}
+.showcase-cards a {display:block; position: absolute;}
+.showcase-cards a:nth-child(1) {transform: translate(-50%,0) rotate(-15deg); left:25%; z-index:1; }
+.showcase-cards a:nth-child(2) {transform: translate(-50%,0) rotate(-10deg); left:38%; z-index:3; }
+.showcase-cards a:nth-child(3) {transform: translate(-50%,0) rotate(0deg); left:50%; z-index:5; }
+.showcase-cards a:nth-child(4) {transform: translate(-50%,0) rotate(15deg); left:62%; z-index:4; }
+.showcase-cards a:nth-child(5) {transform: translate(-50%,0) rotate(10deg); left:75%; z-index:2; }
+.showcase-cards a:hover {z-index:6; transform: translate(-50%,0) rotate(0deg); }
+.showcase-cards a:hover img {height:400px;box-shadow:0 0 100px 72px #000;margin-top: -70px;filter:contrast(95%);}
+@media (max-width: 900px) {
+  .showcase-cards {height: 150px;}
+  .showcase-cards img {height: 130px;}
+  .showcase-cards a:hover img{height:200px;margin-top:-40px;}
+}
+<?php } ?> 
 
 </style>
 
@@ -162,8 +188,10 @@ a.big-button:hover {text-decoration: underline;}
     [ <a href="/register">Register an account</a> ]
   <?php } elseif (!isset($logged_in) || $logged_in == []) { ?>
     [ <a href="/account/">Login</a> ]
+  <?php } elseif (URL == 'account/') { ?>
+
   <?php } elseif (substr(URL, 0, 8) == 'account/') { ?>
-    [ <a href="/logout">Logout</a> ]
+    [ <a href="/account/">← Back to Account</a> ]
   <?php } else { ?>
     <strong><?=$logged_in['username']?></strong> <img src="https://staticjw.com/redistats/images/flags/<?=$logged_in['country']?>.gif"> | <a href="/account/">Account</a>
   <?php } ?>
@@ -174,13 +202,13 @@ a.big-button:hover {text-decoration: underline;}
 <div style="clear:both;"></div>
 
 <?php if (URL != 'cards/' && strpos(URL, 'cards/', 0) === 0) { ?>
-  <div class="cards">
+  <div class="cards" style="margin-top:-40px;">
     <p><a href="/cards/">← CARD LIST</a></p>
     <div style="text-align:center;margin-bottom:-10px;">- CARD -</div>  
 <?php } ?>
 
 <?php if (URL != 'commanders/' && strpos(URL, 'commanders/', 0) === 0) { ?>
-  <div class="cards commander">
+  <div class="cards commander" style="margin-top:-40px;">
     <p><a href="/cards/">← CARD LIST</a></p>
     <div style="text-align:center;margin-bottom:-10px;">- COMMANDER CARD -</div>
 <?php } ?>

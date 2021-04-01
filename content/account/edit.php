@@ -122,7 +122,6 @@ if (isset($errors)) {
 }
 ?>
 
-<p style="float: right">[ <a href="/account/">← Back to Account</a> ]<p>
 <h1>Account Edit</h1>
 
 <form method="post" action="/account/edit">

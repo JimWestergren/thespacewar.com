@@ -1,16 +1,15 @@
-<?php
-$title_tag = 'Fatal Error | TheSpaceWar.com';
-require(ROOT.'view/head.php');
-?>
-
-<h1>Fatal Error</h1>
-
 <p>Fatal Error is really a key card in your deck. How and when you play can really determine if you win or loose.</p>
-
-<?= displayCard(38) ?>
 
 <h2>What can stop Fatal Error?</h2>
 
-<a href="/cards/luck"><img src="https://images.thespacewar.com/card-31.jpg"></a>
-<a href="/cards/destiny-decided"><img src="https://images.thespacewar.com/card-64.jpg"></a>
-<a href="/cards/avoid"><img src="https://images.thespacewar.com/card-34.jpg"></a>
+<?=cardImage('luck')?>
+<?=cardImage('destiny-decided')?>
+<?=cardImage('avoid')?>
+
+<h2>Changelog During Playtesting</h2>
+
+<ul>
+    <li>Nerf in May 2020:<br>Used to cost 0 with the following text: "Destroy a flipped station card [ OR ] destroy any non-station card and the opponent may draw 2 cards.". But after creating the United Stars deck this did not work good considering the Starship card.</li>
+    <li>September 2018: Created.</li>
+</ul>
+

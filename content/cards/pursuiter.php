@@ -1,13 +1,4 @@
-<?php
-$title_tag = 'Pursuiter | TheSpaceWar.com';
-require(ROOT.'view/head.php');
-?>
-
-<h1>Pursuiter</h1>
-
 <p>Pursuiter is a really great card for just 1 action cost.</p>
-
-<?= displayCard(19) ?>
 
 <h2>Rule clarifications</h2>
 
@@ -18,7 +9,14 @@ require(ROOT.'view/head.php');
 
 <h2>Good targets for collision</h2>
 
-<a href="/cards/deadly-sniper"><img src="https://images.thespacewar.com/card-39.jpg"></a>
-<a href="https://thespacewar.com/cards/disturbing-sensor"><img src="https://images.thespacewar.com/card-37.jpg"></a>
-<a href="/cards/stormfalcon"><img src="https://images.thespacewar.com/card-3.jpg"></a>
+<?=cardImage('deadly-sniper')?>
+<?=cardImage('disturbing-sensor')?>
+<?=cardImage('stormfalcon')?>
+
+<h2>Changelog During Playtesting</h2>
+
+<ul>
+    <li>Nerf in April 2019:<br>Cannot anymore do collision the first turn.</li>
+    <li>September 2018: Created.</li>
+</ul>
 

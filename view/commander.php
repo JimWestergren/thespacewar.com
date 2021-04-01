@@ -29,6 +29,25 @@ require(ROOT.'view/head.php');
 <?php } ?>
 
 
+<h2>Changelog During Playtesting</h2>
+
+<ul>
+    <?php if ( $data['name'] == 'Frank Johnson' ) { ?>
+        <li>Nerf in June 2020: Maximum reduced from 11 to 10.</li>
+    <?php } ?>
+    <?php if ( $data['name'] == 'Nicia Satu' ) { ?>
+        <li>Buff in December 2020: "Energy Shield" changed to "any shield".</li>
+        <li>Buff in August 2019: Added that you begin with Energy Shield in play.</li>
+    <?php } ?>
+    <?php if ( in_array( $data['name'], ['Liana Henders', 'Zyre'] ) ) { ?>
+        <li>January 2020: Created.</li>
+    <?php } elseif ( in_array( $data['name'], ['Capt. Shera Kinson', 'Capt. Wayne McCarter', 'Zuuls', 'Naalox', 'Staux', 'Crakux'] ) ) { ?>
+        <li>July 2020: Created.</li>
+    <?php } else { ?>
+        <li>June 2019: Created.</li>
+    <?php } ?>
+</ul>
+
 <h2>Other Commanders</h2>
 
 <?php

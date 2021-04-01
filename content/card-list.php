@@ -51,9 +51,8 @@ foreach ($array as $key => $value) {
         $value['defense'] = '';
     }
     echo "<tr><td>".$value['deck_name']."</td><td>".$value['copies']."</td><td>";
-    if ($value['deck_name'] == 'The Terrans') {
-        $slug = strtolower(str_replace(' ', '-', $value['title']));
-        echo "<a href='/cards/".$slug."'><img src='https://images.thespacewar.com/card-".$value['id'].".jpg' style='height:80px;'></a>";
+    if (true) {
+        echo "<a href='/cards/".titleToSlug($value['title'])."'><img src='https://images.thespacewar.com/card-".$value['id'].".jpg' style='height:80px;'></a>";
     } else if ($value['artist'] != ''){
         echo "<img src='https://images.thespacewar.com/card-".$value['id'].".jpg' style='height:80px;'>";
     }

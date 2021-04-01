@@ -6,20 +6,20 @@ require(ROOT.'view/head.php');
 <h1>News</h1>
 
 
-<h2>Current activities (Mars 2021)</h2>
+<h2>Current activities (April 2021)</h2>
 
 <ul>
     <li>Making the online game work on mobile phones.</li>
     <li>Playtesting <a href='/constructed'>constructed play</a> offline.</li>
     <li>The cards of <a href='/united-stars'>The United Stars</a> are being added to the online game.</li>
-    <li>Some smaller promotions to get external testers of the online version.</li>
-    <li>Fixing bugs in the online version</li>
-    <li>Sound effects and new background music for the online game.</li>
+    <!--<li>Some smaller promotions to get external testers of the online version.</li>-->
+    <li>Fixing bugs in the online version.</li>
 </ul>
 
 <h2>To do later</h2>
 
 <ul>
+    <li>Sound effects and new background music for the online game.</li>
     <li>Better in game tutorial.</li>
     <li>Enabling <a href='/constructed'>constructed play</a> online.</li>
     <li>Launch kickstarter.</li>
@@ -30,33 +30,38 @@ require(ROOT.'view/head.php');
 <h2>Completed</h2>
 
 <ul>
-    <li>Jim is learning basic video editing.</li>
-    <li>2 new commanders: <a href='/commanders/liana-henders'>Liana Henders</a> and <a href='/commanders/zyre'>Zyre</a>.</li>
-    <li>Creating deck building functionality on the website.</li>
-    <li>Play testing of <a href='/the-swarm'>The Swarm cards</a> and the <a href='/united-stars'>The United Stars cards</a>.</li>
-    <li>Making the AI bot more intelligent</li>
+    <li>Adding changelog to all the cards and making final(?) revisions to some cards (March 2021).</li>
+    <li>Adding pages to the website for all the cards of <a href='/the-swarm'>The Swarm</a> and the <a href='/united-stars'>The United Stars</a> decks (March 2021).</li>
+    <li>Jim is learning basic video editing (January 2021).</li>
+    <li>2 new commanders: <a href='/commanders/liana-henders'>Liana Henders</a> and <a href='/commanders/zyre'>Zyre</a> (January 2021).</li>
+    <li>Creating deck building functionality on the website (December 2020).</li>
+    <li>Playtesting of <a href='/the-swarm'>The Swarm cards</a> and the <a href='/united-stars'>The United Stars cards</a>.</li>
+    <li>Making the AI bot more intelligent (October-November 2020)</li>
     <li>Making the online game work on tablets and smaller desktop screens.</li>
-    <li>Illustrations for <a href='/the-swarm'>The Swarm cards</a></li>
+    <li>Illustrations for <a href='/the-swarm'>The Swarm cards</a> (August 2020)</li>
     <li>In general making it easier for new players to learn to play.</li>
-    <li>The cards of <a href='/the-swarm'>The Swarm</a> are being added to the online game.</li>
-    <li>Commander cards for both the <a href='/the-swarm'>The Swarm</a> and the <a href='/united-stars'>The United Stars</a> deck.</li>
-    <li>Illustrations for <a href='/united-stars'>The United Stars cards</a></li>
-    <li>Find a new Node.js developer to takeover the development of the online version</li>
+    <li>The cards of <a href='/the-swarm'>The Swarm</a> added to the online game.</li>
+    <li>Commander cards for both the <a href='/the-swarm'>The Swarm</a> and the <a href='/united-stars'>The United Stars</a> deck (July 2020).</li>
+    <li>Find new Node.js developers to takeover the development of the online version (June 2020)</li>
+    <li>Illustrations for <a href='/united-stars'>The United Stars cards</a> (April 2020)</li>
     <li>Videos for online play, embed on the website</li>
-    <li>Integrations of the rating and account system for the online version</li>
+    <li>Integrations of the rating and account system for the online version (April 2020)</li>
     <li>Videos for physical play, embed on the website</li>
-    <li>New website with account registration.</li>
-    <li>Ideas for a third deck of cards.</li>
-    <li>Rating system for online play</li>
-    <li><a href='/cards/'>The Terrans deck cards</a> and <a href='/rules'>Game rules</a> has been tested and revised until satisfaction (100+ plays)</li>
-    <li>Illustrations for the <a href='/cards/'>The Terrans deck cards</a></li>
-    <li>Custom card generator script built</li>
-    <li>Card template design</li>
+    <li>Creating the list of cards for The United Stars deck (February - April 2020).</li>
+    <li>New website with account registration (December 2019).</li>
+    <li>Creating the list of cards for The Swarm deck (September 2019).</li>
+    <li>Rating system for online play (July 2019)</li>
+    <li><a href='/cards/'>The Terrans deck cards</a> and <a href='/rules'>Game rules</a> has been tested and revised until satisfaction (100+ plays, July-October 2018)</li>
+    <li>Commander cards for the <a href='/cards/'>The Terrans deck</a> (June 2019).</li>
+    <li>Custom card generator script completed (December 2018)</li>
+    <li>Illustrations for the <a href='/cards/'>The Terrans deck cards</a> (August-September 2018)</li>
+    <li>Card template design (December 2018)</li>
+    <li>Game Rules (July-October 2018)</li>
 </ul>
 
 <h2>Current playtesting questions</h2>
 
 <ul>
-    <li>Is the <a href='https://images.thespacewar.com/card-210.jpg'>Meteor Shower</a> too good versus <a href='/the-swarm'>The Swarm</a>? Probably yes but there are now only 1 copy in the deck.</li>
-    <li>Is the <a href='https://images.thespacewar.com/card-221.jpg'>Deploy Starship</a> too good together with <a href='https://images.thespacewar.com/card-78.jpg'>Drones</a> when playing constructed?</li>
+    <li>Is the <a href='/cards/meteor-shower'>Meteor Shower</a> too good versus <a href='/the-swarm'>The Swarm</a>? Probably yes but there are now only 1 copy in the deck.</li>
+    <li>Is the <a href='/cards/deploy-starship'>Deploy Starship</a> too good together with <a href='/cards/drone'>Drones</a> when playing constructed?</li>
 </ul>

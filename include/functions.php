@@ -55,14 +55,6 @@ function getCardData() : array
        return apcu_fetch('getCardData');
     }
 
-    $json = file_get_contents('https://admin.thespacewar.com/services/api/cards?deck=all');
-    //$json = file_get_contents('/var/www/play.thespacewar.com/server/card/rawCardData.cache.json');
-
-    // Failing for some reason
-    if (substr_count($json, '"id":') < 20) return false;
-
-    $json = json_decode($json);
-
     $type = [
         'blue' => 'Spaceship',
         'red' => 'Missile',
@@ -76,9 +68,82 @@ function getCardData() : array
         2 => 'The Swarm',
         3 => 'United Stars',
     ];
-    foreach ($json as $k => $v) {
-        $cards_array[$v->id] = [
+
+    // Instant speed, but has a delay. Updates has to be commited
+    $json = file_get_contents('/var/www/play.thespacewar.com/server/card/rawCardData.cache.json');
+    $time_to_cache = 3600*3; // 3 hours
+
+    // Failing for some reason
+    if (true || substr_count($json, '"id":') < 20) {
+        // Takes 0.8 seconds to fetch!
+        // This is from the original server
+        $json = file_get_contents('https://admin.thespacewar.com/services/api/cards?deck=all');
+        $time_to_cache = 3600*12; // 12 hours
+
+        $json = json_decode($json);
+
+        foreach ($json as $k => $v) {
+            $slug = titleToSlug($v->name);
+            $cards_array[$slug] = [
+                'id' => $v->id,
+                'slug' => $slug,
+                'title' => $v->name,
+                'cost' => $v->price,
+                'type' => $type[$v->type_card],
+                'attack' => $v->attack,
+                'defense' => $v->defense,
+                'copies' => $v->number_copies,
+                'text' => $v->detail,
+                'artist' => $v->author,
+                'deck_id' => $v->deck,
+                'deck_name' => $deck[$v->deck],
+            ];
+        }
+        apcu_store('getCardData', $cards_array, $time_to_cache); // 3 hours
+        return $cards_array;
+    }
+
+    $json = json_decode($json);
+
+    foreach ($json->data->regular as $k => $v) {
+        $slug = titleToSlug($v->name);
+        $cards_array[$slug] = [
             'id' => $v->id,
+            'slug' => $slug,
+            'title' => $v->name,
+            'cost' => $v->price,
+            'type' => $type[$v->type_card],
+            'attack' => $v->attack,
+            'defense' => $v->defense,
+            'copies' => $v->number_copies,
+            'text' => $v->detail,
+            'artist' => $v->author,
+            'deck_id' => $v->deck,
+            'deck_name' => $deck[$v->deck],
+        ];
+    }
+    foreach ($json->data->theSwarm as $k => $v) {
+        $slug = titleToSlug($v->name);
+        $cards_array[$slug] = [
+            'id' => $v->id,
+            'slug' => $slug,
+            'title' => $v->name,
+            'cost' => $v->price,
+            'type' => $type[$v->type_card],
+            'attack' => $v->attack,
+            'defense' => $v->defense,
+            'copies' => $v->number_copies,
+            'text' => $v->detail,
+            'artist' => $v->author,
+            'deck_id' => $v->deck,
+            'deck_name' => $deck[$v->deck],
+        ];
+    }
+    foreach ($json->data->unitedStars as $k => $v) {
+        $slug = titleToSlug($v->name);
+        $cards_array[$slug] = [
+            'id' => $v->id,
+            'slug' => $slug,
             'title' => $v->name,
             'cost' => $v->price,
             'type' => $type[$v->type_card],
@@ -92,15 +157,27 @@ function getCardData() : array
         ];
     }
 
+
     apcu_store('getCardData', $cards_array, 3600*3); // 3 hours
     return $cards_array;
 }
 
-function displayCard(int $id) : string
-{
-    $a = getCardData()[$id];
 
-    $r = '<img src="https://images.thespacewar.com/card-'.$a['id'].'.jpg" class="big">
+function displayCard(string $slug) : string
+{
+    global $logged_in;
+
+    $a = getCardData()[$slug] ?? [];
+
+    if ( !isset( $a['title'] ) ) {
+        dieWith404('<p>This page does not exist</p>');
+    }
+
+    $title_tag = $a['title'].' | TheSpaceWar.com';
+    require(ROOT.'view/head.php');
+
+    $r = '<h1>'.$a['title'].'</h1>';
+    $r .= '<img src="https://images.thespacewar.com/card-'.$a['id'].'.jpg" class="big">
     <table>
         <tr>
             <th>Title</th>
@@ -144,11 +221,11 @@ function displayCard(int $id) : string
         </tr>
     </table>';
 
+    $r .= '<div style="clear:both"></div>';
+
     return $r;
 
 }
-
-
 /* 
 Explanation of Score:
 It is the same as Win Rate, but with an exception if less than a certain amount of wins has been achieved the score is decreased.
@@ -173,6 +250,8 @@ function calculateRating(int $win_count, int $loss_count) : array
     return $ret;
 }
 
+
+/* Not used anymore
 function calculateBonus(int $user_id, int $rating, int $bot_win_fastest_length, string $period = 'monthly') : int
 {
     $pdo = PDOWrap::getInstance();
@@ -192,6 +271,7 @@ function calculateBonus(int $user_id, int $rating, int $bot_win_fastest_length, 
     return (int) $bonus;
 
 }
+*/
 
 function set_cookie(string $name, string $value, int $expires) : void
 {
@@ -216,6 +296,8 @@ function setLoginCookie(array $a, int $rating) : string
 function winnersArray() : array
 {
     return [
+        'First Quarter 2021' => ['first_username' => 'Alvin', 'first_country' => 'se', 'second_username' => 'Jim', 'second_country' => 'se'],
+        'March 2021' => ['first_username' => 'Alvin', 'first_country' => 'se', 'second_username' => 'Demencia', 'second_country' => 'ar'],
         'February 2021' => ['first_username' => 'Alvin', 'first_country' => 'se', 'second_username' => 'Jim', 'second_country' => 'se'],
         'January 2021' => ['first_username' => 'Jim', 'first_country' => 'se', 'second_username' => 'TWRWMOM', 'second_country' => 'br'],
         'Fourth Quarter 2020' => ['first_username' => 'Jim', 'first_country' => 'se', 'second_username' => 'Alvin', 'second_country' => 'se'],
@@ -233,6 +315,11 @@ function winnersArray() : array
 
 function winnersArrayByUser(string $user) : array
 {
+    // TODO 🥉
+    $a['Alvin'][] = ['period' => 'First Quarter 2021', 'position' => '🏆'];
+    $a['Jim'][] = ['period' => 'First Quarter 2021', 'position' => '🥈'];
+    $a['Alvin'][] = ['period' => 'March 2021', 'position' => '🏆'];
+    $a['Demencia'][] = ['period' => 'March 2021', 'position' => '🥈'];
     $a['Alvin'][] = ['period' => 'February 2021', 'position' => '🏆'];
     $a['Jim'][] = ['period' => 'February 2021', 'position' => '🥈'];
     $a['Jim'][] = ['period' => 'January 2021', 'position' => '🏆'];
@@ -697,4 +784,43 @@ function scoringIgnoredReasons() : array
         1 => 'Winner already won twice same day against same opponent.',
         2 => 'Winner already had more than 2000 monthly rating score compared to the opponent.',
     ];
+}
+
+
+function titleToSlug(string $title) : string
+{
+    $slug = strtolower($title);
+
+    // Lazy hack
+    if ($slug === 'déjà vu') return 'deja-vu';
+
+    $slug = str_replace(' ', '-', $slug);
+
+    return $slug;
+}
+
+function cardImage(string $slug) : string
+{
+    $a = getCardData()[$slug] ?? [];
+
+    if ( $a === [] ) return '';
+
+    return '<a href="/cards/'.$slug.'"><img src="https://images.thespacewar.com/card-'.$a['id'].'.jpg" alt="Card: '.$a['title'].'"></a>';
+
+}
+
+function getRandomCard() : string
+{
+    $array = getCardData();
+
+    // 3 preset decks, each having 60 cards = 180 cards.
+    foreach ($array as $key => $value) {
+        for ($i=0; $i < $value['copies']; $i++) { 
+            $new_array[] = $key;
+        }
+    }
+
+    $random_card = array_rand($new_array, 1);
+
+    return $new_array[$random_card];
 }

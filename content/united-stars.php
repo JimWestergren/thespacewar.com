@@ -33,7 +33,7 @@ foreach ($commander_data as $commander_slug => $commander) {
 $cards_array = getCardData();
 foreach ($cards_array as $key => $value) {
     if ( $value['deck_id'] != 3 || $value['type'] != 'Spaceship' ) continue;
-    echo "<img src='https://images.thespacewar.com/card-".$value['id'].".jpg'>";
+    echo "<a href='/cards/".titleToSlug($value['title'])."'><img src='https://images.thespacewar.com/card-".$value['id'].".jpg'></a>";
 } ?>
 
 <h2>Event Cards</h2>
@@ -42,7 +42,7 @@ foreach ($cards_array as $key => $value) {
 $cards_array = getCardData();
 foreach ($cards_array as $key => $value) {
     if ( $value['deck_id'] != 3 || $value['type'] != 'Event' ) continue;
-    echo "<img src='https://images.thespacewar.com/card-".$value['id'].".jpg'>";
+    echo "<a href='/cards/".titleToSlug($value['title'])."'><img src='https://images.thespacewar.com/card-".$value['id'].".jpg'></a>";
 } ?>
 
 <h2>Duration Cards</h2>
@@ -51,7 +51,7 @@ foreach ($cards_array as $key => $value) {
 $cards_array = getCardData();
 foreach ($cards_array as $key => $value) {
     if ( $value['deck_id'] != 3 || $value['type'] != 'Duration' ) continue;
-    echo "<img src='https://images.thespacewar.com/card-".$value['id'].".jpg'>";
+    echo "<a href='/cards/".titleToSlug($value['title'])."'><img src='https://images.thespacewar.com/card-".$value['id'].".jpg'></a>";
 } ?>
 
 
@@ -61,7 +61,7 @@ foreach ($cards_array as $key => $value) {
 $cards_array = getCardData();
 foreach ($cards_array as $key => $value) {
     if ( $value['deck_id'] != 3 || $value['type'] != 'Missile' ) continue;
-    echo "<img src='https://images.thespacewar.com/card-".$value['id'].".jpg'>";
+    echo "<a href='/cards/".titleToSlug($value['title'])."'><img src='https://images.thespacewar.com/card-".$value['id'].".jpg'></a>";
 } ?>
 
 
@@ -71,7 +71,7 @@ foreach ($cards_array as $key => $value) {
 $cards_array = getCardData();
 foreach ($cards_array as $key => $value) {
     if ( $value['deck_id'] != 3 || $value['type'] != 'Defense' ) continue;
-    echo "<img src='https://images.thespacewar.com/card-".$value['id'].".jpg'>";
+    echo "<a href='/cards/".titleToSlug($value['title'])."'><img src='https://images.thespacewar.com/card-".$value['id'].".jpg'></a>";
 } ?>
 
 <p>Complete card list in table format can be found <a href='/card-list'>here</a>.</p>

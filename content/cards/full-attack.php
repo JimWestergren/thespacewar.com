@@ -1,22 +1,20 @@
-<?php
-$title_tag = 'Full Attack | TheSpaceWar.com';
-require(ROOT.'view/head.php');
-?>
-
-<h1>Full Attack</h1>
-
 <p>This is truly a card that has made people win in this game. It has a high cost but makes your spaceships so much better.</p>
-
-<?= displayCard(9) ?>
 
 <h2>Good against this</h2>
 
-<a href="/cards/neutralization"><img src="https://images.thespacewar.com/card-12.jpg"></a>
-<a href="/cards/supernova"><img src="https://images.thespacewar.com/card-15.jpg"></a>
-<a href="/cards/target-missed"><img src="https://images.thespacewar.com/card-16.jpg"></a>
+<?=cardImage('neutralization')?>
+<?=cardImage('supernova')?>
+<?=cardImage('target-missed')?>
 
 <h2>Good with this</h2>
 
-<a href="/cards/destiny-decided"><img src="https://images.thespacewar.com/card-64.jpg"></a>
-<a href="/cards/trigger-happy-joe"><img src="https://images.thespacewar.com/card-24.jpg"></a>
+<?=cardImage('destiny-decided')?>
+<?=cardImage('trigger-happy-joe')?>
+
+<h2>Changelog During Playtesting</h2>
+
+<ul>
+    <li>Nerf in January 2020:<br>Used to cost 3 and also made your spaceships fast. But I changed because it would be too good when playing constructed and using a deck similar to The Swarm.</li>
+    <li>September 2018: Created.</li>
+</ul>
 

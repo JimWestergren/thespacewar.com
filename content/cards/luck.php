@@ -1,41 +1,42 @@
-<?php
-$title_tag = 'Luck | TheSpaceWar.com';
-require(ROOT.'view/head.php');
-?>
-
-<h1>Luck</h1>
-
 <p>Luck is one of those cards you get happy to get on your hand. With it you can counter a majority of the cards in the opponents deck.</p>
 
-<?= displayCard(31) ?>
+<h2>Cards commonly countered by Luck</h2>
 
-<h2>List of cards costing 2 or less</h2>
-
-<a href="/cards/pursuiter"><img src="https://images.thespacewar.com/card-19.jpg"></a>
-<a href="/cards/trigger-happy-joe"><img src="https://images.thespacewar.com/card-24.jpg"></a>
-<a href="/cards/thunderbolt"><img src="https://images.thespacewar.com/card-25.jpg"></a>
-<a href="/cards/the-gladiator"><img src="https://images.thespacewar.com/card-26.jpg"></a>
-<a href="/cards/small-repair-ship"><img src="https://images.thespacewar.com/card-29.jpg"></a>
-<a href="/cards/excellent-work"><img src="https://images.thespacewar.com/card-14.jpg"></a>
-<a href="/cards/target-missed"><img src="https://images.thespacewar.com/card-16.jpg"></a>
-<a href="/cards/perfect-plan"><img src="https://images.thespacewar.com/card-18.jpg"></a>
-<a href="/cards/luck"><img src="https://images.thespacewar.com/card-31.jpg"></a>
-<a href="/cards/discovery"><img src="https://images.thespacewar.com/card-42.jpg"></a>
-<a href="/cards/sabotage"><img src="https://images.thespacewar.com/card-67.jpg"></a>
-<a href="/cards/good-karma"><img src="https://images.thespacewar.com/card-11.jpg"></a>
-<a href="/cards/neutralization"><img src="https://images.thespacewar.com/card-12.jpg"></a>
-<a href="/cards/over-capacity"><img src="https://images.thespacewar.com/card-13.jpg"></a>
-<a href="/cards/avoid"><img src="https://images.thespacewar.com/card-34.jpg"></a>
-<a href="/cards/destiny-decided"><img src="https://images.thespacewar.com/card-64.jpg"></a>
-<a href="/cards/explosive-missile"><img src="https://images.thespacewar.com/card-5.jpg"></a>
-<a href="/cards/fast-missile"><img src="https://images.thespacewar.com/card-6.jpg"></a>
-<a href="/cards/emp-missile"><img src="https://images.thespacewar.com/card-7.jpg"></a>
-<a href="/cards/nuclear-missile"><img src="https://images.thespacewar.com/card-8.jpg"></a>
-<a href="/cards/defense-cannon"><img src="https://images.thespacewar.com/card-22.jpg"></a>
+<?=cardImage('fast-missile')?>
+<?=cardImage('explosive-missile')?>
+<?=cardImage('cancel')?>
+<?=cardImage('drone')?>
+<?=cardImage('perfect-plan')?>
+<?=cardImage('avoid')?>
+<?=cardImage('target-missed')?>
+<?=cardImage('surprise-attack')?>
+<?=cardImage('return')?>
+<?=cardImage('toxic-gas')?>
+<?=cardImage('destroy-duration')?>
+<?=cardImage('neutralization')?>
+<?=cardImage('destiny-decided')?>
 
 <h2>What can stop Luck?</h2>
 
-<a href="/cards/luck"><img src="https://images.thespacewar.com/card-31.jpg"></a>
-<a href="/cards/avoid"><img src="https://images.thespacewar.com/card-34.jpg"></a>
-<a href="/cards/destiny-decided"><img src="https://images.thespacewar.com/card-64.jpg"></a>
+<?=cardImage('luck')?>
+<?=cardImage('fate')?>
+<?=cardImage('avoid')?>
+<?=cardImage('cancel')?>
+<?=cardImage('destiny-decided')?>
+<?=cardImage('time-warp')?>
 
+<h2>Compare With</h2>
+
+<?=cardImage('fate')?>
+
+<h2>Changelog During Playtesting</h2>
+
+<ul>
+    <li>Nerf in March 2021:<br>Or draw 2 cards was changed to or draw 2 card.</li>
+    <li>September 2018: Created.</li>
+</ul>
+
+<h2>Design Notes From Jim</h2>
+
+<p>Probably the best counter card in the game. Fun card to play with and one of those cards that makes The Space War the game it is.</p>
+<p>All constructed decks will probably have 3 copies of this card, but I am ok with that. It is not too powerful.</p> 

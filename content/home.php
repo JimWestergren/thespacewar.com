@@ -3,29 +3,13 @@ $title_tag = 'The Space War Expandable Card Game';
 require(ROOT.'view/head.php');
 ?>
 
-
-<style>
-.cards-home {margin:0 auto 40px auto;}
-.cards-home a:hover {padding:0;background:none;}
-.cards-home img {height: 250px;filter:contrast(90%);}
-.cards-home img:hover {}
-@media (max-width: 900px) { /* Mobile */
-    .cards-home {text-align: center;margin-left: 50px;}
-    .cards-home img {height: 150px;transform: rotate(0deg) !important;margin-left:-60px !important;}
-}
-@media (min-width: 900px) { /* Bigger */
-    .cards-home a img:hover {height:400px;box-shadow:0px 0px 150px 10px #000;transition: all 0.1s ease;position: absolute;margin-top: -100px;margin-left:-330px !important;filter:contrast(80%);}
-}
-</style>
-
-<div class="cards-home">
-    <img src="https://images.thespacewar.com/card-67.jpg" style="transform: rotate(-15deg);margin-left: 125px;">
-    <img src="https://images.thespacewar.com/card-24.jpg" style="transform: rotate(-10deg);margin-left: -108px;">
-    <img src="https://images.thespacewar.com/card-31.jpg" style="transform: rotate(15deg);margin-left: 100px;">
-    <img src="https://images.thespacewar.com/card-13.jpg" style="transform: rotate(10deg);margin-left: -265px;">
-    <a href="/cards/the-dark-destroyer"><img src="https://images.thespacewar.com/card-2.jpg" style="transform: rotate(0deg);margin-left: -282px;"></a>
+<div class="showcase-cards">
+    <?=cardImage('fast-missile')?>
+    <?=cardImage('trigger-happy-joe')?>
+    <?=cardImage('the-dark-destroyer')?>
+    <?=cardImage('luck')?>
+    <?=cardImage('time-warp')?>
 </div>
-
 
 
 <?php if ($logged_in == []) { ?>
@@ -37,11 +21,11 @@ require(ROOT.'view/head.php');
     </form>
     </div>
 
-    <h3 style="margin:10px auto 20px auto;text-align: center;border:2px solid #555;padding:14px;display: table;background-color:#1e1e1e85">🚀 The first 5000 users receives 200 credits free 🚀</h3>
+    <h3 style="margin:10px auto 0 auto;text-align: center;border:2px solid #555;padding:14px;display: table;background-color:#1e1e1e85">🚀 The first 5000 users receives 200 credits free 🚀</h3>
 
 <?php } ?>
 
-<div style="padding: 20px 30px 1px 30px;font-size: 19px;">
+<div style="padding: 50px 30px 1px 30px;font-size: 19px;">
     <p><strong>The Space War</strong> is a new fast-paced strategic 2 player card game.</p>
 
     <p>Better than Hearthstone? Better than Magic? Hell yeah!! 💪😅</p>

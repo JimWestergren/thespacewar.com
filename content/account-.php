@@ -10,7 +10,6 @@ $accunt_row = $pdo->run("SELECT * FROM users WHERE id = ? LIMIT 1", [$logged_in[
 $ip = IpToNumberWithCountry($_SERVER['HTTP_CF_CONNECTING_IP']);
 $pdo->run("UPDATE users SET ip_latest = ?, lastlogintime = ? WHERE id = ?", [$ip, TIMESTAMP, $accunt_row['id']]);
 $rating = calculateRating($accunt_row['monthly_win_count'], $accunt_row['monthly_loss_count'])['rating'];
-//$bonus = calculateBonus($accunt_row['id'], $rating, $accunt_row['bot_win_fastest_length']);
 
 // Rating has been updated, we update the cookie
 if ($logged_in['rating'] != $rating) {
@@ -27,7 +26,7 @@ require(ROOT.'view/head.php');
     echo '<div class="error">Your email is not verified, click the link in the email</div>';
 } ?>
 
-<p style="float: right">[ <a href="/account/edit">Edit Account</a> ]<p>
+<p style="float: right">[ <a href="/account/edit">Edit Account</a> ]<br>[ <a href="/logout">Logout</a> ]<p>
 
 <p>Logged in as <a href="/users/<?=$accunt_row['username']?>"><strong><?=$accunt_row['username']?></strong></a><br>
 Representing: <img src="https://staticjw.com/redistats/images/flags/<?=$accunt_row['country']?>.gif"> <?=countryArray()[strtoupper($accunt_row['country'])]?><br>
@@ -290,7 +289,7 @@ if (isset($array)) {
 <form action='/log-game' method='post'>
     <table cellpadding="10" class="log-offline">
         <tr><td>
-    <label>Username of the winner:</label><br>
+    <label>Winner is:</label><br>
     <input type="text" name="username" required minlength="3" maxlength="30" pattern="[a-zA-Z0-9]+" placeholder='Username' value="<?=$a['username'] ?? ''?>" title="Numbers or letters only. Minimum 3 characters.">
     </td><td>
     <label>Date played:</label><br>
