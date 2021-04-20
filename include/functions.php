@@ -176,8 +176,8 @@ function displayCard(string $slug) : string
     $title_tag = $a['title'].' | TheSpaceWar.com';
     require(ROOT.'view/head.php');
 
-    $r = '<h1>'.$a['title'].'</h1>';
-    $r .= '<img src="https://images.thespacewar.com/card-'.$a['id'].'.jpg" class="big">
+    $return = '<h1>'.$a['title'].'</h1>';
+    $return .= '<img src="https://images.thespacewar.com/card-'.$a['id'].'.jpg" class="big">
     <table>
         <tr>
             <th>Title</th>
@@ -192,7 +192,7 @@ function displayCard(string $slug) : string
             <td>'.$a['type'].'</td>
         </tr>';
     if ($a['type'] != 'Event' && $a['type'] != 'Duration') {
-        $r .= '
+        $return .= '
         <tr>
             <th>Attack</th>
             <td>'.$a['attack'].'</td>
@@ -202,7 +202,7 @@ function displayCard(string $slug) : string
             <td>'.$a['defense'].'</td>
         </tr>';
     }
-    $r .= '
+    $return .= '
         <tr>
             <th>Deck</th>
             <td>'.$a['deck_name'].'</td>
@@ -221,9 +221,34 @@ function displayCard(string $slug) : string
         </tr>
     </table>';
 
-    $r .= '<div style="clear:both"></div>';
+    $return .= '<div style="clear:both"></div>';
 
-    return $r;
+    $nft_first_edition = getNFTFirstEdition();
+
+    if ( !isset($nft_first_edition[$slug] ) ) return $return;
+    if ( $nft_first_edition[$slug]['token_id'] === '' ) return $return;
+    
+    if ( apcu_exists( 'first_edition_owner:'.$slug ) ) {
+        $owner = (int) apcu_fetch( 'first_edition_owner:'.$slug );
+        $owner_opensea = apcu_fetch( 'first_edition_owner_opensea:'.$slug );
+    } else {
+        $owner = $nft_first_edition[$slug]['owner'];
+        $owner_opensea = $nft_first_edition[$slug]['owner_opensea'];
+    }
+
+    if ( $owner == 0 && $owner_opensea === '' ) {
+        $nft_info = '<a href="https://opensea.io/assets/0x495f947276749ce646f68ac8c248420045cb7b5e/'.$nft_first_edition[$slug]['token_id'].'?ref=0x7897aef045c31882eac1717fab943703d1dd40e7" target="_blank">Buy it now</a> (<a href="/first-edition">info</a>)';
+    } elseif ( $owner == 0 ) {
+        $nft_info = 'Owned by '.$owner_opensea.'<br><a href="https://opensea.io/assets/0x495f947276749ce646f68ac8c248420045cb7b5e/'.$nft_first_edition[$slug]['token_id'].'?ref=0x7897aef045c31882eac1717fab943703d1dd40e7" target="_blank">Submit offer</a> (<a href="/first-edition">info</a>)';
+    } else {
+        $pdo = PDOWrap::getInstance();
+        $row = $pdo->run("SELECT username, country FROM users WHERE id = ? LIMIT 1", [$owner])->fetch();
+        $nft_info = 'Owned by <a href="/users/'.$row['username'].'" style="padding-right:20px;background:url(https://staticjw.com/redistats/images/flags/'.$row['country'].'.gif) no-repeat center right;">'.$row['username'].'</a><br><a href="https://opensea.io/assets/0x495f947276749ce646f68ac8c248420045cb7b5e/'.$nft_first_edition[$slug]['token_id'].'?ref=0x7897aef045c31882eac1717fab943703d1dd40e7" target="_blank">Submit offer</a> (<a href="/first-edition">info</a>)';
+    }
+
+    $return = str_replace('</table>', '<tr><th>NFT</th><td>'.$nft_info.'</td></tr></table>', $return);
+
+    return $return;
 
 }
 /* 
@@ -801,6 +826,13 @@ function titleToSlug(string $title) : string
 
 function cardImage(string $slug) : string
 {
+    if ( substr( $slug, 0, 10 ) === 'commander-' ) {
+        $slug = substr( $slug, 10 );
+        $a = commanderData()[$slug] ?? [];
+        if ( $a === [] ) return '';
+        return '<a href="/commanders/'.$slug.'"><img src="https://images.thespacewar.com/commander-'.$a['id'].'.png"></a>';
+    }
+
     $a = getCardData()[$slug] ?? [];
 
     if ( $a === [] ) return '';
@@ -824,3 +856,6 @@ function getRandomCard() : string
 
     return $new_array[$random_card];
 }
+
+
+

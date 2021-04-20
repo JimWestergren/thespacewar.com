@@ -3,7 +3,6 @@
 <h2>Spaceships with high attack value</h2>
 
 <?=cardImage('the-dark-destroyer')?>
-<?=cardImage('starship')?>
 <?=cardImage('the-exterminator')?>
 <?=cardImage('stormfalcon')?>
 <?=cardImage('the-shade')?>

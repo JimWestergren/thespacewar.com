@@ -36,7 +36,7 @@ Representing: <img src="https://staticjw.com/redistats/images/flags/<?=$accunt_r
 
 <h2>Play Online</h2>
 
-<p>First time playing? Please see <a href="https://thespacewar.com/videos" target="_blank">our videos</a> how to play first. It will be much easier for you.</p>
+<p>First time playing? Please see <a href="/videos" target="_blank">our videos</a> how to play first. It will be much easier for you.</p>
 
 <p><a href="https://play.thespacewar.com/" class='big-button'>Start to play</a><br>
 Read this first: alpha testing for desktop and tablets with focus on the browsers Chrome and Firefox, mobile phone does not work good yet. If the game hangs reload the page and please send us a bug report.</p>
@@ -190,6 +190,15 @@ echo '<tr><td>600 credits for each quarterly gold medal.</td><td>';
 echo 600*$quarterly_gold_medals;
 $total_credits += (600*$quarterly_gold_medals);
 echo '</td></tr>';
+
+echo '<tr><td>1000 credits for each <a href="/first-edition">First Edition NFT</a> you own.</td><td>';
+$amount_of_nft = count(getFirstEditionNFTbyUser($logged_in['id']));
+echo 1000*$amount_of_nft;
+$total_credits += (1000*$amount_of_nft);
+echo '</td></tr>';
+
+
+
 
 echo '<tr><td style="text-align:right">Total Saved:</td><td>';
 echo '<strong>'.$total_credits.'</strong>';

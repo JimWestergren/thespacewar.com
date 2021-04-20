@@ -67,6 +67,9 @@ $pdo->run("ALTER TABLE users ADD bot_win_fastest_time INT(10) UNSIGNED NOT NULL 
 $pdo->run("ALTER TABLE users ADD bot_win_fastest_length INT(10) UNSIGNED NOT NULL DEFAULT 0 AFTER bot_win_fastest_time;");
 */
 
+// Show info for updating the getNFTFirstEdition array:
+getUpdateInfoNFTFirstEdition();
+
 $thirty_days_ago = TIMESTAMP-(3600*24*30);
 
 ?>
@@ -140,3 +143,31 @@ foreach($result as $row) {
 }
 ?>
 </table>
+
+
+<h2>Data for the NFTs:</h2>
+
+<?php
+
+$cards = getNFTFirstEdition();
+foreach ($cards as $slug => $value) {
+
+    if ($value['token_id'] != '') continue;
+
+    $nft_code = $slug.':'.$value['nft_id'].':';
+    $nft_code .= sha1( $slug.$value['nft_id'].SECRET_SALT_NFT_CODE );
+    $simple_hash = substr( md5( $nft_code ), -15 );
+
+    if ( substr( $slug, 0, 10 ) === 'commander-' ) {
+        $slug2 = substr( $slug, 10 );
+        $card_name = commanderData()[$slug2]['name'] ?? '';
+        $card_url = 'https://thespacewar.com/commanders/'.$slug2;
+    } else {
+        $card_name = getCardData()[$slug]['title'] ?? '';
+        $card_url = 'https://thespacewar.com/cards/'.$slug;
+    }
+
+    //echo $slug.":<br>img_id: ".$value['img_id']."<br>price: ".$value['price']."<br>nft_code: ".$nft_code."<br>img_filename: ".$slug."-".$simple_hash.".png<br>title: ".$card_name." • Card ".$value['nft_id']." of 102 (Physical Signed Card + NFT)<br><br>";
+    echo $card_name." • Card ".$value['nft_id']." of 102 (Physical Signed Card + NFT)<br>".$card_url."<br>".$nft_code."<br>Price: ".$value['price']."<br><br>";
+}
+

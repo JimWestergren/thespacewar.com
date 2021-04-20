@@ -152,7 +152,19 @@ img.big:hover, img.extra-big:hover {transform:none;box-shadow:0 0 11px 5px #666;
   .showcase-cards img {height: 130px;}
   .showcase-cards a:hover img{height:200px;margin-top:-40px;}
 }
+<?php } ?>
+
+
+<?php if(URL === 'first-edition') { ?> 
+.nftcards {display:inline-block;text-align:center;line-height:20px;font-size: 14px;padding:5px 5px 15px 5px;}
+.nftcards img {margin-top:5px;height:200px;width:143px;}
+@media (min-width: 1000px) { /* Desktop */
+    .nftcards {font-size: 16px;padding:15px;}
+    .nftcards img {height:305px;width:219px;}
+    .nftcards:hover {transform:scale(1.7);transition: all 0.2s ease;padding: 20px;background-color:#000;box-shadow:0 0 11px 5px #666;}
+}
 <?php } ?> 
+
 
 </style>
 

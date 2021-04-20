@@ -4,12 +4,14 @@
 
 <ul>
     <li>Yes, it can repair itself.</li>
-    <li>No, it cannot repair anything nor itself if it has been paralyzed by EMP Missile.</li>
+    <li>No, it cannot repair anything nor itself if it has been paralyzed.</li>
 </ul>
 
-<h2>Compare to</h2>
+<h2>Compare With</h2>
 
 <?=cardImage('small-repair-ship')?>
+<?=cardImage('repair-ship')?>
+
 
 <h2>Changelog During Playtesting</h2>
 

@@ -5,6 +5,9 @@
     <li>You play against a deck that has few but big cards to put in play.</li>
 </ul>
 
+<h2>Works Very Good With</h2>
+
+<?=cardImage('return')?>
 
 <h2>Changelog During Playtesting</h2>
 

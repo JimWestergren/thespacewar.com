@@ -9,6 +9,7 @@ require(ROOT.'view/head.php');
 <h2>Current activities (April 2021)</h2>
 
 <ul>
+    <li><a href='/first-edition'>First Edition Cards as NFTs</a></li>
     <li>Making the online game work on mobile phones.</li>
     <li>Playtesting <a href='/constructed'>constructed play</a> offline.</li>
     <li>The cards of <a href='/united-stars'>The United Stars</a> are being added to the online game.</li>

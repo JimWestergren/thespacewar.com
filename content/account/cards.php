@@ -62,3 +62,14 @@ require(ROOT.'view/head.php');
 
 <h3>What About Rarity of Cards?</h3>
 <p>With "random card" is meant the same as if you would mix all the cards of the preset decks together and pick 1 card at random. Meaning that for example there is a higher chance to receive Drone (15 copies) than for example Titan (1 copy). The mixing is reset for each card you buy, even if you buy several the same time.</p>
+
+
+<style>
+.frame {width: 209px;overflow: hidden;border: 15px solid transparent;border-image:url(http://develop.innova-cube.com/thespacewar/border-2.png) 25 round;display:inline-block;}
+.frame img {height:305px;width:219px;margin-left: -5px;margin-top: -5px;margin-bottom: -5px;}
+
+</style>
+
+<div class="frame"><img src="https://images.thespacewar.com/card-78.jpg"></div>
+<div class="frame"><img src="https://images.thespacewar.com/card-78.jpg"></div>
+<div class="frame"><img src="https://images.thespacewar.com/card-78.jpg"></div>

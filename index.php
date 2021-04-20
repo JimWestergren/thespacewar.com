@@ -10,6 +10,7 @@ define('URL', urldecode(ltrim(parse_url($_SERVER['REQUEST_URI'])['path'], '/')))
 
 include(ROOT.'../other/secret.php');
 include(ROOT.'include/functions.php');
+include(ROOT.'include/nft-functions.php');
 include(ROOT.'include/PDOWrap.php');
 
 

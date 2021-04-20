@@ -1,3 +1,8 @@
+<h2>Compare With</h2>
+
+<?=cardImage('nuclear-missile')?>
+<?=cardImage('defense-cannon')?>
+
 <h2>Changelog During Playtesting</h2>
 
 <ul>

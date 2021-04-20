@@ -3,6 +3,8 @@
 <h2>Good cards with this</h2>
 
 <?=cardImage('over-capacity')?>
+<?=cardImage('secret-deposit')?>
+<?=cardImage('commander-the-miller')?>
 
 <h2>Changelog During Playtesting</h2>
 

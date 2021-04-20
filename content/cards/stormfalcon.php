@@ -3,6 +3,12 @@
 <h2>Cards Good Against This</h2>
 
 <?=cardImage('hunter')?>
+<?=cardImage('surprise-attack')?>
+
+<h2>Cards Good With Stormfalcon</h2>
+
+<?=cardImage('nitro')?>
+<?=cardImage('target-missed')?>
 
 <h2>Changelog During Playtesting</h2>
 

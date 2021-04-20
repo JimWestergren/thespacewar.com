@@ -32,7 +32,7 @@
 <h2>Changelog During Playtesting</h2>
 
 <ul>
-    <li>Nerf in March 2021:<br>Or draw 2 cards was changed to or draw 2 card.</li>
+    <li>Nerf in March 2021:<br>"Or draw 2 cards" was changed to "or draw 1 card".</li>
     <li>September 2018: Created.</li>
 </ul>
 

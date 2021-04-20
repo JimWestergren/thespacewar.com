@@ -1,3 +1,12 @@
+<h2>Examples of Great Targets</h2>
+
+<?=cardImage('starhunter')?>
+<?=cardImage('fusion-ship')?>
+<?=cardImage('stormfalcon')?>
+<?=cardImage('disturbing-sensor')?>
+<?=cardImage('hacker')?>
+<?=cardImage('hunter')?>
+
 <h2>Changelog During Playtesting</h2>
 
 <ul>

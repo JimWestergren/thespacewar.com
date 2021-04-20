@@ -29,6 +29,9 @@ require(ROOT.'view/head.php');
 <?php } ?>
 
 
+<?=displayCardNFTinfo('commander-'.$slug)?>
+
+
 <h2>Changelog During Playtesting</h2>
 
 <ul>
