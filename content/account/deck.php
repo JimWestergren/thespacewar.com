@@ -230,7 +230,7 @@ require(ROOT.'view/head.php');
     }
     .saved .extra-count {
         position:absolute;
-        margin-left:-68px;
+        margin-left:30px;
         margin-top:95px;
         font-weight:bold;
         background-color:black;

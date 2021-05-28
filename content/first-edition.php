@@ -17,7 +17,7 @@ if ( isset( $_POST['code'] ) && isset( $logged_in['id'] ) ) {
         } elseif ( $verify === 'alread_owner' ) {
             echo '<div class="good">You are already the registered owner of this NFT. All is good.</div>';
         } elseif ( $verify === 'opensea_api_error' ) {
-            echo '<div class="error">The NFT code is correct but I could not check the owner using the OpenSea API. Please contact us for a solution.</div>';
+            echo '<div class="error">The NFT code is correct but I could not check the owner using the OpenSea API. Try to add a username first in your OpenSea account or contact us for a solution.</div>';
         } elseif ( $verify === 'owner_not_changed' ) {
             echo '<div class="error">The NFT code is correct but the owner of this NFT did not change on OpenSea.</div>';
         } elseif ( $verify === 'all_ok' ) {
@@ -84,7 +84,7 @@ foreach ( $nft_first_edition as $card_slug => $array ) {
     if ( $array['token_id'] == '' ) {
         echo 'To be listed';
     } elseif ( $array['owner_opensea'] != '' ) {
-        echo 'Sold';
+        echo '<strong>Sold</strong>';
     } else {
         echo $array['price'].' ETH';
     }

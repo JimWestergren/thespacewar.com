@@ -38,6 +38,8 @@ Representing: <img src="https://staticjw.com/redistats/images/flags/<?=$accunt_r
 
 <p>First time playing? Please see <a href="/videos" target="_blank">our videos</a> how to play first. It will be much easier for you.</p>
 
+<p class="mobile-only" style="color:red;">Does not work good at all in mobile phones, play using desktop or tablet.</p>
+
 <p><a href="https://play.thespacewar.com/" class='big-button'>Start to play</a><br>
 Read this first: alpha testing for desktop and tablets with focus on the browsers Chrome and Firefox, mobile phone does not work good yet. If the game hangs reload the page and please send us a bug report.</p>
 
@@ -52,6 +54,7 @@ Read this first: alpha testing for desktop and tablets with focus on the browser
 <h2>Your Referrers</h2>
 
 <p>Your referrer URL: <code>https://thespacewar.com/?referrer=<?=$accunt_row['id']?></code></p>
+<p>People registering using your referrer URL will receive 50 extra credits, and you will earn 10 + 10% of all your referrers.</p>
 
 
 <h3>30 Latest Referrers:</h3>
@@ -85,9 +88,13 @@ echo '<table>';
 
 if ($accunt_row['id'] < 5000) {
     $total_credits += 200;
-    echo '<tr><td>200 credits for being one of the first 5 000 to register account.</td><td>200</td></tr>';
+    echo '<tr><td>Bonus: 200 credits for being one of the first 5 000 to register account.</td><td>200</td></tr>';
 }
 
+if ( is_numeric( $accunt_row['referrer'] ) ) {
+    $total_credits += 50;
+    echo '<tr><td>Bonus: 50 credits for being referred by another user.</td><td>50</td></tr>';
+}
 
 $days_registered = round((TIMESTAMP-$accunt_row['regtime'])/(3600*24));
 $total_credits += $days_registered;
@@ -95,8 +102,8 @@ echo '<tr><td>1 credit for each day you have been registered.</td><td>'.$days_re
 
 
 
-echo '<tr><td>5 credits for verifying your email.</td><td>';
-if ($accunt_row['email_status'] > 1) {
+echo '<tr><td>5 credits for verifying your email and subscribing to monthly newsletter.</td><td>';
+if ($accunt_row['email_status'] > 1 && $accunt_row['newsletter'] == 1) {
     echo 5;
     $total_credits += 5;
 } else {
@@ -228,7 +235,7 @@ $pdo->run("UPDATE users SET credits_earned = ? WHERE id = ?", [$total_credits, $
 <?php
 $scoring_ignored_reasons = scoringIgnoredReasons();
 
-$result = $pdo->run("SELECT * FROM games_logging WHERE `user_won` = ".$accunt_row['id']." OR `user_lost` = ".$accunt_row['id']." AND user_lost > 0 ORDER BY `timestamp` DESC LIMIT 30;")->fetchAll();
+$result = $pdo->run("SELECT * FROM games_logging WHERE `user_won` = ".$accunt_row['id']." OR `user_lost` = ".$accunt_row['id']." AND user_lost > 0 ORDER BY `timestamp` DESC, id DESC LIMIT 30;")->fetchAll();
 foreach($result as $row) {
     $a['id'] = $row['id'];
     $a['date'] = date('Y-m-d', $row['timestamp']);

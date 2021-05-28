@@ -140,7 +140,13 @@ if (isset($errors)) {
 <label>Repeat password (write to change):</label><br>
 <input type="password" name="new_password2" minlength="5" placeholder='Repeat new password' value='<?=$_POST['new_password2'] ?? ''?>' title="Minimum 5 characters."><br>
 <label>Receive monthly emails about tournaments, prices etc:</label><br>
-<input type="checkbox" name='newsletter' value="1" <?php if ($a['newsletter'] == 1) echo 'checked' ?>><br>
+<input type="checkbox" name='newsletter' id="newsletter" onclick="switchSmiley()" value="1" <?php if ($a['newsletter'] == 1) echo 'checked' ?>> 
+<?php if ($a['newsletter'] == 1) {
+    echo '<span id="sad_smiley" style="display:none">😟 😢</span><span id="happy_smiley" style="display:inline">😃 👍</span>';
+} else {
+    echo '<span id="sad_smiley" style="display:inline">😟 😢</span><span id="happy_smiley" style="display:none">😃 👍</span>';
+} ?>
+<br>
 
 <label>Country you want to represent:</label><br>
 <select name='country'>
@@ -171,4 +177,17 @@ foreach ($country_array as $code => $name) {
 </form>
 
 
-
+<script>
+function switchSmiley() {
+  var checkBox = document.getElementById("newsletter");
+  var sad_smiley = document.getElementById("sad_smiley");
+  var happy_smiley = document.getElementById("happy_smiley");
+  if (checkBox.checked == true){
+    sad_smiley.style.display = "none";
+    happy_smiley.style.display = "inline";
+  } else {
+     sad_smiley.style.display = "inline";
+     happy_smiley.style.display = "none";
+  }
+}
+</script>

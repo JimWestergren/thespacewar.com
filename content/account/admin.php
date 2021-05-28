@@ -13,10 +13,11 @@ require(ROOT.'view/head.php');
 
 //$pdo->run("ALTER TABLE users ADD credits_earned INT(10) UNSIGNED NOT NULL DEFAULT 0 AFTER newsletter;");
 
-
-//$pdo->run("DELETE FROM games_logging WHERE id = 112;");
-//$pdo->run("UPDATE users SET monthly_win_count = monthly_win_count-1, quarterly_win_count = quarterly_win_count-1 WHERE id = ?;", [1]);
-//$pdo->run("UPDATE users SET monthly_loss_count = monthly_loss_count-1, quarterly_loss_count = quarterly_loss_count-1 WHERE id = ?;", [2]);
+/*
+$pdo->run("DELETE FROM games_logging WHERE id = 131;");
+$pdo->run("UPDATE users SET monthly_win_count = monthly_win_count-1, quarterly_win_count = quarterly_win_count-1 WHERE username = ?;", ['Luna']);
+$pdo->run("UPDATE users SET monthly_loss_count = monthly_loss_count-1, quarterly_loss_count = quarterly_loss_count-1 WHERE username = ?;", ['Alvin']);
+*/
 
 /*
 // MONTHLY

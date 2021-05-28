@@ -106,11 +106,21 @@ if (isset($errors)) {
 }
 ?>
 
+
+
 <h1>Create Free Account</h1>
 
 <p style="text-align: center;">You will be able to play The Space War Online for free in your browser once you register.</p>
 
 <p style="text-align: center;">The first 5000 registered users will receive 200 credits completely free.</p>
+
+<?php if ( isset( $_COOKIE['referrer'] ) && is_numeric( $_COOKIE['referrer'] ) ) {
+    $pdo = PDOWrap::getInstance();
+    $referring_user = $pdo->run("SELECT username FROM users WHERE id = ? LIMIT 1", [$_COOKIE['referrer']])->fetch();
+    if ( isset( $referring_user['username'] ) ) {
+        echo '<p style="text-align: center;">You are being referred by <strong>'.$referring_user['username'].'</strong> - you will get an extra <strong>50</strong> credits if you signup now.</p>';
+    }
+} ?>
 
 <form method="post" action="/register" class="form">
 <?php if (isset($username_available) && $username_available) { ?>
@@ -129,8 +139,8 @@ if (isset($errors)) {
 <input type="password" name="password" required minlength="5" placeholder='Password' value='<?=$password_form ?? ''?>' title="Minimum 5 characters."><br>
 <label>Repeat password:</label><br>
 <input type="password" name="password2" required minlength="5" placeholder='Repeat password' value='<?=$password_form ?? ''?>' title="Minimum 5 characters."><br>
-<label>Receive monthly emails about tournaments, prices etc:</label><br>
-<input type="checkbox" name='newsletter' value="1" <?php if (isset($_POST['newsletter'])) echo 'checked' ?>><br>
+<label>Receive monthly emails about tournaments, prices, kickstarter launch etc:</label><br>
+<input type="checkbox" id="newsletter" onclick="switchSmiley()" name='newsletter' value="1" <?php if (isset($_POST['newsletter'])) echo 'checked' ?>> <span id="sad_smiley" style="display:inline">😟 😢</span><span id="happy_smiley" style="display:none">😃 👍</span><br>
 
 <label>Country you want to represent:</label><br>
 <select name='country'>
@@ -149,6 +159,22 @@ foreach ($country_array as $code => $name) {
 </select><br>
 <input type="submit" name="register" value="Create Account">
 </form>
+
+
+<script>
+function switchSmiley() {
+  var checkBox = document.getElementById("newsletter");
+  var sad_smiley = document.getElementById("sad_smiley");
+  var happy_smiley = document.getElementById("happy_smiley");
+  if (checkBox.checked == true){
+    sad_smiley.style.display = "none";
+    happy_smiley.style.display = "inline";
+  } else {
+     sad_smiley.style.display = "inline";
+     happy_smiley.style.display = "none";
+  }
+}
+</script>
 
 
 <?php

@@ -23,7 +23,13 @@ require(ROOT.'view/head.php');
 <?php 
 $winners_array = winnersArray();
 foreach ($winners_array as $key => $value) {
-    echo '<tr><td>'.$key.'</td><td class="nobr">🏆 <a href="/users/'.$value['first_username'].'">'.$value['first_username'].'</a> <img src="https://staticjw.com/redistats/images/flags/'.$value['first_country'].'.gif"></td><td class="nobr">🥈 <a href="/users/'.$value['second_username'].'">'.$value['second_username'].'</a> <img src="https://staticjw.com/redistats/images/flags/'.$value['second_country'].'.gif"></td></tr>';
+    echo '<tr><td>'.$key.'</td><td class="nobr">🏆 <a href="/users/'.$value['first_username'].'">'.$value['first_username'].'</a> <img src="https://staticjw.com/redistats/images/flags/'.$value['first_country'].'.gif"></td><td class="nobr">🥈 <a href="/users/'.$value['second_username'].'">'.$value['second_username'].'</a> <img src="https://staticjw.com/redistats/images/flags/'.$value['second_country'].'.gif"></td>';
+    if ( isset( $value['third_username'] ) ) {
+        echo '<td class="nobr">🥉 <a href="/users/'.$value['third_username'].'">'.$value['third_username'].'</a> <img src="https://staticjw.com/redistats/images/flags/'.$value['third_country'].'.gif"></td>';
+    } else {
+        echo '<td></td>';
+    }
+    echo '</tr>';
 }
 
 ?>
@@ -52,7 +58,7 @@ foreach (scoringIgnoredReasons() as $reason) {
 
 <?php
 $pdo = PDOWrap::getInstance();
-$result = $pdo->run("SELECT * FROM users WHERE credits_earned > 210 ORDER BY credits_earned DESC LIMIT 30;")->fetchAll();
+$result = $pdo->run("SELECT * FROM users WHERE credits_earned > 250 ORDER BY credits_earned DESC LIMIT 20;")->fetchAll();
 foreach($result as $row) {
     echo '<tr>
     <td class="nobr"><a href="/users/'.$row['username'].'">'.$row['username'].'</a> <img src="https://staticjw.com/redistats/images/flags/'.$row['country'].'.gif"></td>

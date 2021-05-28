@@ -46,7 +46,7 @@ h2 {margin-bottom:15px;margin-top:50px;}
 h3 {margin-bottom:5px;margin-top:15px;}
 p {margin: 0 0 20px 0;}
 code {background-color: #555;padding:3px 6px;}
-a:hover {color:#2f4763;}
+a:hover {color:#68a;}
 span.active {padding:5px 0;background-color:#555;}
 
 table {border-spacing:0;width:100%;border:8px solid #666;margin:40px auto;margin:40px auto;}
@@ -97,6 +97,7 @@ a.big-button:hover {text-decoration: underline;}
   .cards img:hover {transform:scale(1.5);box-shadow:0px 0px 63px 56px #000;transition: all 0.1s ease;filter:contrast(95%);}
   .nav {margin-top:20px;margin-bottom: 20px;}
   table {font-size: 18px;}
+  .mobile-only {display:none;}
 }
 @media (min-width: 1900px) { /* Big Desktop, 1920x1080 */
   .cards img:hover {transform:scale(1.6);}

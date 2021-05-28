@@ -1,5 +1,5 @@
 <?php
-$title_tag = 'The Space War Expandable Card Game';
+$title_tag = 'The Space War Card Game';
 require(ROOT.'view/head.php');
 ?>
 
@@ -23,6 +23,14 @@ require(ROOT.'view/head.php');
 
     <h3 style="margin:10px auto 0 auto;text-align: center;border:2px solid #555;padding:14px;display: table;background-color:#1e1e1e85">🚀 The first 5000 users receives 200 credits free 🚀</h3>
 
+    <?php if ( isset( $_COOKIE['referrer'] ) && is_numeric( $_COOKIE['referrer'] ) ) {
+        $pdo = PDOWrap::getInstance();
+        $referring_user = $pdo->run("SELECT username FROM users WHERE id = ? LIMIT 1", [$_COOKIE['referrer']])->fetch();
+        if ( isset( $referring_user['username'] ) ) {
+            echo '<h4 style="margin:10px auto 0 auto;text-align: center;border:2px solid #555;padding:14px;display: table;background-color:#1e1e1e85">You are referred by <strong>'.$referring_user['username'].'</strong> - you will get extra <strong>50</strong> credits.</h4>';
+        }
+    } ?>
+
 <?php } ?>
 
 <div style="padding: 50px 30px 1px 30px;font-size: 19px;">
@@ -42,18 +50,6 @@ require(ROOT.'view/head.php');
 
 </div>
 
-<blockquote>
-    <p>The way the stations work, allowing you to customize and manipulate your actions, is very, very clever. I also like how it functions as your life meter, meaning there is no need for health counters.</p>
-    <cite>- Anonymous Cardboard Edison Award Judge</cite>
- </blockquote>
-
-<blockquote>
-    <p>Very elegant design with solid core and interesting core mechanics.</p>
-    <cite>- Suzanne Zinsli, Cardboard Edison Award Judge</cite>
- </blockquote>
-
-
-<hr>
 
 <h2>Latest active players</h2>
 
@@ -119,7 +115,17 @@ echo $html;
 
 <p>[ Quick demo of offline play ]</p>
 
-<hr>
+<h2>Said About the Game</h2>
+
+<blockquote>
+    <p>The way the stations work, allowing you to customize and manipulate your actions, is very, very clever. I also like how it functions as your life meter, meaning there is no need for health counters.</p>
+    <cite>- Anonymous Cardboard Edison Award Judge</cite>
+ </blockquote>
+
+<blockquote>
+    <p>Very elegant design with solid core and interesting core mechanics.</p>
+    <cite>- Suzanne Zinsli, Cardboard Edison Award Judge</cite>
+ </blockquote>
 
 
 <blockquote>
@@ -132,7 +138,9 @@ echo $html;
 
 <h2>External Links</h2>
 
-<p><a href="https://discord.gg/tv3DXqj" target="_blank">Discord</a> | <a href='https://www.facebook.com/TheSpaceWarCardGame' target="_blank">Facebook Page</a> | <a href='https://www.facebook.com/groups/thespacewar' target="_blank">Facebook Group</a> | <a href='https://twitter.com/The_Space_War' target="_blank">Twitter</a> | <a href='https://boardgamegeek.com/boardgame/310172/space-war' target="_blank">BGG</a> | <a href="https://www.youtube.com/channel/UCe2kq-IX7zl2wYGK0bT0ucA" target="_blank">YouTube</a> | <a href="https://www.reddit.com/r/TheSpaceWar/" target="_blank">Reddit</a> <!--| <a href="https://join.skype.com/oYehB3TCSl8b" target="_blank">Skype</a>--></p>
+<p><a href="https://discord.gg/tv3DXqj" target="_blank">Discord</a> | <a href='https://www.facebook.com/TheSpaceWarCardGame' target="_blank">Facebook Page</a> | <a href='https://www.facebook.com/groups/thespacewar' target="_blank">Facebook Group</a> | <a href='https://twitter.com/The_Space_War' target="_blank">Twitter</a> | <a href='https://boardgamegeek.com/boardgame/310172/space-war' target="_blank">BGG</a> | <a href="https://www.youtube.com/channel/UCe2kq-IX7zl2wYGK0bT0ucA?sub_confirmation=1" target="_blank">YouTube</a> | <a href="https://www.reddit.com/r/TheSpaceWar/" target="_blank">Reddit</a> <!--| <a href="https://join.skype.com/oYehB3TCSl8b" target="_blank">Skype</a>--></p>
+
+<p>Article by Jim Westergren:<br><a href="https://www.jimwestergren.com/creating-the-space-war" target="_blank">Creating The Space War - The Card Game of My Dreams</a></p>
 
 
 
