@@ -33,6 +33,7 @@ $internal_redirects = [
     'account' => 'account/',
     'login' => 'account/',
     'cards/orders-cancelled' => 'cards/cancel',
+    'cards/good-plan' => 'cards/great-plan',
 ];
 
 
