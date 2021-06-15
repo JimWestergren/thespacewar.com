@@ -74,7 +74,7 @@ function getCardData() : array
     $time_to_cache = 3600*3; // 3 hours
 
     // Failing for some reason
-    if (true || substr_count($json, '"id":') < 20) {
+    if (substr_count($json, '"id":') < 20) {
         // Takes 0.8 seconds to fetch!
         // This is from the original server
         $json = file_get_contents('https://admin.thespacewar.com/services/api/cards?deck=all');
@@ -237,13 +237,13 @@ function displayCard(string $slug) : string
     }
 
     if ( $owner == 0 && $owner_opensea === '' ) {
-        $nft_info = '<a href="https://opensea.io/assets/0x495f947276749ce646f68ac8c248420045cb7b5e/'.$nft_first_edition[$slug]['token_id'].'?ref=0x7897aef045c31882eac1717fab943703d1dd40e7" target="_blank">Buy it now</a> (<a href="/first-edition">info</a>)';
+        $nft_info = '<a href="https://opensea.io/assets/0x495f947276749ce646f68ac8c248420045cb7b5e/'.$nft_first_edition[$slug]['token_id'].'" target="_blank">Buy it now</a> (<a href="/first-edition">info</a>)';
     } elseif ( $owner == 0 ) {
-        $nft_info = 'Owned by '.$owner_opensea.'<br><a href="https://opensea.io/assets/0x495f947276749ce646f68ac8c248420045cb7b5e/'.$nft_first_edition[$slug]['token_id'].'?ref=0x7897aef045c31882eac1717fab943703d1dd40e7" target="_blank">Submit offer</a> (<a href="/first-edition">info</a>)';
+        $nft_info = 'Owned by '.$owner_opensea.'<br><a href="https://opensea.io/assets/0x495f947276749ce646f68ac8c248420045cb7b5e/'.$nft_first_edition[$slug]['token_id'].'" target="_blank">Submit offer</a> (<a href="/first-edition">info</a>)';
     } else {
         $pdo = PDOWrap::getInstance();
         $row = $pdo->run("SELECT username, country FROM users WHERE id = ? LIMIT 1", [$owner])->fetch();
-        $nft_info = 'Owned by <a href="/users/'.$row['username'].'" style="padding-right:20px;background:url(https://staticjw.com/redistats/images/flags/'.$row['country'].'.gif) no-repeat center right;">'.$row['username'].'</a><br><a href="https://opensea.io/assets/0x495f947276749ce646f68ac8c248420045cb7b5e/'.$nft_first_edition[$slug]['token_id'].'?ref=0x7897aef045c31882eac1717fab943703d1dd40e7" target="_blank">Submit offer</a> (<a href="/first-edition">info</a>)';
+        $nft_info = 'Owned by <a href="/users/'.$row['username'].'" style="padding-right:20px;background:url(https://staticjw.com/redistats/images/flags/'.$row['country'].'.gif) no-repeat center right;">'.$row['username'].'</a><br><a href="https://opensea.io/assets/0x495f947276749ce646f68ac8c248420045cb7b5e/'.$nft_first_edition[$slug]['token_id'].'" target="_blank">Submit offer</a> (<a href="/first-edition">info</a>)';
     }
 
     $return = str_replace('</table>', '<tr><th>NFT</th><td>'.$nft_info.'</td></tr></table>', $return);

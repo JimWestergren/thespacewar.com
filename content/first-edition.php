@@ -90,7 +90,7 @@ foreach ( $nft_first_edition as $card_slug => $array ) {
     }
     echo '<br>';
     if ( $array['token_id'] != '' ) {
-        echo '<a href="https://opensea.io/assets/0x495f947276749ce646f68ac8c248420045cb7b5e/'.$array['token_id'].'?ref=0x7897aef045c31882eac1717fab943703d1dd40e7" target="_blank">Buy this NFT</a>';
+        echo '<a href="https://opensea.io/assets/0x495f947276749ce646f68ac8c248420045cb7b5e/'.$array['token_id'].'" target="_blank">Buy this NFT</a>';
     } else {
         echo 'Buy this NFT';
     }
@@ -150,7 +150,7 @@ foreach ( $nft_first_edition as $card_slug => $array ) {
 <h2>Verification</h2>
 
 <p>
-    NFT Creator: <code>0x7897aef045c31882eac1717fab943703d1dd40e7</code> (<a href='https://opensea.io/accounts/TheSpaceWar?ref=0x7897aef045c31882eac1717fab943703d1dd40e7' target='_blank'>TheSpaceWar</a>)<br>
+    NFT Creator: <code>0x7897aef045c31882eac1717fab943703d1dd40e7</code> (<a href='https://opensea.io/accounts/TheSpaceWar' target='_blank'>TheSpaceWar</a>)<br>
     Contract Address: <code>0x495f947276749ce646f68ac8c248420045cb7b5e</code><br>
     Computer Code: <a href='https://github.com/JimWestergren/thespacewar.com/blob/master/include/nft-functions.php' target='_blank'>nft-functions.php</a> and <a href='https://github.com/JimWestergren/thespacewar.com/blob/master/content/first-edition.php' target='_blank'>first-edition.php</a>
 </p>

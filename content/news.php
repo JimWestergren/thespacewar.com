@@ -6,14 +6,14 @@ require(ROOT.'view/head.php');
 <h1>News</h1>
 
 
-<h2>Current activities (May 2021)</h2>
+<h2>Current activities (June 2021)</h2>
 
 <ul>
+    <li>Jim is learning how to code the online game.</li>
+    <li>Onboarding new js developers to work on the online game.</li>
     <li><a href='/first-edition'>First Edition Cards as NFTs</a></li>
     <li>Making the online game work on mobile phones.</li>
     <li>Playtesting <a href='/constructed'>constructed play</a> offline.</li>
-    <li>Some smaller promotions to get external testers of the online version.</li>
-    <li>Working to find a new js developer to work on the online game.</li>
 </ul>
 
 <h2>To do later</h2>
@@ -32,6 +32,7 @@ require(ROOT.'view/head.php');
 <h2>Completed</h2>
 
 <ul>
+    <li>Some smaller promotions to get external testers of the online version (May 2021).</li>
     <li>New article from Jim: <a href='https://www.jimwestergren.com/creating-the-space-war'>Creating The Space War - The Card Game of My Dreams</a> (May 2021)</li>
     <li>Adding changelog to all the cards and making final(?) revisions to some cards (March 2021).</li>
     <li>Adding pages to the website for all the cards of <a href='/the-swarm'>The Swarm</a> and the <a href='/united-stars'>The United Stars</a> decks (March 2021).</li>
