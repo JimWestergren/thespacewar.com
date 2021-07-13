@@ -85,7 +85,7 @@ function getCardData() : array
         foreach ($json as $k => $v) {
             $slug = titleToSlug($v->name);
             $cards_array[$slug] = [
-                'id' => $v->id,
+                'id' => (int) $v->id,
                 'slug' => $slug,
                 'title' => $v->name,
                 'cost' => $v->price,
@@ -108,7 +108,7 @@ function getCardData() : array
     foreach ($json->data->regular as $k => $v) {
         $slug = titleToSlug($v->name);
         $cards_array[$slug] = [
-            'id' => $v->id,
+            'id' => (int) $v->id,
             'slug' => $slug,
             'title' => $v->name,
             'cost' => $v->price,
@@ -125,7 +125,7 @@ function getCardData() : array
     foreach ($json->data->theSwarm as $k => $v) {
         $slug = titleToSlug($v->name);
         $cards_array[$slug] = [
-            'id' => $v->id,
+            'id' => (int) $v->id,
             'slug' => $slug,
             'title' => $v->name,
             'cost' => $v->price,
@@ -142,7 +142,7 @@ function getCardData() : array
     foreach ($json->data->unitedStars as $k => $v) {
         $slug = titleToSlug($v->name);
         $cards_array[$slug] = [
-            'id' => $v->id,
+            'id' => (int) $v->id,
             'slug' => $slug,
             'title' => $v->name,
             'cost' => $v->price,
@@ -321,6 +321,9 @@ function setLoginCookie(array $a, int $rating) : string
 function winnersArray() : array
 {
     return [
+        'Second Quarter 2021' => ['first_username' => 'Alvin', 'first_country' => 'se', 'second_username' => 'Jim', 'second_country' => 'se', 'third_username' => 'Coolfor', 'third_country' => 'ru'],
+        'June 2021' => ['first_username' => 'Alvin', 'first_country' => 'se', 'second_username' => 'Jim', 'second_country' => 'se', 'third_username' => 'Coolfor', 'third_country' => 'ru'],
+        'May 2021' => ['first_username' => 'Alvin', 'first_country' => 'se', 'second_username' => 'Jim', 'second_country' => 'se'],
         'April 2021' => ['first_username' => 'Jim', 'first_country' => 'se', 'second_username' => 'Alvin', 'second_country' => 'se', 'third_username' => 'Luna', 'third_country' => 'bo'],
         'First Quarter 2021' => ['first_username' => 'Alvin', 'first_country' => 'se', 'second_username' => 'Jim', 'second_country' => 'se'],
         'March 2021' => ['first_username' => 'Alvin', 'first_country' => 'se', 'second_username' => 'Demencia', 'second_country' => 'ar'],
@@ -341,7 +344,14 @@ function winnersArray() : array
 
 function winnersArrayByUser(string $user) : array
 {
-    // TODO 🥉
+    $a['Alvin'][] = ['period' => 'Second Quarter 2021', 'position' => '🏆'];
+    $a['Jim'][] = ['period' => 'Second Quarter 2021', 'position' => '🥈'];
+    $a['Coolfor'][] = ['period' => 'Second Quarter 2021', 'position' => '🥉'];
+    $a['Alvin'][] = ['period' => 'June 2021', 'position' => '🏆'];
+    $a['Jim'][] = ['period' => 'June 2021', 'position' => '🥈'];
+    $a['Coolfor'][] = ['period' => 'June 2021', 'position' => '🥉'];
+    $a['Alvin'][] = ['period' => 'May 2021', 'position' => '🏆'];
+    $a['Jim'][] = ['period' => 'May 2021', 'position' => '🥈'];
     $a['Jim'][] = ['period' => 'April 2021', 'position' => '🏆'];
     $a['Alvin'][] = ['period' => 'April 2021', 'position' => '🥈'];
     $a['Luna'][] = ['period' => 'April 2021', 'position' => '🥉'];
@@ -845,7 +855,7 @@ function cardImage(string $slug) : string
 
 }
 
-function getRandomCard() : string
+function getRandomCard() : array
 {
     $array = getCardData();
 
@@ -858,8 +868,33 @@ function getRandomCard() : string
 
     $random_card = array_rand($new_array, 1);
 
-    return $new_array[$random_card];
+    return $array[$new_array[$random_card]];
 }
 
+function purchaseRandomCard( int $user_id, int $frame_type ) : int
+{
+    global $pdo;
 
+    $random_card = getRandomCard();
+    $row_exist = $pdo->run("SELECT id FROM framed_cards WHERE user_id = ? AND card_id = ? AND frame_type = ?", [$user_id, $random_card['id'], $frame_type])->fetch();
+    if ( isset( $row_exist['id'] ) ) {
+        $pdo->run("UPDATE framed_cards SET amount = amount+1 WHERE id = ?", [$row_exist['id']]);
+    } else {
+        $pdo->run("INSERT INTO framed_cards (`user_id`, `card_id`, `frame_type`, `amount`) VALUES (?, ?, ?, ?);", [$user_id, $random_card['id'], $frame_type, 1]);
+    }
 
+    return (int) $random_card['id'];
+}
+
+function getRareCards() : array
+{
+    $array = getCardData();
+
+    foreach ($array as $key => $value) {
+        if ($value['copies'] == 1) {
+            $rare_cards[] = $value['id'];
+        }
+    }
+
+    return $rare_cards;
+}
