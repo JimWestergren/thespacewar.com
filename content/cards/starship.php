@@ -6,6 +6,8 @@
 <h2>Related</h2>
 
 <?=cardImage('death-ray')?>
+<?=cardImage('commander-capt-wayne-mccarter')?>
+<?=cardImage('commander-capt-shera-kinson')?>
 
 <h2>Works Good With</h2>
 

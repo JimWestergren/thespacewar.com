@@ -34,11 +34,32 @@ foreach ($winners_array as $key => $value) {
 
 ?>
 </table>
+
+
+<h2>Most Credits Earned</h2>
+
+<table>
+<tr><th>Username</th><th>Credits Earned</th></tr>
+
+<?php
+$pdo = PDOWrap::getInstance();
+$result = $pdo->run("SELECT * FROM users ORDER BY credits_earned DESC LIMIT 15;")->fetchAll();
+foreach($result as $row) {
+    echo '<tr>
+    <td class="nobr"><a href="/users/'.$row['username'].'">'.$row['username'].'</a> <img src="https://staticjw.com/redistats/images/flags/'.$row['country'].'.gif"></td>
+    <td><strong>'.$row['credits_earned'].'</strong></td>
+    </tr>';
+}
+?>
+
+</table>
+
+
 <h2>How the Rating Score is calculated</h2>
 
 <p>This is the formula used:<br>
 <code>win_rate*(min(win_count,20)/20)*100</code><br>
-(Basically win rate but win count is used if less than 20 wins).</p>
+(Basically win rate but win count is also used if less than 20 wins).</p>
 
 <h3>Scoring of a match is ignored if:</h3>
 
@@ -51,20 +72,3 @@ foreach (scoringIgnoredReasons() as $reason) {
 ?>
 </ul>
 
-<h2>Most Credits Earned</h2>
-
-<table>
-<tr><th>Username</th><th>Credits Earned</th></tr>
-
-<?php
-$pdo = PDOWrap::getInstance();
-$result = $pdo->run("SELECT * FROM users WHERE credits_earned > 250 ORDER BY credits_earned DESC LIMIT 20;")->fetchAll();
-foreach($result as $row) {
-    echo '<tr>
-    <td class="nobr"><a href="/users/'.$row['username'].'">'.$row['username'].'</a> <img src="https://staticjw.com/redistats/images/flags/'.$row['country'].'.gif"></td>
-    <td><strong>'.$row['credits_earned'].'</strong></td>
-    </tr>';
-}
-?>
-
-</table>

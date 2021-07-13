@@ -11,6 +11,28 @@ $title_tag = 'Admin | TheSpaceWar.com';
 require(ROOT.'view/head.php');
 
 
+
+/*
+$pdo->run("CREATE TABLE framed_cards (
+id INT(10) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+user_id INT(10) UNSIGNED NOT NULL DEFAULT 0,
+card_id SMALLINT(5) UNSIGNED NOT NULL DEFAULT 0,
+frame_type SMALLINT(5) UNSIGNED NOT NULL DEFAULT 0,
+amount INT(10) UNSIGNED NOT NULL DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;");
+
+
+$pdo->run("CREATE TABLE credits_spent (
+id INT(10) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+user_id INT(10) UNSIGNED NOT NULL DEFAULT 0,
+timestamp INT(10) UNSIGNED NOT NULL DEFAULT 0,
+amount INT(10) UNSIGNED NOT NULL DEFAULT 0,
+description VARCHAR(255) NOT NULL DEFAULT ''
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;");
+*/
+
+//$pdo->run("ALTER TABLE users ADD credits_spent INT(10) UNSIGNED NOT NULL DEFAULT 0 AFTER credits_earned;");
+
 //$pdo->run("ALTER TABLE users ADD credits_earned INT(10) UNSIGNED NOT NULL DEFAULT 0 AFTER newsletter;");
 
 /*

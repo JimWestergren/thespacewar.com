@@ -1,9 +1,10 @@
-<p>The most expensive and powerful card in the game. The card most commonly fetched with Perfect Plan.</p>
+<p>The most powerful card in the game.</p>
 
 <h2>What cards can stop Supernova?</h2>
 
 <?=cardImage('avoid')?>
 <?=cardImage('destiny-decided')?>
+<?=cardImage('cancel')?>
 
 <h2>Rule Clarifications</h2>
 

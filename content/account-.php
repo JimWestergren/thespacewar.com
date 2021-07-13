@@ -207,7 +207,7 @@ echo '</td></tr>';
 
 
 
-echo '<tr><td style="text-align:right">Total Saved:</td><td>';
+echo '<tr><td style="text-align:right">Total Earned:</td><td>';
 echo '<strong>'.$total_credits.'</strong>';
 echo '</td></tr>';
 

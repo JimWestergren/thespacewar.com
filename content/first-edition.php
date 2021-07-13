@@ -84,7 +84,7 @@ foreach ( $nft_first_edition as $card_slug => $array ) {
     if ( $array['token_id'] == '' ) {
         echo 'To be listed';
     } elseif ( $array['owner_opensea'] != '' ) {
-        echo '<strong>Sold</strong>';
+        echo '<strong>SOLD</strong>';
     } else {
         echo $array['price'].' ETH';
     }
