@@ -7,7 +7,7 @@ function getNFTFirstEdition() : array
         'the-dark-destroyer' => [
             'nft_id' => 1,
             'img_id' => 2,
-            'price' => 1.5,
+            'price' => 1,
             'token_id' => '54545543118371850173410875503158003596823792560618288887991952589160886304769',
             'owner' => 0,
             'owner_opensea' => '',
@@ -15,7 +15,7 @@ function getNFTFirstEdition() : array
         'commander-liana-henders' => [
             'nft_id' => 2,
             'img_id' => 0,
-            'price' => 0.75,
+            'price' => 0.5,
             'token_id' => '54545543118371850173410875503158003596823792560618288887991952590260397932545',
             'owner' => 0,
             'owner_opensea' => '',
@@ -23,7 +23,7 @@ function getNFTFirstEdition() : array
         'commander-frank-johnson' => [
             'nft_id' => 3,
             'img_id' => 1,
-            'price' => 0.75,
+            'price' => 0.5,
             'token_id' => '54545543118371850173410875503158003596823792560618288887991952591359909560321',
             'owner' => 0,
             'owner_opensea' => '',
@@ -31,7 +31,7 @@ function getNFTFirstEdition() : array
         'commander-keve-bakins' => [
             'nft_id' => 4,
             'img_id' => 2,
-            'price' => 0.75,
+            'price' => 0.5,
             'token_id' => '54545543118371850173410875503158003596823792560618288887991952592459421188097',
             'owner' => 0,
             'owner_opensea' => '',
@@ -39,7 +39,7 @@ function getNFTFirstEdition() : array
         'commander-nicia-satu' => [
             'nft_id' => 5,
             'img_id' => 3,
-            'price' => 0.75,
+            'price' => 0.5,
             'token_id' => '54545543118371850173410875503158003596823792560618288887991952593558932815873',
             'owner' => 0,
             'owner_opensea' => '',
@@ -47,7 +47,7 @@ function getNFTFirstEdition() : array
         'commander-general-jackson' => [
             'nft_id' => 6,
             'img_id' => 4,
-            'price' => 0.75,
+            'price' => 0.5,
             'token_id' => '54545543118371850173410875503158003596823792560618288887991952594658444443649',
             'owner' => 0,
             'owner_opensea' => '',
@@ -55,7 +55,7 @@ function getNFTFirstEdition() : array
         'commander-the-miller' => [
             'nft_id' => 7,
             'img_id' => 6,
-            'price' => 0.75,
+            'price' => 0.5,
             'token_id' => '54545543118371850173410875503158003596823792560618288887991952595757956071425',
             'owner' => 0,
             'owner_opensea' => '',
@@ -63,7 +63,7 @@ function getNFTFirstEdition() : array
         'the-exterminator' => [
             'nft_id' => 8,
             'img_id' => 1,
-            'price' => 0.5,
+            'price' => 0.4,
             'token_id' => '54545543118371850173410875503158003596823792560618288887991952596857467699201',
             'owner' => 0,
             'owner_opensea' => '',
@@ -119,7 +119,7 @@ function getNFTFirstEdition() : array
         'full-attack' => [
             'nft_id' => 15,
             'img_id' => 9,
-            'price' => 0.5,
+            'price' => 0.4,
             'token_id' => '54545543118371850173410875503158003596823792560618288887991952604554049093633',
             'owner' => 0,
             'owner_opensea' => '',
@@ -359,7 +359,7 @@ function getNFTFirstEdition() : array
         'commander-zuuls' => [
             'nft_id' => 45,
             'img_id' => 7,
-            'price' => 0.75,
+            'price' => 0.5,
             'token_id' => '54545543118371850173410875503158003596823792560618288887991952637539397926913',
             'owner' => 0,
             'owner_opensea' => '',
@@ -367,7 +367,7 @@ function getNFTFirstEdition() : array
         'commander-crakux' => [
             'nft_id' => 46,
             'img_id' => 8,
-            'price' => 0.75,
+            'price' => 0.5,
             'token_id' => '54545543118371850173410875503158003596823792560618288887991952638638909554689',
             'owner' => 0,
             'owner_opensea' => '',
@@ -375,7 +375,7 @@ function getNFTFirstEdition() : array
         'commander-naalox' => [
             'nft_id' => 47,
             'img_id' => 9,
-            'price' => 0.75,
+            'price' => 0.5,
             'token_id' => '54545543118371850173410875503158003596823792560618288887991952639738421182465',
             'owner' => 0,
             'owner_opensea' => '',
@@ -383,7 +383,7 @@ function getNFTFirstEdition() : array
         'commander-staux' => [
             'nft_id' => 48,
             'img_id' => 10,
-            'price' => 0.75,
+            'price' => 0.5,
             'token_id' => '54545543118371850173410875503158003596823792560618288887991952640837932810241',
             'owner' => 0,
             'owner_opensea' => '',
@@ -535,7 +535,7 @@ function getNFTFirstEdition() : array
         'commander-capt-shera-kinson' => [
             'nft_id' => 67,
             'img_id' => 11,
-            'price' => 0.75,
+            'price' => 0.5,
             'token_id' => '',
             'owner' => 0,
             'owner_opensea' => '',
@@ -543,7 +543,7 @@ function getNFTFirstEdition() : array
         'commander-capt-wayne-mccarter' => [
             'nft_id' => 68,
             'img_id' => 12,
-            'price' => 0.75,
+            'price' => 0.5,
             'token_id' => '',
             'owner' => 0,
             'owner_opensea' => '',
@@ -551,7 +551,7 @@ function getNFTFirstEdition() : array
         'commander-zyre' => [
             'nft_id' => 69,
             'img_id' => 13,
-            'price' => 0.75,
+            'price' => 0.5,
             'token_id' => '',
             'owner' => 0,
             'owner_opensea' => '',
@@ -559,7 +559,7 @@ function getNFTFirstEdition() : array
         'commander-dr-stein' => [
             'nft_id' => 70,
             'img_id' => 5,
-            'price' => 0.75,
+            'price' => 0.5,
             'token_id' => '',
             'owner' => 0,
             'owner_opensea' => '',
@@ -567,7 +567,7 @@ function getNFTFirstEdition() : array
         'starship' => [
             'nft_id' => 71,
             'img_id' => 228,
-            'price' => 1.5,
+            'price' => 1,
             'token_id' => '',
             'owner' => 0,
             'owner_opensea' => '',
@@ -575,7 +575,7 @@ function getNFTFirstEdition() : array
         'death-ray' => [
             'nft_id' => 72,
             'img_id' => 229,
-            'price' => 0.5,
+            'price' => 0.4,
             'token_id' => '',
             'owner' => 0,
             'owner_opensea' => '',
@@ -695,7 +695,7 @@ function getNFTFirstEdition() : array
         'great-plan' => [
             'nft_id' => 87,
             'img_id' => 219,
-            'price' => 0.3,
+            'price' => 0.2,
             'token_id' => '',
             'owner' => 0,
             'owner_opensea' => '',
@@ -735,7 +735,7 @@ function getNFTFirstEdition() : array
         'indestructible-viper' => [
             'nft_id' => 92,
             'img_id' => 224,
-            'price' => 0.3,
+            'price' => 0.2,
             'token_id' => '',
             'owner' => 0,
             'owner_opensea' => '',
@@ -743,7 +743,7 @@ function getNFTFirstEdition() : array
         'resource-ship' => [
             'nft_id' => 93,
             'img_id' => 225,
-            'price' => 0.3,
+            'price' => 0.2,
             'token_id' => '',
             'owner' => 0,
             'owner_opensea' => '',
@@ -751,7 +751,7 @@ function getNFTFirstEdition() : array
         'scout' => [
             'nft_id' => 94,
             'img_id' => 226,
-            'price' => 0.3,
+            'price' => 0.2,
             'token_id' => '',
             'owner' => 0,
             'owner_opensea' => '',
@@ -759,7 +759,7 @@ function getNFTFirstEdition() : array
         'duplication' => [
             'nft_id' => 95,
             'img_id' => 227,
-            'price' => 0.5,
+            'price' => 0.3,
             'token_id' => '',
             'owner' => 0,
             'owner_opensea' => '',
@@ -783,7 +783,7 @@ function getNFTFirstEdition() : array
         'time-travel-portal' => [
             'nft_id' => 98,
             'img_id' => 244,
-            'price' => 0.5,
+            'price' => 0.4,
             'token_id' => '',
             'owner' => 0,
             'owner_opensea' => '',
