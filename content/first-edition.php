@@ -59,7 +59,7 @@ $nft_first_edition = getNFTFirstEdition();
         <input type="submit" name="register" style="font-size:20px;height: 44px;" value="Register NFT" disabled>
     </form>
 <?php } else { ?>
-    Input here the NFT Code to register you (<strong><?=$logged_in['username']?></strong>) as the owner of the NFT:</p>
+    Make sure that you have your username set <a href="https://opensea.io/account/settings" target="_blank">here</a> and then input the NFT Code to register you (<strong><?=$logged_in['username']?></strong>) as the owner of the NFT:</p>
     <form method="post" action="">
         <input type="text" name="code" required minlength="40" maxlength="80" style="font-size:20px;">
         <input type="submit" name="register" style="font-size:20px;height: 44px;" value="Register NFT">

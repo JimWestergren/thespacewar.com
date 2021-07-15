@@ -26,7 +26,7 @@ require(ROOT.'view/head.php');
     echo '<div class="error">Your email is not verified, click the link in the email</div>';
 } ?>
 
-<p style="float: right">[ <a href="/account/edit">Edit Account</a> ]<br>[ <a href="/logout">Logout</a> ]<p>
+<p style="float: right">[ <a href="/account/edit">Edit Account</a> ]<br>[ <a href="/logout">Logout</a> ]<?php if($logged_in['id'] === 1) { echo '<br>[ <a href="/account/admin">Admin</a> ]';} ?><p>
 
 <p>Logged in as <a href="/users/<?=$accunt_row['username']?>"><strong><?=$accunt_row['username']?></strong></a><br>
 Representing: <img src="https://staticjw.com/redistats/images/flags/<?=$accunt_row['country']?>.gif"> <?=countryArray()[strtoupper($accunt_row['country'])]?><br>
