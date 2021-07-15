@@ -42,9 +42,9 @@ if ( isset( $_POST['purchase'] ) && in_array( $_POST['purchase'], [1, 2] ) ) {
             $pdo->run("UPDATE users SET credits_spent = credits_spent+10 WHERE id = ?", [$logged_in['id']]);
             $pdo->run("INSERT INTO credits_spent (`user_id`, `timestamp`, `amount`, `description`) VALUES (?, ?, ?, ?);", [$logged_in['id'], TIMESTAMP, 10, '2 random silver cards']);
             $card_id = purchaseRandomCard( $logged_in['id'], 1 );
-            echo '<div class="frame silver"><img src="https://images.thespacewar.com/card-'.$card_id.'.jpg"></div>';
+            echo '<div class="frame silver"><img src="'.getCardImageURL( $card_id ).'"></div>';
             $card_id = purchaseRandomCard( $logged_in['id'], 1 );
-            echo '<div class="frame silver"><img src="https://images.thespacewar.com/card-'.$card_id.'.jpg"></div>';
+            echo '<div class="frame silver"><img src="'.getCardImageURL( $card_id ).'"></div>';
         }
     }
     if ( $_POST['purchase'] == 2 ) {
@@ -56,21 +56,21 @@ if ( isset( $_POST['purchase'] ) && in_array( $_POST['purchase'], [1, 2] ) ) {
             $pdo->run("INSERT INTO credits_spent (`user_id`, `timestamp`, `amount`, `description`) VALUES (?, ?, ?, ?);", [$logged_in['id'], TIMESTAMP, 50, 'Pack of 7 random silver cards and 1 random gold card.']);
 
             $card_id = purchaseRandomCard( $logged_in['id'], 1 );
-            echo '<div class="frame silver"><img src="https://images.thespacewar.com/card-'.$card_id.'.jpg"></div>';
+            echo '<div class="frame silver"><img src="'.getCardImageURL( $card_id ).'"></div>';
             $card_id = purchaseRandomCard( $logged_in['id'], 1 );
-            echo '<div class="frame silver"><img src="https://images.thespacewar.com/card-'.$card_id.'.jpg"></div>';
+            echo '<div class="frame silver"><img src="'.getCardImageURL( $card_id ).'"></div>';
             $card_id = purchaseRandomCard( $logged_in['id'], 1 );
-            echo '<div class="frame silver"><img src="https://images.thespacewar.com/card-'.$card_id.'.jpg"></div>';
+            echo '<div class="frame silver"><img src="'.getCardImageURL( $card_id ).'"></div>';
             $card_id = purchaseRandomCard( $logged_in['id'], 1 );
-            echo '<div class="frame silver"><img src="https://images.thespacewar.com/card-'.$card_id.'.jpg"></div>';
+            echo '<div class="frame silver"><img src="'.getCardImageURL( $card_id ).'"></div>';
             $card_id = purchaseRandomCard( $logged_in['id'], 1 );
-            echo '<div class="frame silver"><img src="https://images.thespacewar.com/card-'.$card_id.'.jpg"></div>';
+            echo '<div class="frame silver"><img src="'.getCardImageURL( $card_id ).'"></div>';
             $card_id = purchaseRandomCard( $logged_in['id'], 1 );
-            echo '<div class="frame silver"><img src="https://images.thespacewar.com/card-'.$card_id.'.jpg"></div>';
+            echo '<div class="frame silver"><img src="'.getCardImageURL( $card_id ).'"></div>';
             $card_id = purchaseRandomCard( $logged_in['id'], 1 );
-            echo '<div class="frame silver"><img src="https://images.thespacewar.com/card-'.$card_id.'.jpg"></div>';
+            echo '<div class="frame silver"><img src="'.getCardImageURL( $card_id ).'"></div>';
             $card_id = purchaseRandomCard( $logged_in['id'], 2 );
-            echo '<div class="frame gold"><img src="https://images.thespacewar.com/card-'.$card_id.'.jpg"></div>';
+            echo '<div class="frame gold"><img src="'.getCardImageURL( $card_id ).'"></div>';
         }
     }
     // Recalculate the saldo
@@ -115,19 +115,24 @@ if ( isset( $_POST['purchase'] ) && in_array( $_POST['purchase'], [1, 2] ) ) {
 <p>Three copies of the same silver card can either be converted to a Gold version of the same card or any other silver card (coming soon).</p>
 
 <?php
+$outputs = '';
 $result = $pdo->run("SELECT * FROM framed_cards WHERE `user_id` = ? AND frame_type = 1 AND amount > 0 ORDER BY amount DESC;", [$logged_in['id']])->fetchAll();
-if (count($result) > 0) {
-    foreach($result as $row) {
-        echo "<div class='cardwrap'>&nbsp;";
-        if ($row['amount'] > 1) {
-            echo "X ".$row['amount'];
-        }
-        if ( in_array( $row['card_id'], $rare_cards ) ) {
-            echo " [ RARE ]";
-        }
-        echo '<div class="frame silver"><img src="https://images.thespacewar.com/card-'.$row['card_id'].'.jpg"></div></div>';
+foreach($result as $row) {
+    $output = "<div class='cardwrap'>&nbsp;";
+    if ($row['amount'] > 1) {
+        $output .= "X ".$row['amount'];
+    }
+    if ( in_array( $row['card_id'], $rare_cards ) ) {
+        $output .= " [ RARE ]";
+    }
+    $output .= '<div class="frame silver"><img src="'.getCardImageURL( $row['card_id'] ).'"></div></div>';
+    if ( $row['card_id'] > 9999 ) { // We show commanders first
+        echo $output;
+    } else {
+        $outputs .= $output;
     }
 }
+echo $outputs;
 ?>
 
 <h2>Your Gold Cards</h2>
@@ -141,19 +146,24 @@ if (count($result) > 0) {
 <p>Three copies of the same gold card can either be converted to a Diamond version of the same card or any other gold card (coming soon).</p>
 
 <?php
+$outputs = '';
 $result = $pdo->run("SELECT * FROM framed_cards WHERE `user_id` = ? AND frame_type = 2 AND amount > 0 ORDER BY amount DESC;", [$logged_in['id']])->fetchAll();
-if (count($result) > 0) {
-    foreach($result as $row) {
-        echo "<div class='cardwrap'>&nbsp;";
-        if ($row['amount'] > 1) {
-            echo "X ".$row['amount'];
-        }
-        if ( in_array( $row['card_id'], $rare_cards ) ) {
-            echo " [ RARE ]";
-        }
-        echo '<div class="frame gold"><img src="https://images.thespacewar.com/card-'.$row['card_id'].'.jpg"></div></div>';
+foreach($result as $row) {
+    $output = "<div class='cardwrap'>&nbsp;";
+    if ($row['amount'] > 1) {
+        $output .= "X ".$row['amount'];
+    }
+    if ( in_array( $row['card_id'], $rare_cards ) ) {
+        $output .= " [ RARE ]";
+    }
+    $output .= '<div class="frame gold"><img src="'.getCardImageURL( $row['card_id'] ).'"></div></div>';
+    if ( $row['card_id'] > 9999 ) { // We show commanders first
+        echo $output;
+    } else {
+        $outputs .= $output;
     }
 }
+echo $outputs;
 ?>
 
 <h2>Your 💎 Diamond Cards</h2>
@@ -167,19 +177,24 @@ if (count($result) > 0) {
 <p>In the future: Can be minted as a Non-fungible token (NFT) and sold by you for real crypto money (ETH) on the blockchain. Maximum 5 can be minted per month per account. Can be bought on the blockchain as well.</p>
 
 <?php
+$outputs = '';
 $result = $pdo->run("SELECT * FROM framed_cards WHERE `user_id` = ? AND frame_type = 3 AND amount > 0 ORDER BY amount DESC;", [$logged_in['id']])->fetchAll();
-if (count($result) > 0) {
-    foreach($result as $row) {
-        echo "<div class='cardwrap'>&nbsp;";
-        if ($row['amount'] > 1) {
-            echo "X ".$row['amount'];
-        }
-        if ( in_array( $row['card_id'], $rare_cards ) ) {
-            echo " [ RARE ]";
-        }
-        echo '<div class="frame diamond"><img src="https://images.thespacewar.com/card-'.$row['card_id'].'.jpg"></div></div>';
+foreach($result as $row) {
+    $output = "<div class='cardwrap'>&nbsp;";
+    if ($row['amount'] > 1) {
+        $output .= "X ".$row['amount'];
+    }
+    if ( in_array( $row['card_id'], $rare_cards ) ) {
+        $output .= " [ RARE ]";
+    }
+    $output .= '<div class="frame diamond"><img src="'.getCardImageURL( $row['card_id'] ).'"></div></div>';
+    if ( $row['card_id'] > 9999 ) { // We show commanders first
+        echo $output;
+    } else {
+        $outputs .= $output;
     }
 }
+echo $outputs;
 ?>
 
 <h2>FAQ</h2>

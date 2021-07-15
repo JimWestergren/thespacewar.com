@@ -857,18 +857,24 @@ function cardImage(string $slug) : string
 
 function getRandomCard() : array
 {
-    $array = getCardData();
-
-    // 3 preset decks, each having 60 cards = 180 cards.
-    foreach ($array as $key => $value) {
-        for ($i=0; $i < $value['copies']; $i++) { 
-            $new_array[] = $key;
+    $normal_cards = getCardData();
+    foreach ($normal_cards as $normal_card) {
+        // 3 preset decks, each having 60 cards = 180 cards.
+        for ($i=0; $i < $normal_card['copies']; $i++) { 
+            $new_array[] = $normal_card;
         }
+    }
+
+    $commander_cards = commanderData();
+    foreach ($commander_cards as $commander_card) {
+        // For the sake of not having colissions, we make those IDs start at 10000
+        $commander_card['id'] = $commander_card['id'] + 10000;
+        $new_array[] = $commander_card;
     }
 
     $random_card = array_rand($new_array, 1);
 
-    return $array[$new_array[$random_card]];
+    return $new_array[$random_card];
 }
 
 function purchaseRandomCard( int $user_id, int $frame_type ) : int
@@ -896,5 +902,24 @@ function getRareCards() : array
         }
     }
 
+    // Also the commanders:
+    for ($i=9999; $i < 10050; $i++) { 
+        $rare_cards[] = $i;
+    }
+
     return $rare_cards;
 }
+
+
+function getCardImageURL( int $card_id ) : string
+{
+    if ( $card_id >= 10000 ) {
+        $card_id = (int) $card_id - 10000;
+        return 'https://images.thespacewar.com/commander-'.$card_id.'.png';
+    }
+
+    // Else:
+    return 'https://images.thespacewar.com/card-'.$card_id.'.jpg';
+
+}
+
