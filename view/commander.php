@@ -35,6 +35,9 @@ require(ROOT.'view/head.php');
 <h2>Changelog During Playtesting</h2>
 
 <ul>
+    <?php if ( $data['name'] == 'Dr. Stein' ) { ?>
+        <li>Nerf in August 2021: Perfect Plan ability can now only be used once per turn.</li>
+    <?php } ?>
     <?php if ( $data['name'] == 'Frank Johnson' ) { ?>
         <li>Nerf in June 2020: Maximum reduced from 11 to 10.</li>
     <?php } ?>

@@ -750,7 +750,7 @@ function commanderData() : array
             'deck' => 3,
             'name' => 'Dr. Stein',
             'title' => 'Expert Planner',
-            'rules' => '<ul style="text-align:left;"><li style="margin-bottom:10px;">You can discard a card to draw a card up to 3 times in your action phase.</li><li>You may take 2 damage to your station to perform a Perfect Plan (take a card from anywhere to your hand).</li></ul>',
+            'rules' => '<ul style="text-align:left;"><li style="margin-bottom:10px;">You can discard a card to draw a card up to 3 times in your action phase.</li><li>You may once per turn take 2 damage to your station to perform a Perfect Plan (take a card from anywhere to your hand).</li></ul>',
             'lore' => 'Dr. Stein has with his extreme intelligence the mind and focus to figure out exactly how to win the war. Once he has a strategy in mind he does not care about the sacrifices required to carry out The True Plan.',
         ],
         'the-miller' => [
