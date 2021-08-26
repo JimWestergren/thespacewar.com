@@ -67,7 +67,10 @@ foreach($result as $row) {
 
 <?php
 foreach (scoringIgnoredReasons() as $reason) {
-    echo "<li>".$reason."</li>";
+
+    if ( $reason['active'] === false ) continue;
+    
+    echo "<li>".$reason['desc']."</li>";
 }
 ?>
 </ul>

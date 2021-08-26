@@ -57,20 +57,25 @@ if (isset($_POST['hash'])) {
 
     } else {
 
-        // Ignore scoring if have already won 2 times against this opponent last 24 hours
-        $row = $pdo->run("SELECT COUNT(*) as win_count_same_day FROM games_logging WHERE `user_won` = ? AND `user_lost` = ? AND `timestamp` > ?;", [$_POST['user_won'], $_POST['user_lost'], $one_day_ago])->fetch();
-        if ($row['win_count_same_day'] > 1) {
-            $ignore_scoring = 1;
+        // Ignore scoring if game lasted less than 60 seconds.
+        if ( $_POST['length'] < 60 ) {
+            $ignore_scoring = 3;
         }
 
-        // Ignore scoring if winner already has 2000 more rating than looser
+        // Ignore scoring if have already won 2 times against this opponent last 24 hours
+        $row = $pdo->run("SELECT COUNT(*) as win_count_same_day FROM games_logging WHERE `user_won` = ? AND `user_lost` = ? AND `timestamp` > ?;", [$_POST['user_won'], $_POST['user_lost'], $one_day_ago])->fetch();
+        if ($row['win_count_same_day'] > 2) {
+            $ignore_scoring = 5;
+        }
+
+        // Ignore scoring if winner already has 3000 more rating than looser
         $accunt_row_winner = $pdo->run("SELECT * FROM users WHERE id = ? LIMIT 1", [$_POST['user_won']])->fetch();
         $monthly_rating_winner = calculateRating($accunt_row_winner['monthly_win_count'], $accunt_row_winner['monthly_loss_count'])['rating'];
-        if ($monthly_rating_winner > 2000) {
+        if ($monthly_rating_winner > 3000) {
             $accunt_row_looser = $pdo->run("SELECT monthly_win_count, monthly_loss_count FROM users WHERE id = ? LIMIT 1", [$_POST['user_lost']])->fetch();
             $monthly_rating_looser = calculateRating($accunt_row_looser['monthly_win_count'], $accunt_row_looser['monthly_loss_count'])['rating'];
-            if ($monthly_rating_winner-2000 > $monthly_rating_looser) {
-                $ignore_scoring = 2;
+            if ($monthly_rating_winner-3000 > $monthly_rating_looser) {
+                $ignore_scoring = 4;
             }
         }
 
@@ -115,17 +120,17 @@ if (isset($_POST['log_game'])) {
 
             // Ignore scoring if have already won 2 times against this opponent last 24 hours
             $row2 = $pdo->run("SELECT COUNT(*) as win_count_same_day FROM games_logging WHERE `user_won` = ? AND `user_lost` = ? AND (`timestamp` = ? OR `timestamp` > ?);", [$user_won, $user_lost, $timestamp, $one_day_ago])->fetch();
-            if ($row2['win_count_same_day'] > 1) {
-                $ignore_scoring = 1;
+            if ($row2['win_count_same_day'] > 2) {
+                $ignore_scoring = 5;
             }
 
-            // Ignore scoring if winner already has 2000 more rating than looser
+            // Ignore scoring if winner already has 3000 more rating than looser
             $monthly_rating_winner = calculateRating($row['monthly_win_count'], $row['monthly_loss_count'])['rating'];
-            if ($monthly_rating_winner > 2000) {
+            if ($monthly_rating_winner > 3000) {
                 $accunt_row_looser = $pdo->run("SELECT monthly_win_count, monthly_loss_count FROM users WHERE id = ? LIMIT 1", [$user_lost])->fetch();
                 $monthly_rating_looser = calculateRating($accunt_row_looser['monthly_win_count'], $accunt_row_looser['monthly_loss_count'])['rating'];
-                if ($monthly_rating_winner-2000 > $monthly_rating_looser) {
-                    $ignore_scoring = 2;
+                if ($monthly_rating_winner-3000 > $monthly_rating_looser) {
+                    $ignore_scoring = 4;
                 }
             }
 

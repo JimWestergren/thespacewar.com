@@ -820,8 +820,11 @@ function commanderData() : array
 function scoringIgnoredReasons() : array
 {
     return [
-        1 => 'Winner already won twice same day against same opponent.',
-        2 => 'Winner already had more than 2000 monthly rating score compared to the opponent.',
+        1 => ['active' => false, 'desc' => 'Winner already won twice same day against same opponent.'],
+        2 => ['active' => false, 'desc' => 'Winner already had more than 2000 monthly rating score compared to the opponent.'],
+        3 => ['active' => true, 'desc' => 'The online game lasted less than 60 seconds.'],
+        4 => ['active' => true, 'desc' => 'Winner already had more than 3000 monthly rating score compared to the opponent.'],
+        5 => ['active' => true, 'desc' => 'Winner already won 3 times same day against same opponent.'],
     ];
 }
 

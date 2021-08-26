@@ -246,7 +246,7 @@ foreach($result as $row) {
     }
     if ($row['user_won'] == $accunt_row['id']) {
         if ($row['ignore_scoring'] > 0) {
-            $a['status'] = '<span title="'.$scoring_ignored_reasons[$row['ignore_scoring']].'">(won)</span>';
+            $a['status'] = '<span title="'.$scoring_ignored_reasons[$row['ignore_scoring']]['desc'].'">(won)</span>';
         } else {
             $a['status'] = '<span style="color:green">won</span>';
         }
@@ -254,7 +254,7 @@ foreach($result as $row) {
         $users[] = $row['user_lost'];
     } else {
         if ($row['ignore_scoring'] > 0) {
-            $a['status'] = '<span title="'.$scoring_ignored_reasons[$row['ignore_scoring']].'">(lost)</span>';
+            $a['status'] = '<span title="'.$scoring_ignored_reasons[$row['ignore_scoring']]['desc'].'">(lost)</span>';
         } else {
             $a['status'] = '<span style="color:red">lost</span>';
         }
