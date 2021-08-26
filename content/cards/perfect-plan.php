@@ -1,5 +1,9 @@
 <p>This card really improves the strategy of the game. Use it to reinforce your strategy, take the card you miss for win or the one that will save you from loosing.</p>
 
+<h2>Compare With</h2>
+
+<?=cardImage('great-plan')?>
+
 <h2>Good cards against this</h2>
 
 <?=cardImage('luck')?>

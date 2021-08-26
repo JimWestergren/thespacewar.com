@@ -11,6 +11,7 @@
 <?=cardImage('fast-missile')?>
 <?=cardImage('neutralization')?>
 <?=cardImage('avoid')?>
+<?=cardImage('disturbing-signals')?>
 <?=cardImage('moment-of-peace')?>
 <?=cardImage('hunter')?>
 <?=cardImage('meteor-shower')?>

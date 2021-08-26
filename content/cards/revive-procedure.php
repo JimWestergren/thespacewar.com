@@ -1,6 +1,6 @@
 <h2>Compare With</h2>
 
-<?=cardImage('drone')?>
+<?=cardImage('deja-vu')?>
 <?=cardImage('perfect-plan')?>
 
 <h2>Changelog During Playtesting</h2>

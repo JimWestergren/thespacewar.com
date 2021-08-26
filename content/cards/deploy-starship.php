@@ -1,3 +1,11 @@
+<h2>Popular Cards to Discard</h2>
+
+<?=cardImage('satellite')?>
+<?=cardImage('station-repair')?>
+<?=cardImage('energy-source')?>
+<?=cardImage('drone')?>
+<?=cardImage('fast-missile')?>
+
 <h2>Rule Clarifications</h2>
 
 <ul>

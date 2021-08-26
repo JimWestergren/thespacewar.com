@@ -15,6 +15,12 @@
 <?=cardImage('avoid')?>
 <?=cardImage('destiny-decided')?>
 
+<h2>Compare With</h2>
+
+<?=cardImage('destroy-duration')?>
+<?=cardImage('great-disturbance')?>
+<?=cardImage('return')?>
+
 <h2>Changelog During Playtesting</h2>
 
 <ul>

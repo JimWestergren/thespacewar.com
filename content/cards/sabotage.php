@@ -7,6 +7,14 @@
 <?=cardImage('the-dark-destroyer')?>
 <?=cardImage('starship')?>
 
+<h2>Great Against</h2>
+
+<?=cardImage('perfect-plan')?>
+<?=cardImage('commander-dr-stein')?>
+<?=cardImage('deja-vu')?>
+
+<p>Play your sabotage directly after the opponent gets the needed card in hand.</p>
+
 <h2>Good Combo With</h2>
 
 <?=cardImage('obstacles')?>

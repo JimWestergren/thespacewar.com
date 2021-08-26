@@ -1,3 +1,10 @@
+
+<h2>Which event cards can destroy it?</h2>
+
+<?=cardImage('surprise-attack')?>
+<?=cardImage('supernova')?>
+
+
 <h2>Changelog During Playtesting</h2>
 
 <ul>

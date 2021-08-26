@@ -1,3 +1,9 @@
+<h2>Works With</h2>
+
+<?=cardImage('starship')?>
+<?=cardImage('death-ray-cannon')?>
+
+
 <h2>Changelog During Playtesting</h2>
 
 <ul>

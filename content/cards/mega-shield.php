@@ -1,3 +1,9 @@
+<h2>Other Shields</h2>
+
+<?=cardImage('energy-shield')?>
+<?=cardImage('shield')?>
+<?=cardImage('repair-shield')?>
+
 <h2>Changelog During Playtesting</h2>
 
 <ul>

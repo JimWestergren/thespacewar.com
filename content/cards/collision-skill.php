@@ -1,3 +1,9 @@
+<p>Excellent cards when you have many drones in play.</p>
+
+<h2>Works Good With</h2>
+
+<?=cardImage('carrier')?>
+
 <h2>Compare With</h2>
 
 <?=cardImage('pursuiter')?>

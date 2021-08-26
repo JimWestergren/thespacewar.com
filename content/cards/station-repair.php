@@ -1,3 +1,11 @@
+<h2>Compare With</h2>
+
+<?=cardImage('small-repair-ship')?>
+<?=cardImage('repair-ship')?>
+<?=cardImage('big-repair-ship')?>
+<?=cardImage('repair-shield')?>
+
+
 <h2>Changelog During Playtesting</h2>
 
 <ul>

@@ -6,6 +6,10 @@
 <?=cardImage('destiny-decided')?>
 <?=cardImage('cancel')?>
 
+<h2>Compare With</h2>
+
+<?=cardImage('electrocution')?>
+
 <h2>Rule Clarifications</h2>
 
 <ul>
