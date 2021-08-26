@@ -42,9 +42,9 @@ if ( isset( $_POST['purchase'] ) && in_array( $_POST['purchase'], [1, 2] ) ) {
             $pdo->run("UPDATE users SET credits_spent = credits_spent+10 WHERE id = ?", [$logged_in['id']]);
             $pdo->run("INSERT INTO credits_spent (`user_id`, `timestamp`, `amount`, `description`) VALUES (?, ?, ?, ?);", [$logged_in['id'], TIMESTAMP, 10, '2 random silver cards']);
             $card_id = purchaseRandomCard( $logged_in['id'], 1 );
-            echo '<div class="frame silver"><img src="'.getCardImageURL( $card_id ).'"></div>';
+            echo '<div class="frame silver"><img loading=lazy src="'.getCardImageURL( $card_id ).'"></div>';
             $card_id = purchaseRandomCard( $logged_in['id'], 1 );
-            echo '<div class="frame silver"><img src="'.getCardImageURL( $card_id ).'"></div>';
+            echo '<div class="frame silver"><img loading=lazy src="'.getCardImageURL( $card_id ).'"></div>';
         }
     }
     if ( $_POST['purchase'] == 2 ) {
@@ -56,21 +56,21 @@ if ( isset( $_POST['purchase'] ) && in_array( $_POST['purchase'], [1, 2] ) ) {
             $pdo->run("INSERT INTO credits_spent (`user_id`, `timestamp`, `amount`, `description`) VALUES (?, ?, ?, ?);", [$logged_in['id'], TIMESTAMP, 50, 'Pack of 7 random silver cards and 1 random gold card.']);
 
             $card_id = purchaseRandomCard( $logged_in['id'], 1 );
-            echo '<div class="frame silver"><img src="'.getCardImageURL( $card_id ).'"></div>';
+            echo '<div class="frame silver"><img loading=lazy src="'.getCardImageURL( $card_id ).'"></div>';
             $card_id = purchaseRandomCard( $logged_in['id'], 1 );
-            echo '<div class="frame silver"><img src="'.getCardImageURL( $card_id ).'"></div>';
+            echo '<div class="frame silver"><img loading=lazy src="'.getCardImageURL( $card_id ).'"></div>';
             $card_id = purchaseRandomCard( $logged_in['id'], 1 );
-            echo '<div class="frame silver"><img src="'.getCardImageURL( $card_id ).'"></div>';
+            echo '<div class="frame silver"><img loading=lazy src="'.getCardImageURL( $card_id ).'"></div>';
             $card_id = purchaseRandomCard( $logged_in['id'], 1 );
-            echo '<div class="frame silver"><img src="'.getCardImageURL( $card_id ).'"></div>';
+            echo '<div class="frame silver"><img loading=lazy src="'.getCardImageURL( $card_id ).'"></div>';
             $card_id = purchaseRandomCard( $logged_in['id'], 1 );
-            echo '<div class="frame silver"><img src="'.getCardImageURL( $card_id ).'"></div>';
+            echo '<div class="frame silver"><img loading=lazy src="'.getCardImageURL( $card_id ).'"></div>';
             $card_id = purchaseRandomCard( $logged_in['id'], 1 );
-            echo '<div class="frame silver"><img src="'.getCardImageURL( $card_id ).'"></div>';
+            echo '<div class="frame silver"><img loading=lazy src="'.getCardImageURL( $card_id ).'"></div>';
             $card_id = purchaseRandomCard( $logged_in['id'], 1 );
-            echo '<div class="frame silver"><img src="'.getCardImageURL( $card_id ).'"></div>';
+            echo '<div class="frame silver"><img loading=lazy src="'.getCardImageURL( $card_id ).'"></div>';
             $card_id = purchaseRandomCard( $logged_in['id'], 2 );
-            echo '<div class="frame gold"><img src="'.getCardImageURL( $card_id ).'"></div>';
+            echo '<div class="frame gold"><img loading=lazy src="'.getCardImageURL( $card_id ).'"></div>';
         }
     }
     // Recalculate the saldo
@@ -125,7 +125,7 @@ foreach($result as $row) {
     if ( in_array( $row['card_id'], $rare_cards ) ) {
         $output .= " [ RARE ]";
     }
-    $output .= '<div class="frame silver"><img src="'.getCardImageURL( $row['card_id'] ).'"></div></div>';
+    $output .= '<div class="frame silver"><img loading=lazy src="'.getCardImageURL( $row['card_id'] ).'"></div></div>';
     if ( $row['card_id'] > 9999 ) { // We show commanders first
         echo $output;
     } else {
@@ -156,7 +156,7 @@ foreach($result as $row) {
     if ( in_array( $row['card_id'], $rare_cards ) ) {
         $output .= " [ RARE ]";
     }
-    $output .= '<div class="frame gold"><img src="'.getCardImageURL( $row['card_id'] ).'"></div></div>';
+    $output .= '<div class="frame gold"><img loading=lazy src="'.getCardImageURL( $row['card_id'] ).'"></div></div>';
     if ( $row['card_id'] > 9999 ) { // We show commanders first
         echo $output;
     } else {
@@ -187,7 +187,7 @@ foreach($result as $row) {
     if ( in_array( $row['card_id'], $rare_cards ) ) {
         $output .= " [ RARE ]";
     }
-    $output .= '<div class="frame diamond"><img src="'.getCardImageURL( $row['card_id'] ).'"></div></div>';
+    $output .= '<div class="frame diamond"><img loading=lazy src="'.getCardImageURL( $row['card_id'] ).'"></div></div>';
     if ( $row['card_id'] > 9999 ) { // We show commanders first
         echo $output;
     } else {

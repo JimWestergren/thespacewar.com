@@ -29,7 +29,7 @@ require(ROOT.'view/head.php');
 <p style="float: right">[ <a href="/account/edit">Edit Account</a> ]<br>[ <a href="/logout">Logout</a> ]<?php if($logged_in['id'] === 1) { echo '<br>[ <a href="/account/admin">Admin</a> ]';} ?><p>
 
 <p>Logged in as <a href="/users/<?=$accunt_row['username']?>"><strong><?=$accunt_row['username']?></strong></a><br>
-Representing: <img src="https://staticjw.com/redistats/images/flags/<?=$accunt_row['country']?>.gif"> <?=countryArray()[strtoupper($accunt_row['country'])]?><br>
+Representing: <img loading=lazy src="https://staticjw.com/redistats/images/flags/<?=$accunt_row['country']?>.gif"> <?=countryArray()[strtoupper($accunt_row['country'])]?><br>
 
 <p>Rating Score this month: <strong style="font-size:24px;"><?=$rating?></strong></p>
 
@@ -67,7 +67,7 @@ $credits_earned_of_referrers = 0;
 $result = $pdo->run("SELECT * FROM users WHERE `referrer` = ?;", [$accunt_row['id']])->fetchAll();
 if (count($result) > 0) {
     foreach($result as $row) {
-        echo '<a href="/users/'.$row['username'].'">'.$row['username'].'</a> <img src="https://staticjw.com/redistats/images/flags/'.$row['country'].'.gif"> | Credits Earned: '.$row['credits_earned'].'<br>';
+        echo '<a href="/users/'.$row['username'].'">'.$row['username'].'</a> <img loading=lazy src="https://staticjw.com/redistats/images/flags/'.$row['country'].'.gif"> | Credits Earned: '.$row['credits_earned'].'<br>';
         $amount_of_referrers++;
         $credits_earned_of_referrers += $row['credits_earned'];
     } 
@@ -274,7 +274,7 @@ if (isset($array)) {
     }
 
     foreach($array as $a) {
-        echo '<tr><td>'.$a['date'].'</td><td>'.$a['status'].'</td><td><a href="/users/'.$user[$a['versus']]['username'].'">'.$user[$a['versus']]['username'].'</a> <img src="https://staticjw.com/redistats/images/flags/'.$user[$a['versus']]['country'].'.gif"> '.$user[$a['versus']]['credits_earned'].'</td><td>'.$a['length'].'</td></tr>';
+        echo '<tr><td>'.$a['date'].'</td><td>'.$a['status'].'</td><td><a href="/users/'.$user[$a['versus']]['username'].'">'.$user[$a['versus']]['username'].'</a> <img loading=lazy src="https://staticjw.com/redistats/images/flags/'.$user[$a['versus']]['country'].'.gif"> '.$user[$a['versus']]['credits_earned'].'</td><td>'.$a['length'].'</td></tr>';
     }
     echo '</table>';
 } else {

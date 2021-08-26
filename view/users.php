@@ -24,7 +24,7 @@ $quarterly = calculateRating($row['quarterly_win_count'], $row['quarterly_loss_c
 ?>
 
 <p>
-    <strong><?=$row['username']?></strong> is representing <img src="https://staticjw.com/redistats/images/flags/<?=$row['country']?>.gif"> <?=countryArray()[strtoupper($row['country'])]?>
+    <strong><?=$row['username']?></strong> is representing <img loading=lazy src="https://staticjw.com/redistats/images/flags/<?=$row['country']?>.gif"> <?=countryArray()[strtoupper($row['country'])]?>
     <?php if ($row['credits_earned'] > 0) {
         echo '<br>Total Credits Earned: <strong>'.$row['credits_earned'].'</strong>';
     } ?>
@@ -42,7 +42,7 @@ Winning over the bot: <?php if ($row['bot_win_fastest_time'] > 0) {echo 'Fastest
 if ($row['referrer'] != '') {
     if (is_numeric($row['referrer'])) {
         $a = $pdo->run("SELECT * FROM users WHERE id = ? LIMIT 1", [$row['referrer']])->fetch();
-        echo '<br>Referrer: '.$a['username'].' <img src="https://staticjw.com/redistats/images/flags/'.$a['country'].'.gif">';
+        echo '<br>Referrer: '.$a['username'].' <img loading=lazy src="https://staticjw.com/redistats/images/flags/'.$a['country'].'.gif">';
     } else {
         echo "<br>Referrer: ".$row['referrer'];
     }
@@ -80,7 +80,7 @@ foreach($result as $row2) {
     } else {
         $a['length'] = 'offline game';
     }
-    $html .= '<li>'.date('Y-m-d', $row2['timestamp']).' versus '.$row2['username'].' <img src="https://staticjw.com/redistats/images/flags/'.$row2['country'].'.gif"> ('.$a['length'].')</li>';
+    $html .= '<li>'.date('Y-m-d', $row2['timestamp']).' versus '.$row2['username'].' <img loading=lazy src="https://staticjw.com/redistats/images/flags/'.$row2['country'].'.gif"> ('.$a['length'].')</li>';
 }
 
 if ($html != '') {
