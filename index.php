@@ -36,6 +36,7 @@ $internal_redirects = [
     'cards/good-plan' => 'cards/great-plan',
     '​' => '',
     'constructed​' => 'constructed',
+    'cards/surprise-attack' => 'cards/ambush',
 ];
 
 
