@@ -5,7 +5,7 @@
 <h2>Good Cards Against Starhunter</h2>
 
 <?=cardImage('hunter')?>
-<?=cardImage('surprise-attack')?>
+<?=cardImage('ambush')?>
 
 <h2>Changelog During Playtesting</h2>
 

@@ -4,7 +4,7 @@
 
 <h2>Works Good With</h2>
 
-<?=cardImage('surprise-attack')?>
+<?=cardImage('ambush')?>
 
 <h2>Changelog During Playtesting</h2>
 

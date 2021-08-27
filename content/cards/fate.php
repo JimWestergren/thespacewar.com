@@ -5,7 +5,7 @@
 <?=cardImage('discovery')?>
 <?=cardImage('sabotage')?>
 <?=cardImage('fate')?>
-<?=cardImage('surprise-attack')?>
+<?=cardImage('ambush')?>
 <?=cardImage('cancel')?>
 <?=cardImage('return')?>
 <?=cardImage('drone')?>

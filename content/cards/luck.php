@@ -9,7 +9,7 @@
 <?=cardImage('perfect-plan')?>
 <?=cardImage('avoid')?>
 <?=cardImage('target-missed')?>
-<?=cardImage('surprise-attack')?>
+<?=cardImage('ambush')?>
 <?=cardImage('return')?>
 <?=cardImage('toxic-gas')?>
 <?=cardImage('destroy-duration')?>

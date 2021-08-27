@@ -644,7 +644,7 @@ function getNFTFirstEdition() : array
             'owner' => 0,
             'owner_opensea' => '',
         ],
-        'surprise-attack' => [
+        'ambush' => [
             'nft_id' => 81,
             'img_id' => 213,
             'price' => 0.15,

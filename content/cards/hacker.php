@@ -11,7 +11,7 @@
 <h2>How to Easy get rid of Hacker</h2>
 
 <?=cardImage('hunter')?>
-<?=cardImage('surprise-attack')?>
+<?=cardImage('ambush')?>
 <?=cardImage('the-gladiator')?>
 
 <h2>Changelog During Playtesting</h2>

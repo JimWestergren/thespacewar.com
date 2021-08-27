@@ -14,7 +14,7 @@
 <?=cardImage('luck')?>
 <?=cardImage('fate')?>
 <?=cardImage('sabotage')?>
-<?=cardImage('surprise-attack')?>
+<?=cardImage('ambush')?>
 <?=cardImage('return')?>
 <?=cardImage('cancel')?>
 <?=cardImage('discovery')?>

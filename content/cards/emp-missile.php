@@ -11,7 +11,7 @@
 
 <h2>Works good with</h2>
 
-<?=cardImage('surprise-attack')?>
+<?=cardImage('ambush')?>
 
 <h2>Rule Clarification</h2>
 

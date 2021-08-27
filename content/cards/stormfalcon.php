@@ -3,7 +3,7 @@
 <h2>Cards Good Against This</h2>
 
 <?=cardImage('hunter')?>
-<?=cardImage('surprise-attack')?>
+<?=cardImage('ambush')?>
 
 <h2>Cards Good With Stormfalcon</h2>
 

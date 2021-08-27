@@ -1,7 +1,7 @@
 
 <h2>Which event cards can destroy it?</h2>
 
-<?=cardImage('surprise-attack')?>
+<?=cardImage('ambush')?>
 <?=cardImage('supernova')?>
 
 
