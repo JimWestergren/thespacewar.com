@@ -26,6 +26,25 @@ require(ROOT.'view/head.php');
     echo '<div class="error">Your email is not verified, click the link in the email</div>';
 } ?>
 
+
+<?php if ( isset( $_GET['delete_game'] ) ) {
+
+    $_GET['delete_game'] = (int) $_GET['delete_game'];
+
+    $games_logging_row = $pdo->run("SELECT * FROM games_logging WHERE id = ".$_GET['delete_game']." AND `user_won` = ".$logged_in['id']." LIMIT 1;")->fetch();
+    if ( isset( $games_logging_row['id'] ) ) {
+        $pdo->run("DELETE FROM games_logging WHERE id = ".$_GET['delete_game'].";");
+        $pdo->run("UPDATE users SET monthly_win_count = monthly_win_count-1, quarterly_win_count = quarterly_win_count-1 WHERE id = ?;", [$logged_in['id']]);
+        $pdo->run("UPDATE users SET monthly_loss_count = monthly_loss_count-1, quarterly_loss_count = quarterly_loss_count-1 WHERE id = ?;", [$games_logging_row['user_lost']]);
+        echo '<div class="good">Your win has been removed.</div>';
+    } else {
+        echo '<div class="error">Your win has not been removed.</div>';
+    }
+    // Redirect back to account:
+    echo "<script>setTimeout(function(){ window.location.href= '/account/';}, 3000);</script>";
+    die();
+} ?>
+
 <p style="float: right">[ <a href="/account/edit">Edit Account</a> ]<br>[ <a href="/logout">Logout</a> ]<?php if($logged_in['id'] === 1) { echo '<br>[ <a href="/account/admin">Admin</a> ]';} ?><p>
 
 <p>Logged in as <a href="/users/<?=$accunt_row['username']?>"><strong><?=$accunt_row['username']?></strong></a><br>
@@ -239,6 +258,7 @@ $result = $pdo->run("SELECT * FROM games_logging WHERE `user_won` = ".$accunt_ro
 foreach($result as $row) {
     $a['id'] = $row['id'];
     $a['date'] = date('Y-m-d', $row['timestamp']);
+    $a['delete'] = '';
     if ($row['length'] > 0) {
         $a['length'] = gmdate("i:s", $row['length']);
     } else {
@@ -249,6 +269,9 @@ foreach($result as $row) {
             $a['status'] = '<span title="'.$scoring_ignored_reasons[$row['ignore_scoring']]['desc'].'">(won)</span>';
         } else {
             $a['status'] = '<span style="color:green">won</span>';
+            if ( date( 'Y-m', $row['timestamp'] ) == date( 'Y-m' ) ) {
+                $a['delete'] = ' (<a onclick="return confirm(\'Are you sure you want to remove your win against USERNAME on the '.$a['date'].'?\')" href="/account/?delete_game='.$a['id'].'">delete</a>)';
+            }
         }
         $a['versus'] = $row['user_lost'];
         $users[] = $row['user_lost'];
@@ -274,7 +297,10 @@ if (isset($array)) {
     }
 
     foreach($array as $a) {
-        echo '<tr><td>'.$a['date'].'</td><td>'.$a['status'].'</td><td><a href="/users/'.$user[$a['versus']]['username'].'">'.$user[$a['versus']]['username'].'</a> <img loading=lazy src="https://staticjw.com/redistats/images/flags/'.$user[$a['versus']]['country'].'.gif"> '.$user[$a['versus']]['credits_earned'].'</td><td>'.$a['length'].'</td></tr>';
+        if ( $a['delete'] != '' ) {
+            $a['delete'] = str_replace( 'USERNAME', $user[$a['versus']]['username'], $a['delete'] );
+        }
+        echo '<tr><td>'.$a['date'].'</td><td>'.$a['status'].'</td><td><a href="/users/'.$user[$a['versus']]['username'].'">'.$user[$a['versus']]['username'].'</a> <img loading=lazy src="https://staticjw.com/redistats/images/flags/'.$user[$a['versus']]['country'].'.gif"> '.$user[$a['versus']]['credits_earned'].' '.$a['delete'].'</td><td>'.$a['length'].'</td></tr>';
     }
     echo '</table>';
 } else {

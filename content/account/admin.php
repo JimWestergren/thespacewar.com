@@ -35,11 +35,6 @@ description VARCHAR(255) NOT NULL DEFAULT ''
 
 //$pdo->run("ALTER TABLE users ADD credits_earned INT(10) UNSIGNED NOT NULL DEFAULT 0 AFTER newsletter;");
 
-/*
-$pdo->run("DELETE FROM games_logging WHERE id = 131;");
-$pdo->run("UPDATE users SET monthly_win_count = monthly_win_count-1, quarterly_win_count = quarterly_win_count-1 WHERE username = ?;", ['Luna']);
-$pdo->run("UPDATE users SET monthly_loss_count = monthly_loss_count-1, quarterly_loss_count = quarterly_loss_count-1 WHERE username = ?;", ['Alvin']);
-*/
 
 /*
 // MONTHLY
@@ -133,7 +128,7 @@ if (isset($array)) {
     }
 
     foreach($array as $a) {
-        echo $a['date'].' <a href="/users/'.$user[$a['user_won']]['username'].'">'.$user[$a['user_won']]['username'].'</a> <img loading=lazy src="https://staticjw.com/redistats/images/flags/'.$user[$a['user_won']]['country'].'.gif"> '.$a['status'].' versus <a href="/users/'.$user[$a['user_lost']]['username'].'">'.$user[$a['user_lost']]['username'].'</a> <img loading=lazy src="https://staticjw.com/redistats/images/flags/'.$user[$a['user_lost']]['country'].'.gif"> ('.$a['length'].') (id: '.$a['id'].')<br>';
+        echo $a['date'].' <a href="/users/'.$user[$a['user_won']]['username'].'">'.$user[$a['user_won']]['username'].'</a> <img loading=lazy src="https://staticjw.com/redistats/images/flags/'.$user[$a['user_won']]['country'].'.gif"> '.$a['status'].' versus <a href="/users/'.$user[$a['user_lost']]['username'].'">'.$user[$a['user_lost']]['username'].'</a> <img loading=lazy src="https://staticjw.com/redistats/images/flags/'.$user[$a['user_lost']]['country'].'.gif"> ('.$a['length'].')<br>';
     }
 }
 ?>
