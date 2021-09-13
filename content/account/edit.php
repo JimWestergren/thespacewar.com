@@ -66,16 +66,16 @@ if (isset($_POST['save'])) {
     }
 
     if (isset($_POST['referrer']) && $_POST['referrer'] != '') {
-        if (!ctype_alnum($_POST['username'])) {
+        if (!ctype_alnum($_POST['referrer'])) {
             $errors[] = 'Username of referrer contains invalid characters.';
-        } elseif (strlen($_POST['username']) < 3 || strlen($_POST['username']) > 15) {
+        } elseif (strlen($_POST['referrer']) < 3 || strlen($_POST['referrer']) > 15) {
             $errors[] = 'Username of referrer is too short or too long.';
         } else {
-            $row = $pdo->run("SELECT id, regtime FROM users WHERE username = ? AND id != ".$logged_in['id']." LIMIT 1", [$_POST['username']])->fetch();
+            $row = $pdo->run("SELECT id, regtime FROM users WHERE username = ? AND id != ".$logged_in['id']." LIMIT 1", [$_POST['referrer']])->fetch();
             if (!isset($row['id'])) {
-                $errors[] = 'There is no account with the username '.$_POST['username'].', correct the username of your referrer or leave this field empty.';
-            } elseif ($a['regtime']+(3600*24*5) > $row['regtime']) {
-                $errors[] = 'The user '.$_POST['username'].' registered more than 5 days later than you - that user could not have referred you.';
+                $errors[] = 'There is no account with the username '.$_POST['referrer'].', correct the username of your referrer or leave this field empty.';
+            } elseif ( $a['regtime']+(3600*24*5) < $row['regtime'] ) {
+                $errors[] = 'The user '.$_POST['referrer'].' registered more than 5 days later than you - that user could not have referred you.';
             } else {
                 $sql .= ", referrer = ".$row['id'];
             }
