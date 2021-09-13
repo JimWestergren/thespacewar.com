@@ -5,11 +5,11 @@ require(ROOT.'view/head.php');
 
 <h1>News</h1>
 
+<p>For more regular news with more images follow us on: <a href="https://discord.gg/tv3DXqj" target="_blank">Discord</a> | <a href='https://www.facebook.com/TheSpaceWarCardGame' target="_blank">Facebook</a> | <a href='https://twitter.com/The_Space_War' target="_blank">Twitter</a> | <a href="https://www.reddit.com/r/TheSpaceWar/" target="_blank">Reddit</a></p>
 
-<h2>Current activities (July 2021)</h2>
+<h2>Current activities (September 2021)</h2>
 
 <ul>
-    <li><a href='/first-edition'>First Edition Cards as NFTs</a></li>
     <li>Playtesting <a href='/constructed'>constructed play</a> offline.</li>
     <li>Adding the cards of <a href='/united-stars'>The United Stars</a> to the online game.</li>
 </ul>
@@ -18,7 +18,7 @@ require(ROOT.'view/head.php');
 
 <ul>
     <li>Making the online game work better on mobile phones.</li>
-    <li>Jim to learn how to code the online game.</li>
+    <!--<li>Jim to learn how to code the online game.</li>-->
     <li>Fixing bugs in the online version.</li>
     <li>Sound effects and new background music for the online game.</li>
     <li>Better in game tutorial.</li>
@@ -31,6 +31,8 @@ require(ROOT.'view/head.php');
 <h2>Completed</h2>
 
 <ul>
+    <li>Printing more than 1500 playtest cards for playtesting (September 2021).</li>
+    <li><a href='/first-edition'>First Edition Cards as NFTs</a> (April-August 2021)</li>
     <li>Onboarding new js developers to work on the online game (May-June 2021).</li>
     <li>Some smaller promotions to get external testers of the online version (May 2021).</li>
     <li>New article from Jim: <a href='https://www.jimwestergren.com/creating-the-space-war'>Creating The Space War - The Card Game of My Dreams</a> (May 2021)</li>
@@ -66,6 +68,6 @@ require(ROOT.'view/head.php');
 <h2>Current playtesting questions</h2>
 
 <ul>
-    <li>Is the <a href='/cards/meteor-shower'>Meteor Shower</a> too good versus <a href='/the-swarm'>The Swarm</a>? Probably yes but there are now only 1 copy in the deck.</li>
+    <li>Is <a href='/commanders/staux'>Commander Staux</a> too good together with <a href='/cards/time-warp'>Time Warp</a>?</li>
     <li>Is the <a href='/cards/deploy-starship'>Deploy Starship</a> too good together with <a href='/cards/drone'>Drones</a> when playing constructed?</li>
 </ul>

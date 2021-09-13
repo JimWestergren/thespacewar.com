@@ -4,9 +4,15 @@
 
 <?=cardImage('drone')?>
 
-<h2>Good With</h2>
+<h2>Compare With</h2>
 
-<?=cardImage('moment-of-peace')?>
+<?=cardImage('meteor-shower')?>
+
+<h2>Rule Clarifications</h2>
+
+<ul>
+    <li>First give 2 damage to all the cards in the same zone (except duration cards) and then afterwards either give 1 damage to the station (opponent flips as usual) or another damage to the shield if it exist.</li>
+</ul>
 
 <h2>Changelog During Playtesting</h2>
 

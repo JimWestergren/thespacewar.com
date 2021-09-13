@@ -10,14 +10,16 @@ require(ROOT.'view/head.php');
 <h3>Creator / Game Design</h3>
 <p>Jim Westergren</p>
 <h3>Feedback & testing</h3>
-<p>Alvin Westergren, Neyda Westergren and many more</p>
+<p>Alvin Westergren, Staffan Sundblad,  Neyda Westergren and many more</p>
 <h3>Illustrators</h3>
 <p>Gabriel Stiernström, Luca Oleastri, Marco A. Aguilar and others</p>
 <h3>Developer of online game</h3>
-<p>August Alexandersson (with assistance of Manuel Martinez and David Barrera)</p>
+<p>August Alexandersson, Syed Qasim Asif, Manuel Martinez and David Barrera</p>
 <h3>Creator of card generator script</h3>
 <p>René Huanco</p>
 <h3>Card template design</h3>
 <p>Marco A. Aguilar</p>
 <h3>Website & Videos</h3>
 <p>Jim Westergren</p>
+<h3>Inspiration</h3>
+<p>Richard Garfield (creator of Magic)<br>Bryan Winter (creator of Doomtrooper)</p>

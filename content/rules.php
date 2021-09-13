@@ -90,6 +90,7 @@ The rules of this game is the same for offline play, online play, casual play an
 <p><strong>Discard</strong> means to move cards from your hand to the discard pile (if there are enough cards in the hand).</p>
 <p><strong>Discard from play</strong> means to move one of your own cards from the play area to your discard pile.</p>
 <p><strong>No effect</strong> if for example a duration card has no effect it means that all text on the card is ignored. The duration card still has to be paid for or discarded from play as normal at the start of the action phase.</p>
+<p><strong>Counters</strong> (noun) can be added to a few cards in the game. Use for example a die on the card to indicate the current amount of counters.</p>
 
 <h2>Additional Rules</h2>
 <ul>
