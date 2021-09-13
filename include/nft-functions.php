@@ -681,8 +681,8 @@ function getNFTFirstEdition() : array
             'img_id' => 217,
             'price' => 0.3,
             'token_id' => '54545543118371850173410875503158003596823792560618288887991952681519863037953',
-            'owner' => 0,
-            'owner_opensea' => '',
+            'owner' => 2,
+            'owner_opensea' => '0x8fb32e423b1c7ee1ea45a84575f5e700b4422a44',
         ],
         'brilliance' => [
             'nft_id' => 86,
