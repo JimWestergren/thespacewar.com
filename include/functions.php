@@ -51,8 +51,8 @@ function dieWith404(string $html) : void
 function getCardData() : array
 {
 
-    if (apcu_exists('getCardData')) {
-       return apcu_fetch('getCardData');
+    if (apcu_exists('getCardData2')) {
+       return apcu_fetch('getCardData2');
     }
 
     $type = [
@@ -83,11 +83,11 @@ function getCardData() : array
         $json = json_decode($json);
 
         foreach ($json as $k => $v) {
-            $slug = titleToSlug($v->name);
+            $slug = nameToSlug($v->name);
             $cards_array[$slug] = [
                 'id' => (int) $v->id,
                 'slug' => $slug,
-                'title' => $v->name,
+                'name' => $v->name,
                 'cost' => $v->price,
                 'type' => $type[$v->type_card],
                 'attack' => $v->attack,
@@ -106,11 +106,11 @@ function getCardData() : array
     $json = json_decode($json);
 
     foreach ($json->data->regular as $k => $v) {
-        $slug = titleToSlug($v->name);
+        $slug = nameToSlug($v->name);
         $cards_array[$slug] = [
             'id' => (int) $v->id,
             'slug' => $slug,
-            'title' => $v->name,
+            'name' => $v->name,
             'cost' => $v->price,
             'type' => $type[$v->type_card],
             'attack' => $v->attack,
@@ -123,11 +123,11 @@ function getCardData() : array
         ];
     }
     foreach ($json->data->theSwarm as $k => $v) {
-        $slug = titleToSlug($v->name);
+        $slug = nameToSlug($v->name);
         $cards_array[$slug] = [
             'id' => (int) $v->id,
             'slug' => $slug,
-            'title' => $v->name,
+            'name' => $v->name,
             'cost' => $v->price,
             'type' => $type[$v->type_card],
             'attack' => $v->attack,
@@ -140,11 +140,11 @@ function getCardData() : array
         ];
     }
     foreach ($json->data->unitedStars as $k => $v) {
-        $slug = titleToSlug($v->name);
+        $slug = nameToSlug($v->name);
         $cards_array[$slug] = [
             'id' => (int) $v->id,
             'slug' => $slug,
-            'title' => $v->name,
+            'name' => $v->name,
             'cost' => $v->price,
             'type' => $type[$v->type_card],
             'attack' => $v->attack,
@@ -158,7 +158,7 @@ function getCardData() : array
     }
 
 
-    apcu_store('getCardData', $cards_array, 3600*3); // 3 hours
+    apcu_store('getCardData2', $cards_array, 3600*3); // 3 hours
     return $cards_array;
 }
 
@@ -169,19 +169,19 @@ function displayCard(string $slug) : string
 
     $a = getCardData()[$slug] ?? [];
 
-    if ( !isset( $a['title'] ) ) {
+    if ( !isset( $a['name'] ) ) {
         dieWith404('<p>This page does not exist</p>');
     }
 
-    $title_tag = $a['title'].' | TheSpaceWar.com';
+    $title_tag = $a['name'].' | TheSpaceWar.com';
     require(ROOT.'view/head.php');
 
-    $return = '<h1>'.$a['title'].'</h1>';
+    $return = '<h1>'.$a['name'].'</h1>';
     $return .= '<img loading=lazy src="https://images.thespacewar.com/card-'.$a['id'].'.jpg" class="big">
     <table>
         <tr>
-            <th>Title</th>
-            <td>'.$a['title'].'</td>
+            <th>Name</th>
+            <td>'.$a['name'].'</td>
         </tr>
         <tr>
             <th>Cost</th>
@@ -837,9 +837,9 @@ function scoringIgnoredReasons() : array
 }
 
 
-function titleToSlug(string $title) : string
+function nameToSlug(string $name) : string
 {
-    $slug = strtolower($title);
+    $slug = strtolower($name);
 
     // Lazy hack
     if ($slug === 'déjà vu') return 'deja-vu';
@@ -862,7 +862,7 @@ function cardImage(string $slug) : string
 
     if ( $a === [] ) return '';
 
-    return '<a href="/cards/'.$slug.'"><img loading=lazy src="https://images.thespacewar.com/card-'.$a['id'].'.jpg" alt="Card: '.$a['title'].'"></a>';
+    return '<a href="/cards/'.$slug.'"><img loading=lazy src="https://images.thespacewar.com/card-'.$a['id'].'.jpg" alt="Card: '.$a['name'].'"></a>';
 
 }
 

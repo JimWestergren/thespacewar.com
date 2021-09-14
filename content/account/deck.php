@@ -35,7 +35,7 @@ function show_cards_by_type_saved_text(array $cards_data, array $cards, $type) :
     foreach ($cards_data as $card => $value) {
         if ($value['type'] != $type) continue;
         if (!isset($cards[$value['id']])) continue;
-        echo $cards[$value['id']]." ".$value['title']."<br>";
+        echo $cards[$value['id']]." ".$value['name']."<br>";
         $count += $cards[$value['id']];
     }
     return $count;

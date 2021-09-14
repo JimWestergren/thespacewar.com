@@ -2,7 +2,7 @@
 $title_tag = 'Full Card List | TheSpaceWar.com';
 require(ROOT.'view/head.php');
 
-$table_head = '<tr><th>Deck</th><th>Copies</th><th>Image</th><th>Title</th><th>Cost</th><th>Type</th><th>Attack</th><th>Defense</th><th>Text</th></tr>';
+$table_head = '<tr><th>Deck</th><th>Copies</th><th>Image</th><th>Name</th><th>Cost</th><th>Type</th><th>Attack</th><th>Defense</th><th>Text</th></tr>';
 ?>
 
 <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
@@ -72,7 +72,7 @@ foreach ($array as $key => $value) {
     } else {
         $data_order['defense'] = $value['defense'];
     }
-    echo "</td><td>".$value['title']."</td><td data-order='".$data_order['cost']."'>".$value['cost']."</td><td>".$value['type']."</td><td data-order='".$data_order['attack']."'>".$value['attack']."</td><td data-order='".$data_order['defense']."'>".$value['defense']."</td><td style='font-size:15px'>".$value['text']."</td></tr>";
+    echo "</td><td>".$value['name']."</td><td data-order='".$data_order['cost']."'>".$value['cost']."</td><td>".$value['type']."</td><td data-order='".$data_order['attack']."'>".$value['attack']."</td><td data-order='".$data_order['defense']."'>".$value['defense']."</td><td style='font-size:15px'>".$value['text']."</td></tr>";
     $count_cards[$value['deck_name']] += $value['copies'];
 }
 
