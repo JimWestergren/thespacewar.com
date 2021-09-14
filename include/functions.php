@@ -397,7 +397,16 @@ function winnersArrayByUser(string $user) : array
     return [];
 }
 
+function getTournamentArrayByUser( string $user ) : array
+{
+    $a['Alvin'][] = ['info' => 'Tournament #1<br>September 2021 in Bolivia', 'position' => '🏆', 'award' => 500];
+    $a['Kaah'][] = ['info' => 'Tournament #1<br>September 2021 in Bolivia', 'position' => '🥈', 'award' => 250];
+    $a['Jim'][] = ['info' => 'Tournament #1<br>September 2021 in Bolivia', 'position' => '🥉', 'award' => 125];
 
+    if (isset($a[$user])) return $a[$user];
+
+    return [];
+}
 
 function leaderboardTable(string $period = 'monthly') : string
 {

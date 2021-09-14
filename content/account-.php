@@ -173,48 +173,48 @@ $total_credits += round( ( $credits_earned_of_referrers/10 ) );
 echo '</td></tr>';
 
 
-
-$quarterly_gold_medals = 0;
-$quarterly_silver_medals = 0;
-$monthly_gold_medals = 0;
-$monthly_silver_medals = 0;
+$monthly_medals_score = 0;
+$quarterly_medals_score = 0;
 $winners_array = winnersArrayByUser($accunt_row['username']);
-if ($winners_array != []) {
-    foreach ($winners_array as $key => $value) {
-        if (strpos($value['period'], 'Quarter')) {
-            if ($value['position'] == '🏆') {
-                $quarterly_gold_medals++;
-            } elseif ($value['position'] == '🥈') {
-                $quarterly_silver_medals++;
-            }
-        } else {
-            if ($value['position'] == '🏆') {
-                $monthly_gold_medals++;
-            } elseif ($value['position'] == '🥈') {
-                $monthly_silver_medals++;
-            }
-        } 
-    }
+foreach ($winners_array as $key => $value) {
+    if (strpos($value['period'], 'Quarter')) {
+        if ($value['position'] == '🏆') {
+            $quarterly_medals_score += 600;
+        } elseif ($value['position'] == '🥈') {
+            $quarterly_medals_score += 300;
+        } elseif ($value['position'] == '🥉') {
+            $quarterly_medals_score += 150;
+        }
+    } else {
+        if ($value['position'] == '🏆') {
+            $monthly_medals_score += 100;
+        } elseif ($value['position'] == '🥈') {
+            $monthly_medals_score += 50;
+        } elseif ($value['position'] == '🥉') {
+            $monthly_medals_score += 25;
+        }
+    } 
 }
 
-echo '<tr><td>50 credits for each monthly silver medal.</td><td>';
-echo 50*$monthly_silver_medals;
-$total_credits += (50*$monthly_silver_medals);
+echo '<tr><td>100/50/25 credits for each monthly Gold/Silver/Bronze medal.</td><td>';
+echo $monthly_medals_score;
+$total_credits += $monthly_medals_score;
 echo '</td></tr>';
 
-echo '<tr><td>100 credits for each monthly gold medal.</td><td>';
-echo 100*$monthly_gold_medals;
-$total_credits += (100*$monthly_gold_medals);
+
+echo '<tr><td>600/300/150 credits for each quarterly Gold/Silver/Bronze medal.</td><td>';
+echo $quarterly_medals_score;
+$total_credits += $quarterly_medals_score;
 echo '</td></tr>';
 
-echo '<tr><td>300 credits for each quarterly silver medal.</td><td>';
-echo 300*$quarterly_silver_medals;
-$total_credits += (300*$quarterly_silver_medals);
-echo '</td></tr>';
-
-echo '<tr><td>600 credits for each quarterly gold medal.</td><td>';
-echo 600*$quarterly_gold_medals;
-$total_credits += (600*$quarterly_gold_medals);
+echo '<tr><td>Credits awarded from <a href="/tournaments">official tournaments</a>.</td><td>';
+$amount = 0;
+$tournaments_array = getTournamentArrayByUser($accunt_row['username']);
+foreach ($tournaments_array as $key => $value) {
+    $amount += $value['award'];
+}
+echo $amount;
+$total_credits += $amount;
 echo '</td></tr>';
 
 echo '<tr><td>1000 credits for each <a href="/first-edition">First Edition NFT</a> you own.</td><td>';

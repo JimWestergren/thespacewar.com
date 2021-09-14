@@ -62,14 +62,17 @@ if ($row['credits_earned'] > 1000) {
     }
 }
 
-
+$tournament_array = getTournamentArrayByUser($row['username']);
 $winners_array = winnersArrayByUser($row['username']);
-if ($winners_array != []) {
+if ( $tournament_array != [] && $winners_array != [] ) {
     $output = '';
-    foreach ($winners_array as $key => $value) {
-        $output .= '<li>'.$value['period'].': '.$value['position'].'</li>';
+    foreach ($tournament_array as $key => $value) {
+        $output .= '<li>'.$value['position'].' '.$value['info'].'</li>';
     }
-    echo '<h2>Trophies</h2><ul>'.$output.'</ul>';
+    foreach ($winners_array as $key => $value) {
+        $output .= '<li>'.$value['position'].' '.$value['period'].'</li>';
+    }
+    echo '<h2>Trophies</h2><ul style="columns: 2;list-style:none;">'.$output.'</ul>';
 }
 
 $html = '';
