@@ -421,7 +421,7 @@ if ($edit_deck) {
     <li>Maximum of 3 copies of each card except Drone which you can have 10 copies of.</li>
     <li>Select any commander for your deck.</li>
     <li>Deck size must be between 50 and 70 cards.</li>
-    <li>The dots above the cards indicates if you have copies with Silver, Gold or Diamond frame.</li>
+    <li>The dots above the cards indicates if you have copies with Silver, Gold or Diamond frame. See more <a href="/account/your-cards">on this page</a>.</li>
 </ul>
 
 
