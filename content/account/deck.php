@@ -69,16 +69,20 @@ function cards_as_json(array $cards_data, int &$total_cards) : string
 function show_cards_by_type(array $cards_data, array $cards, string $type) : void
 {
     foreach ($cards_data as $card => $value) {
+
         if ($value['type'] != $type) continue;
-        echo "<div class='card'><img loading=lazy src=\"https://images.thespacewar.com/card-".$value['id'].".jpg\"><br>
-            <div><a href='javascript:void(0)' onclick=\"javascript:addRemoveCard(".$value['id'].", 'remove')\" id='remove-".$value['id']."' style='display:none;'>-</a></div>
-            <div><span id='count-".$value['id']."'>";
+
+        echo "<div class='card'>";
+            echo "<a href='/cards/".$value['slug']."' target='_blank'><img loading=lazy src=\"https://images.thespacewar.com/card-".$value['id'].".jpg\"></a>";
+            echo "<div><a href='javascript:void(0)' onclick=\"javascript:addRemoveCard(".$value['id'].", 'remove')\" id='remove-".$value['id']."' style='display:none;'>-</a></div>";
+            echo "<div><span id='count-".$value['id']."'>";
             echo $cards[$value['id']] ?? 0;
-            echo "</span></div>
-            <div><a href='javascript:void(0)' onclick=\"javascript:addRemoveCard(".$value['id'].", 'add')\" id='add-".$value['id']."'>+</a></div>
-            <input type='hidden' name='cardcount-".$value['id']."' value='";
+            echo "</span></div>";
+            echo "<div><a href='javascript:void(0)' onclick=\"javascript:addRemoveCard(".$value['id'].", 'add')\" id='add-".$value['id']."'>+</a></div>";
+            echo "<input type='hidden' name='cardcount-".$value['id']."' value='";
             echo $cards[$value['id']] ?? 0;
-            echo "' id='cardcount-".$value['id']."'></div>";
+            echo "' id='cardcount-".$value['id']."'>";
+        echo "</div>";
     }
 }
 
@@ -180,9 +184,8 @@ require(ROOT.'view/head.php');
         margin-bottom: 30px;
     }
     .card-selection .card div {
-        height:15px;
         display:inline-block;
-        transition: none;
+        padding: 0 10px 0 10px;
     }
     .card-selection .card a {
         color:#fff;
@@ -190,7 +193,6 @@ require(ROOT.'view/head.php');
         background: none;
         transition: none;
     }
-
     .card-selection img {
         height:200px;
     }
