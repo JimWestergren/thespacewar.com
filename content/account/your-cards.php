@@ -41,9 +41,11 @@ if ( isset( $_POST['purchase'] ) && in_array( $_POST['purchase'], [1, 2] ) ) {
             $accunt_row['credits_spent'] += 10;
             $pdo->run("UPDATE users SET credits_spent = credits_spent+10 WHERE id = ?", [$logged_in['id']]);
             $pdo->run("INSERT INTO credits_spent (`user_id`, `timestamp`, `amount`, `description`) VALUES (?, ?, ?, ?);", [$logged_in['id'], TIMESTAMP, 10, '2 random silver cards']);
-            $card_id = purchaseRandomCard( $logged_in['id'], 1 );
+            $card_id = getRandomCard()['id'];
+            purchaseCard( $logged_in['id'], 1, $card_id );
             echo '<div class="frame silver"><img loading=lazy src="'.getCardImageURL( $card_id ).'"></div>';
-            $card_id = purchaseRandomCard( $logged_in['id'], 1 );
+            $card_id = getRandomCard()['id'];
+            purchaseCard( $logged_in['id'], 1, $card_id );
             echo '<div class="frame silver"><img loading=lazy src="'.getCardImageURL( $card_id ).'"></div>';
         }
     }
@@ -55,21 +57,29 @@ if ( isset( $_POST['purchase'] ) && in_array( $_POST['purchase'], [1, 2] ) ) {
             $pdo->run("UPDATE users SET credits_spent = credits_spent+50 WHERE id = ?", [$logged_in['id']]);
             $pdo->run("INSERT INTO credits_spent (`user_id`, `timestamp`, `amount`, `description`) VALUES (?, ?, ?, ?);", [$logged_in['id'], TIMESTAMP, 50, 'Pack of 7 random silver cards and 1 random gold card.']);
 
-            $card_id = purchaseRandomCard( $logged_in['id'], 1 );
+            $card_id = getRandomCard()['id'];
+            purchaseCard( $logged_in['id'], 1, $card_id );
             echo '<div class="frame silver"><img loading=lazy src="'.getCardImageURL( $card_id ).'"></div>';
-            $card_id = purchaseRandomCard( $logged_in['id'], 1 );
+            $card_id = getRandomCard()['id'];
+            purchaseCard( $logged_in['id'], 1, $card_id );
             echo '<div class="frame silver"><img loading=lazy src="'.getCardImageURL( $card_id ).'"></div>';
-            $card_id = purchaseRandomCard( $logged_in['id'], 1 );
+            $card_id = getRandomCard()['id'];
+            purchaseCard( $logged_in['id'], 1, $card_id );
             echo '<div class="frame silver"><img loading=lazy src="'.getCardImageURL( $card_id ).'"></div>';
-            $card_id = purchaseRandomCard( $logged_in['id'], 1 );
+            $card_id = getRandomCard()['id'];
+            purchaseCard( $logged_in['id'], 1, $card_id );
             echo '<div class="frame silver"><img loading=lazy src="'.getCardImageURL( $card_id ).'"></div>';
-            $card_id = purchaseRandomCard( $logged_in['id'], 1 );
+            $card_id = getRandomCard()['id'];
+            purchaseCard( $logged_in['id'], 1, $card_id );
             echo '<div class="frame silver"><img loading=lazy src="'.getCardImageURL( $card_id ).'"></div>';
-            $card_id = purchaseRandomCard( $logged_in['id'], 1 );
+            $card_id = getRandomCard()['id'];
+            purchaseCard( $logged_in['id'], 1, $card_id );
             echo '<div class="frame silver"><img loading=lazy src="'.getCardImageURL( $card_id ).'"></div>';
-            $card_id = purchaseRandomCard( $logged_in['id'], 1 );
+            $card_id = getRandomCard()['id'];
+            purchaseCard( $logged_in['id'], 1, $card_id );
             echo '<div class="frame silver"><img loading=lazy src="'.getCardImageURL( $card_id ).'"></div>';
-            $card_id = purchaseRandomCard( $logged_in['id'], 2 );
+            $card_id = getRandomCard()['id'];
+            purchaseCard( $logged_in['id'], 2, $card_id );
             echo '<div class="frame gold"><img loading=lazy src="'.getCardImageURL( $card_id ).'"></div>';
         }
     }

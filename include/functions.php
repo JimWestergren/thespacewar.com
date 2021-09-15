@@ -897,19 +897,16 @@ function getRandomCard() : array
     return $new_array[$random_card];
 }
 
-function purchaseRandomCard( int $user_id, int $frame_type ) : int
+function purchaseCard( int $user_id, int $frame_type, int $card_id ) : void
 {
     global $pdo;
 
-    $random_card = getRandomCard();
-    $row_exist = $pdo->run("SELECT id FROM framed_cards WHERE user_id = ? AND card_id = ? AND frame_type = ?", [$user_id, $random_card['id'], $frame_type])->fetch();
+    $row_exist = $pdo->run("SELECT id FROM framed_cards WHERE user_id = ? AND card_id = ? AND frame_type = ?", [$user_id, $card_id, $frame_type])->fetch();
     if ( isset( $row_exist['id'] ) ) {
         $pdo->run("UPDATE framed_cards SET amount = amount+1 WHERE id = ?", [$row_exist['id']]);
     } else {
-        $pdo->run("INSERT INTO framed_cards (`user_id`, `card_id`, `frame_type`, `amount`) VALUES (?, ?, ?, ?);", [$user_id, $random_card['id'], $frame_type, 1]);
+        $pdo->run("INSERT INTO framed_cards (`user_id`, `card_id`, `frame_type`, `amount`) VALUES (?, ?, ?, ?);", [$user_id, $card_id, $frame_type, 1]);
     }
-
-    return (int) $random_card['id'];
 }
 
 function getRareCards() : array
@@ -943,3 +940,24 @@ function getCardImageURL( int $card_id ) : string
 
 }
 
+
+function getWeeklyOffer( int $week_number ) : array
+{
+    if ( apcu_exists( 'weekly-offer-'.$week_number ) ) {
+        $weekly_offer = apcu_fetch( 'weekly-offer-'.$week_number );
+    } else {
+        $random_card = getRandomCard();
+        $random_cost = mt_rand( 15, 40 );
+        $weekly_offer = $random_card['id'].'###'.$random_card['name'].'###'.$random_cost;
+        apcu_store( 'weekly-offer-'.$week_number, $weekly_offer, 3600*24*7 );
+    }
+
+    $weekly_offer = explode( '###', $weekly_offer );
+
+    return [
+        'id' => (int) $weekly_offer[0],
+        'name' => $weekly_offer[1],
+        'cost' => (int) $weekly_offer[2],
+    ];
+
+}

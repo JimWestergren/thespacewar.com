@@ -11,6 +11,7 @@ $title_tag = 'Admin | TheSpaceWar.com';
 require(ROOT.'view/head.php');
 
 
+//$pdo->run("ALTER TABLE users ADD weekly_offer_used SMALLINT(5) UNSIGNED NOT NULL DEFAULT 0 AFTER newsletter;");
 
 /*
 $pdo->run("CREATE TABLE framed_cards (

@@ -72,6 +72,17 @@ echo $html;
 ?>
 </div>
 
+<h2>Offer of the week</h2>
+
+<?php
+$week_number = (int) date( 'W' );
+$weekly_offer = getWeeklyOffer( $week_number );
+
+echo '<p>Gold framed '.$weekly_offer['name'].' for only <strong>'.$weekly_offer['cost'].'</strong> credits. Get it <a href="/weekly-offer">here</a>.</p>';
+
+
+
+?>
 
 <h2>5 minute intro video</h2>
 
