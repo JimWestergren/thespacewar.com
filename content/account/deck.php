@@ -68,11 +68,36 @@ function cards_as_json(array $cards_data, int &$total_cards) : string
 
 function show_cards_by_type(array $cards_data, array $cards, string $type) : void
 {
+    global $framed_cards;
+    
     foreach ($cards_data as $card => $value) {
 
         if ($value['type'] != $type) continue;
 
         echo "<div class='card'>";
+            echo '<div class="frames-data">';
+            if ( isset( $framed_cards[$value['id']][1] ) ) {
+                echo '<span style="color:#C0C0C0" title="You have '.$framed_cards[$value['id']][1].' in Silver frame">';
+                for ($i=0; $i < $framed_cards[$value['id']][1]; $i++) { 
+                    echo '•';
+                }
+                echo '</span>';
+            }
+            if ( isset( $framed_cards[$value['id']][2] ) ) {
+                echo '<span style="color:#FFD700" title="You have '.$framed_cards[$value['id']][2].' in Gold frame">';
+                for ($i=0; $i < $framed_cards[$value['id']][2]; $i++) { 
+                    echo '•';
+                }
+                echo '</span>';
+            }
+            if ( isset( $framed_cards[$value['id']][3] ) ) {
+                echo '<span style="color:#b9f2ff" title="You have '.$framed_cards[$value['id']][3].' in Diamond frame">';
+                for ($i=0; $i < $framed_cards[$value['id']][3]; $i++) { 
+                    echo '•';
+                }
+                echo '</span>';
+            }
+            echo '&nbsp;</div>';
             echo "<a href='/cards/".$value['slug']."' target='_blank'><img loading=lazy src=\"https://images.thespacewar.com/card-".$value['id'].".jpg\"></a>";
             echo "<div><a href='javascript:void(0)' onclick=\"javascript:addRemoveCard(".$value['id'].", 'remove')\" id='remove-".$value['id']."' style='display:none;'>-</a></div>";
             echo "<div><span id='count-".$value['id']."'>";
@@ -84,6 +109,20 @@ function show_cards_by_type(array $cards_data, array $cards, string $type) : voi
             echo "' id='cardcount-".$value['id']."'>";
         echo "</div>";
     }
+}
+
+function get_framed_cards( int $logged_in_id ) : array
+{
+    $pdo = PDOWrap::getInstance();
+
+    $framed_cards = [];
+
+    $result = $pdo->run("SELECT card_id, frame_type, amount FROM framed_cards WHERE `user_id` = ? AND amount > 0;", [$logged_in_id])->fetchAll();
+    foreach($result as $row) {
+        $framed_cards[$row['card_id']][$row['frame_type']] = $row['amount'];
+    }
+
+    return $framed_cards;
 }
 
 //////////////// End of functions ///////////////////
@@ -157,6 +196,8 @@ if (isset($_POST['submit'])) {
 
 $title_tag = 'Deck Building | TheSpaceWar.com';
 require(ROOT.'view/head.php');
+
+$framed_cards = get_framed_cards( $logged_in['id'] );
 
 ?>
 
@@ -257,6 +298,13 @@ require(ROOT.'view/head.php');
         font-size:18px;
         padding:0 0 50px 10px;
     }
+    .frames-data {
+        font-size:10px;
+        display: table !important;
+        padding: 0 !important;
+        margin: 0 auto;
+    }
+
     @media (min-width: 1000px) { /* Desktop */
         .wrap-deck {
             width:100%;
@@ -364,6 +412,7 @@ if ($edit_deck) {
 
 }
 
+
 ?>
 
 <p>This is for playing in the constructed play format (coming soon online).</p>
@@ -372,6 +421,7 @@ if ($edit_deck) {
     <li>Maximum of 3 copies of each card except Drone which you can have 10 copies of.</li>
     <li>Select any commander for your deck.</li>
     <li>Deck size must be between 50 and 70 cards.</li>
+    <li>The dots above the cards indicates if you have copies with Silver, Gold or Diamond frame.</li>
 </ul>
 
 
@@ -385,7 +435,7 @@ window.addEventListener("hashchange", function () {
     window.scrollTo(window.scrollX, window.scrollY - 100);
 });
 
-var deckCount = <?=$row['card_count'] ?? 0 ?>;
+var deckCount = <?=$total_cards ?? 0 ?>;
 
 function addRemoveCard(id, action) {
     var commander = document.getElementById('commander').value;
@@ -447,7 +497,7 @@ function chooseCommander(id) {
 <form method="post" action="<?= $form_action_url ?>">
 
 <div class='bottom-bar'>
-    Cards selected: <strong style="color:red;" id="deckCount"><?=$row['card_count'] ?? 0 ?></strong><br>
+    Cards selected: <strong style="color:red;" id="deckCount"><?=$total_cards ?? 0 ?></strong><br>
     Requirement: 50-70<br>
     <input type="submit" name='submit' id='save-button' disabled value="Save deck">
 </div>
@@ -461,7 +511,32 @@ function chooseCommander(id) {
     <h2>Select 1 commander</h2>
     <?php
     foreach ($commander_data as $commander_slug => $commander) {
-        echo "<div class='card'><a href='javascript:void(0)' onclick='javascript:chooseCommander(".$commander['id'].")'><img id='commander-".$commander['id']."'  src='https://images.thespacewar.com/commander-".$commander['id'].".png'></a></div>";
+        echo "<div class='card'>";
+        $frame_id = $commander['id']+10000;
+        echo '<div class="frames-data">';
+        if ( isset( $framed_cards[$frame_id][1] ) ) {
+            echo '<span style="color:#C0C0C0" title="You have '.$framed_cards[$frame_id][1].' in Silver frame">';
+            for ($i=0; $i < $framed_cards[$frame_id][1]; $i++) { 
+                echo '•';
+            }
+            echo '</span>';
+        }
+        if ( isset( $framed_cards[$frame_id][2] ) ) {
+            echo '<span style="color:#FFD700" title="You have '.$framed_cards[$frame_id][2].' in Gold frame">';
+            for ($i=0; $i < $framed_cards[$frame_id][2]; $i++) { 
+                echo '•';
+            }
+            echo '</span>';
+        }
+        if ( isset( $framed_cards[$frame_id][3] ) ) {
+            echo '<span style="color:#b9f2ff" title="You have '.$framed_cards[$frame_id][3].' in Diamond frame">';
+            for ($i=0; $i < $framed_cards[$frame_id][3]; $i++) { 
+                echo '•';
+            }
+            echo '</span>';
+        }
+        echo '&nbsp;</div>';
+        echo "<a href='javascript:void(0)' onclick='javascript:chooseCommander(".$commander['id'].")'><img id='commander-".$commander['id']."'  src='https://images.thespacewar.com/commander-".$commander['id'].".png'></a></div>";
     }
     ?>
 
