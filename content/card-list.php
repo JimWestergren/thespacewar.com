@@ -27,6 +27,8 @@ $table_head = '<tr><th>Deck</th><th>Copies</th><th>Image</th><th>Name</th><th>Co
 </style>
 <h1>Card List</h1>
 
+<p>See also the page: <a href='/popular-cards'>Popular Cards</a>.</p>
+
 <p>Display cards from deck: 
     <?=(isset($_GET['deck']) && $_GET['deck'] == 1 ? '<span class="active">The Terrans</span>' : "<a href='/card-list?deck=1'>The Terrans</a>") ?>,
     <?=(isset($_GET['deck']) && $_GET['deck'] == 2 ? '<span class="active">The Swarm</span>' : "<a href='/card-list?deck=2'>The Swarm</a>") ?>,

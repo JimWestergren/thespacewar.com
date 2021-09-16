@@ -31,6 +31,7 @@ require(ROOT.'view/head.php');
 <h2>Completed</h2>
 
 <ul>
+    <li>New page: <a href='/popular-cards'>Popular Cards</a> (September 2021).</li>
     <li>New page: <a href='/weekly-offer'>Weekly Offer</a> (September 2021).</li>
     <li>The first tournament held in Bolivia, see <a href='/tournaments'>Tournaments</a> page (September 2021).</li>
     <li>Printing more than 1500 playtest cards for playtesting (September 2021).</li>
