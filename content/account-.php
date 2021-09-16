@@ -72,32 +72,15 @@ Read this first: alpha testing for desktop and tablets with focus on the browser
 
 <h2>Your Referrers</h2>
 
-<p>Your referrer URL: <code>https://thespacewar.com/?referrer=<?=$accunt_row['id']?></code></p>
-<p>People registering using your referrer URL will receive 50 extra credits, and you will earn 10 + 10% of all your referrers.</p>
+<p>Your referral link: <code>https://thespacewar.com/?referrer=<?=$accunt_row['id']?></code></p>
+<p>People registering using your referral link will receive 50 extra credits, and you will earn 10 + 10% of all your referrers. You can also earn real money, see the page <a href="/affiliate">Affiliate</a>.</p>
 
-
-<h3>30 Latest Referrers:</h3>
-
-<p>
-<?php
-$amount_of_referrers = 0;
-$credits_earned_of_referrers = 0;
-
-$result = $pdo->run("SELECT * FROM users WHERE `referrer` = ?;", [$accunt_row['id']])->fetchAll();
-if (count($result) > 0) {
-    foreach($result as $row) {
-        echo '<a href="/users/'.$row['username'].'">'.$row['username'].'</a> <img loading=lazy src="https://staticjw.com/redistats/images/flags/'.$row['country'].'.gif"> | Credits Earned: '.$row['credits_earned'].'<br>';
-        $amount_of_referrers++;
-        $credits_earned_of_referrers += $row['credits_earned'];
-    } 
-} else {
-    echo "<p>None yet.";
-}
-?>
-</p>
-
+<h3>20 Latest Referrers:</h3>
 
 <?php
+$getLatestReferralsTable = getLatestReferralsTable( $logged_in['id'], 20 );
+echo $getLatestReferralsTable['html_output'];
+
 
 $total_credits = 0;
 
@@ -162,14 +145,14 @@ echo '</td></tr>';
 
 
 echo '<tr><td>10 credits for each referral.</td><td>';
-echo 10*$amount_of_referrers;
-$total_credits += (10*$amount_of_referrers);
+echo 10*$getLatestReferralsTable['amount_of_referrers'];
+$total_credits += (10*$getLatestReferralsTable['amount_of_referrers']);
 echo '</td></tr>';
 
 
 echo '<tr><td>10% of all credits earned from your referrals.</td><td>';
-echo round( ( $credits_earned_of_referrers/10 ) );
-$total_credits += round( ( $credits_earned_of_referrers/10 ) );
+echo round( ( $getLatestReferralsTable['credits_earned_of_referrers']/10 ) );
+$total_credits += round( ( $getLatestReferralsTable['credits_earned_of_referrers']/10 ) );
 echo '</td></tr>';
 
 

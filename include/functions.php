@@ -961,3 +961,33 @@ function getWeeklyOffer( int $week_number ) : array
     ];
 
 }
+
+
+function getLatestReferralsTable( int $user_id, int $limit ) : array
+{
+    $a['amount_of_referrers'] = 0;
+    $a['credits_earned_of_referrers'] = 0;
+    $a['html_output'] = '';
+
+    $pdo = PDOWrap::getInstance();
+
+    $result = $pdo->run("SELECT username, country, credits_earned, regtime, lastlogintime FROM users WHERE `referrer` = ? ORDER BY regtime DESC LIMIT ".$limit.";", [$user_id])->fetchAll();
+    if ( count( $result ) == 0 ) {
+        $a['html_output'] .= "<p>None yet.</p>";
+        return $a;
+    } 
+
+    $a['html_output'] .= '<table><tr><th>Registration Date</th><th>User</th><th>Credits Earned</th><th>Last Logged In</th></tr>';
+
+    foreach($result as $row) {
+        $a['html_output'] .= '<tr><td>'.date('Y-m-d', $row['regtime']).'</td><td><a href="/users/'.$row['username'].'">'.$row['username'].'</a> <img loading=lazy src="https://staticjw.com/redistats/images/flags/'.$row['country'].'.gif"></td><td>'.$row['credits_earned'].'</td><td>'.date('Y-m-d', $row['lastlogintime']).'</td></tr>';
+        $a['amount_of_referrers']++;
+        $a['credits_earned_of_referrers'] += $row['credits_earned'];
+    } 
+
+    $a['html_output'] .= "</table>";
+
+    return $a;
+
+}
+
