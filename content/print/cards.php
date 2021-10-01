@@ -38,7 +38,7 @@ Each card when cut is 63mm x 88mm (same as a MtG card).<br><br>
 <?php if (!isset($_GET['card_list'])) { ?>
     Choose deck to print:
     <?=(isset($_GET['deck']) && $_GET['deck'] == 2 ? '<span class="active">The Swarm</span>' : "<a href='/print/cards?deck=2'>The Swarm</a>") ?> (easy to play),
-    <?=(isset($_GET['deck']) && $_GET['deck'] == 1 ? '<span class="active">The Terrans</span>' : "<a href='/print/cards?deck=1'>The Terrans</a>") ?> (advanced),
+    <?=(isset($_GET['deck']) && $_GET['deck'] == 1 ? '<span class="active">The Terrans</span>' : "<a href='/print/cards?deck=1'>The Terrans</a>") ?> (normal),
     <?=(isset($_GET['deck']) && $_GET['deck'] == 3 ? '<span class="active">United Stars</span>' : "<a href='/print/cards?deck=3'>United Stars</a>") ?> (advanced)<br><br>
     <a href="/">← GO BACK</a>
 <?php } ?>
@@ -65,22 +65,17 @@ Each card when cut is 63mm x 88mm (same as a MtG card).<br><br>
 <img loading=lazy src="https://images.thespacewar.com/station-card-bottom.jpg">
 
 <?php
-if ($_GET['deck'] == 1) {
-    echo '<img loading=lazy src="https://images.thespacewar.com/commander-1.png">';
-    echo '<img loading=lazy src="https://images.thespacewar.com/commander-2.png">';
-    echo '<img loading=lazy src="https://images.thespacewar.com/commander-3.png">';
-    echo '<img loading=lazy src="https://images.thespacewar.com/commander-4.png">';
-    echo '<img loading=lazy src="https://images.thespacewar.com/commander-5.png">';
-    echo '<img loading=lazy src="https://images.thespacewar.com/commander-6.png">';
-} elseif ($_GET['deck'] == 2) {
-    echo '<img loading=lazy src="https://images.thespacewar.com/commander-7.png">';
-    echo '<img loading=lazy src="https://images.thespacewar.com/commander-8.png">';
-    echo '<img loading=lazy src="https://images.thespacewar.com/commander-9.png">';
-    echo '<img loading=lazy src="https://images.thespacewar.com/commander-10.png">';
-} elseif ($_GET['deck'] == 3) {
-    echo '<img loading=lazy src="https://images.thespacewar.com/commander-11.png">';
-    echo '<img loading=lazy src="https://images.thespacewar.com/commander-12.png">';
+
+$commander_data = commanderData();
+$_GET['deck'] = (int) $_GET['deck'];
+if ( $_GET['deck'] > 3 ) $_GET['deck'] = 1;
+
+
+foreach ($commander_data as $commander_slug => $commander) {
+    if ( $commander['deck'] != $_GET['deck'] ) continue;
+    echo '<img loading=lazy src="https://images.thespacewar.com/commander-'.$commander['id'].'.png">';
 }
+
 
 $array = getCardData();
 
