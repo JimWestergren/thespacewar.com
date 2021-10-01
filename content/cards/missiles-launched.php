@@ -11,14 +11,9 @@
 
 <?=cardImage('disturbing-sensor')?>
 
-<h2>Rule Clarifications</h2>
-
-<ul>
-    <li>It is possible to counter with Luck the missiles being played (they are played with a cost of 0).</li>
-</ul>
-
 <h2>Changelog During Playtesting</h2>
 
 <ul>
+    <li>Buff in September 2021:<br>It is not possible anymore to counter the missiles being played.</li>
     <li>September 2018: Created.</li>
 </ul>

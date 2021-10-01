@@ -86,7 +86,8 @@ The rules of this game is the same for offline play, online play, casual play an
 
 
 <h2>Definitions</h2>
-<p><strong>Counter a card</strong> means that the card played from the opponent does not enter play and goes straight to the discard pile. All the text on the countered card are ignored and any actions that was spent playing the countered card has been lost.</p>
+<p><strong>Counter a card</strong> means that a card played from the opponents hand does not enter play and goes straight to the discard pile. All the text on the countered card are ignored and any actions that was spent playing the countered card has been lost.</p>
+<p><strong>Put into play</strong> means that the card (that is not coming from the hand) is placed in the players home zone directly without any cost. It cannot be countered by the opponent.</p>
 <p><strong>Discard</strong> means to move cards from your hand to the discard pile (if there are enough cards in the hand).</p>
 <p><strong>Discard from play</strong> means to move one of your own cards from the play area to your discard pile.</p>
 <p><strong>No effect</strong> if for example a duration card has no effect it means that all text on the card is ignored. The duration card still has to be paid for or discarded from play as normal at the start of the action phase.</p>

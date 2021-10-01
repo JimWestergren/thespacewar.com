@@ -779,7 +779,7 @@ function commanderData() : array
             'deck' => 2,
             'name' => 'Zuuls',
             'title' => 'Swarm Specialist',
-            'rules' => 'In your first action phase in the game:<br>Search your draw pile for 3 Drone cards and place them in your home zone.',
+            'rules' => 'In your first action phase in the game:<br>Search your draw pile for 3 Drone cards and put them into play.',
             'lore' => 'There is a commander known as Zuuls. According to the history book he has only been to war one time, and that one time was the shortest war ever fought.',
         ],
         'crakux' => [
@@ -795,7 +795,7 @@ function commanderData() : array
             'deck' => 2,
             'name' => 'Naalox',
             'title' => 'Regeneration',
-            'rules' => 'Use 2 actions to either bring back a Drone from your discard to your home zone or heal 1 station damage. This ability can be used max 2 times per turn.',
+            'rules' => 'Use 2 actions to either put into play a Drone from your discard pile or heal 1 station damage. This ability can be used max 2 times per turn.',
             'lore' => 'According to the rumor Naalox can bring back things from the dead. Many have attempted to go to war against him but none has ever managed to destroy his fleet and station.',
         ],
         'staux' => [
@@ -803,7 +803,7 @@ function commanderData() : array
             'deck' => 2,
             'name' => 'Staux',
             'title' => 'Acid Master',
-            'rules' => 'Spend 2 actions to find an Acid Projectile from anywhere and place it in your home zone.',
+            'rules' => 'Spend 2 actions to find an Acid Projectile from anywhere and put it into play.',
             'lore' => 'Known simply as Staux. According to a mission briefing from the only known survivor that has seen him: "I saw him with my own eyes. The only thing I can say if you see him is: abort your mission and run!"',
         ],
         'capt-shera-kinson' => [
@@ -811,7 +811,7 @@ function commanderData() : array
             'deck' => 3,
             'name' => 'Capt. Shera Kinson',
             'title' => 'Always Ready',
-            'rules' => 'Use 3 actions to take the Starship card from anywhere to your hand.',
+            'rules' => 'Spend 10 actions to find Starship from your draw pile and put it into play.',
             'lore' => '"I am fully prepared and ready to go out in this war at any moment."',
         ],
         'capt-wayne-mccarter' => [
