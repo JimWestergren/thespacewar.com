@@ -45,6 +45,9 @@ require(ROOT.'view/head.php');
         <li>Buff in December 2020: "Energy Shield" changed to "any shield".</li>
         <li>Buff in August 2019: Added that you begin with Energy Shield in play.</li>
     <?php } ?>
+    <?php if ( $data['name'] == 'Capt. Shera Kinson' ) { ?>
+        <li>Buff in September 2021: The card used to be "Use 3 actions to take the Starship card from anywhere to your hand."</li>
+    <?php } ?>
     <?php if ( in_array( $data['name'], ['Liana Henders', 'Zyre'] ) ) { ?>
         <li>January 2020: Created.</li>
     <?php } elseif ( in_array( $data['name'], ['Capt. Shera Kinson', 'Capt. Wayne McCarter', 'Zuuls', 'Naalox', 'Staux', 'Crakux'] ) ) { ?>
