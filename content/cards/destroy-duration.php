@@ -7,5 +7,6 @@
 <h2>Changelog During Playtesting</h2>
 
 <ul>
+    <li>Nerf in September 2021:<br>"Draw 2 cards" was replaced with "Draw 2 cards and then discard a card".</li>
     <li>September 2019: Created.</li>
 </ul>
