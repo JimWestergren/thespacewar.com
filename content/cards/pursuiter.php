@@ -4,7 +4,7 @@
 
 <ul>
     <li>Because the collision is technically not an attack it cannot be stopped by Target Missed.</li>
-    <li>Full Force Forward does not make the collision to do more damage.</li>
+    <li>Full Attack does not make the collision to do more damage.</li>
 </ul>
 
 <h2>Good targets for collision</h2>

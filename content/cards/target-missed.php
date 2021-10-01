@@ -25,6 +25,13 @@
 <?=cardImage('luck')?>
 <?=cardImage('fate')?>
 
+<h2>Rule Clarifications</h2>
+
+<ul>
+    <li>Does not stop collisions of spaceships (<a href='/cards/pursuiter'>Pursuiter</a>, <a href='/cards/collision-skill'>Collision Skill</a>).</li>
+</ul>
+
+
 <h2>Changelog During Playtesting</h2>
 
 <ul>

@@ -19,6 +19,6 @@
 <h2>Changelog During Playtesting</h2>
 
 <ul>
-    <li>Nerf in April 2019:<br>Now 3/4 instead of 4/3.</li>
+    <li>Buff in April 2019:<br>Now 4/3 instead of 3/4.</li>
     <li>September 2018: Created.</li>
 </ul>

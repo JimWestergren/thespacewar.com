@@ -4,7 +4,7 @@ include(ROOT.'view/head.php');
 ?>
 
 <style>
-.frame {width:313px;overflow:hidden;border: 22px solid transparent;float:left;margin-right: 50px;margin-bottom: 50px;}
+.frame {width:313px;overflow:hidden;border: 22px solid transparent;float:left;margin-right: 50px;margin-bottom: 10px;}
 .frame img {height:458px;width:328px;margin-left:-8px;margin-top:-8px;margin-bottom:-8px;}
 .frame.gold {border-image:url(https://images.thespacewar.com/frame/gold.png) 15 round;}
 </style>
@@ -60,13 +60,13 @@ if ( in_array( $weekly_offer['id'], $rare_cards ) ) {
 
 <p style="margin-top:20px;">Limited 1 purchase per person.</p>
 
-<p>The offer is automatically generated each week with a random card and a random cost between 15-40 credits. Check back regularly.</p>
+<p>The offer is automatically generated each week with a random Gold card and a random cost between 15-40 credits. Check back regularly.</p>
 
 <div style="clear:both;"></div>
 
 <h2>What are Gold Cards?</h2>
 
-<p>Silver, Gold and Diamond cards works the same as Normal cards when playing (this is not a pay-to-win game) but if you win with a deck composed of framed cards you earn extra credits. A gold card can be converted to any other silver card and three copies of the same gold card can either be converted to a Diamond version of the same card (which you can sell for real money) or any other gold card.</p>
+<p>Silver, Gold and Diamond cards works the same as Normal cards when playing (this is not a pay-to-win game) but if you win with a deck composed of framed cards you earn additional credits. A gold card can be converted to any other silver card and three copies of the same gold card can either be converted to a Diamond version of the same card (which you will be able to sell for real money) or any other gold card.</p>
 
 <p>For more information see the page <a href='/account/your-cards'>Your Online Cards</a>.</p>
 

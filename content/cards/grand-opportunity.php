@@ -6,6 +6,14 @@
 <?=cardImage('secret-deposit')?>
 <?=cardImage('commander-the-miller')?>
 
+<h2>Compare With</h2>
+
+<?=cardImage('excellent-work')?>
+<?=cardImage('discovery')?>
+<?=cardImage('release-of-energy')?>
+<?=cardImage('brilliance')?>
+
+
 <h2>Changelog During Playtesting</h2>
 
 <ul>

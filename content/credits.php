@@ -22,4 +22,4 @@ require(ROOT.'view/head.php');
 <h3>Website & Videos</h3>
 <p>Jim Westergren</p>
 <h3>Inspiration</h3>
-<p>Richard Garfield (creator of Magic)<br>Bryan Winter (creator of Doomtrooper)</p>
+<p>Richard Garfield (creator of Magic the Gathering)<br>Bryan Winter (creator of Doomtrooper)</p>

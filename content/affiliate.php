@@ -16,7 +16,7 @@ include(ROOT.'view/head.php');
 <?php
 
 if ( $logged_in === [] ) {
-    echo '<p>Please login to see this info.</p>';
+    echo '<p>Please <a href="/account/">login</a> or <a href="/register">register</a> your free account to see this info.</p>';
 } else {
     echo '<p>Your referral link: <code>https://thespacewar.com/?referrer='.$logged_in['id'].'</code></p>';
     echo '<h3>Your 50 Latest Referrers:</h3>';

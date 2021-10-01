@@ -5,7 +5,7 @@ require(ROOT.'view/head.php');
 
 <h1>News</h1>
 
-<p>For more regular news with more images follow us on: <a href="https://discord.gg/tv3DXqj" target="_blank">Discord</a> | <a href='https://www.facebook.com/TheSpaceWarCardGame' target="_blank">Facebook</a> | <a href='https://twitter.com/The_Space_War' target="_blank">Twitter</a> | <a href="https://www.reddit.com/r/TheSpaceWar/" target="_blank">Reddit</a></p>
+<p>For more regular news with more images follow us on:<br> <a href="https://discord.gg/tv3DXqj" target="_blank">Discord</a> | <a href='https://www.facebook.com/TheSpaceWarCardGame' target="_blank">Facebook</a> | <a href='https://twitter.com/The_Space_War' target="_blank">Twitter</a> | <a href="https://www.reddit.com/r/TheSpaceWar/" target="_blank">Reddit</a></p>
 
 <h2>Current activities (September 2021)</h2>
 

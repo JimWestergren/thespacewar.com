@@ -1,13 +1,11 @@
 <h2>Good With</h2>
 
 <?=cardImage('cancel')?>
-<?=cardImage('grand-opportunity')?>
+<?=cardImage('discovery')?>
 <?=cardImage('release-of-energy')?>
-<?=cardImage('satellite')?>
+<?=cardImage('grand-opportunity')?>
 <?=cardImage('base-command-link')?>
 <?=cardImage('good-karma')?>
-<?=cardImage('discovery')?>
-<?=cardImage('excellent-work')?>
 
 <h2>Changelog During Playtesting</h2>
 

@@ -303,6 +303,7 @@ $framed_cards = get_framed_cards( $logged_in['id'] );
         display: table !important;
         padding: 0 !important;
         margin: 0 auto;
+        line-height: 17px;
     }
 
     @media (min-width: 1000px) { /* Desktop */

@@ -83,7 +83,9 @@ if ( isset( $_GET['convert'] ) && in_array( $_GET['frame_type'], [1, 2] ) ) {
         if ( $amount_owned < 3 && $_GET['frame_type'] == 2 ) {
 
             echo '<div class="frame '.$frame_types[$_GET['frame_type']].'" style="float:left;margin-right:50px;"><img loading=lazy src="'.getCardImageURL( $card_id ).'"></div>';
-            echo '<p>You own <strong>'.$amount_owned.'</strong> of these.</p>';
+            if ( $amount_owned > 0 ) {
+                echo '<p>You own <strong>'.$amount_owned.'</strong> of these.</p>';
+            }
             echo '<p style="margin-top:50px;">Convert to any other Silver Card:</p>';
 
         } else {
@@ -93,6 +95,10 @@ if ( isset( $_GET['convert'] ) && in_array( $_GET['frame_type'], [1, 2] ) ) {
             echo '<div class="frame '.$frame_types[$_GET['frame_type']].'"><img loading=lazy src="'.getCardImageURL( $card_id ).'"></div>';
 
             echo '<p>You own <strong>'.$amount_owned.'</strong> of these.</p>';
+
+            if ( $_GET['frame_type'] == 2 ) {
+                echo '<p>To instead convert only 1 to any Silver card, <a href="/account/your-cards?convert='.$card_id.'&frame_type='.$_GET['frame_type'].'&amount=0">click here</a>.</p>';
+            }
 
             echo '<h2>To a '.ucfirst($frame_types[$_GET['frame_type']+1]).' Version or any other '.ucfirst($frame_types[$_GET['frame_type']]).' Card</h2>';
             echo '<div class="frame '.$frame_types[$_GET['frame_type']+1].'" style="float:left;margin-right:50px;"><img loading=lazy src="'.getCardImageURL( $card_id ).'"></div>';
@@ -291,8 +297,6 @@ echo $outputs;
 <p>Same as normal cards but with a diamond frame.</p>
 
 <p>Decks that only consist of diamond cards is a Diamond Deck.<br>Each game you win using a Diamond Deck earns you <strong>500</strong> credits (coming soon).</p>
-
-<p>Three copies of the same diamond card can be converted to any other diamond card (coming in the future).</p>
 
 <p>In the future: Can be minted as a Non-fungible token (NFT) and sold by you for real crypto money (ETH) on the blockchain. Maximum 5 can be minted per month per account. Can be bought on the blockchain as well.</p>
 

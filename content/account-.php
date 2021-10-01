@@ -62,7 +62,7 @@ Representing: <img loading=lazy src="https://staticjw.com/redistats/images/flags
 <p><a href="https://play.thespacewar.com/" class='big-button'>Start to play</a><br>
 Read this first: alpha testing for desktop and tablets with focus on the browsers Chrome and Firefox, mobile phone does not work good yet. If the game hangs reload the page and please send us a bug report.</p>
 
-<p>Make sure to join our new <a href="https://discord.gg/tv3DXqj" target="_blank">Discord</a> if you have questions, reporting bugs and so forth. Email also works: <a href="mailto:info@thespacewar.com" target="_blank">info@thespacewar.com</a></p>
+<p>Make sure to join our <a href="https://discord.gg/tv3DXqj" target="_blank">Discord</a> if you have questions, reporting bugs and so forth. Email also works: <a href="mailto:info@thespacewar.com" target="_blank">info@thespacewar.com</a></p>
 
 <!--<p>The winner of the quarterly contest will be awarded $100. See the <a href="https://thespacewar.com/leaderboard">Leaderboard</a>.</p>-->
 
@@ -219,9 +219,7 @@ $pdo->run("UPDATE users SET credits_earned = ? WHERE id = ?", [$total_credits, $
 
 </table>
 
-
-<p>In the future you will be able to use credits to buy cool cosmetic items, enter offical tournaments and play with your constructed decks.</p>
-
+<p>Use your credits to buy cards with Silver and Gold frames <a href='/account/your-cards'>on this page</a>.</p>
 
 <h2>Winning over our AI bot</h2>
 
