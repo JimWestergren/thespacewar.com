@@ -36,5 +36,6 @@
 <h2>Changelog During Playtesting</h2>
 
 <ul>
+    <li>Nerf in October 2021:<br>Previous text was "Counter a card that cost 0 or 1. You may draw a card and then discard a card. [ OR ] Draw 1 card."</li>
     <li>March 2021:<br>Card created and entered playtesting.</li>
 </ul>
