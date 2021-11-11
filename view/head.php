@@ -206,7 +206,7 @@ img.big:hover, img.extra-big:hover {transform:none;box-shadow:0 0 11px 5px #666;
   <?php } elseif (substr(URL, 0, 8) == 'account/') { ?>
     [ <a href="/account/">← Back to Account</a> ]
   <?php } else { ?>
-    <strong><?=$logged_in['username']?></strong> <img loading=lazy src="https://staticjw.com/redistats/images/flags/<?=$logged_in['country']?>.gif"> | <a href="/account/">Account</a>
+    <strong><?=$logged_in['username']?></strong> <img src="https://staticjw.com/redistats/images/flags/<?=$logged_in['country']?>.gif"> | <a href="/account/">Account</a>
   <?php } ?>
 
 </div>

@@ -100,7 +100,7 @@ foreach ( $nft_first_edition as $card_slug => $array ) {
         echo ' | <a href="/cards/'.$card_slug.'">Card info</a><br>';
     }
 
-    echo '<img loading=lazy src="';
+    echo '<img src="';
     if ( substr( $card_slug, 0, 10 ) === 'commander-' ) {
         echo 'https://images.thespacewar.com/commander-'.$array['img_id'].'.png">';
     } else {

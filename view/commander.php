@@ -17,7 +17,7 @@ require(ROOT.'view/head.php');
 
 <div class="title"><?=$data['title']?></div>
 
-<img loading=lazy src="https://images.thespacewar.com/commander-<?=$data['id']?>.png" class="extra-big">
+<img src="https://images.thespacewar.com/commander-<?=$data['id']?>.png" class="extra-big">
 
 <div class="rules"><?=$data['rules']?></div>
 
@@ -62,6 +62,6 @@ require(ROOT.'view/head.php');
 <?php
 foreach ($commander_data as $slug2 => $data) {
     if ($slug == $slug2 || $slug2 == '') continue;
-    echo '<a href="/commanders/'.$slug2.'"><img loading=lazy src="https://images.thespacewar.com/commander-'.$data['id'].'.png"></a>';
+    echo '<a href="/commanders/'.$slug2.'"><img src="https://images.thespacewar.com/commander-'.$data['id'].'.png"></a>';
 }
 

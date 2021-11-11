@@ -12,7 +12,7 @@ function show_cards_by_type_saved_img(array $cards_data, array $cards, string $t
         if (!isset($cards[$value['id']])) continue;
         echo "<div>";
         for ($i=0; $i < $cards[$value['id']]; $i++) {
-            echo "<img loading=lazy style='";
+            echo "<img style='";
             $card_count++;
             if ($i > 0) {
                 $margin_top = min(46, 23*$i);
@@ -98,7 +98,7 @@ function show_cards_by_type(array $cards_data, array $cards, string $type) : voi
                 echo '</span>';
             }
             echo '&nbsp;</div>';
-            echo "<a href='/cards/".$value['slug']."' target='_blank'><img loading=lazy src=\"https://images.thespacewar.com/card-".$value['id'].".jpg\"></a>";
+            echo "<a href='/cards/".$value['slug']."' target='_blank'><img src=\"https://images.thespacewar.com/card-".$value['id'].".jpg\"></a>";
             echo "<div><a href='javascript:void(0)' onclick=\"javascript:addRemoveCard(".$value['id'].", 'remove')\" id='remove-".$value['id']."' style='display:none;'>-</a></div>";
             echo "<div><span id='count-".$value['id']."'>";
             echo $cards[$value['id']] ?? 0;
@@ -348,7 +348,7 @@ if ($edit_deck) {
     echo "<div class='wrap-deck'>";
     echo "<h2>".$row['deck_name']."</h2>";
 
-    echo "<div class='saved'><div><img loading=lazy src='https://images.thespacewar.com/commander-".$row['commander'].".png'></div></div>";
+    echo "<div class='saved'><div><img src='https://images.thespacewar.com/commander-".$row['commander'].".png'></div></div>";
 
     show_cards_by_type_saved_img($cards_data, $cards, 'Spaceship');
     show_cards_by_type_saved_img($cards_data, $cards, 'Event');
@@ -395,7 +395,7 @@ if ($edit_deck) {
 
     $result = $pdo->run("SELECT * FROM decks WHERE user_id = ? ORDER BY time_saved DESC", [$logged_in['id']])->fetchAll();
     foreach($result as $row) {
-        echo "<div style='clear:both;height:120px;margin-bottom:20px;'><img loading=lazy src='https://images.thespacewar.com/commander-".$row['commander'].".png' style='height:100px;float:left;margin-right:20px;'>";
+        echo "<div style='clear:both;height:120px;margin-bottom:20px;'><img src='https://images.thespacewar.com/commander-".$row['commander'].".png' style='height:100px;float:left;margin-right:20px;'>";
         echo "<h3><a href='/account/deck?id=".$row['id']."'>".$row['deck_name']."</a></h3>";
         echo "<p> ".$row['card_count']." cards, last edited: ".date('Y-m-d', $row['time_saved'])."</p></div>";
     }

@@ -14,9 +14,9 @@ include(ROOT.'view/head.php');
 <p><strong>Results:</strong> <a href="https://challonge.com/naa3sxcu" target="_blank">Challonge.com/naa3sxcu</a>.</p>
 <p><strong>Winning deck:</strong> <a href="https://www.facebook.com/TheSpaceWarCardGame/posts/379450603790625" target="_blank">Here on Facebook</a>. Basically Dr. Stein with repairs, missiles, small ships and a single copy of both Fusion Ship and Deploy Starship.</p>
 <p><strong>Medals:</strong><br>
-    🏆 with 500 credits award to <a href="/users/Alvin">Alvin</a> <img loading=lazy src="https://staticjw.com/redistats/images/flags/se.gif"><br>
-    🥈 with 250 credits award to <a href="/users/Kaah">Kaah</a> <img loading=lazy src="https://staticjw.com/redistats/images/flags/bo.gif"><br>
-    🥉 with 125 credits award to <a href="/users/Jim">Jim</a> <img loading=lazy src="https://staticjw.com/redistats/images/flags/se.gif"><br>
+    🏆 with 500 credits award to <a href="/users/Alvin">Alvin</a> <img src="https://staticjw.com/redistats/images/flags/se.gif"><br>
+    🥈 with 250 credits award to <a href="/users/Kaah">Kaah</a> <img src="https://staticjw.com/redistats/images/flags/bo.gif"><br>
+    🥉 with 125 credits award to <a href="/users/Jim">Jim</a> <img src="https://staticjw.com/redistats/images/flags/se.gif"><br>
 </p>
 
 

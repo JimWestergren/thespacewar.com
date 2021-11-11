@@ -54,9 +54,9 @@ foreach ($array as $key => $value) {
     }
     echo "<tr><td>".$value['deck_name']."</td><td>".$value['copies']."</td><td>";
     if (true) {
-        echo "<a href='/cards/".$value['slug']."'><img loading=lazy src='https://images.thespacewar.com/card-".$value['id'].".jpg' style='height:80px;'></a>";
+        echo "<a href='/cards/".$value['slug']."'><img src='https://images.thespacewar.com/card-".$value['id'].".jpg' style='height:80px;'></a>";
     } else if ($value['artist'] != ''){
-        echo "<img loading=lazy src='https://images.thespacewar.com/card-".$value['id'].".jpg' style='height:80px;'>";
+        echo "<img src='https://images.thespacewar.com/card-".$value['id'].".jpg' style='height:80px;'>";
     }
 
     if ($value['cost'] == 'X') {

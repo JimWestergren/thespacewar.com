@@ -177,7 +177,7 @@ function displayCard(string $slug) : string
     require(ROOT.'view/head.php');
 
     $return = '<h1>'.$a['name'].'</h1>';
-    $return .= '<img loading=lazy src="https://images.thespacewar.com/card-'.$a['id'].'.jpg" class="big">
+    $return .= '<img src="https://images.thespacewar.com/card-'.$a['id'].'.jpg" class="big">
     <table>
         <tr>
             <th>Name</th>
@@ -434,7 +434,7 @@ function leaderboardTable(string $period = 'monthly') : string
         $rand = rand(1000,9999);
         $key = ($total*1000000)+$rand;
         $a[$key] = '<tr>
-        <td style="white-space: nowrap"><a href="/users/'.$row['username'].'">'.$row['username'].'</a> <img loading=lazy src="https://staticjw.com/redistats/images/flags/'.$row['country'].'.gif"></td>
+        <td style="white-space: nowrap"><a href="/users/'.$row['username'].'">'.$row['username'].'</a> <img src="https://staticjw.com/redistats/images/flags/'.$row['country'].'.gif"></td>
         <td style="text-align:center;">'.$row[$period.'_win_count'].'</td>
         <td style="text-align:center;">'.$row[$period.'_loss_count'].'</td>
         <td style="text-align:center;">'.round($rating['win_rate']).'%</td>
@@ -872,14 +872,14 @@ function cardImage(string $slug) : string
         $slug = substr( $slug, 10 );
         $a = commanderData()[$slug] ?? [];
         if ( $a === [] ) return '';
-        return '<a href="/commanders/'.$slug.'"><img loading=lazy src="https://images.thespacewar.com/commander-'.$a['id'].'.png"></a>';
+        return '<a href="/commanders/'.$slug.'"><img src="https://images.thespacewar.com/commander-'.$a['id'].'.png"></a>';
     }
 
     $a = getCardData()[$slug] ?? [];
 
     if ( $a === [] ) return '';
 
-    return '<a href="/cards/'.$slug.'"><img loading=lazy src="https://images.thespacewar.com/card-'.$a['id'].'.jpg" alt="Card: '.$a['name'].'"></a>';
+    return '<a href="/cards/'.$slug.'"><img src="https://images.thespacewar.com/card-'.$a['id'].'.jpg" alt="Card: '.$a['name'].'"></a>';
 
 }
 
@@ -988,7 +988,7 @@ function getLatestReferralsTable( int $user_id, int $limit ) : array
     $a['html_output'] .= '<table><tr><th>Registration Date</th><th>User</th><th>Credits Earned</th><th>Last Logged In</th></tr>';
 
     foreach($result as $row) {
-        $a['html_output'] .= '<tr><td>'.date('Y-m-d', $row['regtime']).'</td><td><a href="/users/'.$row['username'].'">'.$row['username'].'</a> <img loading=lazy src="https://staticjw.com/redistats/images/flags/'.$row['country'].'.gif"></td><td>'.$row['credits_earned'].'</td><td>'.date('Y-m-d', $row['lastlogintime']).'</td></tr>';
+        $a['html_output'] .= '<tr><td>'.date('Y-m-d', $row['regtime']).'</td><td><a href="/users/'.$row['username'].'">'.$row['username'].'</a> <img src="https://staticjw.com/redistats/images/flags/'.$row['country'].'.gif"></td><td>'.$row['credits_earned'].'</td><td>'.date('Y-m-d', $row['lastlogintime']).'</td></tr>';
         $a['amount_of_referrers']++;
         $a['credits_earned_of_referrers'] += $row['credits_earned'];
     } 

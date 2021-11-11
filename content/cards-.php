@@ -24,7 +24,7 @@ require(ROOT.'view/head.php');
 $commander_data = commanderData();
 foreach ($commander_data as $commander_slug => $commander) {
     if ($commander['deck'] != 1) continue;
-    echo "<a href='/commanders/".$commander_slug."'><img loading=lazy src='https://images.thespacewar.com/commander-".$commander['id'].".png'></a>";
+    echo "<a href='/commanders/".$commander_slug."'><img src='https://images.thespacewar.com/commander-".$commander['id'].".png'></a>";
 }
 ?>
 
@@ -83,9 +83,9 @@ foreach ($commander_data as $commander_slug => $commander) {
 
 <h2>Station Rule Cards</h2>
 <p>These are for remembering the rules and have no function in the game.</p>
-<img loading=lazy src="https://images.thespacewar.com/station-card-top.jpg">
-<img loading=lazy src="https://images.thespacewar.com/station-card-middle.jpg">
-<img loading=lazy src="https://images.thespacewar.com/station-card-bottom.jpg">
+<img src="https://images.thespacewar.com/station-card-top.jpg">
+<img src="https://images.thespacewar.com/station-card-middle.jpg">
+<img src="https://images.thespacewar.com/station-card-bottom.jpg">
 </div>
 
 

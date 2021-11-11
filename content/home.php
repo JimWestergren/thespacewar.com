@@ -62,7 +62,7 @@ if (apcu_exists('home:latest_active_players')) {
     $result = $pdo->run("SELECT * FROM users ORDER BY lastlogintime DESC LIMIT 50;")->fetchAll();
     $html = '';
     foreach($result as $row) {
-        $html .= '<nobr>'.$row['username'].' <img loading=lazy src="https://staticjw.com/redistats/images/flags/'.$row['country'].'.gif"></nobr> | ';
+        $html .= '<nobr>'.$row['username'].' <img src="https://staticjw.com/redistats/images/flags/'.$row['country'].'.gif"></nobr> | ';
     }
     $html = trim($html, ' | ');
     apcu_store('home:latest_active_players', $html, 60*2);

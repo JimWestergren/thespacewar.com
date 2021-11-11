@@ -43,7 +43,7 @@ if ( isset( $_POST['purchase'] ) && $_POST['purchase'] == 1 ) {
 }
 
 
-echo '<div class="frame gold"><img loading=lazy src="'.getCardImageURL( $weekly_offer['id'] ).'"></div>';
+echo '<div class="frame gold"><img src="'.getCardImageURL( $weekly_offer['id'] ).'"></div>';
 
 echo '<p style="padding-top:50px;">The offer of the week is a gold framed '.$weekly_offer['name'].' for only <strong>'.$weekly_offer['cost'].'</strong> credits.</p>';
 

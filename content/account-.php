@@ -48,7 +48,7 @@ require(ROOT.'view/head.php');
 <p style="float: right">[ <a href="/account/edit">Edit Account</a> ]<br>[ <a href="/logout">Logout</a> ]<?php if($logged_in['id'] === 1) { echo '<br>[ <a href="/account/admin">Admin</a> ]';} ?><p>
 
 <p>Logged in as <a href="/users/<?=$accunt_row['username']?>"><strong><?=$accunt_row['username']?></strong></a><br>
-Representing: <img loading=lazy src="https://staticjw.com/redistats/images/flags/<?=$accunt_row['country']?>.gif"> <?=countryArray()[strtoupper($accunt_row['country'])]?><br>
+Representing: <img src="https://staticjw.com/redistats/images/flags/<?=$accunt_row['country']?>.gif"> <?=countryArray()[strtoupper($accunt_row['country'])]?><br>
 
 <p>Rating Score this month: <strong style="font-size:24px;"><?=$rating?></strong></p>
 
@@ -281,7 +281,7 @@ if (isset($array)) {
         if ( $a['delete'] != '' ) {
             $a['delete'] = str_replace( 'USERNAME', $user[$a['versus']]['username'], $a['delete'] );
         }
-        echo '<tr><td>'.$a['date'].'</td><td>'.$a['status'].'</td><td><a href="/users/'.$user[$a['versus']]['username'].'">'.$user[$a['versus']]['username'].'</a> <img loading=lazy src="https://staticjw.com/redistats/images/flags/'.$user[$a['versus']]['country'].'.gif"> '.$user[$a['versus']]['credits_earned'].' '.$a['delete'].'</td><td>'.$a['length'].'</td></tr>';
+        echo '<tr><td>'.$a['date'].'</td><td>'.$a['status'].'</td><td><a href="/users/'.$user[$a['versus']]['username'].'">'.$user[$a['versus']]['username'].'</a> <img src="https://staticjw.com/redistats/images/flags/'.$user[$a['versus']]['country'].'.gif"> '.$user[$a['versus']]['credits_earned'].' '.$a['delete'].'</td><td>'.$a['length'].'</td></tr>';
     }
     echo '</table>';
 } else {

@@ -18,7 +18,7 @@ require(ROOT.'view/head.php');
 $commander_data = commanderData();
 foreach ($commander_data as $commander_slug => $commander) {
     if ($commander['deck'] != 2) continue;
-    echo "<a href='/commanders/".$commander_slug."'><img loading=lazy src='https://images.thespacewar.com/commander-".$commander['id'].".png'></a>";
+    echo "<a href='/commanders/".$commander_slug."'><img src='https://images.thespacewar.com/commander-".$commander['id'].".png'></a>";
 }
 ?>
 

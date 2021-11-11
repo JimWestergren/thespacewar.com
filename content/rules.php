@@ -26,9 +26,9 @@ The rules of this game is the same for offline play, online play, casual play an
 <h2>Station Cards</h2>
 
 <table style="text-align: center;margin:auto;">
-    <tr><td><img loading=lazy src="https://images.thespacewar.com/station-card-top.jpg" style="height:100px;"></td><td style="padding-left: 50px;">In your draw phase, draw:<br><strong>1</strong> card<br>for each card in this station row.</td></tr>
-    <tr><td><img loading=lazy src="https://images.thespacewar.com/station-card-middle.jpg" style="height:100px;"></td><td style="padding-left: 50px;">In your action phase, receive:<br><strong>2</strong> actions<br>for each card in this station row.</td></tr>
-    <tr><td><img loading=lazy src="https://images.thespacewar.com/station-card-bottom.jpg" style="height:100px;"></td><td style="padding-left: 50px;">In your discard phase, keep:<br><strong>3</strong> cards<br>for each card in this station row.</td></tr>
+    <tr><td><img src="https://images.thespacewar.com/station-card-top.jpg" style="height:100px;"></td><td style="padding-left: 50px;">In your draw phase, draw:<br><strong>1</strong> card<br>for each card in this station row.</td></tr>
+    <tr><td><img src="https://images.thespacewar.com/station-card-middle.jpg" style="height:100px;"></td><td style="padding-left: 50px;">In your action phase, receive:<br><strong>2</strong> actions<br>for each card in this station row.</td></tr>
+    <tr><td><img src="https://images.thespacewar.com/station-card-bottom.jpg" style="height:100px;"></td><td style="padding-left: 50px;">In your discard phase, keep:<br><strong>3</strong> cards<br>for each card in this station row.</td></tr>
 </table>
 <p>More explanation in <strong>The Turn</strong>.</p>
 

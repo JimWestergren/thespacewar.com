@@ -46,13 +46,13 @@ Each card when cut is 63mm x 88mm (same as a MtG card).<br><br>
 
 <?php if (isset($_GET['card_list'])) {
     if (isset($_GET['commander']) && is_numeric($_GET['commander'])) {
-        echo '<img loading=lazy src="https://images.thespacewar.com/commander-'.$_GET['commander'].'.png">';
+        echo '<img src="https://images.thespacewar.com/commander-'.$_GET['commander'].'.png">';
     }
     $card_list = explode(',', $_GET['card_list']);
     foreach ($card_list as $card_id) {
         $card_id = trim($card_id);
         if (!is_numeric($card_id)) continue;
-        echo "<img loading=lazy src='https://images.thespacewar.com/card-".$card_id.".jpg'>";
+        echo "<img src='https://images.thespacewar.com/card-".$card_id.".jpg'>";
     }
 
 } ?>
@@ -60,9 +60,9 @@ Each card when cut is 63mm x 88mm (same as a MtG card).<br><br>
 
 <?php if (!isset($_GET['deck'])) die(); ?>
 
-<img loading=lazy src="https://images.thespacewar.com/station-card-top.jpg">
-<img loading=lazy src="https://images.thespacewar.com/station-card-middle.jpg">
-<img loading=lazy src="https://images.thespacewar.com/station-card-bottom.jpg">
+<img src="https://images.thespacewar.com/station-card-top.jpg">
+<img src="https://images.thespacewar.com/station-card-middle.jpg">
+<img src="https://images.thespacewar.com/station-card-bottom.jpg">
 
 <?php
 
@@ -73,7 +73,7 @@ if ( $_GET['deck'] > 3 ) $_GET['deck'] = 1;
 
 foreach ($commander_data as $commander_slug => $commander) {
     if ( $commander['deck'] != $_GET['deck'] ) continue;
-    echo '<img loading=lazy src="https://images.thespacewar.com/commander-'.$commander['id'].'.png">';
+    echo '<img src="https://images.thespacewar.com/commander-'.$commander['id'].'.png">';
 }
 
 
@@ -82,7 +82,7 @@ $array = getCardData();
 foreach ($array as $key => $value) {
     if ($_GET['deck'] != $value['deck_id']) continue;
     for ($i=0; $i < $value['copies']; $i++) { 
-        echo "<img loading=lazy src='https://images.thespacewar.com/card-".$value['id'].".jpg'>";
+        echo "<img src='https://images.thespacewar.com/card-".$value['id'].".jpg'>";
     }
 }
 ?>

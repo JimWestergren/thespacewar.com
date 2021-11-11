@@ -21,7 +21,7 @@ require(ROOT.'view/head.php');
 $commander_data = commanderData();
 foreach ($commander_data as $commander_slug => $commander) {
     if ($commander['deck'] != 3) continue;
-    echo "<a href='/commanders/".$commander_slug."'><img loading=lazy src='https://images.thespacewar.com/commander-".$commander['id'].".png'></a>";
+    echo "<a href='/commanders/".$commander_slug."'><img src='https://images.thespacewar.com/commander-".$commander['id'].".png'></a>";
 }
 ?>
 
@@ -33,7 +33,7 @@ foreach ($commander_data as $commander_slug => $commander) {
 $cards_array = getCardData();
 foreach ($cards_array as $key => $value) {
     if ( $value['deck_id'] != 3 || $value['type'] != 'Spaceship' ) continue;
-    echo "<a href='/cards/".nameToSlug($value['name'])."'><img loading=lazy src='https://images.thespacewar.com/card-".$value['id'].".jpg'></a>";
+    echo "<a href='/cards/".nameToSlug($value['name'])."'><img src='https://images.thespacewar.com/card-".$value['id'].".jpg'></a>";
 } ?>
 
 <h2>Event Cards</h2>
@@ -42,7 +42,7 @@ foreach ($cards_array as $key => $value) {
 $cards_array = getCardData();
 foreach ($cards_array as $key => $value) {
     if ( $value['deck_id'] != 3 || $value['type'] != 'Event' ) continue;
-    echo "<a href='/cards/".nameToSlug($value['name'])."'><img loading=lazy src='https://images.thespacewar.com/card-".$value['id'].".jpg'></a>";
+    echo "<a href='/cards/".nameToSlug($value['name'])."'><img src='https://images.thespacewar.com/card-".$value['id'].".jpg'></a>";
 } ?>
 
 <h2>Duration Cards</h2>
@@ -51,7 +51,7 @@ foreach ($cards_array as $key => $value) {
 $cards_array = getCardData();
 foreach ($cards_array as $key => $value) {
     if ( $value['deck_id'] != 3 || $value['type'] != 'Duration' ) continue;
-    echo "<a href='/cards/".nameToSlug($value['name'])."'><img loading=lazy src='https://images.thespacewar.com/card-".$value['id'].".jpg'></a>";
+    echo "<a href='/cards/".nameToSlug($value['name'])."'><img src='https://images.thespacewar.com/card-".$value['id'].".jpg'></a>";
 } ?>
 
 
@@ -61,7 +61,7 @@ foreach ($cards_array as $key => $value) {
 $cards_array = getCardData();
 foreach ($cards_array as $key => $value) {
     if ( $value['deck_id'] != 3 || $value['type'] != 'Missile' ) continue;
-    echo "<a href='/cards/".nameToSlug($value['name'])."'><img loading=lazy src='https://images.thespacewar.com/card-".$value['id'].".jpg'></a>";
+    echo "<a href='/cards/".nameToSlug($value['name'])."'><img src='https://images.thespacewar.com/card-".$value['id'].".jpg'></a>";
 } ?>
 
 
@@ -71,7 +71,7 @@ foreach ($cards_array as $key => $value) {
 $cards_array = getCardData();
 foreach ($cards_array as $key => $value) {
     if ( $value['deck_id'] != 3 || $value['type'] != 'Defense' ) continue;
-    echo "<a href='/cards/".nameToSlug($value['name'])."'><img loading=lazy src='https://images.thespacewar.com/card-".$value['id'].".jpg'></a>";
+    echo "<a href='/cards/".nameToSlug($value['name'])."'><img src='https://images.thespacewar.com/card-".$value['id'].".jpg'></a>";
 } ?>
 
 <p>Complete card list in table format can be found <a href='/card-list'>here</a>.</p>
