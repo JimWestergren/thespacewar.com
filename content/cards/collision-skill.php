@@ -8,6 +8,12 @@
 
 <?=cardImage('pursuiter')?>
 
+<h2>Rule Clarifications</h2>
+
+<ul>
+    <li>The card <a href='/cards/target-missed'>Target Missed</a> cannot stop collisions.</li>
+</ul>
+
 <h2>Changelog During Playtesting</h2>
 
 <ul>
