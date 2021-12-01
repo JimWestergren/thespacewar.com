@@ -4,11 +4,13 @@ require(ROOT.'view/head.php');
 
 ?>
 
+<img style="margin:0px auto 15px auto;display:block;height:150px;width:150px;" src="https://images.thespacewar.com/factions/white/united-stars.png">
+
 <h1>United Stars</h1>
 
 <div class="cards">
 
-<p>United Stars is the third deck for The Space War. It has been play tested around 20 times so far. A bit more advanced to play with some interesting new strategies.</p>
+<p>United Stars is the third deck for The Space War. It has been playtested around 100 times so far. A bit more advanced to play with some interesting new strategies.</p>
 
 <p><em>The United Stars is an alliance formed by a group of advanced developed planets close to the Orion constellation. They have not been seen in this sector for at least 80 years and nobody thought that they would travel so far to join The Space War. They use powerful advanced technology including a deadly starship.</em></p>
 
@@ -25,7 +27,6 @@ foreach ($commander_data as $commander_slug => $commander) {
 }
 ?>
 
-<p>Many images are missing for the cards and the names are not finalized. The small number in the bottom middle of each card indicates the amount of copies of the card.</p>
 
 <h2>Spaceship Cards</h2>
 
@@ -73,6 +74,8 @@ foreach ($cards_array as $key => $value) {
     if ( $value['deck_id'] != 3 || $value['type'] != 'Defense' ) continue;
     echo "<a href='/cards/".nameToSlug($value['name'])."'><img src='https://images.thespacewar.com/card-".$value['id'].".jpg'></a>";
 } ?>
+
+<hr>
 
 <p>Complete card list in table format can be found <a href='/card-list'>here</a>.</p>
 

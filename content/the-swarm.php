@@ -3,11 +3,13 @@ $title_tag = 'The Swarm | TheSpaceWar.com';
 require(ROOT.'view/head.php');
 ?>
 
+<img style="margin:0px auto 15px auto;display:block;height:150px;width:150px;" src="https://images.thespacewar.com/factions/white/the-swarm.png">
+
 <h1>The Swarm</h1>
 
 <div class="cards">
 
-<p>The Swarm is the second deck for The Space War. It has been play tested around 60 times so far. More easy to play and more fun but still keeping the strategic aspect. The Swarm wins around 50% of the games versus the The Terrans deck depending on the skill of the person playing.</p>
+<p>The Swarm is the second deck for The Space War. It has been play tested around 300 times so far. More easy to play and more fun but still keeping the strategic aspect. The Swarm wins around 50% of the games versus the The Terrans deck depending on the skill of the person playing.</p>
 
 <p><em>Just known as "The Swarm" this alien race is very fast and agressive and can quickly overwhelm any opponent.</em></p>
 

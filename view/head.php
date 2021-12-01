@@ -31,7 +31,7 @@ h1, .header h3 {text-align:center;text-transform:uppercase;letter-spacing:5px;ma
 .header h3 {font-size:30px;margin:10px auto -15px auto;letter-spacing:6px;}
 .header h4 {font-size:15px;text-align:center;font-weight:normal;text-transform:uppercase;}
 .wrap {margin:auto;width:800px;max-width:90%;background-color:black;padding:50px 120px;background:rgba(0,0,0,.85);border-radius:5px;}
-.cards img {height:305px;width:219px;margin-right:10px;margin-bottom:10px;}
+.cards img {height:305px;width:219px;margin-right:10px;margin-bottom:10px;image-rendering:-webkit-optimize-contrast}
 .cards th {text-align:right;}
 img.big, img.extra-big {width:358px;height:500px;border:1px solid #333;filter:contrast(95%);box-shadow:0 0 11px 5px #666;}
 img.big {float:left;margin-right:40px;margin-bottom:40px;}
@@ -139,7 +139,7 @@ img.big:hover, img.extra-big:hover {transform:none;box-shadow:0 0 11px 5px #666;
 
 <?php if(URL === '') { ?> 
 .showcase-cards {position: relative; height: 250px;}
-.showcase-cards img {height: 250px;transition: all 0.2s ease;}
+.showcase-cards img {height: 250px;transition: all 0.2s ease;image-rendering:-webkit-optimize-contrast}
 .showcase-cards a {display:block; position: absolute;}
 .showcase-cards a:nth-child(1) {transform: translate(-50%,0) rotate(-15deg); left:25%; z-index:1; }
 .showcase-cards a:nth-child(2) {transform: translate(-50%,0) rotate(-10deg); left:38%; z-index:3; }

@@ -11,7 +11,6 @@ require(ROOT.'view/head.php');
     <?=cardImage('time-warp')?>
 </div>
 
-
 <?php if ($logged_in == []) { ?>
     <div style="max-width:400px;margin:30px auto 20px auto;text-align:center ">
     <p>Play for FREE in your browser:</p>
@@ -47,6 +46,15 @@ require(ROOT.'view/head.php');
     <p>No booster packs, no RNG cards, no dead cards and no resource cards.</p>
 
     <p>Choose between 3 preset decks or mix the cards and make your own deck.</p>
+
+</div>
+
+
+<div style="text-align: center;">
+    
+    <img style="height:100px;width:100px;margin-left:20px;margin-right:20px;" src="https://images.thespacewar.com/factions/white/the-terrans.png">
+    <img style="height:100px;width:100px;margin-left:20px;margin-right:20px;" src="https://images.thespacewar.com/factions/white/the-swarm.png">
+    <img style="height:100px;width:100px;margin-left:20px;margin-right:20px;" src="https://images.thespacewar.com/factions/white/united-stars.png">
 
 </div>
 

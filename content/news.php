@@ -7,7 +7,7 @@ require(ROOT.'view/head.php');
 
 <p>For more regular news with more images follow us on:<br> <a href="https://discord.gg/tv3DXqj" target="_blank">Discord</a> | <a href='https://www.facebook.com/TheSpaceWarCardGame' target="_blank">Facebook</a> | <a href='https://twitter.com/The_Space_War' target="_blank">Twitter</a> | <a href="https://www.reddit.com/r/TheSpaceWar/" target="_blank">Reddit</a></p>
 
-<h2>Current activities (September 2021)</h2>
+<h2>Current activities (November 2021)</h2>
 
 <ul>
     <li>Playtesting <a href='/constructed'>constructed play</a> offline.</li>
@@ -31,6 +31,7 @@ require(ROOT.'view/head.php');
 <h2>Completed</h2>
 
 <ul>
+    <li>Faction logos (November 2021).</li>
     <li>New pages: <a href='/weekly-offer'>Weekly Offer</a>, <a href='/popular-cards'>Popular Cards</a>, <a href='/account/your-cards'>Your Online Cards</a>, <a href='/affiliate'>Affiliate</a> (September 2021).</li>
     <li>The first tournament held in Bolivia, see <a href='/tournaments'>Tournaments</a> page (September 2021).</li>
     <li>Printing more than 1500 playtest cards for playtesting (September 2021).</li>
