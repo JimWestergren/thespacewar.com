@@ -64,7 +64,7 @@ if ($row['credits_earned'] > 1000) {
 
 $tournament_array = getTournamentArrayByUser($row['username']);
 $winners_array = winnersArrayByUser($row['username']);
-if ( $tournament_array != [] && $winners_array != [] ) {
+if ( $tournament_array != [] || $winners_array != [] ) {
     $output = '';
     foreach ($tournament_array as $key => $value) {
         $output .= '<li>'.$value['position'].' '.$value['info'].'</li>';
