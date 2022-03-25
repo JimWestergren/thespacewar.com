@@ -86,6 +86,7 @@ The rules of this game is the same for offline play, online play, casual play an
 
 
 <h2>Definitions</h2>
+<p><strong>Ability</strong> is a special action a spaceship card can do instead of attacking.</p>
 <p><strong>Counter a card</strong> means that a card played from the opponents hand does not enter play and goes straight to the discard pile. All the text on the countered card are ignored and any actions that was spent playing the countered card has been lost.</p>
 <p><strong>Put into play</strong> means that the card (that is not coming from the hand) is placed in the players home zone directly without any cost. It cannot be countered by the opponent.</p>
 <p><strong>Discard</strong> means to move cards from your hand to the discard pile (if there are enough cards in the hand).</p>
