@@ -7,11 +7,11 @@ require(ROOT.'view/head.php');
 
 <p>For more regular news with more images follow us on:<br> <a href="https://discord.gg/tv3DXqj" target="_blank">Discord</a> | <a href='https://www.facebook.com/TheSpaceWarCardGame' target="_blank">Facebook</a> | <a href='https://twitter.com/The_Space_War' target="_blank">Twitter</a> | <a href="https://www.reddit.com/r/TheSpaceWar/" target="_blank">Reddit</a></p>
 
-<h2>Current activities (November 2021)</h2>
+<h2>Current activities (March 2022)</h2>
 
 <ul>
-    <li>Playtesting <a href='/constructed'>constructed play</a> offline.</li>
-    <li>Adding the cards of <a href='/united-stars'>The United Stars</a> to the online game.</li>
+    <li>Adding the FINAL cards of <a href='/united-stars'>The United Stars</a> to the online game.</li>
+    <li>Only 14 tickets missing to complete the online game before next step can be taken.</li>
 </ul>
 
 <h2>To do later</h2>
@@ -31,6 +31,7 @@ require(ROOT.'view/head.php');
 <h2>Completed</h2>
 
 <ul>
+    <li>Playtesting <a href='/constructed'>constructed play</a> offline.</li>
     <li>Faction logos (November 2021).</li>
     <li>New pages: <a href='/weekly-offer'>Weekly Offer</a>, <a href='/popular-cards'>Popular Cards</a>, <a href='/account/your-cards'>Your Online Cards</a>, <a href='/affiliate'>Affiliate</a> (September 2021).</li>
     <li>The first tournament held in Bolivia, see <a href='/tournaments'>Tournaments</a> page (September 2021).</li>
