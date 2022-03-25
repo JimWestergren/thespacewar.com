@@ -101,6 +101,7 @@ $comments['neutralization'] = 'Buff in January 2021, Buff in November 2019';
 $comments['nuclear-missile'] = 'Buff in August 2020';
 $comments['over-capacity'] = 'Buff in January 2020';
 $comments['pursuiter'] = 'Nerf in April 2019';
+$comments['repair-shield'] = 'Nerf in March 2022';
 $comments['return'] = 'Buff in March 2021';
 $comments['sabotage'] = 'Buff in August 2019';
 $comments['sacrifice'] = 'Buff in 2020';

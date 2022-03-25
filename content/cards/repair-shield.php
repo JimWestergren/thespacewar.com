@@ -15,5 +15,6 @@
 <h2>Changelog During Playtesting</h2>
 
 <ul>
+    <li>Nerf in March 2022: Option to repair 5 damage removed.</li>
     <li>April 2020: Created.</li>
 </ul>
