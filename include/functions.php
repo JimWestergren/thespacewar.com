@@ -321,6 +321,12 @@ function setLoginCookie(array $a, int $rating) : string
 function winnersArray() : array
 {
     return [
+        'April 2023' => ['first_username' => 'Alvin', 'first_country' => 'se', 'second_username' => 'Jim', 'second_country' => 'se'],
+        'First Quarter 2023' => ['first_username' => 'Alvin', 'first_country' => 'se', 'second_username' => 'Jim', 'second_country' => 'se'],
+        'March 2023' => ['first_username' => 'Alvin', 'first_country' => 'se', 'second_username' => 'Jim', 'second_country' => 'se'],
+        'February 2023' => ['first_username' => 'Alvin', 'first_country' => 'se', 'second_username' => 'Jim', 'second_country' => 'se'],
+        'First Quarter 2022' => ['first_username' => 'Jim', 'first_country' => 'se', 'second_username' => 'Alvin', 'second_country' => 'se'],
+        'March 2022' => ['first_username' => 'Jim', 'first_country' => 'se', 'second_username' => 'Alvin', 'second_country' => 'se'],
         'February 2022' => ['first_username' => 'Jim', 'first_country' => 'se', 'second_username' => 'Alvin', 'second_country' => 'se'],
         'January 2022' => ['first_username' => 'Alvin', 'first_country' => 'se', 'second_username' => 'Jim', 'second_country' => 'se'],
         'Fourth Quarter 2021' => ['first_username' => 'Alvin', 'first_country' => 'se', 'second_username' => 'datar345', 'second_country' => 'bo', 'third_username' => 'Kaah', 'third_country' => 'bo'],
@@ -353,6 +359,18 @@ function winnersArray() : array
 
 function winnersArrayByUser(string $user) : array
 {
+    $a['Alvin'][] = ['period' => 'April 2023', 'position' => '🏆'];
+    $a['Jim'][] = ['period' => 'April 2023', 'position' => '🥈'];
+    $a['Alvin'][] = ['period' => 'First Quarter 2023', 'position' => '🏆'];
+    $a['Jim'][] = ['period' => 'First Quarter 2023', 'position' => '🥈'];
+    $a['Alvin'][] = ['period' => 'March 2023', 'position' => '🏆'];
+    $a['Jim'][] = ['period' => 'March 2023', 'position' => '🥈'];
+    $a['Alvin'][] = ['period' => 'February 2023', 'position' => '🏆'];
+    $a['Jim'][] = ['period' => 'February 2023', 'position' => '🥈'];
+    $a['Jim'][] = ['period' => 'First Quarter 2022', 'position' => '🏆'];
+    $a['Alvin'][] = ['period' => 'First Quarter 2022', 'position' => '🥈'];
+    $a['Alvin'][] = ['period' => 'March 2022', 'position' => '🥈'];
+    $a['Jim'][] = ['period' => 'March 2022', 'position' => '🏆'];
     $a['Jim'][] = ['period' => 'February 2022', 'position' => '🏆'];
     $a['Alvin'][] = ['period' => 'February 2022', 'position' => '🥈'];
     $a['Alvin'][] = ['period' => 'January 2022', 'position' => '🏆'];
