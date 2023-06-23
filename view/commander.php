@@ -36,6 +36,7 @@ require(ROOT.'view/head.php');
 
 <ul>
     <?php if ( $data['name'] == 'Dr. Stein' ) { ?>
+        <li>Nerf in February 2023: Perfect Plan ability replaced with draw a card.</li>
         <li>Nerf in August 2021: Perfect Plan ability can now only be used once per turn.</li>
     <?php } ?>
     <?php if ( $data['name'] == 'Frank Johnson' ) { ?>
