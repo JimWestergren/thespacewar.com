@@ -93,6 +93,7 @@ $comments['fatal-error'] = 'Nerf in May 2020';
 $comments['full-attack'] = 'Nerf in January 2020';
 $comments['fusion-ship'] = 'Nerf in August 2021';
 $comments['grand-opportunity'] = 'Buff in September 2021, Buff in April 2019';
+$comments['hacker'] = 'Simplified and changed in March 2023';
 $comments['luck'] = 'Nerf in October 2021, Nerf in March 2021';
 $comments['mega-shield'] = 'Nerf in March 2021';
 $comments['meteor-shower'] = 'Nerf in August 2021';

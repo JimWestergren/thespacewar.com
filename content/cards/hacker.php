@@ -17,5 +17,6 @@
 <h2>Changelog During Playtesting</h2>
 
 <ul>
+    <li>March 2023: Card simplified for more easy understanding. Now you can take either spaceship or missile but it is only until end of turn.</li>
     <li>April 2020: Created.</li>
 </ul>
