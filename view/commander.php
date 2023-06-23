@@ -25,7 +25,7 @@ require(ROOT.'view/head.php');
 
 <?php if ($data['name'] == 'Nicia Satu') { ?>
     <h2>Rule Clarification</h2>
-    <p>Commander is always selected directly after drawing the start hand. If you choose a shield card (green) that is in your hand, put it on the table and draw a new card. Otherwise select a shield card from your draw pile and then shuffle your draw pile.</p>
+    <p>Commander is always selected directly after drawing the start hand. If you choose a green defense card that is in your hand, put it on the table and draw a new card. Otherwise select a defense card from your draw pile and then shuffle your draw pile.</p>
 <?php } ?>
 
 
@@ -43,6 +43,7 @@ require(ROOT.'view/head.php');
         <li>Nerf in June 2020: Maximum reduced from 11 to 10.</li>
     <?php } ?>
     <?php if ( $data['name'] == 'Nicia Satu' ) { ?>
+        <li>Buff in May 2022: "any shield" changed to "any green defense card".</li>
         <li>Buff in December 2020: "Energy Shield" changed to "any shield".</li>
         <li>Buff in August 2019: Added that you begin with Energy Shield in play.</li>
     <?php } ?>

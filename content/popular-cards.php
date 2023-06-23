@@ -74,7 +74,7 @@ usort($commanders_count, function ($a, $b) {
 $comments['capt-shera-kinson'] = 'Buff in September 2021';
 $comments['dr-stein'] = 'Nerf in February 2023, Nerf in August 2021';
 $comments['frank-johnson'] = 'Nerf in June 2020';
-$comments['nicia-satu'] = 'Buff in December 2020, Buff in August 2019';
+$comments['nicia-satu'] = 'Buff in May 2022, Buff in December 2020, Buff in August 2019';
 $comments['alien-missile'] = 'Buff in August 2020';
 $comments['ambush'] = 'Buff in August 2021, Buff in March 2021';
 $comments['carrier'] = 'Nerf in 2020';
