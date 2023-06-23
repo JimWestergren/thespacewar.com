@@ -17,6 +17,7 @@ include(ROOT.'view/head.php');
     <li>Select any commander for your deck.</li>
     <li>Deck size must be between 50 and 70 cards.</li>
     <li>Proxies (cards printed from this site) are ok when playing, even in official tournaments (as long as card sleeves are used).</li>
+    <li>A player cannot win during the first round of the game. All station cards can be flipped but in the next turn the player put down a new station card and has one remaining life.</li>
 </ol>
 
 <p>Restricted cards:</p>
@@ -28,6 +29,7 @@ include(ROOT.'view/head.php');
 <h2>Changelog During Playtesting</h2>
 
 <ul>
+    <li>2023-03-05: New rule added that a player cannot win during the first round of the game.</li>
     <li>2020-12-08: First version of these rules.</li>
 </ul>
 
