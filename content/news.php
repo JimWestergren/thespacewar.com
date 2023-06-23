@@ -7,12 +7,15 @@ require(ROOT.'view/head.php');
 
 <p>For more regular news with more images follow us on:<br> <a href="https://discord.gg/tv3DXqj" target="_blank">Discord</a> | <a href='https://www.facebook.com/TheSpaceWarCardGame' target="_blank">Facebook</a> | <a href='https://twitter.com/The_Space_War' target="_blank">Twitter</a> | <a href="https://www.reddit.com/r/TheSpaceWar/" target="_blank">Reddit</a></p>
 
-<h2>Current activities (March 2022)</h2>
+<h2>Current activities</h2>
 
 <ul>
     <li>Adding the FINAL cards of <a href='/united-stars'>The United Stars</a> to the online game.</li>
-    <li>Only 14 tickets missing to complete the online game before next step can be taken.</li>
+    <li>Only 9 tickets missing to complete the online game before next step can be taken.</li>
+    <li>Bad news in July 2022: my developer disappeared :(</li>
 </ul>
+
+<p><strong style="color:red">Bad news</strong>: I worked on my extra time for around 3 years on creating this game spending more than 1000 hours and more than $40K of my personal money. There are 9 tickets remaining before the online game can be launched for real with deck building and competitive play. I no longer have any developer that can help me and I can no longer alone sink any more time or money on this game. I am looking for a partner such as a publisher or investor that is interested in the game which can help me take the next steps, <a href="https://www.jimwestergren.com/contact-me/">contact me</a>. The Space War is a really fantastic card game but doing all myself is an uphill battle and life is too short, I have a wife and 3 children as well which I value more than this game.</p>
 
 <h2>To do later</h2>
 
@@ -31,7 +34,8 @@ require(ROOT.'view/head.php');
 <h2>Completed</h2>
 
 <ul>
-    <li>Playtesting <a href='/constructed'>constructed play</a> offline.</li>
+    <li>New round of playtesting <a href='/constructed'>constructed play</a> offline a number of times and making some cards more clear and more easy to understand. Also balancing some cards. (March 2023).</li>
+    <li>Playtesting <a href='/constructed'>constructed play</a> offline (2012).</li>
     <li>Faction logos (November 2021).</li>
     <li>New pages: <a href='/weekly-offer'>Weekly Offer</a>, <a href='/popular-cards'>Popular Cards</a>, <a href='/account/your-cards'>Your Online Cards</a>, <a href='/affiliate'>Affiliate</a> (September 2021).</li>
     <li>The first tournament held in Bolivia, see <a href='/tournaments'>Tournaments</a> page (September 2021).</li>
