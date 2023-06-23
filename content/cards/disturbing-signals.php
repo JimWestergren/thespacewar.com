@@ -1,6 +1,8 @@
 <h2>Compare With</h2>
 
 <?=cardImage('disturbing-sensor')?>
+<?=cardImage('fate')?>
+
 
 <h2>Good Against This</h2>
 

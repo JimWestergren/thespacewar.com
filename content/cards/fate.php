@@ -1,3 +1,6 @@
+<p>The second option to disable the attack works the same as the card <a href="/cards/disturbing-signals">Disturbing Signals</a> but only for a single missile and for a single turn.</p>
+
+
 <h2>Cards that cost 0 or 1</h2>
 
 <?=cardImage('target-missed')?>
@@ -32,10 +35,13 @@
 <h2>Compare With</h2>
 
 <?=cardImage('luck')?>
+<?=cardImage('disturbing-signals')?>
 
 <h2>Changelog During Playtesting</h2>
 
+
 <ul>
+    <li>Clarification in March 2023:<br>Text of the card was updated and it is clarifed that the missile can move but only the attack is disabled, same as the card <a href="/cards/disturbing-signals">Disturbing Signals</a>.</li>
     <li>Nerf in October 2021:<br>Previous text was "Counter a card that cost 0 or 1. You may draw a card and then discard a card. [ OR ] Draw 1 card."</li>
     <li>March 2021:<br>Card created and entered playtesting.</li>
 </ul>
