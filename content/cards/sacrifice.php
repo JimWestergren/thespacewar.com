@@ -3,6 +3,7 @@
 <ul>
     <li>You play with a deck that seldom has cards in play.</li>
     <li>You play against a deck that has few but big cards to put in play.</li>
+    <li>When you can use it to remove a big Shield.</li>
 </ul>
 
 <h2>Works Very Good With</h2>

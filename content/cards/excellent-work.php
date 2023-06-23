@@ -2,14 +2,16 @@
 
 <p>This card is actually one of the best cards in the game as you can choose between two very different good options. </p>
 
-<p>Remember that this card is also a mill weapon as you can mill for 6.</p>
-
-<h2>Other cards that can make you draw (mill)</h2>
+<h2>Other cards that can make you draw</h2>
 
 <?=cardImage('luck')?>
 <?=cardImage('discovery')?>
 <?=cardImage('grand-opportunity')?>
 <?=cardImage('good-karma')?>
+
+<h2>Good With</h2>
+
+<?=cardImage('commander-the-miller')?>
 
 <h2>Changelog During Playtesting</h2>
 

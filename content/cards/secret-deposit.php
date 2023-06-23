@@ -3,9 +3,12 @@
 <?=cardImage('cancel')?>
 <?=cardImage('discovery')?>
 <?=cardImage('release-of-energy')?>
-<?=cardImage('grand-opportunity')?>
 <?=cardImage('base-command-link')?>
 <?=cardImage('good-karma')?>
+
+<h2>Compare With</h2>
+
+<?=cardImage('over-capacity')?>
 
 <h2>Changelog During Playtesting</h2>
 

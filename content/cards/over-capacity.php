@@ -1,10 +1,24 @@
-<p>Excellent card to give card advantage. Can really give give a big step forward in the beginning of the game.</p>
+<p>Excellent card to gain card advantage. Can really give give a big step forward in the beginning of the game.</p>
 
-<h2>How it can be stopped</h2>
+<h2>Good With</h2>
 
+<p>Cards that make you draw:</p>
+
+<?=cardImage('discovery')?>
+<?=cardImage('release-of-energy')?>
+<?=cardImage('base-command-link')?>
+<?=cardImage('good-karma')?>
+<?=cardImage('excellent-work')?>
+
+<h2>Good Against</h2>
+
+<?=cardImage('return')?>
 <?=cardImage('neutralization')?>
 <?=cardImage('fatal-error')?>
-<?=cardImage('luck')?>
+
+<h2>Compare With</h2>
+
+<?=cardImage('secret-deposit')?>
 
 <h2>Changelog During Playtesting</h2>
 

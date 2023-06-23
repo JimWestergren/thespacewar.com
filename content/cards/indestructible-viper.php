@@ -3,7 +3,7 @@
 
 <?=cardImage('ambush')?>
 <?=cardImage('supernova')?>
-
+<?=cardImage('fatal-error')?>
 
 <h2>Changelog During Playtesting</h2>
 

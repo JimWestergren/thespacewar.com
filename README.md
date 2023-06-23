@@ -9,3 +9,4 @@ Copyright © 2018-2021 [Jim Westergren](https://www.jimwestergren.com/about-me-j
 - Method for taking care of bouncing emails
 - Better styling for forms
 - Method for deleting account
+- Add translation icon with link to https://translate.google.com/translate?hl=&sl=en&u=CURRENT_URL at the top. Maybe only for non-chrome browsers?

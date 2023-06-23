@@ -467,7 +467,13 @@ function addRemoveCard(id, action) {
         document.getElementById('deckCount').style.color = 'red';
         document.getElementById('save-button').disabled = true;
     }
-    if ((id == 78 && cardCount == 10) || (id != 78 && cardCount == 3)) {
+    if (id == 78 && cardCount == 10) { // Drone
+        var x = document.getElementById('add-' + id);
+        x.style.display = "none";
+    //} else if (id == 6 && cardCount == 1) { // Fast Missile
+    //    var x = document.getElementById('add-' + id);
+    //    x.style.display = "none";
+    } else if (id != 78 && cardCount == 3) {
         var x = document.getElementById('add-' + id);
         x.style.display = "none";
     }

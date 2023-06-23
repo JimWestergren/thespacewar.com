@@ -4,6 +4,9 @@
 
 <?=cardImage('release-of-energy')?>
 <?=cardImage('death-ray')?>
+<?=cardImage('starship')?>
+<?=cardImage('the-dark-destroyer')?>
+<?=cardImage('carrier')?>
 
 <h2>Changelog During Playtesting</h2>
 
