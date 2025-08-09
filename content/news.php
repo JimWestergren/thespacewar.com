@@ -9,6 +9,8 @@ require(ROOT.'view/head.php');
 
 <h2>Current activities</h2>
 
+<p>New in february 2024: Jim had a great idea of a rule change to further improve the game which is currently being playtested: Before assigning station damage the defending player may discard card(s) from the hand to prevent one damage for each card. This means that the cards in hand is also considered part of the station, for example some kind of mini shields. The last station row is more important, the rule about not able to win first turn can be removed, missiles are futher nerfed, milling strats are buffed, the game taking more turns in a competetive level, less luck, new dimension of tactic, new strategy and so forth.</p>
+
 <ul>
     <li>Adding the FINAL cards of <a href='/united-stars'>The United Stars</a> to the online game.</li>
     <li>Only 9 tickets missing to complete the online game before next step can be taken.</li>
@@ -35,7 +37,7 @@ require(ROOT.'view/head.php');
 
 <ul>
     <li>New round of playtesting <a href='/constructed'>constructed play</a> offline a number of times and making some cards more clear and more easy to understand. Also balancing some cards. (March 2023).</li>
-    <li>Playtesting <a href='/constructed'>constructed play</a> offline (2012).</li>
+    <li>Playtesting <a href='/constructed'>constructed play</a> offline (2022).</li>
     <li>Faction logos (November 2021).</li>
     <li>New pages: <a href='/weekly-offer'>Weekly Offer</a>, <a href='/popular-cards'>Popular Cards</a>, <a href='/account/your-cards'>Your Online Cards</a>, <a href='/affiliate'>Affiliate</a> (September 2021).</li>
     <li>The first tournament held in Bolivia, see <a href='/tournaments'>Tournaments</a> page (September 2021).</li>

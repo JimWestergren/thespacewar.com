@@ -321,6 +321,8 @@ function setLoginCookie(array $a, int $rating) : string
 function winnersArray() : array
 {
     return [
+        'Second Quarter 2023' => ['first_username' => 'Alvin', 'first_country' => 'se', 'second_username' => 'Jim', 'second_country' => 'se'],
+        'June 2023' => ['first_username' => 'Alvin', 'first_country' => 'se', 'second_username' => 'Jim', 'second_country' => 'se'],
         'April 2023' => ['first_username' => 'Alvin', 'first_country' => 'se', 'second_username' => 'Jim', 'second_country' => 'se'],
         'First Quarter 2023' => ['first_username' => 'Alvin', 'first_country' => 'se', 'second_username' => 'Jim', 'second_country' => 'se'],
         'March 2023' => ['first_username' => 'Alvin', 'first_country' => 'se', 'second_username' => 'Jim', 'second_country' => 'se'],
@@ -359,6 +361,10 @@ function winnersArray() : array
 
 function winnersArrayByUser(string $user) : array
 {
+    $a['Alvin'][] = ['period' => 'Second Quarter 2023', 'position' => '🏆'];
+    $a['Jim'][] = ['period' => 'Second Quarter 2023', 'position' => '🥈'];
+    $a['Alvin'][] = ['period' => 'June 2023', 'position' => '🏆'];
+    $a['Jim'][] = ['period' => 'June 2023', 'position' => '🥈'];
     $a['Alvin'][] = ['period' => 'April 2023', 'position' => '🏆'];
     $a['Jim'][] = ['period' => 'April 2023', 'position' => '🥈'];
     $a['Alvin'][] = ['period' => 'First Quarter 2023', 'position' => '🏆'];
