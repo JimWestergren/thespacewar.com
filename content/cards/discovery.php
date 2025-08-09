@@ -12,6 +12,7 @@
 <h2>Changelog During Playtesting</h2>
 
 <ul>
+    <li>Nerf in August 2024:<br>Previous version stated "Draw 3 cards and the opponent draws 2 cards. [ OR ] Discard 1 card and the opponent discards 2 cards."</li>
     <li>Buff in August 2019:<br>Drawing for the opponent is not any longer optional.</li>
     <li>September 2018: Created.</li>
 </ul>
