@@ -25,7 +25,7 @@
 
 <?php if (URL != 'print/cards') { ?>
     <div class="footer no-print">
-        <p>&copy; TheSpaceWar.com | <a href="/credits" style="color:#aaa;">Full Credits</a><br>Loaded in <?= round(microtime(true) - $_SERVER['REQUEST_TIME_FLOAT'], 2) ?> seconds</p>
+        <p>&copy; <a href="https://codalex.com/" style="color:#aaa;">Codalex AB</a> | <a href="/credits" style="color:#aaa;">Full Credits</a><br>Loaded in <?= round(microtime(true) - $_SERVER['REQUEST_TIME_FLOAT'], 2) ?> seconds</p>
     </div>
 <?php } ?>
 
