@@ -934,13 +934,13 @@ function displayCardNFTinfo( string $card_slug ) : string
 
     $return = '<h2>First Edition of this card as a NFT</h2>';
     if ( $owner == 0 && $owner_opensea === '' ) {
-        $return .= '<p>The NFT of this card is not yet bought by anyone, <a href="https://opensea.io/assets/0x495f947276749ce646f68ac8c248420045cb7b5e/'.$nft_first_edition[$card_slug]['token_id'].'" target="_blank">buy it now for '.$nft_first_edition[$card_slug]['price'].' ETH</a> or <a href="/first-edition">buy another card</a>.</p>';
+        $return .= '<p>The NFT of this card is not yet bought by anyone, <a href="https://opensea.io/item/ethereum/0x495f947276749ce646f68ac8c248420045cb7b5e/'.$nft_first_edition[$card_slug]['token_id'].'" target="_blank">buy it now for '.$nft_first_edition[$card_slug]['price'].' ETH</a> or <a href="/first-edition">buy another card</a>.</p>';
     } elseif ( $owner == 0 ) {
-        $return .= '<p>The NFT of this card is currently owned by '.$owner_opensea.'.<br>You can <a href="https://opensea.io/assets/0x495f947276749ce646f68ac8c248420045cb7b5e/'.$nft_first_edition[$card_slug]['token_id'].'" target="_blank">submit an offer to '.$row['username'].'</a> or <a href="/first-edition">buy another card</a>.</p>';
+        $return .= '<p>The NFT of this card is currently owned by '.$owner_opensea.'.<br>You can <a href="https://opensea.io/item/ethereum/0x495f947276749ce646f68ac8c248420045cb7b5e/'.$nft_first_edition[$card_slug]['token_id'].'" target="_blank">submit an offer to '.$row['username'].'</a> or <a href="/first-edition">buy another card</a>.</p>';
     } else {
         $pdo = PDOWrap::getInstance();
         $row = $pdo->run("SELECT username, country FROM users WHERE id = ? LIMIT 1", [$owner])->fetch();
-        $return .= '<p>The NFT of this card is currently owned by <a href="/users/'.$row['username'].'" style="padding-right:20px;font-weight:bold;background:url(https://staticjw.com/redistats/images/flags/'.$row['country'].'.gif) no-repeat center right;">'.$row['username'].'</a>.<br>You can <a href="https://opensea.io/assets/0x495f947276749ce646f68ac8c248420045cb7b5e/'.$nft_first_edition[$card_slug]['token_id'].'" target="_blank">submit an offer to '.$row['username'].'</a> or <a href="/first-edition">buy another card</a>.</p>';
+        $return .= '<p>The NFT of this card is currently owned by <a href="/users/'.$row['username'].'" style="padding-right:20px;font-weight:bold;background:url(https://staticjw.com/redistats/images/flags/'.$row['country'].'.gif) no-repeat center right;">'.$row['username'].'</a>.<br>You can <a href="https://opensea.io/item/ethereum/0x495f947276749ce646f68ac8c248420045cb7b5e/'.$nft_first_edition[$card_slug]['token_id'].'" target="_blank">submit an offer to '.$row['username'].'</a> or <a href="/first-edition">buy another card</a>.</p>';
     }
 
     return $return;
