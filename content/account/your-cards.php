@@ -298,7 +298,7 @@ echo $outputs;
 
 <p>Decks that only consist of diamond cards is a Diamond Deck.<br>Each game you win using a Diamond Deck earns you <strong>500</strong> credits (coming soon).</p>
 
-<p>In the future: Can be minted as a Non-fungible token (NFT) and sold by you for real crypto money (ETH) on the blockchain. Maximum 5 can be minted per month per account. Can be bought on the blockchain as well.</p>
+<!--<p>In the future: Can be minted as a Non-fungible token (NFT) and sold by you for real crypto money (ETH) on the blockchain. Maximum 5 can be minted per month per account. Can be bought on the blockchain as well.</p>-->
 
 <?php
 $outputs = '';

@@ -29,7 +29,7 @@ require(ROOT.'view/head.php');
 <?php } ?>
 
 
-<?=displayCardNFTinfo('commander-'.$slug)?>
+<?//=displayCardNFTinfo('commander-'.$slug)?>
 
 
 <h2>Changelog During Playtesting</h2>

@@ -200,12 +200,13 @@ echo $amount;
 $total_credits += $amount;
 echo '</td></tr>';
 
+/*
 echo '<tr><td>1000 credits for each <a href="/first-edition">First Edition NFT</a> you own.</td><td>';
 $amount_of_nft = count(getFirstEditionNFTbyUser($logged_in['id']));
 echo 1000*$amount_of_nft;
 $total_credits += (1000*$amount_of_nft);
 echo '</td></tr>';
-
+*/
 
 
 

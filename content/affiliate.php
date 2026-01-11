@@ -25,6 +25,7 @@ if ( $logged_in === [] ) {
 
 ?>
 
+<!--
 <h2>What kind of real money are we talking about?</h2>
 
 <p>Currently the only real money is the selling of <a href="/first-edition">First Edition Cards as NFTs</a>. There will only ever exist 102 (one for each card) and there is no doubt that all of them are going to be sold and increase in value - the only question is how fast they will be sold and who will get the commission.</p>
@@ -32,6 +33,7 @@ if ( $logged_in === [] ) {
 <p><strong>Example</strong>: an NFT with the price 0.5 ETH is sold. 40% of that is currently $723 which will be paid by PayPal to the affiliate.</p>
 
 <p>In the future there will be more real money sales, and the commission will cover that as well. The only exception is sales of physical products which will not be covered.</p>
+-->
 
 <h2>If the referral did not use the referral link?</h2>
 

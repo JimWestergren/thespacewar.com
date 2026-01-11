@@ -42,6 +42,15 @@ $nft_first_edition = getNFTFirstEdition();
 
 <h1 style="text-transform: none;">First Edition Cards as NFTs</h1>
 
+<div class="error">
+<h3>Update – January 2026</h3>
+<p>This NFT project was coded and launched in April 2021 during the peak hype around NFTs. The game is still in development and has not yet been released, and the NFT initiative never gained traction — only a few were sold to friends and family.</p>
+<p>Unfortunately, NFTs and crypto in general have developed a very negative reputation, with scams and rug pulls being extremely common, as well as very high transaction fees and slow transactions. This is not something I want to associate <em>The Space War</em> card game with, nor do I want people to think this is a crypto game or that NFTs are an important or required part of the game experience.</p>
+<p>For these reasons, the NFT project has been cancelled, will no longer be promoted, and no more NFTs will be sold. This page will remain for transparency and historical purposes. Thank you for your understanding.</p>
+</div>
+
+<hr style="margin-bottom:30px;">
+
 <p>Here you can buy the very first copy of a unique card in The Space War card game. With an NFT your ownership is cryptographically verified and certified forever on the decentralized Ethereum blockchain.</p>
 
 <p>Total Supply: 102 unique cards, 1 NFT for each card.</p>

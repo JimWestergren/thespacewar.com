@@ -224,6 +224,7 @@ function displayCard(string $slug) : string
 
     $return .= '<div style="clear:both"></div>';
 
+    /*
     $nft_first_edition = getNFTFirstEdition();
 
     if ( !isset($nft_first_edition[$slug] ) ) return $return;
@@ -248,6 +249,7 @@ function displayCard(string $slug) : string
     }
 
     $return = str_replace('</table>', '<tr><th>NFT</th><td>'.$nft_info.'</td></tr></table>', $return);
+    */
 
     return $return;
 
