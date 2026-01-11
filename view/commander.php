@@ -19,7 +19,7 @@ require(ROOT.'view/head.php');
 
 <img src="https://images.thespacewar.com/commander-<?=$data['id']?>.png" class="extra-big">
 
-<div class="rules"><?=$data['rules']?></div>
+<div class="rules"><?=$data['rules']?><br><br>Life Points: <strong><?=$data['life']?></strong></div>
 
 <div class="lore"><?=$data['lore']?></div>
 

@@ -12,16 +12,17 @@ The rules of this game is the same for offline play, online play, casual play an
 <hr>
 
 <p>You are a commander of a space station in war with another commander and space station. The crew on your station can build spaceships, missiles, defense shields and other things which can attack the enemy station in various ways.</p>
-<p>If your station gets damaged, you have to flip that many station cards and if you have no station cards left to flip you lose the game.</p>
+<p>If your station gets damaged, you have to flip that many station cards. If you have no station cards left to flip, any remaining damage is instead dealt to your commander.</p>
+<p>Each commander has a number in the top left corner of the card which represents the commander’s <strong>Life Points</strong>. If a commander’s Life Points are reduced to zero, that player loses the game.</p>
 
 <h2>Preparation</h2>
 <p>Each player has a deck of 60 cards, called the draw pile, and it is located on the left. Below it is the discard pile.</p>
 <p>Each player places the three Station Rule Cards in sequence on the right side (see image below).</p>
 <p>Decide randomly which player will choose who starts the game.</p>
-<p>Each player shuffle their draw pile and draws 6 cards to their hand. Decide who will start the game. The person that will not start the game draws one additional card.</p>
-<p>Each player choose 3 cards from his or her hand that will form the initial station cards of that player (first time players can choose cards that has the highest number at the top left on the cards). Place those 3 chosen cards face down next to the Station Rule Cards so that there is 1 face down card in each of the 3 rows.</p>
-<p>The person that will not start the game places 1 additional station card in the row he/she chooses. Now both players has 3 cards remaining in the hand.</p>
-<p>Select one of the commanders in secret and place it face down on the left of the draw pile. When both players are ready, the commanders are flipped and revealed at the same time and the game begins.</p>
+<p>Each player shuffles their draw pile and draws 6 cards to their hand. The player who will not start the game draws one additional card.</p>
+<p>Each player chooses 3 cards from their hand that will form the initial station cards of that player (first-time players can choose cards that have the highest number in the top left corner of the cards). Place those 3 chosen cards face down next to the Station Rule Cards so that there is 1 face-down card in each of the 3 rows.</p>
+<p>The player who will not start the game places 1 additional station card in the row of their choice. Both players now have 3 cards remaining in their hand.</p>
+<p>Select one of the commanders in secret and place it face down to the left of the draw pile. Place a die on the commander card set to the commander’s starting Life Points. When both players are ready, the commanders are flipped and revealed at the same time and the game begins.</p>
 
 <h2>Station Cards</h2>
 
@@ -50,7 +51,7 @@ The rules of this game is the same for offline play, online play, casual play an
     <li><h3>Defense <span style="font-weight: 400;">cards are green</span></h3>
     <p>They (shields and cannons) stay in your home zone and cannot move. Shields protect your station (it has to be destroyed first before the station can be attacked).</p></li>
     <li><h3>Commander <span style="font-weight: 400;">cards</span></h3>
-    <p>They provide a certain power or ability for the player. Cannot be attacked or destroyed.</p></li>
+    <p>They provide a certain power or ability for the player. Commanders cannot be attacked directly; damage is only dealt to a commander after all station cards have been flipped.</p>
 </ul>
 
 <h2>The Turn</h2>
@@ -71,18 +72,19 @@ The rules of this game is the same for offline play, online play, casual play an
 <p>You can only attack enemies in the same zone. </p>
 <p>Your spaceship, missile or cannon can always attack an enemy card in your home zone, even on it's first turn.</p>
 <p>When you attack another card, the card receives damage equal to the attack value (red) of the attacker. If damage is equal to or more than the defense value (green) the card is destroyed and moved to the discard pile. The attacker does not risk getting damage when it is attacking and damage is not automatically healed. Use a die to keep track of damage.</p>
-<p>If you attack the enemy station you flip that many face down station cards of the opponent and if he/she has no more station cards to flip you win the game.</p>
+<p>If you attack the enemy station, you flip that many face-down station cards of the opponent. If the opponent has no station cards left to flip, any remaining damage is instead dealt to the opponent’s commander, reducing their Life Points.</p>
 
 <h2>Flipped Station Cards</h2>
 <p>Station cards that has been damaged (flipped) so that they are no longer face down can be played, but they are not considered to be on the hand. So for example 0 cost cards can be played at any moment, other cards can be played in your action phase.</p>
 <p>Flipped station cards are still counted as normal (drawing, actions, hand size limit).</p>
 
 <h2>Empty Draw Pile</h2>
-<p>If you have no cards left in your draw pile at the beginning of your draw phase (before drawing cards) your station gets 3 damage (opponent flips 3 of your station cards). </p>
+<p>If your draw pile is empty at the start of your draw phase, your station takes 3 damage (your opponent flips 3 station cards). Any damage that cannot be applied to station cards is dealt to your commander instead.</p>
+
 <p>If you need to draw but cannot, then simply ignore the draw requirement.</p>
 
 <h2>Repair</h2>
-<p>There are a few special spaceships that can repair. Just as attacking you can only repair a target in the same zone. If a spaceship is paralyzed, the paralyze will be removed when repaired (in additional to repair of damage). A repair ship can repair itself (but not if it is paralyzed).</p>
+<p>There are a few special spaceships that can repair. Just as attacking you can only repair a target in the same zone. If a spaceship is paralyzed, the paralyze will be removed when repaired (in additional to repair of damage). A repair ship can repair itself (but not if it is paralyzed). The commander cannot be repaired.</p>
 
 
 <h2>Definitions</h2>

@@ -770,6 +770,7 @@ function commanderData() : array
     return [
         'liana-henders' => [
             'id' => 0,
+            'life' => 3,
             'deck' => 1,
             'name' => 'Liana Henders',
             'title' => 'Solution Finder',
@@ -778,6 +779,7 @@ function commanderData() : array
         ],
         'frank-johnson' => [
             'id' => 1,
+            'life' => 3,
             'deck' => 1,
             'name' => 'Frank Johnson',
             'title' => 'Station Expert',
@@ -786,6 +788,7 @@ function commanderData() : array
         ],
         'keve-bakins' => [
             'id' => 2,
+            'life' => 3,
             'deck' => 1,
             'name' => 'Keve Bakins',
             'title' => 'Expert Organizer',
@@ -794,6 +797,7 @@ function commanderData() : array
         ],
         'nicia-satu' => [
             'id' => 3,
+            'life' => 4,
             'deck' => 1,
             'name' => 'Nicia Satu',
             'title' => 'Master of Endurance',
@@ -802,6 +806,7 @@ function commanderData() : array
         ],
         'general-jackson' => [
             'id' => 4,
+            'life' => 3,
             'deck' => 1,
             'name' => 'General Jackson',
             'title' => 'Strict Commander',
@@ -810,6 +815,7 @@ function commanderData() : array
         ],
         'dr-stein' => [
             'id' => 5,
+            'life' => 2,
             'deck' => 3,
             'name' => 'Dr. Stein',
             'title' => 'Expert Planner',
@@ -818,6 +824,7 @@ function commanderData() : array
         ],
         'the-miller' => [
             'id' => 6,
+            'life' => 6,
             'deck' => 1,
             'name' => 'The Miller',
             'title' => 'Artificial Intelligence',
@@ -826,6 +833,7 @@ function commanderData() : array
         ],
         'zuuls' => [
             'id' => 7,
+            'life' => 2,
             'deck' => 2,
             'name' => 'Zuuls',
             'title' => 'Swarm Specialist',
@@ -834,6 +842,7 @@ function commanderData() : array
         ],
         'crakux' => [
             'id' => 8,
+            'life' => 2,
             'deck' => 2,
             'name' => 'Crakux',
             'title' => 'Extreme Anger',
@@ -842,6 +851,7 @@ function commanderData() : array
         ],
         'naalox' => [
             'id' => 9,
+            'life' => 4,
             'deck' => 2,
             'name' => 'Naalox',
             'title' => 'Regeneration',
@@ -850,6 +860,7 @@ function commanderData() : array
         ],
         'staux' => [
             'id' => 10,
+            'life' => 3,
             'deck' => 2,
             'name' => 'Staux',
             'title' => 'Acid Master',
@@ -858,6 +869,7 @@ function commanderData() : array
         ],
         'capt-shera-kinson' => [
             'id' => 11,
+            'life' => 3,
             'deck' => 3,
             'name' => 'Capt. Shera Kinson',
             'title' => 'Always Ready',
@@ -866,6 +878,7 @@ function commanderData() : array
         ],
         'capt-wayne-mccarter' => [
             'id' => 12,
+            'life' => 4,
             'deck' => 3,
             'name' => 'Capt. Wayne McCarter',
             'title' => 'Combat Specialist',
@@ -874,6 +887,7 @@ function commanderData() : array
         ],
         'zyre' => [
             'id' => 13,
+            'life' => 3,
             'deck' => 3,
             'name' => 'Zyre',
             'title' => 'Energy Expert',
