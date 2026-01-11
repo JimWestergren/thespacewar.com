@@ -134,6 +134,14 @@ echo '<p>Gold framed '.$weekly_offer['name'].' for only <strong>'.$weekly_offer[
 
 <p>[ Quick demo of offline play ]</p>
 
+
+<h2>AI Usage Statement</h2>
+
+<p>The Space War card game is a father-and-son passion project and has been in development since 2018 with more than 5 years of playtesting. It features entirely human-created artwork — no AI art has been used at any stage. The art for the game was arranged between 2018 and 2020 through a combination of unique commissioned illustrations and commercially licensed human-created artwork. No AI-generated images are used anywhere in the game or on the website.</p>
+
+<p>Modern tools, including AI, are used only to support clarity and polish in the rules, website text, lore, and coding of the online game and website. These tools assist the human process, but all creative decisions, worldbuilding, gameplay design, and coding direction come from the designer.</p>
+
+
 <h2>Said About the Game</h2>
 
 <blockquote>
