@@ -35,29 +35,11 @@ require(ROOT.'view/head.php');
 <h2>Changelog During Playtesting</h2>
 
 <ul>
-    <?php if ( $data['name'] == 'Dr. Stein' ) { ?>
-        <li>Nerf in February 2023: Perfect Plan ability replaced with draw a card.</li>
-        <li>Nerf in August 2021: Perfect Plan ability can now only be used once per turn.</li>
-    <?php } ?>
-    <?php if ( $data['name'] == 'Frank Johnson' ) { ?>
-        <li>Nerf in June 2020: Maximum reduced from 11 to 10.</li>
-    <?php } ?>
-    <?php if ( $data['name'] == 'Nicia Satu' ) { ?>
-        <li>Buff in May 2022: "any shield" changed to "any green defense card".</li>
-        <li>Buff in December 2020: "Energy Shield" changed to "any shield".</li>
-        <li>Buff in August 2019: Added that you begin with Energy Shield in play.</li>
-    <?php } ?>
-    <?php if ( $data['name'] == 'Capt. Shera Kinson' ) { ?>
-        <li>Buff in September 2021: The card used to be "Use 3 actions to take the Starship card from anywhere to your hand."</li>
-    <?php } ?>
-    <?php if ( in_array( $data['name'], ['Liana Henders', 'Zyre'] ) ) { ?>
-        <li>January 2020: Created.</li>
-    <?php } elseif ( in_array( $data['name'], ['Capt. Shera Kinson', 'Capt. Wayne McCarter', 'Zuuls', 'Naalox', 'Staux', 'Crakux'] ) ) { ?>
-        <li>July 2020: Created.</li>
-    <?php } else { ?>
-        <li>June 2019: Created.</li>
-    <?php } ?>
+    <?php foreach ($data['changelog'] as $entry): ?>
+        <li><?=$entry?></li>
+    <?php endforeach; ?>
 </ul>
+
 
 <h2>Other Commanders</h2>
 

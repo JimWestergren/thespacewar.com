@@ -776,6 +776,9 @@ function commanderData() : array
             'title' => 'Solution Finder',
             'rules' => 'Spend 2 actions to draw a card.',
             'lore' => 'Liana is famous for always coming up with solutions and having answers ready for whatever situation that might come up in warfare. She has done extremely well in recent battles and is eager to join and win The Space War.',
+            'changelog' => [
+                'January 2020: Created.',
+            ],
         ],
         'frank-johnson' => [
             'id' => 1,
@@ -785,6 +788,10 @@ function commanderData() : array
             'title' => 'Station Expert',
             'rules' => 'Your maximum amount of station cards is increased from 7 to 9.',
             'lore' => 'Worked as Senior Architect for more than 20 years before being promoted to Commander. Famous for having figured out a secret method to make the space station big and powerful. He is certain that the winner of the war will be determined by the one with the most powerful station.',
+            'changelog' => [
+                'Nerf in June 2020: Maximum reduced from 11 to 10.',
+                'June 2019: Created.',
+            ],
         ],
         'keve-bakins' => [
             'id' => 2,
@@ -794,6 +801,12 @@ function commanderData() : array
             'title' => 'Expert Organizer',
             'rules' => 'You can freely move around your station cards in your action phase.',
             'lore' => '"What matters in a war is not strength and power but to be able to swiftly reorganize the space station resources and quickly adapt to situations."',
+            'changelog' => [
+                'Buff in May 2022: "any shield" changed to "any green defense card".',
+                'Buff in December 2020: "Energy Shield" changed to "any shield".',
+                'Buff in August 2019: Added that you begin with Energy Shield in play.',
+                'June 2019: Created.',
+            ],
         ],
         'nicia-satu' => [
             'id' => 3,
@@ -803,6 +816,9 @@ function commanderData() : array
             'title' => 'Master of Endurance',
             'rules' => 'Begin the game with any green defense card in play.<br>You do not receive 3 damage if your draw pile is empty in your draw phase.',
             'lore' => '"We are determined to keep fighting this war until the very end, we will never give up. We will fight until our enemy is fully exhausted, and then we will keep fighting strong as long as it takes. And I do not fear The Miller."',
+            'changelog' => [
+                'June 2019: Created.',
+            ],
         ],
         'general-jackson' => [
             'id' => 4,
@@ -812,6 +828,9 @@ function commanderData() : array
             'title' => 'Strict Commander',
             'rules' => 'You may take 1 damage to your station (opponent flips one of your station cards) to receive 2 extra action points, in your action phase.',
             'lore' => 'Known for getting production targets done on time with any means necessary. According to him nothing is impossible, and he does not accept failure. He is confident that he will win the war. Accused of abuse by several members of his staff, investigation is pending.',
+            'changelog' => [
+                'June 2019: Created.',
+            ],
         ],
         'dr-stein' => [
             'id' => 5,
@@ -821,6 +840,11 @@ function commanderData() : array
             'title' => 'Expert Planner',
             'rules' => '<ul style="text-align:left;"><li style="margin-bottom:10px;">You can discard a card to draw a card up to 3 times in your action phase.</li><li>You may take a damage to your station to draw a card.</li></ul>',
             'lore' => 'Dr. Stein has with his extreme intelligence the mind and focus to figure out exactly how to win the war. Once he has a strategy in mind he does not care about the sacrifices required to carry out The True Plan.',
+            'changelog' => [
+                'Nerf in February 2023: Perfect Plan ability replaced with draw a card.',
+                'Nerf in August 2021: Perfect Plan ability can now only be used once per turn.',
+                'June 2019: Created.',
+            ],
         ],
         'the-miller' => [
             'id' => 6,
@@ -830,6 +854,9 @@ function commanderData() : array
             'title' => 'Artificial Intelligence',
             'rules' => 'At any time instead of drawing a card you can force the opponent to discard the top 2 cards from their draw pile.',
             'lore' => 'The Miller is feared across the galaxy. This robot with artificial intelligence has figured out and built advanced technology to cause considerable drain and damage to any space station in a way that nobody can comprehend. How he got his alias is unknown.',
+            'changelog' => [
+                'June 2019: Created.',
+            ],
         ],
         'zuuls' => [
             'id' => 7,
@@ -839,6 +866,9 @@ function commanderData() : array
             'title' => 'Swarm Specialist',
             'rules' => 'In your first action phase in the game:<br>Search your draw pile for 3 Drone cards and put them into play.',
             'lore' => 'There is a commander known as Zuuls. According to the history book he has only been to war one time, and that one time was the shortest war ever fought.',
+            'changelog' => [
+                'July 2020: Created.',
+            ],
         ],
         'crakux' => [
             'id' => 8,
@@ -848,6 +878,9 @@ function commanderData() : array
             'title' => 'Extreme Anger',
             'rules' => 'Your Drones have +1 attack.',
             'lore' => 'Crakux, the leader of the Zoleons, has sworn together with his Drones to hunt down and destroy every single one of his enemies. As everybody probably knows by now, the home planet of the Zoleons was recently destroyed in the last war, a tragedy.',
+            'changelog' => [
+                'July 2020: Created.',
+            ],
         ],
         'naalox' => [
             'id' => 9,
@@ -857,6 +890,9 @@ function commanderData() : array
             'title' => 'Regeneration',
             'rules' => 'Use 2 actions to either put into play a Drone from your discard pile or heal 1 station damage. This ability can be used max 2 times per turn.',
             'lore' => 'According to the rumor Naalox can bring back things from the dead. Many have attempted to go to war against him but none has ever managed to destroy his fleet and station.',
+            'changelog' => [
+                'July 2020: Created.',
+            ],
         ],
         'staux' => [
             'id' => 10,
@@ -866,6 +902,9 @@ function commanderData() : array
             'title' => 'Acid Master',
             'rules' => 'Spend 2 actions to find an Acid Projectile from anywhere and put it into play.',
             'lore' => 'Known simply as Staux. According to a mission briefing from the only known survivor that has seen him: "I saw him with my own eyes. The only thing I can say if you see him is: abort your mission and run!"',
+            'changelog' => [
+                'July 2020: Created.',
+            ],
         ],
         'capt-shera-kinson' => [
             'id' => 11,
@@ -875,6 +914,10 @@ function commanderData() : array
             'title' => 'Always Ready',
             'rules' => 'Spend 10 actions to find Starship from your draw pile and put it into play.',
             'lore' => '"I am fully prepared and ready to go out in this war at any moment."',
+            'changelog' => [
+                'Buff in September 2021: The card used to be "Use 3 actions to take the Starship card from anywhere to your hand."',
+                'July 2020: Created.',
+            ],
         ],
         'capt-wayne-mccarter' => [
             'id' => 12,
@@ -884,6 +927,9 @@ function commanderData() : array
             'title' => 'Combat Specialist',
             'rules' => 'Your Starship is not slow.<br>When attacking with the Starship, make an additional attack with 1 damage after the ordinary attack.',
             'lore' => '"I am looking forward to going out in this war and I will completely destroy any enemies spotted on my radar."',
+            'changelog' => [
+                'July 2020: Created.',
+            ],
         ],
         'zyre' => [
             'id' => 13,
@@ -893,6 +939,9 @@ function commanderData() : array
             'title' => 'Energy Expert',
             'rules' => 'You receive 3 actions for each station card in the second row (instead of 2). Your maximum amount of station cards is 6 (instead of 7).',
             'lore' => '"With the amount of energy that I control there is no way I will loose this war."',
+            'changelog' => [
+                'January 2020: Created.',
+            ],
         ],
     ];
 
