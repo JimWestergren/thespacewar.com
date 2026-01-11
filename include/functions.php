@@ -781,7 +781,7 @@ function commanderData() : array
             'deck' => 1,
             'name' => 'Frank Johnson',
             'title' => 'Station Expert',
-            'rules' => 'Your maximum amount of station cards is increased from 8 to 10.',
+            'rules' => 'Your maximum amount of station cards is increased from 7 to 9.',
             'lore' => 'Worked as Senior Architect for more than 20 years before being promoted to Commander. Famous for having figured out a secret method to make the space station big and powerful. He is certain that the winner of the war will be determined by the one with the most powerful station.',
         ],
         'keve-bakins' => [
@@ -877,7 +877,7 @@ function commanderData() : array
             'deck' => 3,
             'name' => 'Zyre',
             'title' => 'Energy Expert',
-            'rules' => 'You receive 3 actions for each station card in the second row (instead of 2). Your maximum amount of station cards is 7 (instead of 8).',
+            'rules' => 'You receive 3 actions for each station card in the second row (instead of 2). Your maximum amount of station cards is 6 (instead of 7).',
             'lore' => '"With the amount of energy that I control there is no way I will loose this war."',
         ],
     ];

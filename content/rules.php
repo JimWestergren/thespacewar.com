@@ -59,7 +59,7 @@ The rules of this game is the same for offline play, online play, casual play an
     <li><strong>Draw phase</strong>: you must draw 1 card for each station card in the first row.</li>
     <li><strong>Action phase</strong>: you receive 2 actions for each station card in the second row.<br>First if you have any duration cards in play decide which ones to keep by paying their action costs and which ones to instead move to your discard pile.<br>
     Spend your actions to play cards from your hand.<br>
-    You can either put down one card from your hand face down as a new station card in one of the 3 station rows (if you have less than the maximum of 8 station cards) or move one station card from one row to another.<br>
+    You can either put down one card from your hand face down as a new station card in one of the 3 station rows (if you have less than the maximum of 7 station cards) or move one station card from one row to another.<br>
     Actions cannot be saved for the next turn.</li>
     <li><strong>Discard phase</strong>: if you have more cards in hand than 3 times the number of station cards in the third row discard to the amount of cards allowed. For example having 1 station card in the last row allows you to keep 3 cards in your hand, 2 station cards allows you to keep 6.</li>
     <li><strong>Attack phase</strong>: move and/or attack with each spaceship, missile or cannon one by one and in the order you choose.</li>
