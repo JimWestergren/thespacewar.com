@@ -774,9 +774,10 @@ function commanderData() : array
             'deck' => 1,
             'name' => 'Liana Henders',
             'title' => 'Solution Finder',
-            'rules' => 'Spend 2 actions to draw a card.',
+            'rules' => 'Spend 3 actions to draw 2 cards.',
             'lore' => 'Liana is famous for always coming up with solutions and having answers ready for whatever situation that might come up in warfare. She has done extremely well in recent battles and is eager to join and win The Space War.',
             'changelog' => [
+                'Buff in December 2025: ability increased by 1 action and drawing 2 cards instead of 1.',
                 'January 2020: Created.',
             ],
         ],
