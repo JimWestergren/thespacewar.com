@@ -73,8 +73,9 @@ function getCardData() : array
     $json = file_get_contents('/var/www/play.thespacewar.com/server/card/rawCardData.cache.json');
     $time_to_cache = 3600*3; // 3 hours
 
+    // FALSE because now deactivated because we don't do commits anymore. 2025-12-10
     // Failing for some reason
-    if (substr_count($json, '"id":') < 20) {
+    if (FALSE || substr_count($json, '"id":') < 20) {
         // Takes 0.8 seconds to fetch!
         // This is from the original server
         $json = file_get_contents('https://admin.thespacewar.com/services/api/cards?deck=all');
