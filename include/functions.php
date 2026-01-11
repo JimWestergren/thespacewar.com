@@ -838,9 +838,10 @@ function commanderData() : array
             'deck' => 3,
             'name' => 'Dr. Stein',
             'title' => 'Expert Planner',
-            'rules' => '<ul style="text-align:left;"><li style="margin-bottom:10px;">You can discard a card to draw a card up to 3 times in your action phase.</li><li>You may take a damage to your station to draw a card.</li></ul>',
+            'rules' => 'You may anytime take 2 damage to take any card from your draw pile, shuffle and place it on the top of the draw pile.',
             'lore' => 'Dr. Stein has with his extreme intelligence the mind and focus to figure out exactly how to win the war. Once he has a strategy in mind he does not care about the sacrifices required to carry out The True Plan.',
             'changelog' => [
+                'Nerf in December 2025: Now a single ability. Earlier it was that you could discard a card to draw a card up to 3 times in your action phase and also take a damage to your station to draw a card.',
                 'Nerf in February 2023: Perfect Plan ability replaced with draw a card.',
                 'Nerf in August 2021: Perfect Plan ability can now only be used once per turn.',
                 'June 2019: Created.',
