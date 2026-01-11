@@ -869,9 +869,10 @@ function commanderData() : array
             'deck' => 2,
             'name' => 'Zuuls',
             'title' => 'Swarm Specialist',
-            'rules' => 'In your first action phase in the game:<br>Search your draw pile for 3 Drone cards and put them into play.',
+            'rules' => 'At the end of your first turn in the game:<br>Search your draw pile for 3 Drone cards and put them into play.',
             'lore' => 'There is a commander known as Zuuls. According to the history book he has only been to war one time, and that one time was the shortest war ever fought.',
             'changelog' => [
+                'Nerf in December 2025: The Drones now arrives at end of first turn and not in the beginning of the turn.',
                 'July 2020: Created.',
             ],
         ],
