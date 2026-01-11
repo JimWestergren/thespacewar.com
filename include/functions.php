@@ -790,6 +790,7 @@ function commanderData() : array
             'rules' => 'Your maximum amount of station cards is increased from 7 to 9.',
             'lore' => 'Worked as Senior Architect for more than 20 years before being promoted to Commander. Famous for having figured out a secret method to make the space station big and powerful. He is certain that the winner of the war will be determined by the one with the most powerful station.',
             'changelog' => [
+                'Correction in December 2025: Maximum reduced from 10 to 9 (because game rule maximum reduced from 8 to 7).',
                 'Nerf in June 2020: Maximum reduced from 11 to 10.',
                 'June 2019: Created.',
             ],
@@ -803,9 +804,6 @@ function commanderData() : array
             'rules' => 'You can freely move around your station cards in your action phase. When you receive station damage you can look at your station cards and choose which ones are flipped.',
             'lore' => '"What matters in a war is not strength and power but to be able to swiftly reorganize the space station resources and quickly adapt to situations."',
             'changelog' => [
-                'Buff in May 2022: "any shield" changed to "any green defense card".',
-                'Buff in December 2020: "Energy Shield" changed to "any shield".',
-                'Buff in August 2019: Added that you begin with Energy Shield in play.',
                 'Buff in December 2025: Second ability added (look at station cards and choose which are flipped).',
                 'June 2019: Created.',
             ],
@@ -816,10 +814,13 @@ function commanderData() : array
             'deck' => 1,
             'name' => 'Nicia Satu',
             'title' => 'Master of Endurance',
-            'rules' => 'Spend an action to get a counter. Remove a counter to get an action.',
+            'rules' => 'Spend an action to place a counter on this commander. Remove a counter to get an action.',
             'lore' => '"We are determined to keep fighting this war until the very end, we will never give up. We will fight until our enemy is fully exhausted, and then we will keep fighting strong as long as it takes."',
             'changelog' => [
                 'Reworked in December 2025: Completely new. Earlier ability had: "Begin the game with any green defense card in play. You do not receive 3 damage if your draw pile is empty in your draw phase."',
+                'Buff in May 2022: "any shield" changed to "any green defense card".',
+                'Buff in December 2020: "Energy Shield" changed to "any shield".',
+                'Buff in August 2019: Added that you begin with Energy Shield in play.',
                 'June 2019: Created.',
             ],
         ],
@@ -946,6 +947,7 @@ function commanderData() : array
             'rules' => 'You receive 3 actions for each station card in the second row (instead of 2). Your maximum amount of station cards is 6 (instead of 7).',
             'lore' => '"With the amount of energy that I control there is no way I will loose this war."',
             'changelog' => [
+                'Correction in December 2025: Maximum reduced from 7 to 6 (because game rule maximum reduced from 8 to 7).',
                 'January 2020: Created.',
             ],
         ],

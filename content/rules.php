@@ -102,5 +102,4 @@ The rules of this game is the same for offline play, online play, casual play an
 <ul>
     <li>For the offline game: At any moment you can say "pause" or raise your hand and then the opponent are not allowed to continue play until you say "ok". You can use this to think if you want to counter a card, play a 0-cost card and so forth. You are not allowed to play several cards very quickly in a way that makes the opponent not able to counter or react. In the online game you can always react to things that has happened in the last 10 seconds.</li>
     <li>Optional: In the constructed format each player plays with their own unique deck. The complete rules for the constructed format can be seen on the page <a href='/constructed'>Constructed Play</a>.</li>
-    <li>Edge case: The newest duration card that enters the game overwrites the rule of any conflicting duration card on the table. (for example when both players have played <a href='/cards/neutralization'>Neutralization</a> then only the latest one has the ability "Remove from play to destroy another duration card.")</li>
 </ul>
