@@ -9,21 +9,21 @@ require(ROOT.'view/head.php');
 
 <h2>Current activities</h2>
 
-<p>New in february 2024: Jim had a great idea of a rule change to further improve the game which is currently being playtested: Before assigning station damage the defending player may discard card(s) from the hand to prevent one damage for each card. This means that the cards in hand is also considered part of the station, for example some kind of mini shields. The last station row is more important, the rule about not able to win first turn can be removed, missiles are futher nerfed, milling strats are buffed, the game taking more turns in a competetive level, less luck, new dimension of tactic, new strategy and so forth.</p>
-
 <ul>
-    <li>Adding the FINAL cards of <a href='/united-stars'>The United Stars</a> to the online game.</li>
-    <li>Only 9 tickets missing to complete the online game before next step can be taken.</li>
-    <li>Bad news in July 2022: my developer disappeared :(</li>
+    <li>Jim and Alvin are reviewing and balancing all cards with new eyes. (august - december 2025)</li>
 </ul>
 
-<p><strong style="color:red">Bad news</strong>: I worked on my extra time for around 3 years on creating this game spending more than 1000 hours and more than $40K of my personal money. There are 9 tickets remaining before the online game can be launched for real with deck building and competitive play. I no longer have any developer that can help me and I can no longer alone sink any more time or money on this game. I am looking for a partner such as a publisher or investor that is interested in the game which can help me take the next steps, <a href="https://www.jimwestergren.com/contact-me/">contact me</a>. The Space War is a really fantastic card game but doing all myself is an uphill battle and life is too short, I have a wife and 3 children as well which I value more than this game.</p>
+<h2>Bad News (July 2022)</h2>
+
+<p>My developer disappeared.</p>
+
+<p>I worked on my extra time for around 3 years on creating this game spending more than 1000 hours and more than $40K of my personal money. There are 9 tickets remaining before the online game can be launched for real with deck building and competitive play. I no longer have any developer that can help me and I can no longer alone sink any more time or money on this game. I am looking for a partner such as a publisher or investor that is interested in the game which can help me take the next steps, <a href="https://www.jimwestergren.com/contact-me/">contact me</a>. The Space War is a really fantastic card game but doing all myself is an uphill battle and life is too short, I have a wife and 3 children as well which I value more than this game.</p>
 
 <h2>To do later</h2>
 
 <ul>
+    <li>Adding the FINAL cards of <a href='/united-stars'>The United Stars</a> to the online game.</li>
     <li>Making the online game work better on mobile phones.</li>
-    <!--<li>Jim to learn how to code the online game.</li>-->
     <li>Fixing bugs in the online version.</li>
     <li>Sound effects and new background music for the online game.</li>
     <li>Better in game tutorial.</li>
