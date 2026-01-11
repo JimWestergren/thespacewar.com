@@ -816,9 +816,10 @@ function commanderData() : array
             'deck' => 1,
             'name' => 'Nicia Satu',
             'title' => 'Master of Endurance',
-            'rules' => 'Begin the game with any green defense card in play.<br>You do not receive 3 damage if your draw pile is empty in your draw phase.',
-            'lore' => '"We are determined to keep fighting this war until the very end, we will never give up. We will fight until our enemy is fully exhausted, and then we will keep fighting strong as long as it takes. And I do not fear The Miller."',
+            'rules' => 'Spend an action to get a counter. Remove a counter to get an action.',
+            'lore' => '"We are determined to keep fighting this war until the very end, we will never give up. We will fight until our enemy is fully exhausted, and then we will keep fighting strong as long as it takes."',
             'changelog' => [
+                'Reworked in December 2025: Completely new. Earlier ability had: "Begin the game with any green defense card in play. You do not receive 3 damage if your draw pile is empty in your draw phase."',
                 'June 2019: Created.',
             ],
         ],
