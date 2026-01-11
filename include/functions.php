@@ -826,9 +826,10 @@ function commanderData() : array
             'deck' => 1,
             'name' => 'General Jackson',
             'title' => 'Strict Commander',
-            'rules' => 'You may take 1 damage to your station (opponent flips one of your station cards) to receive 2 extra action points, in your action phase.',
+            'rules' => 'You may twice per turn take 1 damage to your station (opponent flips one of your station cards) to receive 2 extra action points, in your action phase.',
             'lore' => 'Known for getting production targets done on time with any means necessary. According to him nothing is impossible, and he does not accept failure. He is confident that he will win the war. Accused of abuse by several members of his staff, investigation is pending.',
             'changelog' => [
+                'Nerf in December 2025: Now limited to twice per turn.',
                 'June 2019: Created.',
             ],
         ],
