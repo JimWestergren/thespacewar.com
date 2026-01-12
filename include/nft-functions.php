@@ -140,7 +140,7 @@ function getNFTFirstEdition() : array
             'owner' => 0,
             'owner_opensea' => '',
         ],
-        'over-capacity' => [
+        'corrupted-outpost' => [
             'nft_id' => 18,
             'img_id' => 13,
             'price' => 0.3,
@@ -604,7 +604,7 @@ function getNFTFirstEdition() : array
             'owner' => 0,
             'owner_opensea' => '',
         ],
-        'secret-deposit' => [
+        'extra-deposit' => [
             'nft_id' => 76,
             'img_id' => 207,
             'price' => 0.2,

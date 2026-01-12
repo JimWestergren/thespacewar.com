@@ -65,7 +65,7 @@ foreach ($commander_data as $commander_slug => $commander) {
 <?=cardImage('full-attack')?>
 <?=cardImage('good-karma')?>
 <?=cardImage('neutralization')?>
-<?=cardImage('over-capacity')?>
+<?=cardImage('corrupted-outpost')?>
 <?=cardImage('avoid')?>
 <?=cardImage('destiny-decided')?>
 

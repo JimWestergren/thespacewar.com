@@ -16,5 +16,6 @@
 <h2>Changelog During Playtesting</h2>
 
 <ul>
+    <li>Buff in December 2025:<br>Cost to play was reduced from 3 to 2.</li>
     <li>April 2020: Created.</li>
 </ul>

@@ -71,51 +71,11 @@ usort($commanders_count, function ($a, $b) {
 
 
 <?php
-$comments['capt-shera-kinson'] = 'Buff in September 2021';
-$comments['dr-stein'] = 'Nerf in February 2023, Nerf in August 2021';
-$comments['frank-johnson'] = 'Nerf in June 2020';
-$comments['nicia-satu'] = 'Buff in May 2022, Buff in December 2020, Buff in August 2019';
-$comments['alien-missile'] = 'Buff in August 2020';
-$comments['ambush'] = 'Buff in August 2021, Buff in March 2021';
-$comments['carrier'] = 'Nerf in 2020';
-$comments['death-ray'] = 'Buff in August 2020';
-$comments['defense-cannon'] = 'Buff in September 2021, Buff in July 2021';
-$comments['destiny-decided'] = 'Changed in May 2019';
-$comments['destroy-duration'] = 'Nerf in February 2023, Nerf in September 2021';
-$comments['discovery'] = 'Nerf in August 2024, Buff in August 2019';
-$comments['disturbing-sensor'] = 'Nerf in April 2019';
+// The below 2 comments are old and not needed now
+//$comments['capt-shera-kinson'] = 'Buff in September 2021';
+//$comments['alien-missile'] = 'Buff in August 2020';
 $comments['drone'] = '10 copies allowed, all other cards max 3 copies';
-$comments['drone-leader'] = 'Buff in March 2021';
-$comments['duplication'] = 'Nerf in March 2021';
-$comments['emp-missile'] = 'Buff in August 2021';
-$comments['fate'] = 'Nerf in October 2021';
-$comments['fatal-error'] = 'Nerf in May 2020';
-$comments['full-attack'] = 'Nerf in January 2020';
-$comments['fusion-ship'] = 'Nerf in August 2021';
-$comments['grand-opportunity'] = 'Buff in September 2021, Buff in April 2019';
-$comments['hacker'] = 'Simplified and changed in March 2023';
-$comments['luck'] = 'Nerf in October 2021, Nerf in March 2021';
-$comments['mega-shield'] = 'Nerf in March 2021';
-$comments['meteor-shower'] = 'Nerf in August 2021';
-$comments['missiles-launched'] = 'Buff in September 2021';
-$comments['neutralization'] = 'Buff in January 2021, Buff in November 2019';
-$comments['nuclear-missile'] = 'Buff in August 2020';
-$comments['over-capacity'] = 'Buff in January 2020';
-$comments['pursuiter'] = 'Nerf in April 2019';
-$comments['repair-shield'] = 'Nerf in March 2022';
-$comments['return'] = 'Buff in March 2021';
-$comments['sabotage'] = 'Buff in August 2019';
-$comments['sacrifice'] = 'Nerf in August 2024, Buff in 2020';
-$comments['starhunter'] = 'Nerf in March 2021, Nerf in January 2021';
-$comments['starship'] = 'Fully changed in March 2021';
-$comments['station-repair'] = 'Buff in June 2021';
-$comments['target-missed'] = 'Buff in July 2021';
-$comments['the-dark-destroyer'] = 'Fully changed in May 2019';
-$comments['the-exterminator'] = 'Changed in May 2019';
-$comments['the-liberator'] = 'Buff in February 2021';
-$comments['the-shade'] = 'Buff in April 2019';
-$comments['titan'] = 'Nerf in January 2020';
-$comments['toxic-gas'] = 'Nerf in 2020';
+
 
 echo '<style>img {display:none;height:350px;} .img-hover:hover img, .img-hover2:hover img {display:block;position:absolute;margin-left:300px;margin-top:-120px;} .img-hover2:hover img {margin-left:-100px;}</style>';
 

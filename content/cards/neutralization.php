@@ -6,14 +6,6 @@
     <li>Duration cards that has no effect still has to be paid for or discarded as normal.</li>
 </ul>
 
-<h2>List of other duration cards</h2>
-
-<?=cardImage('full-attack')?>
-<?=cardImage('good-karma')?>
-<?=cardImage('over-capacity')?>
-<?=cardImage('avoid')?>
-<?=cardImage('destiny-decided')?>
-
 <h2>Compare With</h2>
 
 <?=cardImage('destroy-duration')?>

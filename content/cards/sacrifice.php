@@ -12,6 +12,7 @@
 <h2>Changelog During Playtesting</h2>
 
 <ul>
+    <li>Nerf in December 2025:<br>Earlier version had this text "Both players discard a card in play (if they have)." - now the opponent can choose.</li>
     <li>Nerf in August 2024:<br>Now both players need to discard from play.</li>
     <li>Buff in 2020:<br>"if they have" was added making the card powerful when you don't have any cards in play.</li>
     <li>September 2019: Created.</li>

@@ -5,7 +5,7 @@
 
 <h2>Good With</h2>
 
-<?=cardImage('over-capacity')?>
+<?=cardImage('extra-deposit')?>
 
 
 <h2>Changelog During Playtesting</h2>

@@ -8,5 +8,6 @@
 <h2>Changelog During Playtesting</h2>
 
 <ul>
+    <li>Nerf in December 2025:<br>Instead of returning any card the opponent now chooses between 2 options.</li>
     <li>April 2020: Created.</li>
 </ul>

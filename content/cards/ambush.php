@@ -15,6 +15,7 @@
 <h2>Changelog During Playtesting</h2>
 
 <ul>
+    <li>Buff in December 2025:<br>Can now also deal 3 damage to a missile.</li>
     <li>August 2021:<br>Card renamed from Surprise Attack to Ambush. Reason: because it is an event card and not an attack.</li>
     <li>Buff in August 2021:<br>The target spaceship will be destroyed if it is paralyzed.</li>
     <li>Buff in March 2021:<br>Now cost 0 instead of 1.</li>

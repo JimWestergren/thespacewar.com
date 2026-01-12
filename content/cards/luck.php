@@ -1,4 +1,4 @@
-<p>Luck is one of those cards you get happy to get on your hand. With it you can counter a majority of the cards in the opponents deck.</p>
+<p>Luck is one of those cards you get happy to get on your hand. With it you can counter a big part of the cards in the opponents deck.</p>
 
 <h2>Cards commonly countered by Luck</h2>
 
@@ -32,6 +32,7 @@
 <h2>Changelog During Playtesting</h2>
 
 <ul>
+    <li>Nerf in December 2025:<br>"Opponent may draw and discard a card." was added.</li>
     <li>Nerf in October 2021:<br>"[ OR ] Draw 1 card" was removed.</li>
     <li>Nerf in March 2021:<br>"[ OR ] Draw 2 cards" was changed to "[ OR ] Draw 1 card".</li>
     <li>September 2018: Created.</li>
@@ -40,4 +41,3 @@
 <h2>Design Notes From Jim</h2>
 
 <p>Probably the best counter card in the game. Fun card to play with and one of those cards that makes The Space War the game it is.</p>
-<p>All constructed decks will probably have 3 copies of this card, but I am ok with that. It is not too powerful.</p> 

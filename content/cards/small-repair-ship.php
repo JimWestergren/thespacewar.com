@@ -17,5 +17,6 @@
 <h2>Changelog During Playtesting</h2>
 
 <ul>
+    <li>Nerf in December 2025: Attack value reduced from 1 to 0.</li>
     <li>September 2018: Created.</li>
 </ul>

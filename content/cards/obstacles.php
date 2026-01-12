@@ -8,6 +8,7 @@
 <h2>Changelog During Playtesting</h2>
 
 <ul>
+    <li>Buff in December 2025:<br>Cost to play reduced from 3 to 2. Players are now able to move positions of station cards.</li>
     <li>February 2021:<br>Card created and entered playtesting.</li>
 </ul>
 
