@@ -51,8 +51,8 @@ function dieWith404(string $html) : void
 function getCardData() : array
 {
 
-    if (apcu_exists('getCardData2')) {
-       return apcu_fetch('getCardData2');
+    if (apcu_exists('getCardData3')) {
+       return apcu_fetch('getCardData3');
     }
 
     $type = [
@@ -70,12 +70,12 @@ function getCardData() : array
     ];
 
     // Instant speed, but has a delay. Updates has to be commited
-    $json = file_get_contents('/var/www/play.thespacewar.com/server/card/rawCardData.cache.json');
+    //$json = file_get_contents('/var/www/play.thespacewar.com/server/card/rawCardData.cache.json');
+    $json = ''; // now deactivated because we don't do commits anymore. 2025-12-10
     $time_to_cache = 3600*3; // 3 hours
 
-    // FALSE because now deactivated because we don't do commits anymore. 2025-12-10
     // Failing for some reason
-    if (FALSE || substr_count($json, '"id":') < 20) {
+    if (substr_count($json, '"id":') < 20) {
         // Takes 0.8 seconds to fetch!
         // This is from the original server
         $json = file_get_contents('https://admin.thespacewar.com/services/api/cards?deck=all');
@@ -100,7 +100,7 @@ function getCardData() : array
                 'deck_name' => $deck[$v->deck],
             ];
         }
-        apcu_store('getCardData', $cards_array, $time_to_cache); // 3 hours
+        apcu_store('getCardData3', $cards_array, $time_to_cache);
         return $cards_array;
     }
 
@@ -159,7 +159,7 @@ function getCardData() : array
     }
 
 
-    apcu_store('getCardData2', $cards_array, 3600*3); // 3 hours
+    apcu_store('getCardData3', $cards_array, $time_to_cache);
     return $cards_array;
 }
 
