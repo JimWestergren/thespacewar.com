@@ -17,6 +17,7 @@
 <h2>Changelog During Playtesting</h2>
 
 <ul>
+    <li>Nerf in January 2026:<br>Now Delayed, not active until next turn.</li>
     <li>Buff in December 2025:<br>Cost to play reduced from 3 to 2.</li>
     <li>September 2019: Created.</li>
 </ul>

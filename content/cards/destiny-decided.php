@@ -24,6 +24,7 @@
 <h2>Changelog During Playtesting</h2>
 
 <ul>
+    <li>Buff in January 2026:<br>Requirement to discard a card after each draw phase is removed.</li>
     <li>Buff in December 2025:<br>This was the previous card text "You cannot play any card. The opponent can only play 1 card during their turn and this card cannot be an Event (orange) card."</li>
     <li>May 2019:<br>Used to cost 3 and just be that both players can only play 1 card per turn.</li>
     <li>May 2019:<br>First version only stated: "No player can play any event (orange) card."</li>

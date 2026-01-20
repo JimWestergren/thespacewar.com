@@ -28,6 +28,7 @@
 <h2>Changelog During Playtesting</h2>
 
 <ul>
+    <li>Buff in January 2026:<br>Cost increased from 3 to 4. Receives 3 counters instead of 2 in each draw phase.</li>
     <li>March 2021:<br>Card created and entered playtesting.</li>
 </ul>
 

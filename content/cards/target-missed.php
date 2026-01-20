@@ -35,6 +35,7 @@
 <h2>Changelog During Playtesting</h2>
 
 <ul>
+    <li>Buff in January 2026: This option added "Target spaceship or missile cannot be attacked this turn"</li>
     <li>Buff in July 2021: Can now cancel any attack, not only from spaceships.</li>
     <li>September 2018: Created.</li>
 </ul>

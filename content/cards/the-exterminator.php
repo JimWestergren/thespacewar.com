@@ -23,6 +23,7 @@
 <h2>Changelog During Playtesting</h2>
 
 <ul>
+    <li>Nerf in January 2026:<br>Defense value decreased from 7 to 6.</li>
     <li>May 2019:<br>Now cost 5 insteaf of 6 but is now Slow.</li>
     <li>September 2018: Created.</li>
 </ul>

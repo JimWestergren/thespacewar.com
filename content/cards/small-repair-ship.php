@@ -17,6 +17,7 @@
 <h2>Changelog During Playtesting</h2>
 
 <ul>
+    <li>Nerf in January 2026: Cannot repair station damage. Repair 3 instead of 2 damage to spaceships. Defense lowered from 3 to 2.</li>
     <li>Nerf in December 2025: Attack value reduced from 1 to 0.</li>
     <li>September 2018: Created.</li>
 </ul>

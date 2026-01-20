@@ -19,13 +19,13 @@
 <h2>Rule Clarifications</h2>
 
 <ul>
-    <li>The opponent can choose to mill instead of draw (if using commander <a href="/commanders/the-miller">The Miller</a>) in order to only have 1 card in hand after draw phase and thus not having to discard.</li>
     <li>The opponent can continue play missile cards but they can't move or attack as long as the Disturbing Sensor is on the table.</li>
 </ul>
 
 <h2>Changelog During Playtesting</h2>
 
 <ul>
+    <li>Buff in January 2026:<br>The discarding is now an ability and the card being discarded is random. Earlier it was automatically after the opponent's draw phase, they discarded a card if they had more than one card in hand.</li>
     <li>Nerf in April 2019:<br>Reduced defense value from 4 to 3. Now it can more easily be destroyed by for example Hunter.</li>
     <li>September 2018: Created.</li>
 </ul>
