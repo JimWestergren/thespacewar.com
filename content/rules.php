@@ -97,6 +97,7 @@ The rules of this game is the same for offline play, online play, casual play an
 <p><strong>From anywhere</strong> to take a card from anywhere means that you can search for it in your draw pile, discard pile and your station cards. If you searched your draw pile it has to be shuffled.</p>
 <p><strong>No effect</strong> means that all text on the card is ignored. For example a duration card could have no effect but it still has to be paid for or discarded from play as normal at the start of the action phase.</p>
 <p><strong>Counters</strong> (noun) can be added to a few cards in the game. Use for example a die on the card to indicate the current amount of counters.</p>
+<p><strong>Delayed</strong> – The abilities and effects of this card cannot be used and have no effect until the start of its owner’s next turn.</p>
 
 <h2>Additional Rules</h2>
 <ul>
