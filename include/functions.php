@@ -801,7 +801,7 @@ function commanderData() : array
             'deck' => 1,
             'name' => 'Keve Bakins',
             'title' => 'Tactical Organizer',
-            'rules' => 'Action phase: Freely rearrange your station cards.<br>Station damage: Look at and you choose which station cards are flipped.',
+            'rules' => 'Action phase: Freely rearrange your station cards.<br>Station damage: Look at your station cards. You choose which are flipped.',
             'lore' => '"What matters in war is not strength, but the ability to reorganize resources and adapt faster than your enemy."',
             'changelog' => [
                 'Buff in December 2025: Second ability added (look at station cards and choose which are flipped).',
@@ -814,10 +814,10 @@ function commanderData() : array
             'deck' => 1,
             'name' => 'Nicia Satu',
             'title' => 'Tactical Reserves',
-            'rules' => 'Spend 1 action: Put a counter on this commander.<br>Action phase: Remove any number of counters to gain that many actions.<br>Spend 3 actions: Counter a 0-cost card.',
+            'rules' => 'Spend 1 action: Put a Charge counter on this commander.<br>Action phase: Remove any number of Charges to gain that many actions.<br>Spend 3 Charges: Counter a 0-cost card.',
             'lore' => '"Victory does not belong to the strongest, but to the one who knows exactly when to act."',
             'changelog' => [
-                'Buff in January 2026: Can now also spend 3 actions to counter any 0 cost card. Life reduced from 4 to 3.',
+                'Buff in January 2026: Can now also spend 3 Charges to counter any 0 cost card. Life reduced from 4 to 3.',
                 'Reworked in December 2025: Completely new. Earlier ability had: "Begin the game with any green defense card in play. You do not receive 3 damage if your draw pile is empty in your draw phase."',
                 'Buff in May 2022: "any shield" changed to "any green defense card".',
                 'Buff in December 2020: "Energy Shield" changed to "any shield".',
@@ -885,7 +885,7 @@ function commanderData() : array
             'name' => 'Crakux',
             'title' => 'Rage Incarnate',
             'rules' => 'Your Drones get +1 attack.',
-            'lore' => 'Crakux, leader of the Zoleons, has sworn together with his Drones to hunt down and destroy every single one of his enemies. As everybody probably knows by now, the home planet of the Zoleons were recently destroyed in the last war, a tragedy that fuels his rage.',
+            'lore' => 'Crakux, leader of the Zoleons, has sworn together with his Drones to hunt down and destroy every single one of his enemies. As everybody probably knows by now, the home planet of the Zoleons was recently destroyed in the last war, a tragedy that fuels his rage.',
             'changelog' => [
                 'July 2020: Created.',
             ],
@@ -947,7 +947,7 @@ function commanderData() : array
             'deck' => 3,
             'name' => 'Zyre',
             'title' => 'Energy Expert',
-            'rules' => 'You receive 3 actions for each station card in the second row (instead of 2). Your maximum amount of station cards is 6 (instead of 7).',
+            'rules' => 'You receive 3 actions for each station card in the second row (instead of 2). Your maximum number of station cards is 6 (instead of 7).',
             'lore' => 'Zyre is a specialist in extreme energy optimization. By restructuring station power flow, he extracts far more output than standard designs allow.',
             'changelog' => [
                 'Correction in December 2025: Maximum reduced from 7 to 6 (because game rule maximum reduced from 8 to 7).',
