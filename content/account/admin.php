@@ -86,8 +86,6 @@ $pdo->run("ALTER TABLE users ADD bot_win_fastest_time INT(10) UNSIGNED NOT NULL 
 $pdo->run("ALTER TABLE users ADD bot_win_fastest_length INT(10) UNSIGNED NOT NULL DEFAULT 0 AFTER bot_win_fastest_time;");
 */
 
-// Show info for updating the getNFTFirstEdition array:
-getUpdateInfoNFTFirstEdition();
 
 $thirty_days_ago = TIMESTAMP-(3600*24*30);
 

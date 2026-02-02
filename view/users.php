@@ -49,19 +49,6 @@ if ($row['referrer'] != '') {
 }
 echo '</p>';
 
-if ($row['credits_earned'] > 1000) {
-    $first_edition_nfts = getFirstEditionNFTbyUser((int) $row['id']);
-    if ( $first_edition_nfts ) {
-        echo '<h2>Owner of the following First Edition NFTs</h2>';
-        echo '<div class="cards">';
-        foreach ($first_edition_nfts as $card_slug) {
-            echo cardImage($card_slug);
-        }
-        echo '</div>';
-        echo '<p>More info: <a href="/first-edition">First Edition Cards as NFT</a>.</p>';
-    }
-}
-
 $tournament_array = getTournamentArrayByUser($row['username']);
 $winners_array = winnersArrayByUser($row['username']);
 if ( $tournament_array != [] || $winners_array != [] ) {

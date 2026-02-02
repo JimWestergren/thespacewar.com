@@ -24,9 +24,6 @@ require(ROOT.'view/head.php');
 <div class="lore"><?=$data['lore']?></div>
 
 
-<?//=displayCardNFTinfo('commander-'.$slug)?>
-
-
 <h2>Changelog During Playtesting</h2>
 
 <ul>

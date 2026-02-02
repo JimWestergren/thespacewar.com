@@ -224,33 +224,6 @@ function displayCard(string $slug) : string
 
     $return .= '<div style="clear:both"></div>';
 
-    /*
-    $nft_first_edition = getNFTFirstEdition();
-
-    if ( !isset($nft_first_edition[$slug] ) ) return $return;
-    if ( $nft_first_edition[$slug]['token_id'] === '' ) return $return;
-    
-    if ( apcu_exists( 'first_edition_owner:'.$slug ) ) {
-        $owner = (int) apcu_fetch( 'first_edition_owner:'.$slug );
-        $owner_opensea = apcu_fetch( 'first_edition_owner_opensea:'.$slug );
-    } else {
-        $owner = $nft_first_edition[$slug]['owner'];
-        $owner_opensea = $nft_first_edition[$slug]['owner_opensea'];
-    }
-
-    if ( $owner == 0 && $owner_opensea === '' ) {
-        $nft_info = '<a href="https://opensea.io/item/ethereum/0x495f947276749ce646f68ac8c248420045cb7b5e/'.$nft_first_edition[$slug]['token_id'].'" target="_blank">Buy it now</a> (<a href="/first-edition">info</a>)';
-    } elseif ( $owner == 0 ) {
-        $nft_info = 'Owned by '.$owner_opensea.'<br><a href="https://opensea.io/item/ethereum/0x495f947276749ce646f68ac8c248420045cb7b5e/'.$nft_first_edition[$slug]['token_id'].'" target="_blank">Submit offer</a> (<a href="/first-edition">info</a>)';
-    } else {
-        $pdo = PDOWrap::getInstance();
-        $row = $pdo->run("SELECT username, country FROM users WHERE id = ? LIMIT 1", [$owner])->fetch();
-        $nft_info = 'Owned by <a href="/users/'.$row['username'].'" style="padding-right:20px;background:url(https://staticjw.com/redistats/images/flags/'.$row['country'].'.gif) no-repeat center right;">'.$row['username'].'</a><br><a href="https://opensea.io/item/ethereum/0x495f947276749ce646f68ac8c248420045cb7b5e/'.$nft_first_edition[$slug]['token_id'].'" target="_blank">Submit offer</a> (<a href="/first-edition">info</a>)';
-    }
-
-    $return = str_replace('</table>', '<tr><th>NFT</th><td>'.$nft_info.'</td></tr></table>', $return);
-    */
-
     return $return;
 
 }

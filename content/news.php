@@ -42,7 +42,7 @@ require(ROOT.'view/head.php');
     <li>New pages: <a href='/weekly-offer'>Weekly Offer</a>, <a href='/popular-cards'>Popular Cards</a>, <a href='/account/your-cards'>Your Online Cards</a>, <a href='/affiliate'>Affiliate</a> (September 2021).</li>
     <li>The first tournament held in Bolivia, see <a href='/tournaments'>Tournaments</a> page (September 2021).</li>
     <li>Printing more than 1500 playtest cards for playtesting (September 2021).</li>
-    <li><a href='/first-edition'>First Edition Cards as NFTs</a> (April-August 2021)</li>
+    <li>First Edition Cards as NFTs (April-August 2021)</li>
     <li>Onboarding new js developers to work on the online game (May-June 2021).</li>
     <li>Some smaller promotions to get external testers of the online version (May 2021).</li>
     <li>New article from Jim: <a href='https://www.jimwestergren.com/creating-the-space-war'>Creating The Space War - The Card Game of My Dreams</a> (May 2021)</li>
