@@ -63,8 +63,9 @@ require(ROOT.'view/head.php');
 
 <div style="font-size: 15px;line-height: 17px;">
 <?php
-if (apcu_exists('home:latest_active_players')) {
-    $html = apcu_fetch('home:latest_active_players');
+$cache = get_cache( 'home:latest_active_players', 3600*3 );
+if ( $cache ) {
+    $html = $cache;
 } else {
     $pdo = PDOWrap::getInstance();
     $result = $pdo->run("SELECT * FROM users ORDER BY lastlogintime DESC LIMIT 50;")->fetchAll();
@@ -73,7 +74,7 @@ if (apcu_exists('home:latest_active_players')) {
         $html .= '<nobr>'.$row['username'].' <img src="https://staticjw.com/redistats/images/flags/'.$row['country'].'.gif"></nobr> | ';
     }
     $html = trim($html, ' | ');
-    apcu_store('home:latest_active_players', $html, 60*2);
+    save_cache( 'home-latest_active_players', $html );
     
 }
 echo $html;

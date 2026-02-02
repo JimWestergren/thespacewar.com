@@ -51,8 +51,9 @@ function dieWith404(string $html) : void
 function getCardData() : array
 {
 
-    if (apcu_exists('getCardData3')) {
-       return apcu_fetch('getCardData3');
+    $cached = get_cache( 'getCardData3', 3600*12 );
+    if ( $cached ) {
+        return unserialize( $cached );
     }
 
     $type = [
@@ -72,14 +73,12 @@ function getCardData() : array
     // Instant speed, but has a delay. Updates has to be commited
     //$json = file_get_contents('/var/www/play.thespacewar.com/server/card/rawCardData.cache.json');
     $json = ''; // now deactivated because we don't do commits anymore. 2025-12-10
-    $time_to_cache = 3600*3; // 3 hours
 
     // Failing for some reason
     if (substr_count($json, '"id":') < 20) {
         // Takes 0.8 seconds to fetch!
         // This is from the original server
         $json = file_get_contents('https://admin.thespacewar.com/services/api/cards?deck=all');
-        $time_to_cache = 3600*12; // 12 hours
 
         $json = json_decode($json);
 
@@ -100,7 +99,7 @@ function getCardData() : array
                 'deck_name' => $deck[$v->deck],
             ];
         }
-        apcu_store('getCardData3', $cards_array, $time_to_cache);
+        save_cache( 'getCardData3', serialize( $cards_array ) );
         return $cards_array;
     }
 
@@ -158,8 +157,7 @@ function getCardData() : array
         ];
     }
 
-
-    apcu_store('getCardData3', $cards_array, $time_to_cache);
+    save_cache( 'getCardData3', serialize( $cards_array ) );
     return $cards_array;
 }
 
@@ -1040,13 +1038,13 @@ function getCardImageURL( int $card_id ) : string
 
 function getWeeklyOffer( int $week_number ) : array
 {
-    if ( apcu_exists( 'weekly-offer-'.$week_number ) ) {
-        $weekly_offer = apcu_fetch( 'weekly-offer-'.$week_number );
-    } else {
+    $weekly_offer = get_cache('weekly-offer-'.$week_number, 3600*24*7);
+
+    if ( $weekly_offer === '' ) {
         $random_card = getRandomCard();
         $random_cost = mt_rand( 15, 40 );
         $weekly_offer = $random_card['id'].'###'.$random_card['name'].'###'.$random_cost;
-        apcu_store( 'weekly-offer-'.$week_number, $weekly_offer, 3600*24*7 );
+        save_cache( 'weekly-offer-'.$week_number, $weekly_offer );
     }
 
     $weekly_offer = explode( '###', $weekly_offer );
@@ -1088,3 +1086,19 @@ function getLatestReferralsTable( int $user_id, int $limit ) : array
 
 }
 
+function get_cache( string $key, int $ttl ): string
+{
+    $cache_file = ROOT.'../cache/'.md5($key).'.txt';
+    $cache_time = TIMESTAMP - $ttl;
+    if( file_exists( $cache_file ) && filemtime( $cache_file ) > $cache_time ) {
+        return file_get_contents( $cache_file );
+    }
+    return '';
+}
+
+function save_cache( string $key, string $value ): bool
+{
+    $cache_file = ROOT.'../cache/'.md5($key).'.txt';
+    file_put_contents( $cache_file, $value, LOCK_EX );
+    return true;
+}

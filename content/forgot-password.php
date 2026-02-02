@@ -23,16 +23,23 @@ if (isset($_POST['reset'])) {
     }
     if (!isset($row['id'])) {
         echo '<div class="error">No account with this email.</div>';
-    } elseif (apcu_exists('password_reset:email:'.$row['email'])) {
+
+    } elseif ( get_cache('password_reset:email:'.$row['email'], 60*30) !== '') {
         echo '<div class="error">A password reset email has already been sent to '.$row['email'].' within the last 30 minutes.</div>';
-    } elseif (apcu_exists('password_reset:ip:'.$_SERVER['HTTP_CF_CONNECTING_IP'])) {
+
+    } elseif ( get_cache('password_reset:ip:'.$_SERVER['HTTP_CF_CONNECTING_IP'], 60*20) !== '' ) {
         echo '<div class="error">You have already done a password reset within the last 20 minutes. Please wait.</div>';
+
     } else {
+
         $limit = TIMESTAMP + (60*30);
         $hash = md5($row['email'].$row['password'].$limit.SECRET_SALT_PASSWORD_RESET);
-        apcu_store('password_reset:email:'.$row['email'], 60*30);
-        apcu_store('password_reset:ip:'.$_SERVER['HTTP_CF_CONNECTING_IP'], 60*20);
-        $email_message = "Your username is: ".$row['username']."\n\n";
+
+        // store any non-empty value as a "flag"
+        save_cache( 'password_reset:email:'.$row['email'], '1' );
+        save_cache( 'password_reset:ip:'.$_SERVER['HTTP_CF_CONNECTING_IP'], '1' );
+
+        $email_message  = "Your username is: ".$row['username']."\n\n";
         $email_message .= "Click the following link to reset your password:\n";
         $email_message .= "https://thespacewar.com/forgot-password?id=".$row['id']."&hash=".$hash."&limit=".$limit."\n\n";
         $email_message .= "The link expires in 30 minutes.";
