@@ -4,7 +4,8 @@ error_reporting(-1);
 ini_set('display_errors', '1');
 
 define('TIMESTAMP', time());
-define('ROOT', '/var/www/thespacewar.com/');
+//define('ROOT', '/var/www/thespacewar.com/');
+define('ROOT', '/www/webvol47/02/8fdkwwsijca4woc/thespacewar.com/public_html/');
 define('URL', urldecode(ltrim(parse_url($_SERVER['REQUEST_URI'])['path'], '/')));
 // domain.com/URL_CONSTANT
 

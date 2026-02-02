@@ -1,0 +1,10 @@
+# Enable rewriting
+RewriteEngine On
+
+# If the requested path is an existing file serve it as-is
+RewriteCond %{REQUEST_FILENAME} -f
+RewriteRule ^ - [L]
+
+# Otherwise, route to index.php and keep query string
+RewriteRule ^ index.php [L,QSA]
+
