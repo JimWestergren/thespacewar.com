@@ -48,6 +48,8 @@ p {margin: 0 0 20px 0;}
 code {background-color: #555;padding:3px 6px;}
 a:hover {color:#68a;}
 span.active {padding:5px 0;background-color:#555;}
+ul ul, ul li, ol ol, ol ul {margin-left:-10px;}
+li li {list-style: disclosure-closed;}
 
 table {border-spacing:0;width:100%;border:8px solid #666;margin:40px auto;margin:40px auto;}
 table tr { background: #000;}
@@ -154,7 +156,26 @@ img.big:hover, img.extra-big:hover {transform:none;box-shadow:0 0 11px 5px #666;
   .showcase-cards a:hover img{height:200px;margin-top:-40px;}
 }
 <?php } ?>
+<?php if(URL === 'rules') { ?>
 
+.station-rows{display: grid;gap: 15px;background: rgba(0,0,0,.35);margin-bottom: 20px;}
+.station-row{display: grid;grid-template-columns: 88px 1fr; gap: 25px;align-items: center;  padding: 14px 20px;  border-radius: 12px; border: 1px solid rgba(255,255,255,.10); background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03)); position: relative; overflow: hidden;}
+.station-row::before{ content:""; position:absolute; left:0; top:0; bottom:0; width: 4px; background: rgba(255,255,255,.25);}
+.station-img{ width: 80px;height: auto;display:block; border-radius: 3px;box-shadow: 0 10px 18px rgba(0,0,0,.45);}
+.station-text{line-height: 1.15;}
+.station-kicker{ font-size: 12px;letter-spacing: .12em;text-transform: uppercase;opacity: .75;margin-bottom: 6px;}
+.station-main{font-size: 20px;margin-bottom: 4px;}
+.station-main strong{font-size: 26px; font-weight: 800;}
+.station-sub{ font-size: 15px; opacity: .85;}
+
+/* Mobile */
+@media (max-width: 600px){
+  .station-row{ grid-template-columns: 64px 1fr; padding: 10px 12px; }
+  .station-img{ width: 56px; }
+  .station-main{ font-size: 18px; }
+  .station-main strong{ font-size: 24px; }
+}
+<?php } ?>
 
 </style>
 
