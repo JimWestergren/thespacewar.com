@@ -6,7 +6,7 @@ require(ROOT.'view/head.php');
 <h1>How to Play / Rules</h1>
 
 <ul class="no-print">
-  <li>We recommend you to watch our <a href="/videos">videos</a> and <a href="https://play.thespacewar.com/">play online in your browser</a> for free against the bot before playing versus real players.</li>
+  <li>We recommend that you watch our <a href="/videos">videos</a> and <a href="https://play.thespacewar.com/">play online in your browser</a> for free against the bot before playing versus real players.</li>
   <li>You can <a href="#" onclick="window.print();return false;">print</a> this document and keep it available during offline play.</li>
   <li>These rules apply to all forms of play (offline, online, casual and tournament).</li>
 </ul>
@@ -16,7 +16,7 @@ require(ROOT.'view/head.php');
   You are the commander of a space station at war. Your crew deploys spaceships, missiles, defenses, and events to break through the enemy and damage their station.
 </p>
 <p>
-  When a station takes damage, the attacking player chooses and flips that many of the defending player’s face-down station cards. If a player has no face-down station cards left to flip, any remaining damage is dealt to that player’s commander instead.
+  When a station takes damage, the attacking player chooses and flips that many face-down station cards. If there are no face-down station cards left to flip, any remaining damage is dealt to the commander instead.
 </p>
 <p>
   Each commander has a number in the top-left corner representing its <strong>Life Points</strong>. If a commander’s Life Points are reduced to 0, that player loses the game.
@@ -35,9 +35,9 @@ require(ROOT.'view/head.php');
   </li>
   <li>The player who will not start places 1 additional station card face down in a row of their choice. Each player now has 3 cards remaining in hand.</li>
   <li>
-    Secretly choose one commander and place it face down to the left of your draw pile.
+    Each player secretly choose one commander and place it face down near the draw pile.
     When both players are ready, reveal commanders simultaneously.
-    Then place a die on your commander set to its starting Life Points.
+    Place a die on the commander set to its starting Life Points.
     The starting player takes the first turn.
   </li>
 </ol>
@@ -73,17 +73,15 @@ require(ROOT.'view/head.php');
   </div>
 </div>
 
-
 <p>
   <strong>Note:</strong> You may look at your own face-down station cards in your action phase.<br>
   More explanation in <strong>The Turn</strong> below.
 </p>
 
-
 <h2>Table Setup</h2>
 <p>
-  The table has two zones: your <strong>Home Zone</strong> and the opponent’s <strong>Enemy Zone</strong>.
-  Cards you play enter your Home Zone.
+  The table has two zones: <strong>Home Zone</strong> and the opponent’s <strong>Enemy Zone</strong>.
+  Cards played enters the Home Zone.
 </p>
 
 <h2>The Cards</h2>
@@ -134,8 +132,8 @@ require(ROOT.'view/head.php');
   <li>
     <h3>Defense <span style="font-weight:400;">(green)</span></h3>
     <p>
-      Defense cards (such as shields and cannons) remain in your Home Zone and cannot move.
-      <strong>Shields protect your station:</strong> the shield must be destroyed before the enemy can attack your station.
+      Defense cards (such as shields and cannons) remain in the Home Zone and cannot move.
+      <strong>Shields protects the station:</strong> the shield must be destroyed before the station can be attacked.
       Cannons attack during the attack phase like other attackers (see <strong>Attacks</strong>).
     </p>
   </li>
@@ -144,7 +142,7 @@ require(ROOT.'view/head.php');
     <h3>Commander <span style="font-weight:400;">(commander card)</span></h3>
     <p>
       Commanders provide an ongoing ability or bonus.
-      Commanders cannot be attacked directly; damage is dealt to a commander only after its controller has no face-down station cards left to flip.
+      Commanders cannot be attacked directly; damage is dealt to the commander only after there are no face-down station cards left to flip.
     </p>
   </li>
 </ul>
@@ -157,18 +155,18 @@ require(ROOT.'view/head.php');
 <ol>
   <li>
     <strong>Draw phase:</strong>
-    Draw 1 card for each station card in your first row. Drawing is mandatory.
+    Draw 1 card for each station card in the first row. Drawing is mandatory.
   </li>
 
   <li>
     <strong>Action phase:</strong>
-    Gain 2 actions for each station card in your second row.
+    Gain 2 actions for each station card in the second row.
     <ul>
       <li>
-        Duration upkeep: For each duration card you have in play, pay its action cost to keep it or discard it from play.
+        Duration upkeep: For each duration card the player has in play, pay its action cost to keep it or discard it from play.
       </li>
       <li>
-        Spend actions to play cards from your hand.
+        Spend actions to play cards from hand.
       </li>
       <li>
         You may, if you wish:
@@ -246,7 +244,7 @@ require(ROOT.'view/head.php');
   <strong>Offline play:</strong> At any time, a player may say “pause” (or raise a hand or similar). The opponent must stop taking actions until told to continue.
 </p>
 <p>
-  <strong>Online play:</strong> You can always react to actions that occurred within the last 10 seconds and if several cards has been played in that time, the game will rewind in time to make reaction possible.
+  <strong>Online play:</strong> You can always react to actions that occurred within the last 10 seconds and if several cards have been played in that time, the game will rewind in time to make reaction possible.
 </p>
 
 <h2>Definitions / Keywords</h2>
