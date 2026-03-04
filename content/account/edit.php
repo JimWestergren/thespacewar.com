@@ -104,7 +104,8 @@ if (isset($_POST['save'])) {
             $email_message = "Hi ".$a['username'].",\n\n";
             $email_message .= "Click the following link to validate your new email:\n";
             $email_message .= "https://thespacewar.com/validate?id=".$a['id']."&hash=".$hash."\n\n";
-            sendEmail($a['email'], 'Validate your new email', $email_message);
+            $email_message .= "Best regards,\nThe Space War\nhttps://thespacewar.com";
+            send_email($a['email'], 'Validate your new email', $email_message);
         }
 
         $pdo->run("UPDATE users SET username = ?, country = ?, newsletter = ? ".$sql." WHERE id = ?;", [$a['username'], $a['country'], $a['newsletter'], $logged_in['id']]);

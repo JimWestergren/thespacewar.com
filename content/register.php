@@ -80,8 +80,9 @@ if (isset($_POST['register'])) {
         $email_message = "My Magnificent Supreme Galactic Emperor ".$a['username'].",\n\n";
         $email_message .= "Your action are needed to click the following link to validate your email:\n";
         $email_message .= "https://thespacewar.com/validate?id=".$a['id']."&hash=".$hash."\n\n";
-        $email_message .= "We are forever grateful and welcome you to this war, may the god of Saturn be with you.";
-        sendEmail($a['email'], 'Validate your email', $email_message);
+        $email_message .= "We are forever grateful and welcome you to this war, may the god of Saturn be with you.\n\n";
+        $email_message .= "Best regards,\nThe Space War\nhttps://thespacewar.com";
+        send_email($a['email'], 'Validate your email', $email_message);
 
         $rating = 0;
         $_COOKIE['loggedin'] = setLoginCookie($a, $rating);

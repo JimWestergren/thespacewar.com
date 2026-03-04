@@ -21,12 +21,77 @@ function isLoggedIn() : array
 
 }
 
-function sendEmail(string $to, string $subject_line, string $message) : bool
+
+// Same as on N.nu
+function send_email( $to, $subject, $message, $from_email = '', $from_name = '', $reply_to = '' ) : bool
 {
-    $header = "From: The Space War <info@thespacewar.com>\n";
-    $header .= "Content-Type: text/plain; charset=utf-8\n";
-    $message .= "\n\nBest regards,\nThe Space War\nhttps://thespacewar.com";
-    return mail($to, $subject_line, $message, $header);
+    // With this we get 10/10 in https://www.mail-tester.com
+    // Good reading here https://stackoverflow.com/questions/25710599/content-transfer-encoding-7bit-or-8-bit
+    // For example, RFC 821 restricts mail messages to 7-bit US-ASCII data with 1000 character lines
+    // https://www.w3.org/Protocols/rfc1341/5_Content-Transfer-Encoding.html
+    // Also, line-length greater than 76 would be illegal under RFC 1522
+
+    if ( $from_email === '' ) $from_email = 'info@thespacewar.com';
+
+    if ( $from_name === '' ) {
+        $from_name = 'The Space War';
+    } else {
+        $from_name = "=?UTF-8?B?".base64_encode( $from_name )."?="; // Support åäö etc
+    }
+
+    $headers[] = 'From: '.$from_name.' <'.$from_email.'>';
+
+    if ( $reply_to != '' ) {
+        // Need to be in a format like this:
+        // $reply_to = '"'.$_POST['name'].'" <'.$_POST['email'].'>';
+        $headers[] = 'Reply-To: '.$reply_to;
+    }
+
+    // The Content-Type header apply only to the body of your message:
+    // https://stackoverflow.com/a/27648245/1554653
+    // Old: $subject = "=?UTF-8?B?".base64_encode( $subject )."?=";
+    // New, basically the same also using base64 but in addition breaks long lines into several
+    $mime_parameters = array( 'input-charset' => 'UTF-8', 'output-charset' => 'UTF-8', 'scheme' => 'B' );
+    $subject = substr( iconv_mime_encode( '', $subject, $mime_parameters ), 2 );
+
+    if ( substr_count( $message, '</' ) > 2 ) { // This email contains HTML
+        $headers[] = 'Content-Type: text/html; charset=utf-8';
+    } else {
+        $headers[] = 'Content-Type: text/plain; charset=utf-8';
+    }
+
+    // We do 8bit as we have done since 2009
+    // This header solves the problem of -1 score in SpamAssassin (CTE_8BIT_MISMATCH: Header says 7bits but body disagrees)
+    // Default is 7bit
+    $headers[] = 'Content-Transfer-Encoding: 8bit';
+
+    $message = str_replace( "\r\n", '##LINE-BREAK##', $message );
+    $message = str_replace( "\n", '##LINE-BREAK##', $message );
+    $message = str_replace( '##LINE-BREAK##', "\r\n", $message );
+
+    // Each line of characters MUST be no more than 998 characters, and SHOULD be no more than 78 characters, excluding the CRLF. https://stackoverflow.com/a/11794786/1554653
+    // The problem with this is that it causes double wrapping when you see emails in the phone.
+    // In the very popular PHPMailer.php it is turned completely OFF as default
+    //$message = wordwrap( $message, 70, "\r\n" );
+    $message = wordwrap( $message, 950, "\r\n" );
+
+    // I tried quoted-printable: 
+    // https://en.wikipedia.org/wiki/Email#Content_encoding
+    // The MIME standard introduced character set specifiers and two content transfer encodings to enable transmission of non-ASCII data: quoted printable for mostly 7-bit content with a few characters outside that range and base64 for arbitrary binary data.
+    // This will make the message to be 7-bit as is default
+    // Calling this will also wrap your text to 76 character lines, no need for $contents = wordwrap($contents, 70);
+    //$headers[] = 'Content-Transfer-Encoding: quoted-printable'; 
+    //$message = quoted_printable_encode( $message );
+    // The problem was with line breaks and in Microsoft email systems the emails had 
+    // broken diamond characters and equal signs for each line break
+    // Also reading the comments here pointing out several bugs it does not feel good:
+    // https://www.php.net/manual/en/function.quoted-printable-encode.php
+
+    $headers[] = 'MIME-Version: 1.0';
+    $headers[] = 'Return-Path: info@thespacewar.com'; // Where should bounces go
+
+    // before -f".$to as the fifth argument so that the person writing the message will get the bounce. But that's not good SPF and anyway we clear bad adresses and the contact form will not show without an e-mail.
+    return mail( $to, $subject, $message, implode( "\r\n", $headers ), '-finfo@thespacewar.com' );
 }
 
 

@@ -42,8 +42,11 @@ if (isset($_POST['reset'])) {
         $email_message  = "Your username is: ".$row['username']."\n\n";
         $email_message .= "Click the following link to reset your password:\n";
         $email_message .= "https://thespacewar.com/forgot-password?id=".$row['id']."&hash=".$hash."&limit=".$limit."\n\n";
-        $email_message .= "The link expires in 30 minutes.";
-        sendEmail($row['email'], 'Reset your password', $email_message);
+        $email_message .= "The link expires in 30 minutes.\n\n";
+        $email_message .= "Best regards,\nThe Space War\nhttps://thespacewar.com";
+
+        send_email($row['email'], 'Reset your password', $email_message);
+
         echo '<div class="good">A password reset email has now been sent to '.$row['email'].'.<br>Click the link in the email to change your password.<br>The link is valid for 30 minutes.</div>';
         include(ROOT.'view/footer.php');
         die();

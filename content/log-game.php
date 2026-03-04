@@ -17,22 +17,22 @@ ignore_scoring SMALLINT(5) UNSIGNED NOT NULL DEFAULT 0
 
 if (isset($_POST['hash'])) {
     if (!isset($_POST['user_won']) || !is_numeric($_POST['user_won'])) {
-        sendEmail(SECRET_DEBUG_EMAIL, 'ERROR: user_won not set or not numeric', '');
+        send_email(SECRET_DEBUG_EMAIL, 'ERROR: user_won not set or not numeric', '');
         die('ERROR: user_won not set or not numeric');
     }
     if (!isset($_POST['user_lost']) || !is_numeric($_POST['user_lost'])) {
-        sendEmail(SECRET_DEBUG_EMAIL, 'ERROR: user_lost not set or not numeric', '');
+        send_email(SECRET_DEBUG_EMAIL, 'ERROR: user_lost not set or not numeric', '');
         die('ERROR: user_lost not set or not numeric');
     }
     if (!isset($_POST['length']) || !is_numeric($_POST['length'])) {
-        sendEmail(SECRET_DEBUG_EMAIL, 'ERROR: length not set or not numeric', '');
+        send_email(SECRET_DEBUG_EMAIL, 'ERROR: length not set or not numeric', '');
         die('ERROR: length not set or not numeric');
     }
     if ($_POST['user_won'] == 0) die('ERROR: user_won cannot be 0');
     //if ($_POST['user_lost'] == 0) die('ERROR: user_lost cannot be 0'); // The bot is 0
     if ($_POST['length'] == 0) die('ERROR: length cannot be 0');
     if ($_POST['hash'] != md5($_POST['user_won'].$_POST['user_lost'].$_POST['length'].SECRET_SALT_LOG_GAME)) {
-        sendEmail(SECRET_DEBUG_EMAIL, 'ERROR: hash is incorrect', '');
+        send_email(SECRET_DEBUG_EMAIL, 'ERROR: hash is incorrect', '');
         die('ERROR: hash is incorrect');
     }
 
@@ -41,7 +41,7 @@ if (isset($_POST['hash'])) {
     }
 
     if (!in_array($_SERVER['HTTP_CF_CONNECTING_IP'], SECRET_SERVER_IP_ARRAY)) {
-        sendEmail(SECRET_DEBUG_EMAIL, 'ERROR: request from wrong IP', '');
+        send_email(SECRET_DEBUG_EMAIL, 'ERROR: request from wrong IP', '');
         die('ERROR: request from wrong IP.');
     }
 
