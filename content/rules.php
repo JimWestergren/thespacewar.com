@@ -16,7 +16,7 @@ The rules of this game is the same for offline play, online play, casual play an
 <p>Each commander has a number in the top left corner of the card which represents the commander’s <strong>Life Points</strong>. If a commander’s Life Points are reduced to zero, that player loses the game.</p>
 
 <h2>Preparation</h2>
-<p>Each player has a deck of 60 cards, called the draw pile, and it is located on the left. Below it is the discard pile.</p>
+<p>Each player has a deck of cards, called the draw pile, and it is located on the left. Below it is the discard pile.</p>
 <p>Each player places the three Station Rule Cards in sequence on the right side (see image below).</p>
 <p>Decide randomly which player will choose who starts the game.</p>
 <p>Each player shuffles their draw pile and draws 6 cards to their hand. The player who will not start the game draws one additional card.</p>
@@ -55,17 +55,30 @@ The rules of this game is the same for offline play, online play, casual play an
 </ul>
 
 <h2>The Turn</h2>
-<p>Each turn consists of the following steps. It follows the Station Rule Cards from top to bottom:</p>
-<ol>
-    <li><strong>Draw phase</strong>: you must draw 1 card for each station card in the first row.</li>
-    <li><strong>Action phase</strong>: you receive 2 actions for each station card in the second row.<br>First if you have any duration cards in play decide which ones to keep by paying their action costs and which ones to instead move to your discard pile.<br>
-    Spend your actions to play cards from your hand.<br>
-    You can either put down one card from your hand face down as a new station card in one of the 3 station rows (if you have less than the maximum of 7 station cards) or move one station card from one row to another.<br>
-    Actions cannot be saved for the next turn.</li>
-    <li><strong>Discard phase</strong>: if you have more cards in hand than 3 times the number of station cards in the third row discard to the amount of cards allowed. For example having 1 station card in the last row allows you to keep 3 cards in your hand, 2 station cards allows you to keep 6.</li>
-    <li><strong>Attack phase</strong>: move and/or attack with each spaceship, missile or cannon one by one and in the order you choose.</li>
-</ol>
+<p>Each turn consists of the following steps. It follows the Station Rule Cards from top to bottom and ends with an attack phase:</p>
 
+<ol>
+  <li><strong>Draw phase:</strong> You must draw 1 card for each station card in the first row.</li>
+
+  <li><strong>Action phase:</strong> Gain 2 actions for each station card in the second row.
+    <ul>
+      <li>If you have duration cards in play, pay the action cost of each one you wish to keep; discard the rest.</li>
+      <li>Spend actions to play cards from your hand.</li>
+      <li>You may, if you wish:
+        <ul>
+          <li>Place one card from your hand face down as a station card in any row (maximum 7 station cards in total), or</li>
+          <li>Move one station card from one row to another.</li>
+        </ul>
+      </li>
+      <li>Unused actions are lost.</li>
+    </ul>
+  </li>
+
+  <li><strong>Discard phase:</strong> If you have more cards in hand than three times the number of station cards in your third row, discard down to that limit.
+    <br><em>Example:</em> With 1 station card in the third row, your hand size limit is 3 cards. With 2 cards, your limit is 6.
+  </li>
+  <li><strong>Attack phase:</strong> Move and/or attack with each spaceship, missile, or cannon one at a time, in any order you choose.</li>
+</ol>
 
 <h2>Attacks</h2>
 <p>You attack with your spaceships, missiles and cannons in the attack phase.</p>
@@ -87,20 +100,23 @@ The rules of this game is the same for offline play, online play, casual play an
 <p>There are a few special spaceships that can repair. Just as attacking you can only repair a target in the same zone. If a spaceship is paralyzed, the paralyze will be removed when repaired (in additional to repair of damage). A repair ship can repair itself (but not if it is paralyzed). The commander cannot be repaired.</p>
 
 
-<h2>Definitions</h2>
-<p><strong>Ability</strong> is something a spaceship card can do instead of attacking.</p>
-<p><strong>Slow ability</strong> is something a spaceship card can do instead of attacking but cannot be done if the spaceship has entered play this turn.</p>
-<p><strong>Counter a card</strong> means that a card played from the opponents hand does not enter play and goes straight to the discard pile. All the text on the countered card are ignored and any actions that was spent playing the countered card has been lost.</p>
-<p><strong>Put into play</strong> means that the card (that is not coming from the hand) is placed in the players home zone directly without any cost. It cannot be countered by the opponent.</p>
-<p><strong>Discard</strong> means to move cards from your hand to the discard pile (if there are enough cards in the hand).</p>
-<p><strong>Discard from play</strong> means to move one of your own cards from the play area to your discard pile.</p>
-<p><strong>From anywhere</strong> to take a card from anywhere means that you can search for it in your draw pile, discard pile and your station cards. If you searched your draw pile it has to be shuffled.</p>
-<p><strong>No effect</strong> means that all text on the card is ignored. For example a duration card could have no effect but it still has to be paid for or discarded from play as normal at the start of the action phase.</p>
-<p><strong>Counters</strong> (noun) can be added to a few cards in the game. Use for example a die on the card to indicate the current amount of counters.</p>
-<p><strong>Delayed</strong> – The abilities and effects of this card cannot be used and have no effect until the start of its owner’s next turn.</p>
+<h2>Definitions / Keywords</h2>
+<p><strong>Delayed</strong> – The abilities effects of this card cannot be used and have no effect until the start of its owner’s next turn. Just ignore the text in the text box of the card until the start of its owner’s next turn.</p>
+<p><strong>Ability</strong> – An action a spaceship card may perform instead of attacking.</p>
+<p><strong>Slow ability</strong> – An ability that may be used instead of attacking, but only if the spaceship did not enter play this turn.</p>
+<p><strong>Counter a card</strong> – When a card played from an opponent’s hand is countered, it does not enter play and is placed directly into the discard pile. All text on the countered card is ignored, and any action cost spent to play it is lost.</p>
+<p><strong>Put into play</strong> – To place a card directly into a player’s home zone without paying its cost. Cards put into play do not come from the hand and cannot be countered.</p>
+<p><strong>Discard</strong> – To move cards from your hand to your discard pile (if you have enough cards in hand). The owner chooses which card is discarded unless it is specified to be random.</p>
+<p><strong>Discard from play</strong> – To move one of your own cards from the play area to your discard pile.</p>
+<p><strong>From anywhere</strong> – When you take a card from anywhere, you may search your draw pile, discard pile, or station cards. If you search your draw pile, it must be shuffled afterward.</p>
+<p><strong>No effect</strong> – All text on the card is ignored. The card is still paid for, and duration cards with no effect are still discarded from play as normal at the start of the action phase.</p>
+<p><strong>Counters</strong> – Some cards can gain counters. Use a die or similar marker on the card to track the current number of counters.</p>
 
 <h2>Additional Rules</h2>
 <ul>
+    <li>You are only allowed to spend actions in your action phase.</li>
+    <li>You may look at your own station cards.</li>
+    <li>Whenever a player searches their draw pile, it is shuffled afterward.</li>
     <li>For the offline game: At any moment you can say "pause" or raise your hand and then the opponent are not allowed to continue play until you say "ok". You can use this to think if you want to counter a card, play a 0-cost card and so forth. You are not allowed to play several cards very quickly in a way that makes the opponent not able to counter or react. In the online game you can always react to things that has happened in the last 10 seconds.</li>
     <li>Optional: In the constructed format each player plays with their own unique deck. The complete rules for the constructed format can be seen on the page <a href='/constructed'>Constructed Play</a>.</li>
 </ul>
