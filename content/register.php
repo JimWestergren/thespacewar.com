@@ -38,6 +38,9 @@ if (isset($_POST['register'])) {
     } else {
         $a['country'] = 'xx';
     }
+    if ($a['country'] == 'af') {
+        $errors[] = 'I am sorry but it seem like you are a bot, only humans can register.';
+    }
     if ($_POST['password'] != $_POST['password2']) {
         $errors[] = 'Your password was not the same as your repeat password.';
     } else {
