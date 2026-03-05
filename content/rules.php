@@ -6,43 +6,32 @@ require(ROOT.'view/head.php');
 <h1>How to Play / Rules</h1>
 
 <ul class="no-print">
-  <li>We recommend that you watch our <a href="/videos">videos</a> and <a href="https://play.thespacewar.com/">play online in your browser</a> for free against the bot before playing versus real players.</li>
-  <li>You can <a href="#" onclick="window.print();return false;">print</a> this document and keep it available during offline play.</li>
+  <li><strong>New player?</strong> We recommend watching our <a href="/videos">videos</a> and <a href="https://play.thespacewar.com/">play online in your browser</a> for free against the bot before playing versus real players.</li>
+  <li>You can <a href="#" onclick="window.print();return false;">print</a> this document to have it handy during offline play.</li>
   <li>These rules apply to all forms of play (offline, online, casual, and tournament).</li>
 </ul>
 
 <h2>Goal of the Game</h2>
 <p>
-  You are a commander of a space station at war. Deploy spaceships, missiles, defenses, and events to break through the enemy and damage their station.
-</p>
-<p>
-  When a station takes damage, the attacking player chooses and flips that many face-down station cards. If there are no face-down station cards left to flip, any remaining damage is dealt to the commander instead.
-</p>
-<p>
-  Each commander has a number in the top-left corner representing its <strong>Life Points</strong>. If a commander’s Life Points are reduced to 0, that player loses the game.
+  You are a commander of a space station at war. Your objective is to <strong>reduce the enemy Commander's Life Points to 0</strong>. Deploy spaceships, missiles, defenses, and events to destroy their space station and kill their commander.
 </p>
 
 <h2>Preparation</h2>
 <ol>
-  <li>Each player has a deck (the <strong>draw pile</strong>) on the left and a <strong>discard pile</strong> below it. Use dice to track damage, actions, and Life Points as needed.</li>
-  <li>Place the three <strong>Station Rule Cards</strong> in sequence on the right side (see <strong>Station Cards</strong> below).</li>
-  <li>Randomly decide which player gets to choose who starts the game.</li>
-  <li>Shuffle the draw pile and draw 6 cards. The player who will not start draws 1 additional card (7 total).</li>
-  <li>
-    Choose 3 cards from the hand to become the initial station cards.
-    (First-time players: choose cards with the highest top-left number.)
-    Place those 3 chosen cards face down next to the Station Rule Cards so there is 1 face-down card in each of the 3 rows.
-  </li>
-  <li>The player who will not start places 1 additional station card face down in a row of their choice. Both players now have 3 cards remaining in hand.</li>
-  <li>
-    Secretly choose one commander and place it face down near the draw pile.
-    When both players are ready, reveal commanders simultaneously.
-    Then place a die on each commander set to its starting Life Points.
-    The starting player takes the first turn.
-  </li>
+
+  <li><strong>Layout:</strong> Each player has a <strong>Home Zone</strong> (nearest to them) and an <strong>Enemy Zone</strong> (the opponent's side). Place your <strong>draw pile</strong> on the left; the area below it is reserved for your <strong>discard pile</strong>. Use dice to track Life Points, damage and actions.</li>
+  <li><strong>Station Setup:</strong> Place the three <strong>Station Rule Cards</strong> in a vertical row on the right.</li>
+  <li><strong>Starting Player:</strong> Randomly decide which player gets to choose who starts the game.</li>
+  <li><strong>The Hand:</strong> Shuffle and draw 6 cards. The player going second draws 1 additional card (7 total).</li>
+  <li><strong>Initialize Station:</strong> Choose 3 cards from your hand to become initial station cards, place them face down — one in each of the three station rows.</li>
+  <li><strong>Second Player Bonus:</strong> The player going second places 1 additional card face down in any station row (4 total). Both players should now have 3 cards left in hand.</li>
+  <li><strong>Commanders:</strong> Choose your Commander secretly. Reveal them simultaneously, set their starting Life Points with a die, and begin!</li>
 </ol>
 
+
 <h2>Station Cards</h2>
+
+<p>Your station cards determine your resources each turn. There are three rows:</p>
 
 <div class="station-rows">
   <div class="station-row">
@@ -78,17 +67,13 @@ require(ROOT.'view/head.php');
   More details about these phases appear in <strong>The Turn</strong> below.
 </p>
 
-<h2>Table Setup</h2>
-<p>
-  The table has two zones: <strong>Home Zone</strong> and the opponent’s <strong>Enemy Zone</strong>.
-  Cards played enter the Home Zone.
-</p>
 
 <h2>The Cards</h2>
+
 <p>
-  The number in the top-left corner of a card is its <strong>action cost</strong>.
-  Actions are spent to play cards during the action phase.
-  Cards with a cost of <strong>0</strong> may be played at any time (including during an opponent’s turn).
+  The number in the top-left corner is the <strong>Action Cost</strong>.<br>
+  Actions are spent to play cards during the action phase.<br>
+  Cards with a cost of <strong>0</strong> may be played at any time (including during an opponent’s turn).<br>
   If a card’s text contradicts the rules of the game, the card’s text takes precedence.
 </p>
 
@@ -96,19 +81,17 @@ require(ROOT.'view/head.php');
   <li>
     <h3>Spaceship <span style="font-weight:400;">(blue)</span></h3>
     <p>
-      Spend actions to play a spaceship into the Home Zone.
-      Each spaceship may normally perform one attack and one move each turn.
-      A spaceship cannot move the turn it enters play.
-      If a spaceship has been in play since the start of its controller’s turn, it may move from the Home Zone to the Enemy Zone, or vice versa.
+      Can perform one attack and one move each turn.
+      Cannot move the turn it enters play.
       A spaceship may always attack an enemy card in the same zone (even the turn it enters play).
-      To attack the enemy station, a spaceship must have been in the Enemy Zone since the start of the turn.
+      To attack the enemy station, it must have been in the Enemy Zone since the start of the turn.
     </p>
   </li>
 
   <li>
     <h3>Missile <span style="font-weight:400;">(red)</span></h3>
     <p>
-      Spend actions to play a missile into the Home Zone. Missiles can move and attack similarly to spaceships.
+      Missiles can move and attack similarly to spaceships.
       A missile is <strong>destroyed after it attacks</strong>.
       Unlike spaceships, a missile does <strong>not</strong> need to spend a full turn in the Enemy Zone before it can attack the enemy station.
       If a missile is not Slow, it may (after its first turn in play) attack any target, including the enemy station, from the Home Zone.
@@ -120,7 +103,6 @@ require(ROOT.'view/head.php');
     <p>
       Duration cards remain in play until their owner discards them.
       At the start of a player’s action phase, that player must either <strong>pay</strong> each duration card’s action cost to keep it, or discard it from play.
-      (See <strong>The Turn</strong>.)
     </p>
   </li>
 
@@ -135,16 +117,16 @@ require(ROOT.'view/head.php');
     <h3>Defense <span style="font-weight:400;">(green)</span></h3>
     <p>
       Defense cards (such as shields and cannons) remain in the Home Zone and cannot move.
-      <strong>Shields protect the station:</strong> a shield must be destroyed before the station can be attacked.
-      Cannons attack during the attack phase like other attackers (see <strong>Attacks</strong>).
+      <strong>Shields</strong> must be destroyed before the station can be attacked.
+      Cannons attack during the attack phase.
     </p>
   </li>
 
   <li>
-    <h3>Commander <span style="font-weight:400;">(commander card)</span></h3>
+    <h3>Commander</h3>
     <p>
       Commanders provide an ongoing ability or bonus.
-      Commanders cannot be attacked directly; damage is dealt to a commander only after that commander’s controller has no face-down station cards left to flip.
+      Commanders cannot be attacked directly; if there are no face-down station cards left to flip during a station attack, any remaining damage is dealt to the commander instead.
     </p>
   </li>
 </ul>
@@ -171,11 +153,7 @@ require(ROOT.'view/head.php');
         Spend actions to play cards from hand.
       </li>
       <li>
-        Station management (optional):
-        <ul>
-          <li>Place one card from hand face down as a station card in any row (maximum <strong>7</strong> station cards total), or</li>
-          <li>Move one station card from one row to another.</li>
-        </ul>
+        Station management (optional): Once per turn, you may either add 1 card from hand to a station row (max 7 total) OR move a station card to a different row. 
       </li>
       <li>Unused actions are lost as the action phase ends.</li>
     </ul>
@@ -214,7 +192,7 @@ require(ROOT.'view/head.php');
 <h2>Flipped Station Cards</h2>
 <p>
   A flipped station card is face up and may be played as if it were in its owner’s hand (following normal timing rules):
-  0-cost cards may be played at any time, and non-0-cost cards are played in the action phase.
+  0-cost cards may be played at any time, and non-0-cost cards are played in the action phase. When a flipped station card is played, it leaves the station row.
 </p>
 <p>
   Flipped station cards are still station cards and still count for drawing, actions, and hand size limit.
@@ -250,15 +228,18 @@ require(ROOT.'view/head.php');
 </p>
 
 <h2>Definitions / Keywords</h2>
-<p><strong>Delayed</strong> – Ignore this card’s text box until the start of its owner’s next turn.</p>
 <p><strong>Ability</strong> – An action a spaceship card may perform instead of attacking.</p>
-<p><strong>Counter a card</strong> – When a card being played is countered, it does not enter play and is placed directly into the discard pile. Ignore its text; any action cost spent to play it is lost.</p>
-<p><strong>Put into play</strong> – To place a card directly into a player’s Home Zone without paying its cost. Cards put into play do not come from the hand and cannot be countered.</p>
-<p><strong>Discard</strong> – To move cards from a player’s hand to their discard pile. The owner chooses which cards are discarded unless stated to be random.</p>
-<p><strong>Discard from play</strong> – To move one of a player’s own cards from the play area to their discard pile.</p>
-<p><strong>From anywhere</strong> – A player may search their draw pile, discard pile, or station cards. If a player searches their draw pile, it must be shuffled afterward.</p>
-<p><strong>No effect</strong> – Ignore all text on the cards text box. The card is still paid for, and duration cards with no effect are still handled normally during duration upkeep.</p>
+<p><strong>Counter a card</strong> – To cancel a card as it is played. Ignore its text. It goes to the discard pile and any action cost spent to play it is lost.</p>
 <p><strong>Counters</strong> – Some cards gain counters. Use a die to track the number of counters on that card.</p>
+<p><strong>Delayed</strong> – Ignore this card’s text box until the start of its owner’s next turn.</p>
+<p><strong>Discard</strong> – To move cards from a player’s hand to their discard pile. The owner chooses which cards are discarded unless stated to be random.</p>
+<p><strong>Discard from play</strong> – To move your own card from the play area to the discard pile.</p>
+<p><strong>Fast</strong> – Can move the first turn.</p>
+<p><strong>From anywhere</strong> – A player may search their draw pile, discard pile, or station cards. If a player searches their draw pile, it must be shuffled afterward.</p>
+<p><strong>No effect</strong> – Ignore all text in the card's text box. The card is still paid for, and duration cards with no effect are still handled normally during duration upkeep.</p>
+<p><strong>Paralyze</strong> – Turn the card sideways and it cannot do anything until repaired.</p>
+<p><strong>Put into play</strong> – To place a card directly into a player’s Home Zone without paying its cost. Cards put into play do not come from the hand and cannot be countered.</p>
+<p><strong>Slow</strong> – Each turn can either move or attack but not both.</p>
 
 <h2>Constructed Play (Optional)</h2>
 <p>
