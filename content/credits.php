@@ -14,7 +14,7 @@ require(ROOT.'view/head.php');
 <h3>Illustrators</h3>
 <p>Gabriel Stiernström, Luca Oleastri, Marco A. Aguilar and others</p>
 <h3>Developer of online game</h3>
-<p>August Alexandersson, Syed Qasim Asif, Manuel Martinez and David Barrera</p>
+<p>August Alexandersson, Staffan Sundblad with Claude AI, Syed Qasim Asif, Manuel Martinez and David Barrera</p>
 <h3>Creator of card generator script</h3>
 <p>René Huanco</p>
 <h3>Card template design</h3>
