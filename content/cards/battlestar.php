@@ -1,8 +1,10 @@
 <p>Battlestar has a bit high defense but is otherwise an ordinary spaceship.</p>
 
-<h2>Cards Good With This</h2>
+<h2>Compare With</h2>
 
-<?=cardImage('full-attack')?>
+<?=cardImage('thunderbolt')?>
+<?=cardImage('the-gladiator')?>
+<?=cardImage('resource-ship')?>
 
 <h2>Changelog During Playtesting</h2>
 

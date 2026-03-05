@@ -34,4 +34,4 @@ require(ROOT.'view/head.php');
 </ul>
 
 <h2>Play with the creator</h2>
-<p>You can come to Marbella in Spain and play with the game designer Jim and take part of the game testing. Contact him <a href="https://discord.gg/tv3DXqj">here on Discord (send message to user JimW)</a>.</p>
+<p>You can come to Täby or Stockholm in Sweden and play with the game designers Jim and Alvin and take part of the playtesting. Contact him <a href="https://discord.gg/tv3DXqj">here on Discord (send message to user Jim Westergren)</a>.</p>

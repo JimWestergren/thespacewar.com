@@ -1,5 +1,11 @@
 <p>Fatal Error is really a key card in your deck. How and when you play can really determine if you win or loose.</p>
 
+
+<h2>Rule Clarification</h2>
+
+<p>For example if you spent 4 actions so that X is 4, you can destroy any card with action cost of 3.</p>
+
+
 <h2>What can stop Fatal Error?</h2>
 
 <?=cardImage('luck')?>
