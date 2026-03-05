@@ -68,13 +68,13 @@ if ( $cache ) {
     $html = $cache;
 } else {
     $pdo = PDOWrap::getInstance();
-    $result = $pdo->run("SELECT * FROM users ORDER BY lastlogintime DESC LIMIT 50;")->fetchAll();
+    $result = $pdo->run("SELECT username, country FROM users ORDER BY lastlogintime DESC LIMIT 50;")->fetchAll();
     $html = '';
     foreach($result as $row) {
         $html .= '<nobr>'.$row['username'].' <img src="https://staticjw.com/redistats/images/flags/'.$row['country'].'.gif"></nobr> | ';
     }
     $html = trim($html, ' | ');
-    save_cache( 'home-latest_active_players', $html );
+    save_cache( 'home:latest_active_players', $html );
     
 }
 echo $html;

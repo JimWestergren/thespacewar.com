@@ -15,7 +15,7 @@
 <h2>Rule Clarifications</h2>
 
 <ul>
-    <li>First give 2 damage to all the cards on the table (except duration cards) and then afterwards either give 2 damage to each players station (opponent flips as usual) or another damage to the shield if it exist.</li>
+    <li>First give 2 damage to all the cards on the table (except duration cards) and then afterwards either give 2 damage to each players station (opponent flips as usual) or another 2 damage to the shield if it exist.</li>
 </ul>
 
 <h2>Changelog During Playtesting</h2>

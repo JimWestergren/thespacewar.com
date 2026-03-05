@@ -19,7 +19,7 @@ if (isset($_POST['reset'])) {
     if (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
         echo '<div class="error">Invalid email</div>';
     } else {
-        $row = $pdo->run("SELECT * FROM users WHERE email = ? LIMIT 1", [$_POST['email']])->fetch();             
+        $row = $pdo->run("SELECT * FROM users WHERE email = ? LIMIT 1", [$_POST['email']])->fetch();
     }
     if (!isset($row['id'])) {
         echo '<div class="error">No account with this email.</div>';
@@ -51,7 +51,6 @@ if (isset($_POST['reset'])) {
         include(ROOT.'view/footer.php');
         die();
     }
-
 }
 
 

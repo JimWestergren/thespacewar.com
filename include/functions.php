@@ -959,7 +959,7 @@ function commanderData() : array
             'rules' => 'Spend 10 actions:<br>Search your draw pile or station cards for the Starship and put it into play.',
             'lore' => 'Capt. Shera Kinson is known throughout United Stars for relentless preparation. Through ironclad protocols and secured command channels, she orders the Starship’s deployment with total certainty. Nothing can prevent it.',
             'changelog' => [
-                'Buff in January 2026: The Starship can now also be taken from the station cards."',
+                'Buff in January 2026: The Starship can now also be taken from the station cards, not anymore limited to only the draw pile.',
                 'Buff in September 2021: The card used to be "Use 3 actions to take the Starship card from anywhere to your hand."',
                 'July 2020: Created.',
             ],
@@ -973,7 +973,7 @@ function commanderData() : array
             'rules' => 'Your Starship is not Slow.<br>When your Starship attacks, it makes three attacks instead of two.',
             'lore' => 'Wayne McCarter lives for direct combat. Unlike other United Stars commanders who rely on planning and restraint, he thrives in live fire engagements. Under his command, the Starship becomes not just a weapon, but an overwhelming force of destruction.',
             'changelog' => [
-                'Buff in January 2026: The additional attack is now a normal 3 damage attack and not a 1 damage attack."',
+                'Buff in January 2026: The additional attack is now a normal 3 damage attack and not a 1 damage attack.',
                 'July 2020: Created.',
             ],
         ],
