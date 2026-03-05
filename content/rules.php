@@ -13,10 +13,10 @@ require(ROOT.'view/head.php');
 
 <h2>Goal of the Game</h2>
 <p>
-  Each player is the commander of a space station at war. Players deploy spaceships, missiles, defenses, and events to break through the enemy and damage the enemy station.
+  You are a commander of a space station at war. Deploy spaceships, missiles, defenses, and events to break through the enemy and damage their station.
 </p>
 <p>
-  When a station takes damage, the attacking player chooses and flips that many of the defending player’s face-down station cards. If the defending player has no face-down station cards left to flip, any remaining damage is dealt to that player’s commander instead.
+  When a station takes damage, the attacking player chooses and flips that many face-down station cards. If there are no face-down station cards left to flip, any remaining damage is dealt to the commander instead.
 </p>
 <p>
   Each commander has a number in the top-left corner representing its <strong>Life Points</strong>. If a commander’s Life Points are reduced to 0, that player loses the game.
@@ -24,18 +24,18 @@ require(ROOT.'view/head.php');
 
 <h2>Preparation</h2>
 <ol>
-  <li>Each player has a deck (the <strong>draw pile</strong>) on the left and a <strong>discard pile</strong> below it.</li>
-  <li>Each player places the three <strong>Station Rule Cards</strong> in sequence on the right side (see <strong>Station Cards</strong> below).</li>
+  <li>Each player has a deck (the <strong>draw pile</strong>) on the left and a <strong>discard pile</strong> below it. Use dice to track damage, actions, and Life Points as needed.</li>
+  <li>Place the three <strong>Station Rule Cards</strong> in sequence on the right side (see <strong>Station Cards</strong> below).</li>
   <li>Randomly decide which player gets to choose who starts the game.</li>
-  <li>Each player shuffles their draw pile and draws 6 cards. The player who will not start draws 1 additional card (7 total).</li>
+  <li>Shuffle the draw pile and draw 6 cards. The player who will not start draws 1 additional card (7 total).</li>
   <li>
-    Each player chooses 3 cards from their hand to become their initial station cards.
+    Choose 3 cards from the hand to become the initial station cards.
     (First-time players: choose cards with the highest top-left number.)
     Place those 3 chosen cards face down next to the Station Rule Cards so there is 1 face-down card in each of the 3 rows.
   </li>
-  <li>The player who will not start places 1 additional station card face down in a row of their choice. Each player now has 3 cards remaining in hand.</li>
+  <li>The player who will not start places 1 additional station card face down in a row of their choice. Both players now have 3 cards remaining in hand.</li>
   <li>
-    Each player secretly chooses one commander and places it face down near their draw pile.
+    Secretly choose one commander and place it face down near the draw pile.
     When both players are ready, reveal commanders simultaneously.
     Then place a die on each commander set to its starting Life Points.
     The starting player takes the first turn.
@@ -75,7 +75,7 @@ require(ROOT.'view/head.php');
 
 <p>
   <strong>Note:</strong> A player may look at their own face-down station cards during their action phase.<br>
-  More explanation appears in <strong>The Turn</strong> below.
+  More details about these phases appear in <strong>The Turn</strong> below.
 </p>
 
 <h2>Table Setup</h2>
@@ -165,7 +165,7 @@ require(ROOT.'view/head.php');
     Gain 2 actions for each station card in the second row.
     <ul>
       <li>
-        Duration upkeep: For each duration card a player has in play, that player pays its action cost to keep it or discards it from play.
+        Duration upkeep: For each duration card you control, pay its action cost to keep it or discard it from play.
       </li>
       <li>
         Spend actions to play cards from hand.
@@ -250,16 +250,15 @@ require(ROOT.'view/head.php');
 </p>
 
 <h2>Definitions / Keywords</h2>
-<p><strong>Delayed</strong> – This card’s abilities have no effect until the start of its owner’s next turn. Ignore the card’s text box until then.</p>
+<p><strong>Delayed</strong> – Ignore this card’s text box until the start of its owner’s next turn.</p>
 <p><strong>Ability</strong> – An action a spaceship card may perform instead of attacking.</p>
-<p><strong>Slow ability</strong> – An ability that may be used instead of attacking, but only if the spaceship did not enter play this turn.</p>
-<p><strong>Counter a card</strong> – When a card played from an opponent’s hand is countered, it does not enter play and is placed directly into the discard pile. Ignore its text; any action cost spent to play it is lost.</p>
+<p><strong>Counter a card</strong> – When a card being played is countered, it does not enter play and is placed directly into the discard pile. Ignore its text; any action cost spent to play it is lost.</p>
 <p><strong>Put into play</strong> – To place a card directly into a player’s Home Zone without paying its cost. Cards put into play do not come from the hand and cannot be countered.</p>
 <p><strong>Discard</strong> – To move cards from a player’s hand to their discard pile. The owner chooses which cards are discarded unless stated to be random.</p>
 <p><strong>Discard from play</strong> – To move one of a player’s own cards from the play area to their discard pile.</p>
 <p><strong>From anywhere</strong> – A player may search their draw pile, discard pile, or station cards. If a player searches their draw pile, it must be shuffled afterward.</p>
-<p><strong>No effect</strong> – Ignore all text on the card. The card is still paid for, and duration cards with no effect are still handled normally during duration upkeep.</p>
-<p><strong>Counters</strong> – Some cards gain counters. Use a die or marker to track the number of counters on that card.</p>
+<p><strong>No effect</strong> – Ignore all text on the cards text box. The card is still paid for, and duration cards with no effect are still handled normally during duration upkeep.</p>
+<p><strong>Counters</strong> – Some cards gain counters. Use a die to track the number of counters on that card.</p>
 
 <h2>Constructed Play (Optional)</h2>
 <p>
