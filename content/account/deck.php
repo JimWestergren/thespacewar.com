@@ -496,6 +496,10 @@ function chooseCommander(id) {
 
     document.getElementById('commander').value = id;
 
+    if (deckCount > 49 && deckCount < 71) {
+        document.getElementById('save-button').disabled = false;
+    }
+
     return true 
 }
 </script>
