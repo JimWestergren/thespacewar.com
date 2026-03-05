@@ -10,8 +10,16 @@ require(ROOT.'view/head.php');
 <h2>Current activities</h2>
 
 <ul>
-    <li>Jim and Alvin are reviewing and balancing all cards with new eyes. (august - december 2025)</li>
+    <li>Adding the FINAL cards of <a href='/united-stars'>The United Stars</a> to the online game.</li>
+    <li>Enabling <a href='/constructed'>constructed play</a> online.</li>
 </ul>
+
+
+<h2>Good News (March 2026)</h2>
+
+<p>After almost a 3 year break Jim decided with Alvin to do a few final testings and changes and do a small print run to at least have something completed for this long standing project. This resulted in a big improvement to the game with rules corrections and changes to more than 50 cards and making the game outstanding. I am sure that playing in regular old school mtg and premodern tournaments helped us as designers to improve the game.</p>
+
+<p>My friend Staffan Sundblad took a challenge to try to continue the coding of the online game using AI. He is doing a huge amount of progress.</p>
 
 <h2>Bad News (July 2022)</h2>
 
@@ -22,12 +30,10 @@ require(ROOT.'view/head.php');
 <h2>To do later</h2>
 
 <ul>
-    <li>Adding the FINAL cards of <a href='/united-stars'>The United Stars</a> to the online game.</li>
     <li>Making the online game work better on mobile phones.</li>
     <li>Fixing bugs in the online version.</li>
     <li>Sound effects and new background music for the online game.</li>
     <li>Better in game tutorial.</li>
-    <li>Enabling <a href='/constructed'>constructed play</a> online.</li>
     <li>Launch kickstarter.</li>
     <li>Printing of physical cards.</li>
 </ul>
@@ -36,6 +42,9 @@ require(ROOT.'view/head.php');
 <h2>Completed</h2>
 
 <ul>
+    <li>Jim learned how to prepare the card images for printing. (February 2025)</li>
+    <li>New round of playtesting and balancing cards from Jim and Alvin. 22 cards changed. (January 2025)</li>
+    <li>Jim and Alvin are once again going over the game, playtesting and balancing all cards with new eyes. This resulted in a new very good rule change to add Life Points to commanders and changes to 41 cards. (August - December 2025)</li>
     <li>New round of playtesting <a href='/constructed'>constructed play</a> offline a number of times and making some cards more clear and more easy to understand. Also balancing some cards. (March 2023).</li>
     <li>Playtesting <a href='/constructed'>constructed play</a> offline (2022).</li>
     <li>Faction logos (November 2021).</li>
