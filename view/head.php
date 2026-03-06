@@ -11,10 +11,10 @@
 <style>
 
 <?php // Start of Navigation https://cdpn.io/bokac/fullpage/EPEKeP ?>
-.nav{-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box;text-align:center;font-size:17px;text-transform:uppercase;margin:22px 0}
+.nav{-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box;text-align:center;font-size:17px;text-transform:uppercase;margin:22px 0;}
 .nav:after,.nav:before{content:"";display:table}
 .nav:after{clear:both}
-.link-effect a{color:#d6d6d6;padding:10px 14px;position:relative;overflow:hidden;display:inline-block;-moz-transition:ease-out .3s;-o-transition:ease-out .3s;-webkit-transition:ease-out .3s;transition:ease-out .3s}
+.link-effect a{color:#d6d6d6;padding:10px 14px;position:relative;overflow:hidden;display:inline-block;-moz-transition:ease-out .3s;-o-transition:ease-out .3s;-webkit-transition:ease-out .3s;transition:ease-out .3s;text-decoration:none;background: rgba(0, 0, 0, 0.8);border-radius: 10px;}
 .link-effect a span::before{width:5px;height:5px;background:0 0;content:"";position:absolute;left:0;top:0;border-top:2px solid #fff;border-left:2px solid #fff;-moz-transition:.3s;-o-transition:.3s;-webkit-transition:.3s;transition:.3s;opacity:0}
 .link-effect a span::after{width:5px;height:5px;background:0 0;content:"";position:absolute;right:0;bottom:0;border-right:2px solid #fff;border-bottom:2px solid #fff;-moz-transition:.3s;-o-transition:.3s;-webkit-transition:.3s;transition:.3s;opacity:0}
 .link-effect a::before{width:5px;height:5px;background:0 0;content:"";position:absolute;right:0;top:0;border-right:2px solid #fff;border-top:2px solid #fff;-moz-transition:.3s;-o-transition:.3s;-webkit-transition:.3s;transition:.3s;opacity:0}
@@ -28,6 +28,7 @@
 
 body {background-color: #000;color:#ddd;font-family:Verdana;font-size:17px;padding-top:30px;padding-bottom:50px;line-height: 25px; }
 h1, .header h3 {text-align:center;text-transform:uppercase;letter-spacing:5px;margin-bottom:40px;}
+h1 {text-shadow: 4px 4px #000;}
 .header h3 {font-size:30px;margin:10px auto -15px auto;letter-spacing:6px;}
 .header h4 {font-size:15px;text-align:center;font-weight:normal;text-transform:uppercase;}
 .wrap {margin:auto;width:800px;max-width:90%;background-color:black;padding:50px 120px;background:rgba(0,0,0,.85);border-radius:5px;}
@@ -42,7 +43,7 @@ blockquote p {font-size:18px;line-height: 23px;font-family: courier;font-style: 
 blockquote cite {font-size:14px;text-align: right;margin-top:-15px;display: block;font-style: normal;}
 a {color:#eef;}
 li {margin-bottom:15px;}
-h2 {margin-bottom:15px;margin-top:50px;}
+h2 {margin-bottom:15px;margin-top:50px;text-shadow: 3px 3px #000;}
 h3 {margin-bottom:5px;margin-top:15px;}
 p {margin: 0 0 20px 0;}
 code {background-color: #555;padding:3px 6px;}
@@ -175,7 +176,7 @@ img.big:hover, img.extra-big:hover {transform:none;box-shadow:0 0 11px 5px #666;
    .print {margin-top:30px;}
    .no-print, .header h4 {display:none;}
    h1 {margin-top:5px;margin-bottom:10px;text-shadow:none;font-size:12pt;}
-   h2 {margin-top:12px;margin-bottom:6px;font-size:11pt;border:none;padding:0;letter-spacing:0;}
+   h2 {margin-top:12px;margin-bottom:6px;text-shadow:none;font-size:11pt;border:none;padding:0;letter-spacing:0;}
    h3 {font-size:9pt;margin-top:6px;margin-bottom:2px;}
    p, li, td, th {font-size:9pt;line-height:1.3;}
    li {margin-bottom:12px}
