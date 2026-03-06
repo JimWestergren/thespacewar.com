@@ -154,6 +154,8 @@ if (isset($_GET['id'])) {
     $cookie_value['commander'] = (int) $row['commander'];
     $cookie_value['card_count'] = (int) $row['card_count'];
     $cookie_value['cards'] = $cards;
+    $cards_json = json_encode($cards);
+    $cookie_value['hash'] = md5($deck_id . $row['commander'] . $cards_json . SECRET_SALT_CONSTRUCTED_DECK);
     $cookie_value = json_encode($cookie_value);
     set_cookie('constructed_deck', $cookie_value, TIMESTAMP+(3600*24*100));
 

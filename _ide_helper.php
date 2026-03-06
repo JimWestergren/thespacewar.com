@@ -10,6 +10,7 @@ define('SECRET_SALT_LOGIN_COOKIE', '');
 define('SECRET_SALT_PASSWORD_RESET', '');
 define('SECRET_SALT_VALIDATE_EMAIL', '');
 define('SECRET_SALT_NFT_CODE', '');
+define('SECRET_SALT_CONSTRUCTED_DECK', '');
 define('SECRET_OPENSEA_API_KEY', '');
 define('SECRET_DEBUG_EMAIL', '');
 define('SECRET_SERVER_IP_ARRAY', []);
