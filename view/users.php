@@ -77,6 +77,17 @@ if ($html != '') {
     echo '<h2>Latest Wins</h2><ul>'.$html.'</ul>';
 }
 
+$public_decks_html = '';
+$public_decks_query = $pdo->run("SELECT id, deck_name, time_saved FROM decks WHERE user_id = ? AND public = 1 ORDER BY time_saved DESC", [$row['id']])->fetchAll();
+if (is_array($public_decks_query) && count($public_decks_query) > 0) {
+    foreach($public_decks_query as $deck) {
+        $date = $deck['time_saved'] > 0 ? date('Y-m-d', $deck['time_saved']) : 'Unknown time';
+        $public_decks_html .= '<li><a href="/deck?id='.$deck['id'].'">'.htmlspecialchars($deck['deck_name']).'</a> (last edited: '.$date.')</li>';
+    }
+}
+if ($public_decks_html != '') {
+    echo '<h2>Public Decks</h2><ul>'.$public_decks_html.'</ul>';
+}
 
 if ($row['twitter'] != '') {
     echo "<p>Twitter: <a href='https://twitter.com/".$row['twitter']."' target='_blank'>@".$row['twitter']."</a></p>";

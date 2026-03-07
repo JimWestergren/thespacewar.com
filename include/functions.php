@@ -1167,3 +1167,83 @@ function save_cache( string $key, string $value ): bool
     file_put_contents( $cache_file, $value, LOCK_EX );
     return true;
 }
+
+function show_cards_by_type_saved_img(array $cards_data, array $cards, string $type) : int
+{
+    $card_count = 0;
+    echo '<div class="saved">';
+    foreach ($cards_data as $card => $value) {
+        if ($value['type'] != $type) continue;
+        if (!isset($cards[$value['id']])) continue;
+        echo "<div>";
+        for ($i=0; $i < $cards[$value['id']]; $i++) {
+            echo "<img style='";
+            $card_count++;
+            if ($i > 0) {
+                $margin_top = min(46, 23*$i);
+                echo "margin-top:".$margin_top."px;";
+            }
+            echo "' src=\"https://images.thespacewar.com/card-".$value['id'].".jpg\">";
+            if ($value['id'] == 78 && $cards[$value['id']] > 4) {
+                echo "<div class='extra-count'>".$cards[$value['id']]."</div>";
+            }
+        }
+        echo "</div>";
+    }
+    echo '</div>';
+    return $card_count;
+}
+
+function show_cards_by_type_saved_text(array $cards_data, array $cards, $type) : int
+{
+    $count = 0;
+    foreach ($cards_data as $card => $value) {
+        if ($value['type'] != $type) continue;
+        if (!isset($cards[$value['id']])) continue;
+        echo $cards[$value['id']]." <a href='/cards/".$value['slug']."'>".$value['name']."</a><br>";
+        $count += $cards[$value['id']];
+    }
+    return $count;
+}
+
+function display_deck(array $row, array $cards_data, array $cards) : void
+{
+    echo "<div class='wrap-deck'>";
+    echo "<h2>".htmlspecialchars($row['deck_name'])."</h2>";
+
+    echo "<div class='saved'><div><img src='https://images.thespacewar.com/commander-".$row['commander'].".png'></div></div>";
+
+    show_cards_by_type_saved_img($cards_data, $cards, 'Spaceship');
+    show_cards_by_type_saved_img($cards_data, $cards, 'Event');
+    show_cards_by_type_saved_img($cards_data, $cards, 'Duration');
+    show_cards_by_type_saved_img($cards_data, $cards, 'Missile');
+    show_cards_by_type_saved_img($cards_data, $cards, 'Defense');
+
+    $total_cards = 0;
+    echo "<div class='deck-list'>";
+    echo '<div>';
+    echo '<br>--- Spaceship cards ---<br>';
+    $count = show_cards_by_type_saved_text($cards_data, $cards, 'Spaceship');
+    echo "= ".$count."<br>";
+    $total_cards += $count;
+    echo '<br>--- Event cards ---<br>';
+    $count = show_cards_by_type_saved_text($cards_data, $cards, 'Event');
+    echo "= ".$count."<br>";
+    $total_cards += $count;
+    echo '</div><div>';
+    echo '<br>--- Duration cards ---<br>';
+    $count = show_cards_by_type_saved_text($cards_data, $cards, 'Duration');
+    echo "= ".$count."<br>";
+    $total_cards += $count;
+    echo '<br>--- Missile cards ---<br>';
+    $count = show_cards_by_type_saved_text($cards_data, $cards, 'Missile');
+    echo "= ".$count."<br>";
+    $total_cards += $count;
+    echo '<br>--- Defense cards ---<br>';
+    $count = show_cards_by_type_saved_text($cards_data, $cards, 'Defense');
+    echo "= ".$count."<br>";
+    $total_cards += $count;
+    echo '____________________________<br>';
+    echo '<strong>'.$total_cards."</strong> total cards<br>";
+    echo "</div></div></div>";
+}

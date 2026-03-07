@@ -1,45 +1,5 @@
 <?php
 
-// I suppose functions should be moved to functions.php but these 
-// are only used in this file and I like to have all related code on the same page.
-
-function show_cards_by_type_saved_img(array $cards_data, array $cards, string $type) : int
-{
-    $card_count = 0;
-    echo '<div class="saved">';
-    foreach ($cards_data as $card => $value) {
-        if ($value['type'] != $type) continue;
-        if (!isset($cards[$value['id']])) continue;
-        echo "<div>";
-        for ($i=0; $i < $cards[$value['id']]; $i++) {
-            echo "<img style='";
-            $card_count++;
-            if ($i > 0) {
-                $margin_top = min(46, 23*$i);
-                echo "margin-top:".$margin_top."px;";
-            }
-            echo "' src=\"https://images.thespacewar.com/card-".$value['id'].".jpg\">";
-            if ($value['id'] == 78 && $cards[$value['id']] > 4) {
-                echo "<div class='extra-count'>".$cards[$value['id']]."</div>";
-            }
-        }
-        echo "</div>";
-    }
-    echo '</div>';
-    return $card_count;
-}
-
-function show_cards_by_type_saved_text(array $cards_data, array $cards, $type) : int
-{
-    $count = 0;
-    foreach ($cards_data as $card => $value) {
-        if ($value['type'] != $type) continue;
-        if (!isset($cards[$value['id']])) continue;
-        echo $cards[$value['id']]." ".$value['name']."<br>";
-        $count += $cards[$value['id']];
-    }
-    return $count;
-}
 
 function generate_print_url(int $commander, array $cards) : string
 {
@@ -190,10 +150,12 @@ if (isset($_POST['submit'])) {
     $cards_as_json = cards_as_json($cards_data, $total_cards);
 
 
+    $_POST['public'] = isset($_POST['public']) ? 1 : 0;
+
     if ($edit_deck) {
-        $pdo->run("UPDATE decks SET deck_name = ?, commander = ".$_POST['commander'].", card_count = ".$total_cards.", time_saved = ".TIMESTAMP.", cards = ? WHERE id = ".$deck_id." AND user_id = ".$logged_in['id'].";", [$_POST['deck_name'], $cards_as_json]);
+        $pdo->run("UPDATE decks SET deck_name = ?, commander = ".$_POST['commander'].", card_count = ".$total_cards.", time_saved = ".TIMESTAMP.", public = ".$_POST['public'].", cards = ? WHERE id = ".$deck_id." AND user_id = ".$logged_in['id'].";", [$_POST['deck_name'], $cards_as_json]);
     } else {
-        $pdo->run("INSERT INTO decks (user_id, deck_name, commander, card_count, time_saved, time_used, cards) VALUES (?, ?, ?, ?, ?, ?, ?);", [$logged_in['id'], $_POST['deck_name'], $_POST['commander'], $total_cards, TIMESTAMP, 0, $cards_as_json]);
+        $pdo->run("INSERT INTO decks (user_id, deck_name, commander, card_count, time_saved, public, time_used, cards) VALUES (?, ?, ?, ?, ?, ?, ?, ?);", [$logged_in['id'], $_POST['deck_name'], $_POST['commander'], $total_cards, TIMESTAMP, $_POST['public'], 0, $cards_as_json]);
         $deck_id = $pdo->lastInsertId();
     }
 
@@ -209,19 +171,8 @@ $framed_cards = get_framed_cards( $logged_in['id'] );
 
 ?>
 
+<?php require(ROOT.'view/deck-style.php'); ?>
 <style>
-    <?php if (isset($_GET['id']) || isset($_GET['create'])) { ?>
-    .wrap {
-        width: 900px;
-    }
-    <?php } ?>
-    h2 {
-        text-align: center;
-        margin:20px auto 30px auto;
-        font-size: 31px;
-        border:none;
-        padding:0;
-    }
     .card-selection .card {
         width:143px;
         margin-right: 30px;
@@ -266,81 +217,6 @@ $framed_cards = get_framed_cards( $logged_in['id'] );
         padding:10px;
         border:3px dashed #b7c9ff;
     }
-    .saved {
-        display: inline;
-        margin-left:38px;
-    }
-    .saved div {
-        display: inline-block;
-        height:191px;
-        width: 107px;
-    }
-    .saved div img {
-        width:100px;
-        position:absolute;
-    }
-    .saved .extra-count {
-        position:absolute;
-        margin-left:30px;
-        margin-top:95px;
-        font-weight:bold;
-        background-color:black;
-        padding:6px;
-        height:23px;
-        width:30px;
-    }
-    .saved div img:hover {
-        transform:scale(2.5);
-        transition: all 0.2s ease;
-        z-index: 99999;
-    }
-    .wrap-deck {
-        width:100%;
-        background-color:#0a0a0a;
-    }
-    .wrap-deck h2 {
-        text-transform: uppercase;
-    }
-    .deck-list {
-        font-family:monospace;
-        font-size:18px;
-        padding:0 0 50px 10px;
-    }
-    .frames-data {
-        font-size:10px;
-        display: table !important;
-        padding: 0 !important;
-        margin: 0 auto;
-        line-height: 17px;
-    }
-
-    @media (min-width: 1000px) { /* Desktop */
-        .wrap-deck {
-            width:100%;
-            background-color:#0a0a0a;
-            padding:80px 35px 35px 35px;
-            border:4px solid #555;
-            border-radius:45px;
-            margin-bottom:50px;
-        }
-        .wrap-deck h2 {
-            position: absolute;
-            margin: -118px 0 0 30px;
-            padding: 14px;
-            background-color: #0a0a0a;
-            border: 4px solid #555;
-            border-bottom: none;
-        }
-        .deck-list {
-            margin:10px 40px 10px 40px;
-            display: flex;
-            width:80%;
-            padding:0 0 0 50px;
-        }
-        .deck-list div {
-            flex: 50%;
-        }
-    }
 </style>
 
 <?php
@@ -351,46 +227,13 @@ if ($edit_deck) {
 
     echo "<h1>Your Deck</h1>";
 
-    echo "<p style='text-align:right;'><a href='#edit'>Edit</a> your deck or <a href='".generate_print_url($row['commander'], $cards)."' target='_blank'>print this deck</a>.</p>";
+    echo "<p style='text-align:right;'>";
+    if (isset($row['public']) && $row['public'] == 1) {
+        echo "<a href='/deck?id=".$deck_id."' target='_blank'>Public link to this deck</a> | ";
+    }
+    echo "<a href='#edit'>Edit</a> your deck or <a href='".generate_print_url($row['commander'], $cards)."' target='_blank'>print this deck</a>.</p>";
 
-    echo "<div class='wrap-deck'>";
-    echo "<h2>".$row['deck_name']."</h2>";
-
-    echo "<div class='saved'><div><img src='https://images.thespacewar.com/commander-".$row['commander'].".png'></div></div>";
-
-    show_cards_by_type_saved_img($cards_data, $cards, 'Spaceship');
-    show_cards_by_type_saved_img($cards_data, $cards, 'Event');
-    show_cards_by_type_saved_img($cards_data, $cards, 'Duration');
-    show_cards_by_type_saved_img($cards_data, $cards, 'Missile');
-    show_cards_by_type_saved_img($cards_data, $cards, 'Defense');
-
-    $total_cards = 0;
-    echo "<div class='deck-list'>";
-    echo '<div>';
-    echo '<br>--- Spaceship cards ---<br>';
-    $count = show_cards_by_type_saved_text($cards_data, $cards, 'Spaceship');
-    echo "= ".$count."<br>";
-    $total_cards += $count;
-    echo '<br>--- Event cards ---<br>';
-    $count = show_cards_by_type_saved_text($cards_data, $cards, 'Event');
-    echo "= ".$count."<br>";
-    $total_cards += $count;
-    echo '</div><div>';
-    echo '<br>--- Duration cards ---<br>';
-    $count = show_cards_by_type_saved_text($cards_data, $cards, 'Duration');
-    echo "= ".$count."<br>";
-    $total_cards += $count;
-    echo '<br>--- Missile cards ---<br>';
-    $count = show_cards_by_type_saved_text($cards_data, $cards, 'Missile');
-    echo "= ".$count."<br>";
-    $total_cards += $count;
-    echo '<br>--- Defense cards ---<br>';
-    $count = show_cards_by_type_saved_text($cards_data, $cards, 'Defense');
-    echo "= ".$count."<br>";
-    $total_cards += $count;
-    echo '____________________________<br>';
-    echo '<strong>'.$total_cards."</strong> total cards<br>";
-    echo "</div></div></div>";
+    display_deck($row, $cards_data, $cards);
 
     echo "<h1 id='edit'>Edit your deck</h1>";
 
@@ -401,14 +244,15 @@ if ($edit_deck) {
 
     echo "<p>READ THIS: At the moment you cannot play with your constructed deck online, it will be possible in a few months.<br>In the meanwhile you can create decks and print and play them offline. <a href='/constructed'>Rules for Constructed Play</a>.</p>";
 
+    echo "<p style='text-align:center;'><a href='/account/deck?create' class='big-button'>Create New Deck</a></p>";
+
     $result = $pdo->run("SELECT * FROM decks WHERE user_id = ? ORDER BY time_saved DESC", [$logged_in['id']])->fetchAll();
     foreach($result as $row) {
         echo "<div style='clear:both;height:120px;margin-bottom:20px;'><img src='https://images.thespacewar.com/commander-".$row['commander'].".png' style='height:100px;float:left;margin-right:20px;'>";
         echo "<h3><a href='/account/deck?id=".$row['id']."'>".$row['deck_name']."</a></h3>";
-        echo "<p> ".$row['card_count']." cards, last edited: ".date('Y-m-d', $row['time_saved'])."</p></div>";
+        $visibility = $row['public'] == 1 ? '<span style="color:#6a6;">Public</span>' : '<span style="color:#a66;">Private</span>';
+        echo "<p> ".$row['card_count']." cards, last edited: ".date('Y-m-d', $row['time_saved'])." | Visibility: ".$visibility."</p></div>";
     }
-
-    echo "<p style='text-align:center;'><a href='/account/deck?create' class='big-button'>Create New Deck</a></p>";
 
     require(ROOT.'view/footer.php');
     die();
@@ -523,6 +367,8 @@ function chooseCommander(id) {
 
 <p>Deck name:
 <input type="text" style="width:300px" name="deck_name" required maxlength="25" pattern="[a-zA-Z0-9]+" value="<?=$row['deck_name'] ?? ''?>" title="Only alphanumerical characters please."> (only a-zA-Z0-9)
+<br>
+<label style="cursor:pointer;"><input type="checkbox" name="public" value="1" <?= (isset($row['public']) && $row['public'] == 1) ? 'checked' : '' ?> style="width:auto;margin-bottom:0px;"> Make this deck public</label>
 </p>
 
 <div class="card-selection">
