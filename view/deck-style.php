@@ -40,11 +40,32 @@
         z-index: 99999;
     }
     .wrap-deck {
-        width:100%;
-        background-color:#0a0a0a;
+        position: relative;
+        width: 100%;
+        box-sizing: border-box;
+        background: linear-gradient(180deg, #151a25 0%, #0a0c10 100%);
+        border: 2px solid #2a3143;
+        border-radius: 16px;
+        padding: 40px 20px 20px;
+        margin-bottom: 50px;
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
     }
     .wrap-deck h2 {
         text-transform: uppercase;
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        margin: 0;
+        padding: 5px 20px;
+        background: #151a25;
+        border: 2px solid #2a3143;
+        border-radius: 20px;
+        color: #8ab4f8;
+        font-size: 18px;
+        letter-spacing: 1.5px;
+        white-space: nowrap;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.5);
     }
     .deck-list {
         font-family:monospace;
@@ -69,20 +90,21 @@
 
     @media (min-width: 1000px) { /* Desktop */
         .wrap-deck {
-            width:100%;
-            background-color:#0a0a0a;
-            padding:80px 35px 35px 35px;
-            border:4px solid #555;
-            border-radius:45px;
-            margin-bottom:50px;
+            padding: 60px 40px 40px 40px;
+            border: 2px solid #3a4563;
+            border-radius: 24px;
+            background: linear-gradient(180deg, #131720 0%, #0a0c10 100%);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.7), inset 0 1px 0 rgba(255, 255, 255, 0.05);
         }
         .wrap-deck h2 {
-            position: absolute;
-            margin: -118px 0 0 30px;
-            padding: 14px;
-            background-color: #0a0a0a;
-            border: 4px solid #555;
-            border-bottom: none;
+            top: 0;
+            left: 40px;
+            transform: translateY(-50%);
+            padding: 8px 30px;
+            background: #131720;
+            border: 2px solid #3a4563;
+            border-radius: 12px;
+            font-size: 22px;
         }
         .deck-list {
             margin:10px 40px 10px 40px;
