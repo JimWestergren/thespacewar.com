@@ -159,6 +159,12 @@ if (isset($_GET['id'])) {
     $cookie_value = json_encode($cookie_value);
     set_cookie('constructed_deck', $cookie_value, TIMESTAMP+(3600*24*100));
 
+    if (isset($_POST['delete_deck'])) {
+        $pdo->run("DELETE FROM decks WHERE id = ? AND user_id = ?", [$deck_id, $logged_in['id']]);
+        header("Location: /account/deck");
+        die();
+    }
+
 } else {
     $edit_deck = false;
     $cards = [];
@@ -596,6 +602,12 @@ function chooseCommander(id) {
         } ?>
 
     </script>
+    
+    <div style="margin-top: 50px; text-align: center; border-top: 1px solid #333; padding-top: 30px;">
+        <form method="post" action="<?= $form_action_url ?>" onsubmit="return confirm('Are you sure you want to delete this deck (<?= $row['deck_name'] ?>)? This action cannot be undone.');">
+            <input type="submit" name="delete_deck" value="Delete this deck" style="background-color: darkred; color: white; border: 2px solid red; font-size: 16px; padding: 5px 15px; cursor: pointer;">
+        </form>
+    </div>
 
 <?php } ?>
 
