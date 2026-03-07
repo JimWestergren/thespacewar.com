@@ -33,19 +33,13 @@ require(ROOT.'view/head.php');
 <?php } ?>
 
 <div style="padding: 50px 30px 1px 30px;font-size: 19px;">
-    <p><strong>The Space War</strong> is a new fast-paced strategic 2 player card game.</p>
+    <p><strong>The Space War</strong> is a fast-paced, strategic 2-player card game designed by two competitive Magic: The Gathering tournament players.</p>
 
-    <p>Better than Hearthstone? Better than Magic? Hell yeah!! 💪😅</p>
+    <p>A pure tactical experience akin to chess. No booster packs, no resource cards and no dead cards. All cards are included for free from the start.</p>
 
-    <p>All cards included directly for free 👍.</p>
+    <p>Play seamlessly in your browser across all devices, or print and play offline.</p>
 
-    <p>More like chess and not a pay-to-win game 😄.</p>
-
-    <p>The game is played the same offline or online in the browser (desktop, tablet or phone).</p>
-
-    <p>No booster packs, no RNG cards, no dead cards and no resource cards.</p>
-
-    <p>Choose between 3 preset decks or mix the cards and make your own deck.</p>
+    <p>Jump in with 3 carefully constructed preset decks, or build your own to explore deep strategic possibilities.</p>
 
 </div>
 
@@ -140,7 +134,7 @@ echo '<p>Gold framed '.$weekly_offer['name'].' for only <strong>'.$weekly_offer[
 
 <p>The Space War card game is a father-and-son passion project and has been in development since 2018 with more than 5 years of playtesting. It features entirely human-created artwork — no AI art has been used at any stage. The art for the game was arranged between 2018 and 2020 through a combination of unique commissioned illustrations and commercially licensed human-created artwork. No AI-generated images are used anywhere in the game or on the website.</p>
 
-<p>Modern tools, including AI, are used only to support clarity and polish in the rules, website text, lore, and coding of the online game and website. These tools assist the human process, but all creative decisions, worldbuilding, gameplay design, and coding direction come from the designer.</p>
+<p>Modern tools, including AI, are used only to support clarity and polish in the rules, website text, lore, and coding of the online game and website. These tools assist the human process, but all creative decisions, gameplay design, card mechanics and coding direction come from the designers.</p>
 
 
 <h2>Said About the Game</h2>
