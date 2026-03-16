@@ -107,6 +107,7 @@ if (isset($_GET['id'])) {
     $edit_deck = true;
     $deck_id = (int) $row['id'];
     $cards = json_decode($row['cards'], true);
+    $total_cards = (int) $row['card_count'];
     $form_action_url = '/account/deck?id='.$deck_id; // Getting rid of the #edit after submit
 
     $cookie_value['deck_id'] = $deck_id;
@@ -128,6 +129,7 @@ if (isset($_GET['id'])) {
 } else {
     $edit_deck = false;
     $cards = [];
+    $total_cards = 0;
     $form_action_url = '/account/deck?create';
 }
 
