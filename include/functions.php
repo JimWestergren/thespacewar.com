@@ -308,8 +308,8 @@ function calculateRating(int $win_count, int $loss_count) : array
         $ret['win_rate'] = 0;
         $ret['rating'] = 0;
     } else {
-        $ret['win_rate'] = round(($win_count/$ret['games_played'])*100);
-        $ret['rating'] = (int) $ret['win_rate']*(min($win_count,$amount_of_wins_before_using_win_rate)/$amount_of_wins_before_using_win_rate)*$score_multiplier;
+        $ret['win_rate'] = (int) round(($win_count/$ret['games_played'])*100);
+        $ret['rating'] = (int) round($ret['win_rate']*(min($win_count,$amount_of_wins_before_using_win_rate)/$amount_of_wins_before_using_win_rate)*$score_multiplier);
     }
     return $ret;
 }
