@@ -85,6 +85,20 @@ function get_framed_cards( int $logged_in_id ) : array
     return $framed_cards;
 }
 
+function selected_constructed_deck_id() : int
+{
+    if (!isset($_COOKIE['constructed_deck'])) {
+        return 0;
+    }
+
+    $cookie = json_decode($_COOKIE['constructed_deck'], true);
+    if (!is_array($cookie) || !isset($cookie['deck_id'])) {
+        return 0;
+    }
+
+    return (int) $cookie['deck_id'];
+}
+
 //////////////// End of functions ///////////////////
 
 if ($logged_in === []) {
@@ -219,6 +233,30 @@ $framed_cards = get_framed_cards( $logged_in['id'] );
         padding:10px;
         border:3px dashed #b7c9ff;
     }
+    .account-deck-row {
+        clear: both;
+        min-height: 120px;
+        margin-bottom: 20px;
+        box-sizing: border-box;
+        padding: 10px;
+        border: 3px solid transparent;
+        border-radius: 10px;
+    }
+    .account-deck-row.selected-play-deck {
+        border-color: #8ab4f8;
+        background: #111827;
+        box-shadow: 0 0 18px rgba(138, 180, 248, 0.45);
+    }
+    .selected-play-deck-label {
+        display: inline-block;
+        margin-left: 10px;
+        padding: 2px 8px;
+        border: 1px solid #8ab4f8;
+        border-radius: 4px;
+        color: #8ab4f8;
+        font-size: 13px;
+        font-weight: bold;
+    }
 </style>
 
 <?php
@@ -244,14 +282,21 @@ if ($edit_deck) {
 
     echo "<h1>Your Decks</h1>";
 
-    echo "<p>READ THIS: At the moment you cannot play with your constructed deck online, it will be possible in a few months.<br>In the meanwhile you can create decks and print and play them offline. <a href='/constructed'>Rules for Constructed Play</a>.</p>";
+    echo "<p><a href='/constructed'>Rules for Constructed Play</a>.</p>";
 
     echo "<p style='text-align:center;'><a href='/account/deck?create' class='big-button'>Create New Deck</a></p>";
 
+    $selected_deck_id = selected_constructed_deck_id();
     $result = $pdo->run("SELECT * FROM decks WHERE user_id = ? ORDER BY time_saved DESC", [$logged_in['id']])->fetchAll();
     foreach($result as $row) {
-        echo "<div style='clear:both;height:120px;margin-bottom:20px;'><img src='https://images.thespacewar.com/commander-".$row['commander'].".png' style='height:100px;float:left;margin-right:20px;'>";
-        echo "<h3><a href='/account/deck?id=".$row['id']."'>".$row['deck_name']."</a></h3>";
+        $is_selected_deck = ((int) $row['id'] === $selected_deck_id);
+        $selected_deck_class = $is_selected_deck ? ' selected-play-deck' : '';
+        echo "<div class='account-deck-row".$selected_deck_class."'><img src='https://images.thespacewar.com/commander-".$row['commander'].".png' style='height:100px;float:left;margin-right:20px;'>";
+        echo "<h3><a href='/account/deck?id=".$row['id']."'>".$row['deck_name']."</a>";
+        if ($is_selected_deck) {
+            echo "<span class='selected-play-deck-label'>Selected to play</span>";
+        }
+        echo "</h3>";
         $visibility = $row['public'] == 1 ? '<span style="color:#6a6;">Public</span>' : '<span style="color:#a66;">Private</span>';
         echo "<p> ".$row['card_count']." cards, last edited: ".date('Y-m-d', $row['time_saved'])." | Visibility: ".$visibility."</p></div>";
     }
