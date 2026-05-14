@@ -238,7 +238,7 @@ require(ROOT.'view/head.php');
 <p><strong>Fast</strong> – Can move the first turn.</p>
 <p><strong>From anywhere</strong> – A player may search their draw pile, discard pile, or station cards. If a player searches their draw pile, it must be shuffled afterward.</p>
 <p><strong>No effect</strong> – Ignore all text in the card's text box. The card is still paid for, and duration cards with no effect are still handled normally during duration upkeep.</p>
-<p><strong>Paralyze</strong> – Turn the card sideways and it cannot do anything until repaired. Cannot recieve counters.</p>
+<p><strong>Paralyze</strong> – Turn the card sideways and it cannot do anything until repaired. Cannot receive counters.</p>
 <p><strong>Put into play</strong> – To place a card directly into a player’s Home Zone without paying its cost. Cards put into play do not come from the hand and cannot be countered.</p>
 <p><strong>Slow</strong> – Each turn can either move or attack but not both.</p>
 
