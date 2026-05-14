@@ -4,6 +4,7 @@
 
 <?=cardImage('discovery')?>
 <?=cardImage('disturbing-sensor')?>
+<?=cardImage('disturbing-signals')?>
 <?=cardImage('sabotage')?>
 <?=cardImage('great-disturbance')?>
 

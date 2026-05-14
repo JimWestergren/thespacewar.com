@@ -28,6 +28,7 @@
 <h2>Other cards that force the opponent to discard</h2>
 
 <?=cardImage('corrupted-outpost')?>
+<?=cardImage('disturbing-signals')?>
 <?=cardImage('discovery')?>
 <?=cardImage('disturbing-sensor')?>
 <?=cardImage('great-disturbance')?>

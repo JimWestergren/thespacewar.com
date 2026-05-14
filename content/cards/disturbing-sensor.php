@@ -12,11 +12,13 @@
 <?=cardImage('pursuiter')?>
 <?=cardImage('fatal-error')?>
 
-<h2>Cards Good With</h2>
+<h2>Other cards that force the opponent to discard</h2>
 
+<?=cardImage('corrupted-outpost')?>
+<?=cardImage('disturbing-signals')?>
 <?=cardImage('discovery')?>
-
-<p>Playing Discovery when you have Disturbing Sensor on the table and forcing the opponent to discard a total of 3 cards after drawing can really affect the game in your favor.</p>
+<?=cardImage('sabotage')?>
+<?=cardImage('great-disturbance')?>
 
 <h2>Rule Clarifications</h2>
 

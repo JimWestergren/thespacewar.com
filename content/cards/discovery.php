@@ -9,6 +9,7 @@
 <h2>Other cards that force the opponent to discard</h2>
 
 <?=cardImage('corrupted-outpost')?>
+<?=cardImage('disturbing-signals')?>
 <?=cardImage('disturbing-sensor')?>
 <?=cardImage('sabotage')?>
 <?=cardImage('great-disturbance')?>
