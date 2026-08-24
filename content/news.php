@@ -42,6 +42,7 @@ require(ROOT.'view/head.php');
 <h2>Completed</h2>
 
 <ul>
+    <li>New round of playtesting and balancing cards from Jim and Alvin. 24 cards changed. (August 2026)</li>
     <li>Jim learned how to prepare the card images for printing. (February 2025)</li>
     <li>New round of playtesting and balancing cards from Jim and Alvin. 22 cards changed. (January 2025)</li>
     <li>Jim and Alvin are once again going over the game, playtesting and balancing all cards with new eyes. This resulted in a new very good rule change to add Life Points to commanders and changes to 41 cards. (August - December 2025)</li>

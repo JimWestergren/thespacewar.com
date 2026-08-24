@@ -18,6 +18,7 @@
 <h2>Changelog During Playtesting</h2>
 
 <ul>
+    <li>Nerf in August 2026:<br>Does not activate when played anymore. Activation is optional.</li>
     <li>Nerf in December 2025:<br>Now activates when played as well but amount of cards to discard increased from 1 to 2.</li>
     <li>September 2018: Created.</li>
 </ul>

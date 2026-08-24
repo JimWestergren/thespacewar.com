@@ -20,5 +20,6 @@
 <h2>Changelog During Playtesting</h2>
 
 <ul>
+    <li>Nerf in August 2026:<br>Second option is now draw 2 and not 3 cards.</li>
     <li>September 2018: Created.</li>
 </ul>

@@ -14,6 +14,7 @@
 <h2>Changelog During Playtesting</h2>
 
 <ul>
+    <li>Buff in August 2026:<br>Cost decreased from 2 to 1.</li>
     <li>Nerf in January 2020:<br>Used to cost 3 and also made your spaceships fast. But I changed because it would be too good when playing constructed and using a deck similar to The Swarm.</li>
     <li>September 2018: Created.</li>
 </ul>

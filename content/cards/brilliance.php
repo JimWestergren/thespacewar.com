@@ -21,5 +21,6 @@
 <h2>Changelog During Playtesting</h2>
 
 <ul>
+    <li>Nerf in August 2026:<br>Old version was "Draw 3 cards. Then discard 1 card and put another card from your hand on top of your draw pile." now cards are not drawn anymore but revealed and decision taken for each one of those 3.</li>
     <li>April 2020: Created.</li>
 </ul>

@@ -23,6 +23,7 @@
 <h2>Changelog During Playtesting</h2>
 
 <ul>
+    <li>Buff in August 2026:<br>Cost decreased from 2 to 1.</li>
     <li>Rework in May 2026:<br>Before it only costed 1 and said "Enemy missiles can’t move or attack."</li>
     <li>September 2019: Created.</li>
 </ul>

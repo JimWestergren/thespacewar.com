@@ -32,6 +32,7 @@
 <h2>Changelog During Playtesting</h2>
 
 <ul>
+    <li>Nerf in August 2026:<br>"Opponent may draw and discard a card." replaced with "Opponent draws a card".</li>
     <li>Nerf in December 2025:<br>"Opponent may draw and discard a card." was added.</li>
     <li>Nerf in October 2021:<br>"[ OR ] Draw 1 card" was removed.</li>
     <li>Nerf in March 2021:<br>"[ OR ] Draw 2 cards" was changed to "[ OR ] Draw 1 card".</li>

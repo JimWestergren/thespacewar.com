@@ -36,6 +36,7 @@
 <h2>Changelog During Playtesting</h2>
 
 <ul>
+    <li>Nerf in August 2026:<br>"Opponent draws a card." is now changed to "Opponent draws 2 cards."</li>
     <li>Buff in August 2019:<br>Drawing for the opponent is not any longer optional.</li>
     <li>April 2019:<br>Card created and entered playtesting.</li>
 </ul>
